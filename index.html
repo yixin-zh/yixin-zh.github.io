@@ -394,13 +394,63 @@
   }
 
   /* ------------------------------------------------------------------
-     Slide 4 — Questions (inverted)
+     Slides 4 & 5 — Questions I'm chasing (inverted, asymmetric)
      ------------------------------------------------------------------ */
-  .q-grid {
+  .think-layout {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(20px, 2.6vw, 40px);
+    align-items: start;
   }
+
+  .think-big { grid-column: 1 / span 6; grid-row: 1; padding-top: 2vh; }
+  .think-cards { grid-column: 7 / span 6; grid-row: 1; }
+  /* Mirrored variant for the second thinking slide */
+  .think-layout.flip .think-big   { grid-column: 7 / span 6; }
+  .think-layout.flip .think-cards { grid-column: 1 / span 6; }
+
+  .q-num {
+    font-family: var(--mono);
+    font-size: clamp(13px, 1.1vw, 15px);
+    letter-spacing: 0.18em;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+  .q-num::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 1.5px;
+    background: var(--clay);
+    margin-top: 12px;
+  }
+
+  .q-big {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  .q-big-sub {
+    font-size: clamp(15px, 1.35vw, 18px);
+    line-height: 1.65;
+    color: var(--gray-300);
+    max-width: 30em;
+  }
+
+  .think-cards { display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 26px); }
+  .think-cards .card { padding: clamp(22px, 2.2vw, 32px); }
+
+  /* Z-axis cascade: stagger + slight tilt, reveal wrapper keeps transforms separate */
+  .tilt-l .card { transform: rotate(-1.4deg); }
+  .tilt-r .card { transform: rotate(1.2deg); }
+  .tilt-l .card:hover, .tilt-r .card:hover { transform: rotate(0deg) translateY(-2px); }
+  .shift-r { margin-left: clamp(16px, 3vw, 56px); }
+  .shift-l { margin-right: clamp(16px, 3vw, 56px); }
+  .drop-1  { margin-top: clamp(14px, 3.5vh, 40px); }
 
   .q-card .q-text {
     font-family: var(--serif);
@@ -414,8 +464,20 @@
     color: var(--gray-300);
   }
 
+  .margin-note {
+    font-family: var(--mono);
+    font-size: clamp(12px, 1.05vw, 14px);
+    line-height: 1.7;
+    color: var(--gray-500);
+    border-left: 1.5px solid var(--clay);
+    padding-left: 16px;
+    max-width: 30em;
+    margin-top: clamp(20px, 4vh, 44px);
+  }
+  .margin-note .hl { color: var(--clay); }
+
   .q-footer {
-    margin-top: 26px;
+    margin-top: clamp(24px, 4.5vh, 48px);
     font-family: var(--mono);
     font-size: clamp(12.5px, 1.1vw, 15px);
     color: var(--gray-500);
@@ -497,7 +559,15 @@
   @media (max-width: 880px) {
     .bento { grid-template-columns: 1fr; }
     .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 1; }
-    .q-grid { grid-template-columns: 1fr; }
+    .q-grid, .think-layout { grid-template-columns: 1fr; }
+    .think-big, .think-cards,
+    .think-layout.flip .think-big, .think-layout.flip .think-cards {
+      grid-column: 1; grid-row: auto;
+    }
+    .think-big { padding-top: 0; }
+    .tilt-l .card, .tilt-r .card { transform: none; }
+    .shift-r, .shift-l { margin-left: 0; margin-right: 0; }
+    .drop-1 { margin-top: 0; }
     .cover .slide-inner { grid-template-columns: 1fr; text-align: center; }
     .cover .headshot { margin: 0 auto; }
     .cover .contact-row { justify-content: center; }
@@ -685,44 +755,93 @@
   </section>
 
   <!-- ============================================================
-       Slide 4 — Questions I'm chasing (inverted, from odds-and-ends)
+       Slide 4 — Questions I'm chasing, 1 of 2 (inverted)
        ============================================================ -->
   <section class="slide invert" id="s4">
     <div class="slide-inner">
-      <div class="eyebrow reveal" style="--i:0">How I think — questions I'm chasing</div>
+      <div class="eyebrow reveal" style="--i:0">How I think — questions I'm chasing · 1 of 2</div>
       <h2 class="reveal" style="--i:1">My notebook, unfiltered</h2>
-      <div class="q-grid">
-        <div class="card q-card reveal" style="--i:2">
-          <div class="card-label">Robot self-knowledge</div>
-          <p class="q-text">How does a robot truly know a task is done — is tactile or depth sensing a must, or can we do better?</p>
-          <p class="q-sub">Most pipelines lack valid environment monitoring. I keep probing where perception is necessary versus where it's a crutch.</p>
+      <div class="think-layout">
+        <div class="think-big">
+          <div class="q-num reveal" style="--i:2">Q.01 — PERCEPTION</div>
+          <p class="q-big reveal" style="--i:3">How does a robot truly know a task is done?</p>
+          <p class="q-big-sub reveal" style="--i:4">
+            A clicked button, a turned switch — is tactile or depth sensing a must,
+            or just a crutch? Most pipelines have no valid monitoring of the
+            environment at all. I keep probing where perception is necessary,
+            and where it's habit.
+          </p>
+          <div class="margin-note reveal" style="--i:5">
+            Field note: an agent freed 16 GiB of disk because the <span class="hl">user</span> cleaned
+            it mid-task — and happily took the credit. Observation ≠ action.
+          </div>
         </div>
-        <div class="card q-card reveal" style="--i:3">
-          <div class="card-label">Error &amp; recovery</div>
-          <p class="q-text">How does error accumulate across a pipeline, mathematically — and how do robots auto-recover from a wrong pose?</p>
-          <p class="q-sub">Sensor resolution, motor offsets, drift. Could shared memory or KV-cache-like structures help agents in one body recover together?</p>
+        <div class="think-cards">
+          <div class="reveal tilt-l shift-l" style="--i:4">
+            <div class="card q-card">
+              <div class="card-label">Error &amp; recovery</div>
+              <p class="q-text">How does error accumulate across a pipeline, mathematically?</p>
+              <p class="q-sub">Sensor resolution, motor offsets, drift — and how a robot auto-recovers from a wrong pose, instead of replaying it.</p>
+            </div>
+          </div>
+          <div class="reveal tilt-r shift-r drop-1" style="--i:5">
+            <div class="card q-card">
+              <div class="card-label">Shared memory</div>
+              <p class="q-text">Could KV-cache-like memory be shared between agents in one body — or across robots?</p>
+              <p class="q-sub">Only data at certain moments (contact, failure) seems to matter. VQA on everything is the least efficient answer.</p>
+            </div>
+          </div>
         </div>
-        <div class="card q-card reveal" style="--i:4">
-          <div class="card-label">Learning at inference time</div>
-          <p class="q-text">I lean toward Sutton's view: give an RL agent a minimal toolset and let it learn from inference time, exploring freely.</p>
-          <p class="q-sub">Single teleop no longer scales the data wheel. Watching world models, action-conditioned models, and long-horizon compression closely.</p>
-        </div>
-        <div class="card q-card reveal" style="--i:5">
-          <div class="card-label">Contrarian habit</div>
-          <p class="q-text">One assumption to doubt, always: what are the hidden assumptions in modern LLM-driven robotics?</p>
-          <p class="q-sub">My rule for staying honest — "keep the trees in sight; don't only walk on the meadow."</p>
-        </div>
-      </div>
-      <div class="q-footer reveal" style="--i:6">
-        Currently studying → <span class="hl">CS336</span> · modern control &amp; MPC · inference frameworks · formal math · decentralized agent identity (ANP, <span class="mono">zyx.awiki.ai</span>)
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       Slide 5 — Off the clock (from odds-and-ends + cv)
+       Slide 5 — Questions I'm chasing, 2 of 2 (inverted)
        ============================================================ -->
-  <section class="slide" id="s5">
+  <section class="slide invert" id="s5">
+    <div class="slide-inner">
+      <div class="eyebrow reveal" style="--i:0">How I think — questions I'm chasing · 2 of 2</div>
+      <h2 class="reveal" style="--i:1">Doubt the defaults, then build</h2>
+      <div class="think-layout flip">
+        <div class="think-big">
+          <div class="q-num reveal" style="--i:2">Q.02 — ASSUMPTIONS</div>
+          <p class="q-big reveal" style="--i:3">What are the hidden assumptions in modern LLM-driven robotics?</p>
+          <p class="q-big-sub reveal" style="--i:4">
+            My contrarian habit: always keep one assumption on the chopping block.
+            It's how I stay honest — "keep the trees in sight; don't only walk
+            on the meadow."
+          </p>
+          <div class="margin-note reveal" style="--i:5">
+            Currently studying → <span class="hl">CS336</span> · modern control &amp; MPC ·
+            inference frameworks · formal math · decentralized agent identity
+            (ANP, <span class="mono">zyx.awiki.ai</span>)
+          </div>
+        </div>
+        <div class="think-cards">
+          <div class="reveal tilt-r shift-r" style="--i:4">
+            <div class="card q-card">
+              <div class="card-label">Learning at inference time</div>
+              <p class="q-text">I lean toward Sutton's view: minimal toolset, let the agent learn from inference time, exploring freely.</p>
+              <p class="q-sub">Single teleop no longer scales the data wheel — the interesting loop starts after deployment.</p>
+            </div>
+          </div>
+          <div class="reveal tilt-l shift-l drop-1" style="--i:5">
+            <div class="card q-card">
+              <div class="card-label">Watching closely</div>
+              <p class="q-text">World models, action-conditioned models, long-horizon compression.</p>
+              <p class="q-sub">What happens when context compression hits at policy-rollout time? Black-box traces get hard to follow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Slide 6 — Off the clock (from odds-and-ends + cv)
+       ============================================================ -->
+  <section class="slide" id="s6">
     <div class="slide-inner">
       <div class="eyebrow reveal" style="--i:0">Off the clock</div>
       <h2 class="reveal" style="--i:1">What keeps me curious</h2>
@@ -770,9 +889,9 @@
   </section>
 
   <!-- ============================================================
-       Slide 6 — Thank you
+       Slide 7 — Thank you
        ============================================================ -->
-  <section class="slide thanks" id="s6">
+  <section class="slide thanks" id="s7">
     <div class="slide-inner">
       <div class="headshot reveal" style="--i:0" role="img" aria-label="Headshot of Yixin Zhang"></div>
       <h1 class="reveal" style="--i:1">Thank you</h1>
@@ -791,7 +910,7 @@
 
   <!-- Fixed chrome -->
   <div id="navhint"><kbd>←</kbd><kbd>→</kbd> to navigate</div>
-  <div id="counter">1 / 6</div>
+  <div id="counter">1 / 7</div>
 
 <script>
   (function () {
