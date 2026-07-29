@@ -37,6 +37,10 @@
       box-sizing: border-box;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     html,
     body {
       width: 100%;
@@ -1146,7 +1150,7 @@
         bottom: 14px;
       }
 
-      .deck-controls button span {
+      .deck-controls button span:not([aria-hidden="true"]) {
         display: none;
       }
     }
