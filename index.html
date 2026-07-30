@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yixin Zhang — Systems &amp; Applied AI Portfolio</title>
-  <meta name="description" content="An evidence-first portfolio of robotics systems, applied computer vision, climate analytics, reinforcement learning, and open-source engineering by Yixin Zhang.">
-  <meta name="theme-color" content="#F4F2EC">
+  <title>Yixin Zhang — Robotics &amp; Applied AI Portfolio</title>
+  <meta name="description" content="Yixin Zhang's portfolio in robotics systems, industrial computer vision, climate analytics, reinforcement learning, open-source engineering, and professional credentials.">
+  <meta name="theme-color" content="#f4f2ec">
   <script>document.documentElement.classList.add("js");</script>
   <style>
     :root {
@@ -13,23 +13,24 @@
       --paper: #f4f2ec;
       --surface: #fcfbf7;
       --ink: #171816;
-      --muted: #5a5e58;
-      --faint: #7b8079;
+      --muted: #555a54;
+      --faint: #747a73;
       --rule: #c9ccc5;
       --rule-strong: #aeb2aa;
-      --primary: #1746a2;
-      --primary-dark: #10367f;
-      --primary-tint: #e8eef9;
-      --artifact: #1f6b49;
-      --artifact-tint: #e6f2ec;
-      --review: #7a4e00;
-      --review-tint: #fff1d6;
-      --boundary: #8a3030;
-      --boundary-tint: #f8e7e4;
+      --blue: #1746a2;
+      --blue-dark: #10367f;
+      --blue-tint: #e8eef9;
+      --green: #1f6b49;
+      --green-tint: #e6f2ec;
+      --amber: #7a4e00;
+      --amber-tint: #fff1d6;
+      --red: #8a3030;
+      --red-tint: #f8e7e4;
+      --violet: #66518c;
+      --violet-tint: #eee9f6;
       --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
       --sans: Inter, "SF Pro Text", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
       --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Menlo, monospace;
-      --shadow-soft: 0 18px 50px rgba(29, 35, 31, 0.08);
       --ease: cubic-bezier(0.2, 0.75, 0.2, 1);
     }
 
@@ -52,8 +53,8 @@
 
     body {
       font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 15px;
+      line-height: 1.45;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -73,32 +74,32 @@
     }
 
     a {
-      color: var(--primary-dark);
+      color: var(--blue-dark);
       text-decoration-thickness: 1px;
       text-underline-offset: 0.2em;
     }
 
     a:hover {
-      color: var(--primary);
+      color: var(--blue);
     }
 
     :focus-visible {
-      outline: 3px solid var(--primary);
+      outline: 3px solid var(--blue);
       outline-offset: 3px;
     }
 
     ::selection {
-      background: var(--primary);
+      background: var(--blue);
       color: #fff;
     }
 
     .skip-link {
       position: fixed;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       z-index: 100;
       transform: translateY(-160%);
-      padding: 10px 14px;
+      padding: 9px 13px;
       border: 1px solid var(--ink);
       background: var(--surface);
       color: var(--ink);
@@ -113,7 +114,7 @@
     .deck-shell {
       min-height: 100dvh;
       display: grid;
-      grid-template-columns: clamp(176px, 15vw, 224px) minmax(0, 1fr);
+      grid-template-columns: 190px minmax(0, 1fr);
     }
 
     .rail {
@@ -122,24 +123,24 @@
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      padding: 28px 20px 22px;
+      padding: 24px 16px 18px;
       border-right: 1px solid var(--rule);
-      background: rgba(244, 242, 236, 0.97);
+      background: rgba(244, 242, 236, 0.98);
     }
 
     .rail-brand {
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .rail-monogram {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       display: grid;
       place-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border: 1px solid var(--ink);
       font-family: var(--display);
-      font-size: 20px;
+      font-size: 19px;
     }
 
     .rail-brand strong {
@@ -151,33 +152,33 @@
 
     .rail-brand span {
       display: block;
-      margin-top: 5px;
+      margin-top: 4px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .rail-nav {
       display: grid;
-      gap: 2px;
+      gap: 1px;
     }
 
     .rail-nav button {
-      min-height: 44px;
+      min-height: 41px;
       display: grid;
-      grid-template-columns: 25px minmax(0, 1fr);
+      grid-template-columns: 24px minmax(0, 1fr);
       align-items: center;
-      gap: 9px;
-      padding: 8px 9px;
+      gap: 8px;
+      padding: 7px 8px;
       border: 0;
       border-left: 2px solid transparent;
       background: transparent;
       color: var(--muted);
       text-align: left;
       cursor: pointer;
-      transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+      transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
     .rail-nav button:hover {
@@ -186,21 +187,20 @@
     }
 
     .rail-nav button[aria-current="step"] {
-      border-left-color: var(--primary);
-      background: var(--primary-tint);
+      border-left-color: var(--blue);
+      background: var(--blue-tint);
       color: var(--ink);
     }
 
-    .rail-nav .nav-number {
+    .nav-number {
       font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.04em;
+      font-size: 9px;
     }
 
-    .rail-nav .nav-label {
+    .nav-label {
       overflow: hidden;
-      font-size: 12px;
-      font-weight: 650;
+      font-size: 11px;
+      font-weight: 680;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -209,8 +209,8 @@
       margin-top: auto;
       color: var(--faint);
       font-family: var(--mono);
-      font-size: 10px;
-      line-height: 1.7;
+      font-size: 9px;
+      line-height: 1.65;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
@@ -220,9 +220,10 @@
       min-width: 0;
       min-height: 100dvh;
       overflow: hidden;
+      overflow: clip;
       background:
-        linear-gradient(rgba(23, 24, 22, 0.028) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(23, 24, 22, 0.028) 1px, transparent 1px),
+        linear-gradient(rgba(23, 24, 22, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 24, 22, 0.026) 1px, transparent 1px),
         var(--paper);
       background-size: 32px 32px;
     }
@@ -234,8 +235,8 @@
     .slide {
       position: relative;
       min-height: 100vh;
-      padding: 52px clamp(32px, 4vw, 68px) 104px;
-      background: rgba(244, 242, 236, 0.96);
+      padding: 32px clamp(28px, 3.5vw, 54px) 78px;
+      background: rgba(244, 242, 236, 0.965);
     }
 
     .js .slide {
@@ -243,17 +244,15 @@
       inset: 0;
       z-index: 0;
       min-height: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      overscroll-behavior: contain;
+      overflow: hidden;
       opacity: 0;
       pointer-events: none;
-      transform: translateX(32px);
+      transform: translateX(24px);
       visibility: hidden;
       transition:
-        opacity 220ms var(--ease),
-        transform 220ms var(--ease),
-        visibility 0s linear 220ms;
+        opacity 180ms var(--ease),
+        transform 180ms var(--ease),
+        visibility 0s linear 180ms;
     }
 
     .js .slide.is-active {
@@ -267,29 +266,29 @@
 
     .slide-frame {
       width: 100%;
-      max-width: 1400px;
-      min-height: calc(100dvh - 156px);
+      max-width: 1380px;
+      min-height: 100%;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: clamp(16px, 2.2vh, 24px);
+      transform-origin: top left;
     }
 
     .slide-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
       gap: 24px;
-      margin-bottom: clamp(22px, 3vh, 36px);
     }
 
     .slide-kicker,
     .eyebrow {
-      margin: 0 0 10px;
-      color: var(--primary-dark);
+      margin: 0 0 7px;
+      color: var(--blue-dark);
       font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 750;
       letter-spacing: 0.11em;
       text-transform: uppercase;
     }
@@ -303,80 +302,46 @@
     }
 
     h1 {
-      max-width: 820px;
-      font-size: clamp(52px, 7vw, 104px);
-      line-height: 0.95;
+      font-size: clamp(52px, 6vw, 86px);
+      line-height: 0.94;
     }
 
     .slide-title {
-      max-width: 900px;
-      font-size: clamp(36px, 4.4vw, 68px);
-      line-height: 1.01;
+      max-width: 930px;
+      font-size: clamp(35px, 4vw, 58px);
+      line-height: 1;
     }
 
     .slide-deckline {
-      max-width: 800px;
-      margin: 18px 0 0;
+      max-width: 840px;
+      margin: 10px 0 0;
       color: var(--muted);
-      font-size: clamp(17px, 1.45vw, 22px);
-      line-height: 1.48;
+      font-size: clamp(15px, 1.25vw, 18px);
+      line-height: 1.45;
     }
 
-    .status-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 7px;
-      max-width: 360px;
-    }
-
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      min-height: 28px;
-      padding: 5px 9px;
-      border: 1px solid currentColor;
-      border-radius: 999px;
+    .role-stamp {
+      max-width: 280px;
+      padding-top: 3px;
+      color: var(--muted);
       font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
+      font-size: 9px;
+      line-height: 1.55;
+      text-align: right;
       text-transform: uppercase;
-      white-space: nowrap;
     }
 
-    .status-chip::before {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      content: "";
-    }
-
-    .status-chip.artifact,
-    .status-chip.public {
-      background: var(--artifact-tint);
-      color: var(--artifact);
-    }
-
-    .status-chip.reported,
-    .status-chip.review,
-    .status-chip.proposed {
-      background: var(--review-tint);
-      color: var(--review);
-    }
-
-    .status-chip.boundary {
-      background: var(--boundary-tint);
-      color: var(--boundary);
+    .role-stamp strong {
+      display: block;
+      color: var(--ink);
+      font-size: 10px;
     }
 
     .grid-12 {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: clamp(14px, 1.55vw, 24px);
+      gap: clamp(11px, 1.3vw, 18px);
+      min-height: 0;
     }
 
     .span-3 { grid-column: span 3; }
@@ -388,221 +353,98 @@
     .span-9 { grid-column: span 9; }
     .span-12 { grid-column: span 12; }
 
+    .stack {
+      min-height: 0;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
     .panel {
       min-width: 0;
-      padding: clamp(18px, 1.7vw, 26px);
+      padding: clamp(13px, 1.25vw, 18px);
       border: 1px solid var(--rule);
-      background: rgba(252, 251, 247, 0.82);
+      background: rgba(252, 251, 247, 0.85);
     }
 
     .panel.tint {
       border-color: #bdc9df;
-      background: var(--primary-tint);
+      background: var(--blue-tint);
     }
 
-    .panel.review {
-      border-color: #ddc18f;
-      background: var(--review-tint);
-    }
-
-    .panel.boundary {
-      border-color: #d7aaa4;
-      background: var(--boundary-tint);
-    }
-
-    .panel-label {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .panel h3 {
-      margin: 0 0 10px;
+    .panel h3,
+    .section-heading {
+      margin: 0 0 7px;
       font-family: var(--display);
-      font-size: clamp(22px, 2vw, 30px);
+      font-size: clamp(20px, 1.75vw, 27px);
       font-weight: 500;
-      line-height: 1.1;
+      line-height: 1.08;
     }
 
     .panel p {
       margin: 0;
       color: var(--muted);
-      font-size: clamp(14px, 1.05vw, 16px);
-      line-height: 1.55;
+      font-size: clamp(12px, 0.98vw, 14px);
+      line-height: 1.48;
     }
 
-    .panel p + p {
-      margin-top: 10px;
+    .panel-label {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .problem-line {
+      padding: 11px 13px;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-tint);
+      color: var(--ink);
+      font-size: clamp(13px, 1vw, 15px);
+      line-height: 1.43;
     }
 
     .clean-list {
       display: grid;
-      gap: 9px;
-      margin: 12px 0 0;
+      gap: 6px;
+      margin: 8px 0 0;
       padding: 0;
       list-style: none;
     }
 
     .clean-list li {
       position: relative;
-      padding-left: 18px;
+      padding-left: 15px;
       color: var(--muted);
-      font-size: clamp(14px, 1.05vw, 16px);
-      line-height: 1.48;
+      font-size: clamp(12px, 0.98vw, 14px);
+      line-height: 1.42;
     }
 
     .clean-list li::before {
       position: absolute;
-      top: 0.68em;
+      top: 0.65em;
       left: 0;
-      width: 9px;
+      width: 8px;
       height: 1px;
-      background: var(--primary);
+      background: var(--blue);
       content: "";
-    }
-
-    .lead {
-      max-width: 780px;
-      margin: 24px 0 0;
-      color: var(--ink);
-      font-size: clamp(20px, 2vw, 30px);
-      font-weight: 550;
-      line-height: 1.35;
-    }
-
-    .body-copy {
-      max-width: 760px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: clamp(15px, 1.2vw, 18px);
-      line-height: 1.65;
-    }
-
-    .contact-links,
-    .source-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px 18px;
-      margin-top: 22px;
-    }
-
-    .contact-links a,
-    .source-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 40px;
-      font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .source-links {
-      margin-top: 14px;
-    }
-
-    .source-links a {
-      min-height: 34px;
-      font-size: 10px;
-    }
-
-    .portrait-empty {
-      min-height: 330px;
-      display: grid;
-      place-items: center;
-      padding: 30px;
-      border: 1px dashed var(--rule-strong);
-      background:
-        linear-gradient(135deg, rgba(23, 70, 162, 0.035), transparent 42%),
-        rgba(252, 251, 247, 0.56);
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .portrait-empty strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--ink);
-      font-family: var(--display);
-      font-size: 26px;
-      font-weight: 500;
-    }
-
-    .portrait-empty span {
-      display: block;
-      max-width: 250px;
-      font-family: var(--mono);
-      font-size: 11px;
-      line-height: 1.55;
-    }
-
-    .trajectory {
-      margin-top: clamp(18px, 2.2vh, 28px);
-    }
-
-    .trajectory .panel {
-      min-height: 145px;
-    }
-
-    .trajectory-year {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 750;
-    }
-
-    .tech-map {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 13px;
-    }
-
-    .tech-map span {
-      padding: 5px 8px;
-      border: 1px solid var(--rule);
-      background: var(--surface);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 10px;
-    }
-
-    .case-grid {
-      align-items: stretch;
-    }
-
-    .stack {
-      display: grid;
-      gap: 14px;
-    }
-
-    .problem-line {
-      padding: 15px 17px;
-      border-left: 3px solid var(--primary);
-      background: var(--primary-tint);
-      color: var(--ink);
-      font-size: clamp(15px, 1.15vw, 18px);
-      line-height: 1.5;
     }
 
     .flow {
       display: flex;
-      flex-wrap: wrap;
       align-items: stretch;
-      gap: 8px;
-      margin-top: 13px;
+      gap: 6px;
+      margin-top: 9px;
     }
 
     .flow-step {
       position: relative;
-      min-width: 116px;
-      flex: 1 1 116px;
-      padding: 12px 10px;
+      min-width: 0;
+      flex: 1 1 0;
+      padding: 9px 8px;
       border: 1px solid var(--rule);
       background: var(--surface);
     }
@@ -610,10 +452,10 @@
     .flow-step:not(:last-child)::after {
       position: absolute;
       top: 50%;
-      right: -8px;
+      right: -6px;
       z-index: 2;
-      width: 8px;
-      color: var(--primary);
+      width: 6px;
+      color: var(--blue);
       content: "›";
       font-weight: 800;
       line-height: 0;
@@ -622,29 +464,28 @@
 
     .flow-step strong {
       display: block;
-      margin-bottom: 4px;
-      font-size: 12px;
-      line-height: 1.3;
+      margin-bottom: 3px;
+      font-size: 11px;
+      line-height: 1.25;
     }
 
     .flow-step span {
       display: block;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 9px;
-      line-height: 1.45;
+      font-size: 8px;
+      line-height: 1.4;
     }
 
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
     }
 
     .metric {
       min-width: 0;
-      padding: 13px;
+      padding: 10px;
       border: 1px solid var(--rule);
       background: var(--surface);
     }
@@ -652,36 +493,331 @@
     .metric-value {
       display: block;
       font-family: var(--display);
-      font-size: clamp(24px, 2.3vw, 38px);
+      font-size: clamp(23px, 2.2vw, 34px);
       line-height: 1;
     }
 
     .metric-label {
       display: block;
-      margin-top: 7px;
+      margin-top: 5px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 9px;
-      line-height: 1.45;
+      font-size: 8px;
+      line-height: 1.4;
       text-transform: uppercase;
+    }
+
+    .review-line {
+      padding: 9px 11px;
+      border: 1px solid #ddc18f;
+      background: var(--amber-tint);
+      color: #5f4210;
+      font-size: clamp(11px, 0.9vw, 13px);
+      line-height: 1.42;
+    }
+
+    .review-line strong {
+      color: var(--ink);
+    }
+
+    .source-links,
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px 16px;
+    }
+
+    .source-links a,
+    .contact-links a {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 680;
+    }
+
+    .about-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(255px, 0.38fr);
+      gap: clamp(22px, 3.5vw, 54px);
+      align-items: end;
+    }
+
+    .about-lead {
+      max-width: 850px;
+      margin: 14px 0 0;
+      font-size: clamp(18px, 1.75vw, 25px);
+      font-weight: 600;
+      line-height: 1.32;
+    }
+
+    .about-copy {
+      max-width: 840px;
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: clamp(12px, 1vw, 15px);
+      line-height: 1.52;
+    }
+
+    .principle {
+      padding: 14px 0 3px 18px;
+      border-left: 2px solid var(--blue);
+    }
+
+    .principle span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .principle p {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(18px, 1.65vw, 25px);
+      line-height: 1.25;
+    }
+
+    .about-links {
+      margin-top: 9px;
+    }
+
+    .profile-chronology {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.62fr) minmax(260px, 0.78fr);
+      gap: clamp(24px, 3.6vw, 54px);
+      align-items: start;
+    }
+
+    .vertical-timeline {
+      position: relative;
+      display: grid;
+      gap: clamp(8px, 1.15vh, 13px);
+    }
+
+    .vertical-timeline::before {
+      position: absolute;
+      top: 7px;
+      bottom: 7px;
+      left: clamp(94px, 10vw, 130px);
+      width: 1px;
+      background: var(--rule-strong);
+      content: "";
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: clamp(83px, 9vw, 118px) 25px minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .journey-date {
+      padding-top: 2px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: clamp(8px, 0.72vw, 10px);
+      line-height: 1.35;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .journey-node {
+      position: relative;
+      z-index: 1;
+      width: 10px;
+      height: 10px;
+      justify-self: center;
+      margin-top: 4px;
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      background: var(--paper);
+    }
+
+    .journey-node.current {
+      background: var(--blue);
+    }
+
+    .journey-node.education {
+      border-color: var(--green);
+    }
+
+    .journey-body {
+      min-width: 0;
+      padding-left: clamp(8px, 1vw, 14px);
+    }
+
+    .journey-type,
+    .side-heading {
+      margin: 0;
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .journey-type.education {
+      color: var(--green);
+    }
+
+    .journey-role {
+      margin: 1px 0 0;
+      font-family: var(--display);
+      font-size: clamp(16px, 1.42vw, 21px);
+      font-weight: 600;
+      line-height: 1.08;
+    }
+
+    .journey-org {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: clamp(10px, 0.82vw, 12px);
+      line-height: 1.32;
+    }
+
+    .overlap-note {
+      display: inline-block;
+      margin-top: 3px;
+      color: var(--red);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.3;
+    }
+
+    .overlap-note strong {
+      color: var(--red);
+    }
+
+    .nested-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 11px;
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nested-projects li {
+      position: relative;
+      padding-left: 9px;
+      color: var(--amber);
+      font-size: clamp(8px, 0.72vw, 10px);
+      line-height: 1.3;
+    }
+
+    .nested-projects li::before {
+      position: absolute;
+      top: 0.55em;
+      left: 0;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    .profile-side {
+      min-width: 0;
+      display: grid;
+      gap: 13px;
+    }
+
+    .side-section {
+      padding-top: 8px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .side-heading {
+      margin-bottom: 6px;
+    }
+
+    .activity-list,
+    .credential-mini {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .activity-list li,
+    .credential-mini li {
+      color: var(--muted);
+      font-size: clamp(9px, 0.78vw, 11px);
+      line-height: 1.33;
+    }
+
+    .activity-list time,
+    .credential-mini time {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.88em;
+    }
+
+    .activity-list strong,
+    .credential-mini strong {
+      color: var(--ink);
+    }
+
+    .category-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 11px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 7px;
+      text-transform: uppercase;
+    }
+
+    .category-key span::before {
+      width: 6px;
+      height: 6px;
+      display: inline-block;
+      margin-right: 4px;
+      border-radius: 50%;
+      background: var(--blue);
+      content: "";
+    }
+
+    .category-key .key-education::before {
+      background: var(--green);
+    }
+
+    .category-key .key-project::before {
+      background: var(--amber);
+    }
+
+    .category-key .key-volunteer::before {
+      background: var(--red);
+    }
+
+    .category-key .key-credential::before {
+      background: var(--violet);
     }
 
     .video-card {
       height: 100%;
-      min-height: 500px;
+      min-height: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
       grid-template-rows: minmax(0, 1fr) auto;
-      gap: 11px;
-      padding: 12px;
+      gap: 8px;
+      padding: 9px;
       border: 1px solid var(--rule);
       background: #111;
-      box-shadow: var(--shadow-soft);
     }
 
     .video-stage {
       position: relative;
-      min-height: 390px;
+      min-height: 0;
       display: grid;
       place-items: center;
       overflow: hidden;
@@ -704,53 +840,47 @@
     .video-trigger img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.72;
-      filter: saturate(0.8) contrast(1.04);
+      object-fit: contain;
+      opacity: 0.78;
+      filter: saturate(0.84) contrast(1.04);
     }
 
     .play-label {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 94px;
-      height: 94px;
+      width: 82px;
+      height: 82px;
       display: grid;
       place-items: center;
       transform: translate(-50%, -50%);
-      border: 1px solid rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.78);
       border-radius: 50%;
-      background: rgba(17, 17, 17, 0.74);
+      background: rgba(17, 17, 17, 0.76);
       color: #fff;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 750;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      transition: background 180ms ease, transform 180ms ease;
-    }
-
-    .video-trigger:hover .play-label {
-      background: var(--primary);
-      transform: translate(-50%, -50%) scale(1.04);
     }
 
     .video-stage video {
       width: 100%;
       height: 100%;
-      max-height: 62vh;
+      display: block;
       object-fit: contain;
       background: #111;
     }
 
     .video-caption {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 10px;
       color: #d8d8d4;
-      font-size: 11px;
-      line-height: 1.5;
+      font-size: 9px;
+      line-height: 1.35;
     }
 
     .video-caption p {
@@ -764,195 +894,581 @@
 
     .video-error {
       display: none;
-      margin: 0;
       color: #ffd9a0;
-      font-family: var(--mono);
-      font-size: 10px;
     }
 
     .video-error.is-visible {
       display: block;
     }
 
+    .figure-grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
     .artifact-figure {
+      min-width: 0;
       margin: 0;
-      padding: 10px;
+      padding: 7px;
       border: 1px solid var(--rule);
       background: var(--surface);
     }
 
+    .artifact-figure a {
+      display: block;
+    }
+
     .artifact-figure img {
       width: 100%;
-      height: auto;
+      height: clamp(140px, 24vh, 230px);
       display: block;
-      border: 1px solid #e2e3de;
+      border: 1px solid #e1e2dd;
       background: #fff;
+      object-fit: contain;
     }
 
     .artifact-figure figcaption {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
-      margin-top: 9px;
+      gap: 8px;
+      margin-top: 6px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 9px;
-      line-height: 1.5;
+      font-size: 8px;
+      line-height: 1.35;
     }
 
     .artifact-figure figcaption strong {
       color: var(--ink);
     }
 
-    .figure-stack {
+    .single-figure img {
+      height: clamp(240px, 39vh, 360px);
+    }
+
+    .evidence-board {
+      min-height: 0;
       display: grid;
-      gap: 12px;
+      align-content: start;
+      align-self: start;
+      gap: 10px;
+      padding: clamp(14px, 1.4vw, 20px);
+      border: 1px solid var(--rule);
+      background: rgba(252, 251, 247, 0.82);
     }
 
-    .figure-stack.two {
+    .evidence-board h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(20px, 1.8vw, 27px);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .evidence-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(10px, 0.82vw, 12px);
+      line-height: 1.42;
+    }
+
+    .schema-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) 24px minmax(190px, 0.82fr);
+      gap: 9px;
+      align-items: stretch;
+    }
+
+    .schema-system {
+      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      padding: 11px;
+      background: var(--green-tint);
     }
 
-    .figure-stack.two .artifact-figure img {
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+    .schema-system strong {
+      grid-column: 1 / -1;
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .result-note {
-      margin-top: 12px;
-      padding: 11px 13px;
-      border: 1px solid #ddc18f;
-      background: var(--review-tint);
-      color: var(--review);
-      font-size: 12px;
-      line-height: 1.5;
+    .schema-system span {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      padding: 6px;
+      border: 1px solid #aecab9;
+      background: rgba(252, 251, 247, 0.86);
+      font-size: 10px;
+      line-height: 1.25;
+      text-align: center;
     }
 
-    .result-note strong {
+    .map-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 24px;
+    }
+
+    .schema-tree {
+      margin: 0;
+      padding: 11px;
+      overflow: hidden;
+      background: #17201b;
+      color: #f4f7f1;
+      font-family: var(--mono);
+      font-size: clamp(8px, 0.73vw, 10px);
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .validation-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .validation-strip div {
+      padding: 9px;
+      border-top: 2px solid var(--blue);
+      background: var(--blue-tint);
+    }
+
+    .validation-strip strong {
+      display: block;
+      font-size: 10px;
+    }
+
+    .validation-strip span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 8px;
+      line-height: 1.35;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--muted);
+      font-size: clamp(9px, 0.77vw, 11px);
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 7px 8px;
+      border-bottom: 1px solid var(--rule);
+      text-align: right;
+    }
+
+    .result-table th:first-child,
+    .result-table td:first-child {
+      text-align: left;
+    }
+
+    .result-table thead th {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .result-table tbody tr:first-child {
+      background: var(--green-tint);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .bar-comparison {
+      display: grid;
+      gap: 8px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(100px, 1fr) minmax(150px, 2fr) 46px;
+      gap: 8px;
+      align-items: center;
+      font-size: 10px;
+    }
+
+    .bar-row span:first-child {
+      color: var(--muted);
+    }
+
+    .bar-track {
+      height: 12px;
+      overflow: hidden;
+      background: #e0e2dc;
+    }
+
+    .bar-fill {
+      width: var(--value);
+      height: 100%;
+      background: var(--blue);
+    }
+
+    .bar-row:first-child .bar-fill {
+      background: var(--green);
+    }
+
+    .bar-row strong {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-align: right;
+    }
+
+    .fusion-diagram {
+      display: grid;
+      grid-template-columns: minmax(90px, 0.75fr) 14px minmax(130px, 1fr) 14px minmax(64px, 0.55fr);
+      gap: 5px;
+      align-items: center;
+    }
+
+    .frame-stack {
+      position: relative;
+      min-height: 148px;
+    }
+
+    .frame-card {
+      position: absolute;
+      left: calc(var(--offset) * 12px);
+      top: calc(var(--offset) * 17px);
+      width: calc(100% - 48px);
+      min-height: 72px;
+      display: grid;
+      align-content: center;
+      padding: 8px;
+      border: 1px solid #9aa7bd;
+      background: var(--surface);
+      box-shadow: 5px 5px 0 rgba(23, 70, 162, 0.08);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.35;
+    }
+
+    .frame-card strong {
+      color: var(--ink);
+      font-size: 10px;
+    }
+
+    .fusion-steps {
+      display: grid;
+      gap: 7px;
+    }
+
+    .fusion-steps div,
+    .fusion-output {
+      padding: 10px;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-tint);
+      font-size: 10px;
+      line-height: 1.3;
+    }
+
+    .fusion-steps strong,
+    .fusion-output strong {
+      display: block;
       color: var(--ink);
     }
 
+    .fusion-steps span,
+    .fusion-output span {
+      color: var(--muted);
+      font-size: 8px;
+    }
+
+    .fusion-output {
+      border-left-color: var(--green);
+      background: var(--green-tint);
+    }
+
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      min-height: 0;
+    }
+
     .code-card {
-      min-height: 250px;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      padding: 14px 16px;
       border: 1px solid var(--rule);
+      border-top: 3px solid var(--green);
       background: var(--surface);
     }
 
-    .code-card.public-proof {
-      border-top: 3px solid var(--artifact);
-    }
-
-    .code-card.reported-proof {
-      border-top: 3px solid var(--review);
+    .code-card.needs-check {
+      border-top-color: var(--amber);
     }
 
     .code-card .repo {
-      margin-bottom: 12px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 8px;
       letter-spacing: 0.03em;
     }
 
     .code-card h3 {
-      margin: 0 0 10px;
+      margin: 5px 0 6px;
       font-family: var(--display);
-      font-size: clamp(24px, 2.1vw, 34px);
+      font-size: clamp(20px, 1.8vw, 28px);
       font-weight: 500;
-      line-height: 1.08;
+      line-height: 1.05;
     }
 
     .code-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .code-card .proof-line {
-      margin-top: 14px;
-      padding: 10px;
-      background: #f1f1ed;
-      color: #353935;
-      font-family: var(--mono);
-      font-size: 10px;
-      line-height: 1.55;
+      font-size: clamp(11px, 0.9vw, 13px);
+      line-height: 1.42;
     }
 
     .code-card a {
-      min-height: 40px;
+      min-height: 27px;
       display: inline-flex;
-      align-items: center;
-      align-self: flex-start;
-      margin-top: auto;
-      padding-top: 14px;
+      align-items: end;
+      justify-self: start;
+      padding-top: 6px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 700;
     }
 
-    .ledger {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .ledger .panel {
-      min-height: 310px;
-    }
-
-    .ledger h3 {
-      font-size: clamp(24px, 2.15vw, 34px);
-    }
-
-    .ledger .clean-list li {
-      font-size: 14px;
-    }
-
-    .closing-contact {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--rule);
+    .tech-strip {
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
     }
 
-    .closing-contact p {
-      max-width: 680px;
+    .tech-strip strong {
+      color: var(--ink);
+    }
+
+    .tech-strip span {
+      padding: 3px 6px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+    }
+
+    .credential-groups {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(28px, 4vw, 58px);
+      align-content: start;
+    }
+
+    .credential-group {
+      min-width: 0;
+      padding: 9px 0 4px;
+      border-top: 1px solid var(--rule-strong);
+    }
+
+    .credential-group:nth-child(-n + 2) {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .credential-issuer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 3px;
+    }
+
+    .credential-issuer h3 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(22px, 2vw, 30px);
+      font-weight: 500;
+    }
+
+    .credential-issuer span {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 8px;
+      text-transform: uppercase;
+    }
+
+    .credential-row {
+      display: grid;
+      grid-template-columns: 9px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: start;
+      padding: 8px 0;
+      border-top: 1px solid rgba(174, 178, 170, 0.6);
+    }
+
+    .credential-row::before {
+      width: 7px;
+      height: 7px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: var(--violet);
+      content: "";
+    }
+
+    .credential-row strong {
+      display: block;
+      font-size: clamp(11px, 0.95vw, 14px);
+      line-height: 1.25;
+    }
+
+    .credential-row p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: clamp(9px, 0.75vw, 11px);
+      line-height: 1.3;
+    }
+
+    .credential-date {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.45;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .direction-grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 0.9fr;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .direction-section {
+      min-width: 0;
+      padding: clamp(14px, 1.7vw, 24px);
+    }
+
+    .direction-section + .direction-section {
+      border-left: 1px solid var(--rule);
+    }
+
+    .direction-section h3 {
+      margin: 0 0 10px;
+      font-family: var(--display);
+      font-size: clamp(23px, 2.25vw, 34px);
+      font-weight: 500;
+      line-height: 1.04;
+    }
+
+    .direction-section p {
       margin: 0;
       color: var(--muted);
-      font-size: 15px;
+      font-size: clamp(12px, 1vw, 14px);
+      line-height: 1.5;
+    }
+
+    .direction-section p + p {
+      margin-top: 10px;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: question;
+    }
+
+    .question-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+      font-size: clamp(11px, 0.95vw, 14px);
+      line-height: 1.4;
+      counter-increment: question;
+    }
+
+    .question-list li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--blue-dark);
+      content: "Q" counter(question) ".";
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .curiosity-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .curiosity-list li {
+      padding-top: 8px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: clamp(11px, 0.95vw, 13px);
+      line-height: 1.4;
+    }
+
+    .direction-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      align-self: end;
+    }
+
+    .direction-footer p {
+      max-width: 750px;
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--display);
+      font-size: clamp(16px, 1.4vw, 21px);
+      line-height: 1.32;
     }
 
     .deck-controls {
       position: absolute;
-      right: clamp(20px, 3vw, 44px);
-      bottom: 20px;
+      right: clamp(20px, 3vw, 42px);
+      bottom: 18px;
       z-index: 30;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .deck-controls button {
-      min-width: 46px;
-      min-height: 46px;
+      min-width: 44px;
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 7px;
-      padding: 9px 13px;
+      padding: 8px 12px;
       border: 1px solid var(--ink);
       background: var(--surface);
       color: var(--ink);
       cursor: pointer;
-      transition: background 180ms ease, color 180ms ease, opacity 180ms ease;
     }
 
     .deck-controls button:hover:not(:disabled) {
@@ -962,44 +1478,44 @@
 
     .deck-controls button:disabled {
       cursor: not-allowed;
-      opacity: 0.35;
+      opacity: 0.3;
     }
 
     .deck-controls button span {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
     }
 
     .deck-counter {
-      min-width: 72px;
+      min-width: 65px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       text-align: center;
     }
 
     .deck-counter strong {
       color: var(--ink);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .keyboard-hint {
       position: absolute;
-      left: clamp(20px, 3vw, 44px);
-      bottom: 26px;
+      left: clamp(18px, 2.6vw, 38px);
+      bottom: 23px;
       z-index: 30;
       color: var(--faint);
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .keyboard-hint kbd {
-      min-width: 22px;
+      min-width: 20px;
       display: inline-block;
       margin-right: 3px;
-      padding: 2px 5px;
+      padding: 2px 4px;
       border: 1px solid var(--rule-strong);
       background: var(--surface);
       color: var(--ink);
@@ -1019,21 +1535,42 @@
       border: 0;
     }
 
-    @media (max-width: 1180px) {
-      .rail {
-        padding-inline: 14px;
+    @media (max-width: 1100px) {
+      .deck-shell {
+        grid-template-columns: 174px minmax(0, 1fr);
       }
 
-      .rail-nav .nav-label {
-        font-size: 11px;
+      .rail {
+        padding-inline: 12px;
       }
 
       .slide {
-        padding-inline: 34px;
+        padding: 24px 28px 70px;
       }
 
-      .video-card {
-        min-height: 450px;
+      .slide-title {
+        font-size: clamp(32px, 4vw, 47px);
+      }
+
+      .role-stamp {
+        max-width: 220px;
+      }
+
+      .profile-chronology {
+        grid-template-columns: minmax(0, 1.45fr) minmax(235px, 0.8fr);
+        gap: 24px;
+      }
+
+      .vertical-timeline::before {
+        left: 83px;
+      }
+
+      .journey-item {
+        grid-template-columns: 72px 22px minmax(0, 1fr);
+      }
+
+      .journey-role {
+        font-size: 16px;
       }
     }
 
@@ -1046,54 +1583,133 @@
         display: none;
       }
 
-      .deck,
-      .js .deck {
-        min-height: 100dvh;
-      }
-
       .mobile-bar {
         position: absolute;
-        inset: 0 0 auto 0;
+        inset: 0 0 auto;
         z-index: 25;
-        min-height: 52px;
+        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        padding: 10px 18px;
+        padding: 8px 16px;
         border-bottom: 1px solid var(--rule);
-        background: rgba(244, 242, 236, 0.96);
-        backdrop-filter: blur(8px);
+        background: rgba(244, 242, 236, 0.98);
       }
 
       .mobile-bar strong {
         font-family: var(--display);
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 15px;
       }
 
       .mobile-progress {
         color: var(--muted);
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: 9px;
       }
 
       .slide {
-        padding: 78px 20px 92px;
+        padding: 65px 16px 62px;
       }
 
       .slide-frame {
-        min-height: calc(100dvh - 170px);
-        justify-content: flex-start;
+        gap: 12px;
       }
 
       .slide-header {
-        display: block;
+        grid-template-columns: 1fr;
+        gap: 5px;
       }
 
-      .status-row {
-        justify-content: flex-start;
-        margin-top: 16px;
+      .role-stamp {
+        max-width: none;
+        padding: 0;
+        font-size: 8px;
+        text-align: left;
+      }
+
+      h1 {
+        font-size: clamp(45px, 15vw, 66px);
+      }
+
+      .slide-title {
+        font-size: clamp(29px, 8.8vw, 40px);
+      }
+
+      .slide-deckline {
+        margin-top: 6px;
+        font-size: 13px;
+      }
+
+      .about-top {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .about-lead {
+        margin-top: 8px;
+        font-size: 16px;
+      }
+
+      .about-copy {
+        margin-top: 6px;
+        font-size: 11px;
+      }
+
+      .principle {
+        padding: 7px 0 0 12px;
+      }
+
+      .principle p {
+        font-size: 16px;
+      }
+
+      .profile-chronology {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .vertical-timeline {
+        gap: 7px;
+      }
+
+      .vertical-timeline::before {
+        left: 70px;
+      }
+
+      .journey-item {
+        grid-template-columns: 60px 20px minmax(0, 1fr);
+      }
+
+      .journey-date {
+        font-size: 7px;
+      }
+
+      .journey-role {
+        font-size: 14px;
+      }
+
+      .journey-org {
+        font-size: 9px;
+      }
+
+      .overlap-note,
+      .nested-projects li {
+        font-size: 7px;
+      }
+
+      .profile-side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 14px;
+      }
+
+      .profile-side .category-key {
+        grid-column: 1 / -1;
+      }
+
+      .activity-list li,
+      .credential-mini li {
+        font-size: 8px;
       }
 
       .span-3,
@@ -1107,38 +1723,270 @@
         grid-column: 1 / -1;
       }
 
-      .portrait-empty {
-        min-height: 210px;
-      }
-
-      .trajectory .panel {
-        min-height: 0;
-      }
-
-      .metric-grid,
-      .ledger,
-      .figure-stack.two {
+      .project-grid {
         grid-template-columns: 1fr;
       }
 
+      .project-grid > * {
+        grid-column: 1 / -1;
+      }
+
+      .project-grid .stack {
+        gap: 7px;
+      }
+
+      .problem-line {
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+
+      .panel {
+        padding: 10px 11px;
+      }
+
+      .panel h3,
+      .section-heading {
+        font-size: 18px;
+      }
+
+      .panel p,
+      .clean-list li {
+        font-size: 10px;
+      }
+
+      .clean-list {
+        gap: 4px;
+        margin-top: 5px;
+      }
+
+      .flow {
+        gap: 4px;
+        margin-top: 5px;
+      }
+
+      .flow-step {
+        padding: 6px 4px;
+      }
+
+      .flow-step strong {
+        font-size: 9px;
+      }
+
+      .flow-step span {
+        font-size: 6px;
+      }
+
+      .metric {
+        padding: 7px;
+      }
+
+      .metric-value {
+        font-size: 21px;
+      }
+
+      .metric-label {
+        font-size: 6px;
+      }
+
+      .review-line {
+        padding: 7px 8px;
+        font-size: 9px;
+      }
+
       .video-card {
-        min-height: 570px;
+        height: 260px;
       }
 
-      .video-stage {
-        min-height: 470px;
+      .video-caption {
+        font-size: 7px;
       }
 
-      .video-stage video {
-        max-height: 68vh;
+      .mobile-hide {
+        display: none !important;
       }
 
-      .closing-contact {
-        display: block;
+      .artifact-figure img,
+      .single-figure img {
+        height: 145px;
       }
 
-      .closing-contact .contact-links {
-        margin-top: 12px;
+      .figure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .figure-grid .artifact-figure:nth-child(2) {
+        display: none;
+      }
+
+      .artifact-figure figcaption {
+        font-size: 6px;
+      }
+
+      .evidence-board {
+        gap: 7px;
+        padding: 10px;
+      }
+
+      .evidence-board h3 {
+        font-size: 18px;
+      }
+
+      .schema-map {
+        grid-template-columns: minmax(0, 1.15fr) 18px minmax(150px, 0.85fr);
+        gap: 5px;
+      }
+
+      .schema-system {
+        gap: 4px;
+        padding: 7px;
+      }
+
+      .schema-system span {
+        min-height: 32px;
+        padding: 4px;
+        font-size: 8px;
+      }
+
+      .schema-tree {
+        padding: 7px;
+        font-size: 7px;
+      }
+
+      .validation-strip div {
+        padding: 6px;
+      }
+
+      .result-table th,
+      .result-table td {
+        padding: 5px;
+        font-size: 8px;
+      }
+
+      .bar-row {
+        grid-template-columns: minmax(78px, 1fr) minmax(110px, 2fr) 40px;
+        gap: 5px;
+        font-size: 8px;
+      }
+
+      .fusion-diagram {
+        grid-template-columns: minmax(70px, 0.72fr) 10px minmax(110px, 1fr) 10px minmax(60px, 0.58fr);
+        gap: 3px;
+      }
+
+      .frame-stack {
+        min-height: 118px;
+      }
+
+      .frame-card {
+        left: calc(var(--offset) * 8px);
+        top: calc(var(--offset) * 12px);
+        width: calc(100% - 32px);
+        min-height: 56px;
+        padding: 5px;
+        font-size: 6px;
+      }
+
+      .fusion-steps {
+        gap: 4px;
+      }
+
+      .fusion-steps div,
+      .fusion-output {
+        padding: 7px;
+        font-size: 8px;
+      }
+
+      .credential-groups {
+        column-gap: 20px;
+      }
+
+      .credential-group {
+        padding-top: 6px;
+      }
+
+      .credential-row {
+        padding: 5px 0;
+      }
+
+      .credential-row strong {
+        font-size: 9px;
+      }
+
+      .credential-row p,
+      .credential-date {
+        font-size: 7px;
+      }
+
+      .code-grid {
+        gap: 6px;
+      }
+
+      .code-card {
+        padding: 9px 10px;
+      }
+
+      .code-card h3 {
+        margin: 3px 0 4px;
+        font-size: 17px;
+      }
+
+      .code-card p {
+        font-size: 9px;
+      }
+
+      .code-card a {
+        min-height: 20px;
+        font-size: 7px;
+      }
+
+      .tech-strip {
+        gap: 3px;
+        margin-top: 5px;
+        font-size: 7px;
+      }
+
+      .direction-grid {
+        grid-template-columns: 1fr;
+        border-bottom: 0;
+      }
+
+      .direction-section {
+        padding: 10px 0;
+      }
+
+      .direction-section + .direction-section {
+        border-top: 1px solid var(--rule);
+        border-left: 0;
+      }
+
+      .direction-section h3 {
+        margin-bottom: 6px;
+        font-size: 20px;
+      }
+
+      .direction-section p,
+      .question-list li,
+      .curiosity-list li {
+        font-size: 9px;
+      }
+
+      .question-list,
+      .curiosity-list {
+        gap: 5px;
+      }
+
+      .direction-footer {
+        gap: 10px;
+      }
+
+      .direction-footer p {
+        font-size: 13px;
+      }
+
+      .source-links a,
+      .contact-links a {
+        min-height: 24px;
+        font-size: 8px;
       }
 
       .keyboard-hint {
@@ -1146,8 +1994,14 @@
       }
 
       .deck-controls {
-        right: 16px;
-        bottom: 14px;
+        right: 14px;
+        bottom: 11px;
+      }
+
+      .deck-controls button {
+        min-width: 44px;
+        min-height: 42px;
+        padding: 7px 10px;
       }
 
       .deck-controls button span:not([aria-hidden="true"]) {
@@ -1156,97 +2010,70 @@
     }
 
     @media (max-width: 520px) {
-      h1 {
-        font-size: clamp(48px, 17vw, 72px);
+      .code-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .slide-title {
-        font-size: clamp(36px, 11vw, 50px);
+      .code-card .repo {
+        font-size: 6px;
       }
 
-      .grid-12 {
-        gap: 12px;
+      .flow-step span {
+        display: none;
       }
 
-      .panel {
-        padding: 17px;
+      .about-links {
+        margin-top: 4px;
       }
 
-      .metric-grid {
-        grid-template-columns: 1fr 1fr;
+      .credential-row {
+        grid-template-columns: 6px minmax(0, 1fr);
+        gap: 5px;
       }
 
-      .metric:last-child {
-        grid-column: 1 / -1;
-      }
-
-      .flow-step {
-        flex-basis: calc(50% - 8px);
-      }
-
-      .video-card {
-        min-height: 520px;
-      }
-
-      .video-stage {
-        min-height: 420px;
+      .credential-date {
+        grid-column: 2;
+        text-align: left;
       }
     }
 
-    @media (min-width: 901px) and (max-height: 780px) {
+    @media (min-width: 901px) and (max-height: 820px) {
       .slide {
-        padding-top: 30px;
-        padding-bottom: 82px;
+        padding-top: 22px;
+        padding-bottom: 68px;
       }
 
       .slide-frame {
-        min-height: calc(100dvh - 112px);
-      }
-
-      .slide-header {
-        margin-bottom: 18px;
+        gap: 13px;
       }
 
       .slide-title {
-        font-size: clamp(34px, 3.7vw, 54px);
+        font-size: clamp(31px, 3.5vw, 48px);
       }
 
       .slide-deckline {
-        margin-top: 11px;
-        font-size: 16px;
+        margin-top: 6px;
+        font-size: 14px;
+      }
+
+      .vertical-timeline {
+        gap: 7px;
+      }
+
+      .artifact-figure img {
+        height: clamp(130px, 22vh, 185px);
+      }
+
+      .single-figure img {
+        height: clamp(210px, 36vh, 285px);
       }
 
       .panel {
-        padding: 16px 18px;
-      }
-
-      .panel h3 {
-        font-size: 22px;
-      }
-
-      .panel p,
-      .clean-list li {
-        font-size: 13px;
+        padding: 12px 14px;
       }
 
       .video-card {
-        min-height: 430px;
-      }
-
-      .video-stage {
-        min-height: 330px;
-      }
-
-      .artifact-figure figcaption {
-        margin-top: 6px;
-      }
-
-      .code-card {
-        min-height: 210px;
-      }
-
-      .ledger .panel {
-        min-height: 260px;
+        max-height: 490px;
       }
     }
 
@@ -1257,7 +2084,6 @@
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
       }
     }
 
@@ -1294,7 +2120,7 @@
         position: relative;
         inset: auto;
         min-height: 100vh;
-        padding: 32px 42px;
+        padding: 28px 36px;
         overflow: visible;
         opacity: 1;
         transform: none;
@@ -1304,16 +2130,9 @@
       }
 
       .slide-frame {
-        min-height: calc(100vh - 64px);
-      }
-
-      a {
-        color: var(--ink);
-      }
-
-      .video-trigger {
-        position: relative;
-        min-height: 440px;
+        width: 100% !important;
+        min-height: calc(100vh - 56px);
+        zoom: 1 !important;
       }
 
       .deck .slide:last-of-type {
@@ -1330,12 +2149,12 @@
       <div class="rail-brand">
         <div class="rail-monogram" aria-hidden="true">YZ</div>
         <strong>Yixin Zhang</strong>
-        <span>Systems &amp; applied AI</span>
+        <span>Robotics &amp; applied AI</span>
       </div>
 
       <nav class="rail-nav" aria-label="Slide navigation">
         <button type="button" data-slide="about" aria-current="step">
-          <span class="nav-number">01</span><span class="nav-label">About</span>
+          <span class="nav-number">01</span><span class="nav-label">Profile</span>
         </button>
         <button type="button" data-slide="robot-loop">
           <span class="nav-number">02</span><span class="nav-label">Robot loop</span>
@@ -1355,8 +2174,11 @@
         <button type="button" data-slide="public-code">
           <span class="nav-number">07</span><span class="nav-label">Public code</span>
         </button>
-        <button type="button" data-slide="evidence">
-          <span class="nav-number">08</span><span class="nav-label">Evidence</span>
+        <button type="button" data-slide="credentials">
+          <span class="nav-number">08</span><span class="nav-label">Credentials</span>
+        </button>
+        <button type="button" data-slide="direction">
+          <span class="nav-number">09</span><span class="nav-label">Next questions</span>
         </button>
       </nav>
 
@@ -1369,61 +2191,120 @@
     <main class="deck" id="main" tabindex="-1">
       <div class="mobile-bar" aria-hidden="true">
         <strong>Yixin Zhang</strong>
-        <span class="mobile-progress"><span id="mobile-current">01</span> / 08</span>
+        <span class="mobile-progress"><span id="mobile-current">01</span> / <span data-total>09</span></span>
       </div>
 
       <section class="slide is-active" id="about" aria-labelledby="about-title">
         <div class="slide-frame">
-          <div class="grid-12">
-            <div class="span-8">
-              <p class="eyebrow">01 / 08 · About</p>
+          <div class="about-top">
+            <div>
+              <p class="eyebrow">01 / 09 · Profile</p>
               <h1 id="about-title" tabindex="-1">Yixin Zhang</h1>
-              <p class="lead">R&amp;D engineer building the connective layer between sensing, models, and machines.</p>
-              <p class="body-copy">
-                I work across robot media infrastructure, applied computer vision, and model-to-product pipelines. The through-line is practical: make inputs dependable, expose the right system boundary, and keep evaluation close to the artifact.
+              <p class="about-lead">R&amp;D engineer building robot media infrastructure and closed-loop manipulation.</p>
+              <p class="about-copy">
+                Previously: industrial wastewater vision at Beijing Zhongke Shengtai, and climate-model data at SIMTech, A*STAR. B.Eng. in Intelligent Test and Control Engineering under Electrical Engineering at HIT; Graduate Diploma in Systems Analysis at NUS-ISS.
               </p>
-              <div class="contact-links">
+              <div class="contact-links about-links">
                 <a href="mailto:hi.yixinz@gmail.com">hi.yixinz@gmail.com</a>
                 <a href="https://github.com/yixin-zh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                 <a href="https://www.linkedin.com/in/yixin-zh" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">ANP · zyx.awiki.ai ↗</a>
               </div>
             </div>
 
-            <div class="span-4 portrait-empty">
-              <div>
-                <strong>Portrait space</strong>
-                <span>Intentionally empty. No sourced headshot was provided.</span>
-              </div>
+            <div class="principle">
+              <span>My motto</span>
+              <p>Extreme ownership, proactive problem-solving, and one extra step beyond the comfort zone.</p>
             </div>
           </div>
 
-          <div class="grid-12 trajectory">
-            <article class="panel span-4">
-              <span class="trajectory-year">2025 — NOW</span>
-              <h3>Robotics systems</h3>
-              <p>Media I/O, cross-device stream routing, ROS2 integration, perception-to-control loops, and manipulation tooling at InsightOS.</p>
-              <div class="tech-map" aria-label="Robotics technologies">
-                <span>C++</span><span>Linux</span><span>ROS2</span><span>RGB-D</span><span>IPC</span>
-              </div>
-            </article>
+          <div class="profile-chronology">
+            <div class="vertical-timeline" aria-label="Career and education timeline from 2020 to now">
+              <article class="journey-item">
+                <time class="journey-date">Sep 2025<br>— now</time>
+                <span class="journey-node current" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type">Career</p>
+                  <h2 class="journey-role">R&amp;D Engineer · 上海具识智能有限公司</h2>
+                  <p class="journey-org">InsightOS media I/O and closed-loop cabinet operation</p>
+                </div>
+              </article>
 
-            <article class="panel span-4">
-              <span class="trajectory-year">2024 — 2025</span>
-              <h3>Applied models</h3>
-              <p>Industrial wastewater vision PoCs and optimization-ready climate case studies at SIMTech, A*STAR.</p>
-              <div class="tech-map" aria-label="Applied modeling technologies">
-                <span>Python</span><span>XGBoost</span><span>CV</span><span>JSON</span><span>Optimization</span>
-              </div>
-            </article>
+              <article class="journey-item">
+                <time class="journey-date">Jul — Sep<br>2025</time>
+                <span class="journey-node" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type">Career</p>
+                  <h2 class="journey-role">Industrial Digitalization Engineer · 北京中科圣泰环境科技有限公司</h2>
+                  <p class="journey-org">Industrial-wastewater vision and floc-analysis PoCs</p>
+                </div>
+              </article>
 
-            <article class="panel span-4">
-              <span class="trajectory-year">2020 — 2025</span>
-              <h3>Systems foundation</h3>
-              <p>HIT control engineering, then NUS-ISS systems analysis: a path from algorithms to software and operating constraints.</p>
-              <div class="tech-map" aria-label="Research and systems technologies">
-                <span>RL</span><span>PyTorch</span><span>C#</span><span>SDLC</span><span>Evaluation</span>
+              <article class="journey-item">
+                <time class="journey-date">Sep 2024<br>— Jan 2025</time>
+                <span class="journey-node" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type">Career</p>
+                  <h2 class="journey-role">Scientist Intern · SIMTech, A*STAR</h2>
+                  <p class="journey-org">ASEAN energy-model studies to optimization-ready data</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Jun 2023<br>— Mar 2025</time>
+                <span class="journey-node education" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type education">Education</p>
+                  <h2 class="journey-role">NUS-ISS · Graduate Diploma in Systems Analysis</h2>
+                  <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025</p>
+                  <p class="overlap-note"><strong>Overlap:</strong> the online year ran alongside the final HIT year.</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Sep 2020<br>— Jun 2024</time>
+                <span class="journey-node education" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type education">Education</p>
+                  <h2 class="journey-role">HIT · B.Eng., Intelligent Test &amp; Control Engineering (EE)</h2>
+                  <p class="journey-org">School of Electronics and Information Engineering · average 86.95/100</p>
+                  <ul class="nested-projects" aria-label="Projects undertaken at HIT">
+                    <li>Video OCR · 2021–22</li>
+                    <li>SparkDesk KBQA · 2023</li>
+                    <li>DQN capstone · 2023–24</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+
+            <aside class="profile-side" aria-label="Volunteering, certifications, and timeline legend">
+              <div class="category-key" aria-label="Timeline categories">
+                <span>Career</span>
+                <span class="key-education">Education</span>
+                <span class="key-project">HIT projects</span>
+                <span class="key-volunteer">Volunteering</span>
+                <span class="key-credential">Credentials</span>
               </div>
-            </article>
+
+              <section class="side-section">
+                <h2 class="side-heading">Volunteering</h2>
+                <ul class="activity-list">
+                  <li><time>2022</time> · led a nine-person HIT field-research team</li>
+                  <li><time>2024–25</time> · SG Beach Warriors cleanups</li>
+                  <li><strong>Also:</strong> Veritasium Bilibili translation and HIT events</li>
+                </ul>
+              </section>
+
+              <section class="side-section">
+                <h2 class="side-heading">Credentials · 2024–26</h2>
+                <ul class="credential-mini">
+                  <li><strong>NVIDIA:</strong> GenAI LLMs; Transformer NLP; satellite disaster-risk imagery</li>
+                  <li><strong>Oracle:</strong> OCI DevOps, Data Science, and Generative AI</li>
+                  <li><strong>Microsoft:</strong> Azure Data Scientist; Power BI Data Analyst</li>
+                  <li><strong>AWS:</strong> ML Engineer – Associate</li>
+                </ul>
+              </section>
+            </aside>
           </div>
         </div>
       </section>
@@ -1432,61 +2313,64 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">02 / 08 · Current work</p>
+              <p class="slide-kicker">02 / 09 · Current work</p>
               <h2 class="slide-title" id="robot-loop-title" tabindex="-1">Closing the cabinet-operation loop</h2>
-              <p class="slide-deckline">One visible behavior, supported by two engineering layers: perception-to-control and reusable robot media infrastructure.</p>
+              <p class="slide-deckline">Reusable robot media infrastructure underneath a perception-to-control demonstration.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip artifact">Demo artifact</span>
-              <span class="status-chip reported">Implementation reported</span>
+            <div class="role-stamp">
+              <strong>R&amp;D Engineer · Sep 2025–Now</strong>
+              上海具识智能有限公司 · InsightOS
             </div>
           </header>
 
-          <div class="grid-12 case-grid">
+          <div class="grid-12 project-grid">
             <div class="span-7 stack">
               <div class="problem-line">
-                <strong>Problem.</strong> Open-loop motion is brittle when the camera, target, and robot frames drift. The application also should not be rewritten every time a camera or depth source changes.
+                <strong>Problem.</strong> Camera and depth sources change across devices, while open-loop motion becomes brittle when target and robot frames drift.
               </div>
 
               <article class="panel">
-                <p class="panel-label">Manipulation path · reported in résumé</p>
                 <h3>Observation to correction</h3>
-                <div class="flow" aria-label="Reported cabinet operation pipeline">
-                  <div class="flow-step"><strong>Segment</strong><span>YOLO11 target mask</span></div>
-                  <div class="flow-step"><strong>Project</strong><span>RGB-D to 3D points</span></div>
-                  <div class="flow-step"><strong>Estimate</strong><span>Planar filter + SVD pose</span></div>
+                <div class="flow" aria-label="Cabinet operation pipeline">
+                  <div class="flow-step"><strong>Segment</strong><span>YOLO11 mask</span></div>
+                  <div class="flow-step"><strong>Project</strong><span>RGB-D → 3D</span></div>
+                  <div class="flow-step"><strong>Estimate</strong><span>SVD + plane constraint</span></div>
                   <div class="flow-step"><strong>Transform</strong><span>ROS TF frames</span></div>
-                  <div class="flow-step"><strong>Correct</strong><span>Closed-loop IK / servoing</span></div>
+                  <div class="flow-step"><strong>Correct</strong><span>Closed-loop IK</span></div>
                 </div>
-                <p style="margin-top: 12px;">The résumé also reports visual and tactile feedback plus a dexterous-hand runtime. Those internals are not public artifacts.</p>
               </article>
 
               <div class="grid-12">
-                <article class="panel span-7">
-                  <p class="panel-label">Runtime substrate</p>
-                  <h3>Make media sources addressable</h3>
+                <article class="panel span-6">
+                  <p class="panel-label">Robot media runtime</p>
                   <ul class="clean-list">
-                    <li>Background daemon and <code>memfd</code>-based IPC for stream reuse.</li>
-                    <li><code>insightos://</code> routing separates device access from application logic.</li>
-                    <li>ROS2 bridge, C++ SDK, CLI/REST interfaces, and agent-facing workflows.</li>
+                    <li>Device discovery and RGB/depth synchronization.</li>
+                    <li>Reusable stream routing without recompiling apps after hardware swaps.</li>
+                    <li>Agent skills for faster media-app development.</li>
                   </ul>
                 </article>
-
-                <aside class="panel boundary span-5">
-                  <p class="panel-label">Evidence boundary</p>
-                  <h3>What the demo proves</h3>
-                  <p>It shows a robot interacting with a real cabinet. It does not independently prove the internal pipeline, success rate, or production reliability.</p>
-                </aside>
+                <article class="panel span-6">
+                  <p class="panel-label">Manipulation work</p>
+                  <ul class="clean-list">
+                    <li>Camera-to-robot transforms managed through ROS TF.</li>
+                    <li>Visual/tactile feedback and arm/hand FK/IK.</li>
+                    <li>Electrical-panel demo prepared for WAIC 2026.</li>
+                  </ul>
+                </article>
               </div>
 
-              <div class="source-links" aria-label="Robotics sources">
-                <a href="https://www.insightos.cn/" target="_blank" rel="noopener noreferrer">InsightOS company context ↗</a>
-                <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Direct demo file ↗</a>
+              <div class="review-line">
+                <strong>Needs review:</strong> the video shows real cabinet interaction, but does not establish the internal pipeline, success rate, or production reliability. The résumé’s “&gt;95% within 15 minutes” development metric still needs a denominator and logs.
+              </div>
+
+              <div class="source-links">
+                <a href="https://www.insightos.cn/" target="_blank" rel="noopener noreferrer">InsightOS ↗</a>
+                <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Direct video ↗</a>
               </div>
             </div>
 
             <div class="span-5">
-              <div class="video-card" id="cabinet-video-card">
+              <div class="video-card">
                 <div class="video-stage">
                   <button class="video-trigger" id="cabinet-play" type="button" aria-label="Load and play the cabinet operation demo">
                     <img src="assets/portfolio/cabinet-poster.jpg" alt="Robot arm positioned in front of an electrical control cabinet">
@@ -1495,10 +2379,7 @@
                   <video id="cabinet-video" controls playsinline preload="none" poster="assets/portfolio/cabinet-poster.jpg" hidden aria-label="Cabinet operation robot demo"></video>
                 </div>
                 <div class="video-caption">
-                  <div>
-                    <p>Observed artifact · portrait video · click to load.</p>
-                    <p class="video-error" id="cabinet-video-error">The hosted copy did not play. Use “Open file” to retry directly.</p>
-                  </div>
+                  <p>Cabinet-operation demo · <span id="cabinet-video-status">click to load.</span><span class="video-error" id="cabinet-video-error"> Hosted video unavailable; use the direct file link.</span></p>
                   <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Open file ↗</a>
                 </div>
               </div>
@@ -1511,79 +2392,80 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">03 / 08 · Industrial computer vision</p>
-              <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc images to operator advice</h2>
-              <p class="slide-deckline">Two wastewater PoCs: expert-aligned dose adjustment from underwater video, and RGB oil-film early warning.</p>
+              <p class="slide-kicker">03 / 09 · Industrial computer vision</p>
+              <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc video to dose advice</h2>
+              <p class="slide-deckline">A working desktop pipeline turned underwater floc video into a documented XGBoost operator cue.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip reported">Retrospective record</span>
-              <span class="status-chip review">Metric conflict</span>
+            <div class="role-stamp">
+              <strong>Industrial Digitalization Engineer · Jul–Sep 2025</strong>
+              北京中科圣泰环境科技有限公司
             </div>
           </header>
 
-          <div class="grid-12 case-grid">
-            <div class="span-5 stack">
+          <div class="grid-12 project-grid">
+            <div class="span-6 stack">
               <div class="problem-line">
-                <strong>Problem.</strong> Operators see floc morphology before downstream quality settles, but one frame is a noisy and incomplete view of a delayed chemical process.
+                <strong>Problem.</strong> Manual assessment of floc formation is subjective and hard to quantify; video frames also repeat nearly the same process state.
               </div>
 
               <article class="panel">
-                <p class="panel-label">Implemented PoC · best-supported scope</p>
-                <h3>Five-class dose adjustment</h3>
+                <h3>Documented handoff pipeline</h3>
+                <div class="flow" aria-label="Wastewater computer vision workflow">
+                  <div class="flow-step"><strong>Video</strong><span>Underwater frames</span></div>
+                  <div class="flow-step"><strong>Segment</strong><span>Adaptive threshold + morphology</span></div>
+                  <div class="flow-step"><strong>Measure</strong><span>Connected components</span></div>
+                  <div class="flow-step"><strong>Classify</strong><span>XGBoost</span></div>
+                  <div class="flow-step"><strong>Cue</strong><span>Good / add more</span></div>
+                </div>
                 <ul class="clean-list">
-                  <li>Fixed-camera footage from Xidagou and Beidagou plant settings.</li>
-                  <li>Binary masks and morphology: count, area ratio, equivalent diameter, fractal dimension, circularity.</li>
-                  <li>XGBoost / LightGBM-style output: -20%, -10%, 0, +10%, or +20%.</li>
+                  <li>Section 3.2.2 names count, diameter, equivalent diameter, circularity, and area share; later pages list a different five-feature set.</li>
+                  <li>Python, OpenCV, NumPy, scikit-learn, XGBoost, and a Tkinter interface.</li>
                 </ul>
               </article>
 
-              <article class="panel">
-                <p class="panel-label">Second PoC</p>
-                <h3>Oil-film alert, not thickness estimation</h3>
-                <p>An RGB-only early-warning concept for inspection and skimming. Segmentation, persistence rules, and alarm hysteresis belong to the production path; they are not proven deployment results here.</p>
+              <article class="panel mobile-hide">
+                <p class="panel-label">What was built</p>
+                <h3>Threshold baseline + learned classifier</h3>
+                <p>The interface supported video playback, side-by-side preprocessing, parameter adjustment, model loading, and per-frame classification.</p>
               </article>
             </div>
 
-            <div class="span-7 stack">
-              <article class="panel tint">
-                <p class="panel-label">Model boundary</p>
-                <h3>A pragmatic feature pipeline</h3>
-                <div class="flow" aria-label="Wastewater vision pipeline">
-                  <div class="flow-step"><strong>Observe</strong><span>Underwater RGB video</span></div>
-                  <div class="flow-step"><strong>Segment</strong><span>Floc / water mask</span></div>
-                  <div class="flow-step"><strong>Describe</strong><span>2D morphology features</span></div>
-                  <div class="flow-step"><strong>Classify</strong><span>Tree-based model</span></div>
-                  <div class="flow-step"><strong>Advise</strong><span>Expert-aligned class</span></div>
+            <div class="span-6 stack">
+              <div class="metric-grid">
+                <div class="metric">
+                  <span class="metric-value">≈89%</span>
+                  <span class="metric-label">88.5% XGBoost test accuracy in handoff design doc</span>
                 </div>
-                <div class="metric-grid">
-                  <div class="metric">
-                    <span class="metric-value">2</span>
-                    <span class="metric-label">Plant settings named in the retrospective</span>
-                  </div>
-                  <div class="metric">
-                    <span class="metric-value">5</span>
-                    <span class="metric-label">Discrete adjustment classes</span>
-                  </div>
-                  <div class="metric">
-                    <span class="metric-value">89–92%</span>
-                    <span class="metric-label">Conflicting offline accuracy reports</span>
-                  </div>
+                <div class="metric">
+                  <span class="metric-value">67.4%</span>
+                  <span class="metric-label">Threshold-classifier accuracy in the same document</span>
                 </div>
+                <div class="metric">
+                  <span class="metric-value">5</span>
+                  <span class="metric-label">Geometric features feeding XGBoost</span>
+                </div>
+              </div>
+
+              <article class="evidence-board">
+                <h3>What the number means</h3>
+                <table class="result-table" aria-label="Floc classifier results from the handoff design document">
+                  <thead>
+                    <tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
+                    <tr><td>Fixed threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
+                  </tbody>
+                </table>
+                <p class="evidence-note">The document reports 88.6% on training data and 88.5% on test data. The 89% résumé figure is the rounded test result. A supplied GUI capture shows the threshold and XGBoost classifiers disagreeing on one frame; no fusion rule is documented.</p>
               </article>
 
-              <aside class="panel review">
-                <p class="panel-label">Review before publication as a result</p>
-                <h3>The hardest part is temporal, not visual</h3>
-                <p>The résumé says 89%; retrospective notes say about 92%. Original splits and logs are absent. The 2–4h response delay, exact-dose regression, sensor fusion, digital twins, and offline RL are follow-on work—not implemented outcomes.</p>
-              </aside>
+              <div class="review-line">
+                <strong>Needs review:</strong> the handoff document describes a binary “good / add more” model, while the résumé describes five dose steps (−20% to +20%); their mapping is not documented. It does not state whether video sequences, plants, or operating periods were held out, so its 238,176 “samples” may include adjacent frames. Feature definitions also change between sections. Accuracy is prototype classification performance—not plant generalization, correct dosing, chemical savings, or effluent improvement.
+              </div>
 
-              <aside class="panel boundary">
-                <p class="panel-label">Method boundary</p>
-                <p>2D floc features are correlated indicators of process state. They are not physical measurements of true 3D floc structure, settling velocity, or a universally optimal PAC dose.</p>
-              </aside>
-
-              <div class="source-links" aria-label="Wastewater references">
-                <a href="https://doi.org/10.1039/D2EW00389A" target="_blank" rel="noopener noreferrer">C-FIA floc imaging reference ↗</a>
+              <div class="source-links">
+                <a href="https://doi.org/10.1039/D2EW00389A" target="_blank" rel="noopener noreferrer">Floc-imaging method context ↗</a>
               </div>
             </div>
           </div>
@@ -1594,71 +2476,73 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">04 / 08 · SIMTech, A*STAR</p>
+              <p class="slide-kicker">04 / 09 · Climate analytics</p>
               <h2 class="slide-title" id="climate-data-title" tabindex="-1">Turning case studies into model inputs</h2>
-              <p class="slide-deckline">Structured data work for climate scenario analysis during MOYA’s 2024 spin-off and GMPA Phase II period.</p>
+              <p class="slide-deckline">Structured ASEAN energy-system studies for optimization and interactive scenario analysis.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip artifact">Project slides</span>
-              <span class="status-chip public">Official product context</span>
-              <span class="status-chip review">Pass@1 reported</span>
+            <div class="role-stamp">
+              <strong>Scientist Intern · Sep 2024–Jan 2025</strong>
+              SIMTech, A*STAR Singapore
             </div>
           </header>
 
-          <div class="grid-12 case-grid">
+          <div class="grid-12 project-grid">
             <div class="span-5 stack">
               <div class="problem-line">
-                <strong>Problem.</strong> Research case studies describe assets, constraints, trade, and policy in prose and equations. Scenario engines need consistent, optimization-ready structure.
+                <strong>Problem.</strong> Research studies describe assets, constraints, trade, and policy in prose and equations; scenario engines require consistent structured inputs.
               </div>
 
               <article class="panel">
-                <p class="panel-label">Contribution</p>
-                <h3>Model-ready data, then behavioral checks</h3>
+                <h3>Study to optimization-ready JSON</h3>
                 <div class="flow" aria-label="Climate case conversion workflow">
-                  <div class="flow-step"><strong>Read</strong><span>Energy-system study</span></div>
-                  <div class="flow-step"><strong>Structure</strong><span>Schema-constrained JSON</span></div>
-                  <div class="flow-step"><strong>Run</strong><span>Convex optimization inputs</span></div>
-                  <div class="flow-step"><strong>Compare</strong><span>Prior solver behavior</span></div>
+                  <div class="flow-step"><strong>Read</strong><span>Case study</span></div>
+                  <div class="flow-step"><strong>Structure</strong><span>JSON schema</span></div>
+                  <div class="flow-step"><strong>Run</strong><span>Convex model</span></div>
+                  <div class="flow-step"><strong>Check</strong><span>Prior studies</span></div>
                 </div>
                 <ul class="clean-list">
-                  <li>ASEAN generation, storage, electricity/ammonia trade, and carbon-policy cases.</li>
-                  <li>Autarky versus collaboration scenarios and cost-emissions trade-offs.</li>
-                  <li>Schema-constrained LLM prototype for repetitive conversion work.</li>
+                  <li>Generation, storage, electricity/ammonia trade, and carbon-policy cases.</li>
+                  <li>Visualized outputs and checked behavior against OSeMOSYS and TIMES studies.</li>
+                  <li>Prototyped ChatGPT o1 conversion and contributed to early MOYA Cascade concepts.</li>
                 </ul>
               </article>
 
-              <aside class="panel review">
-                <p class="panel-label">Review needed</p>
-                <p><strong>Pass@1 &gt;85%</strong> is reported in the résumé, but the evaluation set, rubric, sample count, and failure distribution are not in this repository.</p>
-              </aside>
+              <div class="review-line">
+                <strong>Needs review:</strong> Pass@1 &gt;85% is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade concept work does not imply ownership of later implementation or adoption.
+              </div>
 
-              <aside class="panel boundary">
-                <p class="panel-label">Role boundary</p>
-                <p>Public GMPA traction explains product context. It does not prove ownership of the public frontend, direct government deployment, or later Cascade development.</p>
-              </aside>
-
-              <div class="source-links" aria-label="Climate analytics sources">
-                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">GMPA platform ↗</a>
-                <a href="https://mitigationatlas.org/about" target="_blank" rel="noopener noreferrer">Official GMPA context ↗</a>
+              <div class="source-links">
+                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">GMPA ↗</a>
+                <a href="https://mitigationatlas.org/about" target="_blank" rel="noopener noreferrer">About GMPA ↗</a>
               </div>
             </div>
 
-            <div class="span-7 figure-stack">
-              <figure class="artifact-figure">
-                <img src="assets/portfolio/moya-schema.webp" alt="Project slide mapping an energy-system model to a structured JSON directory" loading="lazy">
-                <figcaption>
-                  <span><strong>Structure.</strong> System graph mapped to locations, components, assets, systems, and inputs.</span>
-                  <span>Source: project slides, p. 11</span>
-                </figcaption>
-              </figure>
-
-              <figure class="artifact-figure">
-                <img src="assets/portfolio/moya-collaboration.webp" alt="Project slide comparing modeled Singapore and Indonesia energy system costs with and without collaboration" loading="lazy">
-                <figcaption>
-                  <span><strong>Scenario output.</strong> Autarky and idealized collaboration are compared in the project artifact.</span>
-                  <span>Source: project slides, p. 10</span>
-                </figcaption>
-              </figure>
+            <div class="span-7 evidence-board">
+              <h3>Selected structure, redrawn from the project artifact</h3>
+              <div class="schema-map" aria-label="Energy-system case study mapped to structured data">
+                <div class="schema-system">
+                  <strong>Case-study model</strong>
+                  <span>CO₂ budget</span>
+                  <span>Locations</span>
+                  <span>Generation</span>
+                  <span>Storage</span>
+                  <span>Demand</span>
+                  <span>Trade pools</span>
+                </div>
+                <div class="map-arrow" aria-hidden="true">→</div>
+                <pre class="schema-tree">/data
+├─ locations/
+├─ components/
+├─ assets/
+├─ systems/
+└─ input/</pre>
+              </div>
+              <div class="validation-strip" aria-label="Conversion checks">
+                <div><strong>1 · Structure</strong><span>Required entities, units, and links</span></div>
+                <div><strong>2 · Execute</strong><span>Run the convex optimization case</span></div>
+                <div><strong>3 · Compare</strong><span>Check behavior against OSeMOSYS/TIMES studies</span></div>
+              </div>
+              <p class="evidence-note">The reconstruction keeps the useful model-to-directory relationship and omits the unreadable report chrome and unexplained scenario plots.</p>
             </div>
           </div>
         </div>
@@ -1668,66 +2552,58 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">05 / 08 · HIT capstone</p>
+              <p class="slide-kicker">05 / 09 · HIT capstone</p>
               <h2 class="slide-title" id="dqn-planner-title" tabindex="-1">Path planning with delayed observations</h2>
-              <p class="slide-deckline">A grid-world study of how reward design and stale observations affect model-free dynamic navigation.</p>
+              <p class="slide-deckline">A simulated study of reward design and stale observations in dynamic navigation.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip artifact">Results slide</span>
-              <span class="status-chip review">Code/logs absent</span>
+            <div class="role-stamp">
+              <strong>Sep 2023–Jun 2024</strong>
+              Harbin Institute of Technology
             </div>
           </header>
 
-          <div class="grid-12 case-grid">
+          <div class="grid-12 project-grid">
             <div class="span-5 stack">
               <div class="problem-line">
-                <strong>Problem.</strong> A planner that receives the world state late must still reach its goal while obstacles move; perfect synchronous observation is the easier assumption.
+                <strong>Problem.</strong> A planner must avoid moving obstacles even when its observation of the world is delayed.
               </div>
 
               <article class="panel">
-                <p class="panel-label">Implemented study</p>
-                <h3>Delay-aware DQN + reward shaping</h3>
+                <h3>Delay-aware DQN study</h3>
                 <ul class="clean-list">
-                  <li>Introduced delayed observation updates into a discrete grid simulation.</li>
-                  <li>Added goal-directed reward logic and tested different obstacle layouts.</li>
+                  <li>Introduced delayed observation updates into a discrete simulation.</li>
+                  <li>Added goal-directed reward shaping and compared obstacle layouts.</li>
                   <li>Repeated the reported experiment 15 times and compared means.</li>
                 </ul>
               </article>
 
-              <div class="metric-grid">
-                <div class="metric">
-                  <span class="metric-value">98.1%</span>
-                  <span class="metric-label">Success rate printed for proposed method</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">29.113</span>
-                  <span class="metric-label">Mean path length printed in artifact</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">+5.5 pp</span>
-                  <span class="metric-label">Versus 92.6% traditional DQN in table</span>
-                </div>
+              <div class="review-line">
+                <strong>Needs review:</strong> code, seeds, delay specification, and uncertainty are unavailable. The résumé’s ~12% faster convergence and Rainbow/D3QN wording cannot be checked from the supplied results slide.
               </div>
 
-              <aside class="panel review">
-                <p class="panel-label">Do not overread the curve</p>
-                <p>The slide supports the table above. It does not substantiate the résumé’s “~12% faster convergence,” Rainbow/D3QN comparison, exact delay model, confidence intervals, or transfer beyond the simulator.</p>
-              </aside>
-
-              <div class="source-links" aria-label="DQN reference">
-                <a href="https://doi.org/10.1038/nature14236" target="_blank" rel="noopener noreferrer">DQN foundation paper ↗</a>
+              <div class="source-links">
+                <a href="https://doi.org/10.1038/nature14236" target="_blank" rel="noopener noreferrer">DQN reference ↗</a>
               </div>
             </div>
 
-            <div class="span-7">
-              <figure class="artifact-figure">
-                <img src="assets/portfolio/dqn-results.webp" alt="Chinese project results slide showing path-planning success rates, mean path lengths, and reward curves" loading="lazy">
-                <figcaption>
-                  <span><strong>Student artifact.</strong> Table and learning curves from the capstone presentation.</span>
-                  <span>Source: project slides, p. 8</span>
-                </figcaption>
-              </figure>
-              <div class="result-note"><strong>Artifact status:</strong> traceable to the supplied deck, but not independently reproduced from training code.</div>
+            <div class="span-7 evidence-board">
+              <h3>Reported mean results · 15 repetitions</h3>
+              <div class="bar-comparison" aria-label="Success rate comparison">
+                <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill" style="--value:98.1%"></div></div><strong>98.1%</strong></div>
+                <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill" style="--value:97.2%"></div></div><strong>97.2%</strong></div>
+                <div class="bar-row"><span>Traditional DQN</span><div class="bar-track"><div class="bar-fill" style="--value:92.6%"></div></div><strong>92.6%</strong></div>
+                <div class="bar-row"><span>Traditional Q-learning</span><div class="bar-track"><div class="bar-fill" style="--value:93.1%"></div></div><strong>93.1%</strong></div>
+              </div>
+              <table class="result-table" aria-label="DQN capstone result table">
+                <thead><tr><th>Method</th><th>Success</th><th>Mean path length</th></tr></thead>
+                <tbody>
+                  <tr><td>Proposed</td><td>98.1%</td><td>29.113</td></tr>
+                  <tr><td>Without reward logic</td><td>97.2%</td><td>29.474</td></tr>
+                  <tr><td>Traditional DQN</td><td>92.6%</td><td>30.852</td></tr>
+                  <tr><td>Traditional Q-learning</td><td>93.1%</td><td>32.224</td></tr>
+                </tbody>
+              </table>
+              <p class="evidence-note">98.1% versus 92.6% is +5.5 percentage points, or about +5.9% relative. Values are transcribed from the capstone results slide; raw logs are unavailable.</p>
             </div>
           </div>
         </div>
@@ -1737,80 +2613,59 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">06 / 08 · National-level student project</p>
-              <h2 class="slide-title" id="video-ocr-title" tabindex="-1">Recognizing text that one frame cannot recover</h2>
-              <p class="slide-deckline">A team pipeline for text detection, cross-frame evidence, restoration, and final recognition.</p>
+              <p class="slide-kicker">06 / 09 · HIT innovation project</p>
+              <h2 class="slide-title" id="video-ocr-title" tabindex="-1">Recognizing text across blurred frames</h2>
+              <p class="slide-deckline">First-prize HIT project selected at national level; four stages from detection to recognition.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip artifact">Acceptance report</span>
-              <span class="status-chip review">Role discrepancy resolved cautiously</span>
+            <div class="role-stamp">
+              <strong>Team member · Sep 2021–Nov 2022</strong>
+              Innovation &amp; Entrepreneurship Programme
             </div>
           </header>
 
-          <div class="grid-12 case-grid">
+          <div class="grid-12 project-grid">
             <div class="span-5 stack">
               <div class="problem-line">
-                <strong>Problem.</strong> Fast camera or object motion can erase character strokes in a single frame. Adjacent frames carry complementary evidence, but must be aligned and fused.
+                <strong>Problem.</strong> Motion can erase character strokes in one frame; adjacent frames carry complementary evidence that must be tracked, aligned, and fused.
               </div>
 
               <article class="panel">
-                <p class="panel-label">Team system</p>
-                <div class="flow" aria-label="Video text recognition pipeline">
-                  <div class="flow-step"><strong>Detect</strong><span>Text regions</span></div>
-                  <div class="flow-step"><strong>Track</strong><span>Cross-frame instances</span></div>
-                  <div class="flow-step"><strong>Restore</strong><span>Align and fuse features</span></div>
-                  <div class="flow-step"><strong>Recognize</strong><span>Character output</span></div>
-                </div>
+                <h3>Team system, documented contribution</h3>
+                <ul class="clean-list">
+                  <li>The team pipeline covered text detection, frame tracking, multi-frame restoration, and recognition.</li>
+                  <li>The final acceptance report assigns me the Transformer-inspired recognizer and coupling of recognition features to the restoration network.</li>
+                  <li>The project won first prize in HIT’s Innovation and Entrepreneurship Programme and was selected at national level.</li>
+                </ul>
               </article>
 
-              <article class="panel tint">
-                <p class="panel-label">Best-supported personal contribution</p>
-                <h3>Recognition and feature coupling</h3>
-                <p>The final acceptance report assigns Yixin the Transformer-inspired OCR implementation and coupling of recognition features with the upstream deblurring network.</p>
-              </article>
-
-              <div class="metric-grid">
-                <div class="metric">
-                  <span class="metric-value">69.2</span>
-                  <span class="metric-label">Chinese Benchmark · project table</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">68.5</span>
-                  <span class="metric-label">ICDAR2019-LSVT · project table</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">+0.2 / +0.3</span>
-                  <span class="metric-label">Absolute table deltas vs SVTR-S</span>
-                </div>
-              </div>
-
-              <aside class="panel review">
-                <p class="panel-label">Corrections to the prior portfolio</p>
-                <p>The report does not support “+0.23% F1 vs SVTR-Tiny.” A preliminary form and the final report describe different individual roles. Android deployment appears as a goal/future task, not a demonstrated outcome.</p>
-              </aside>
-
-              <div class="source-links" aria-label="Video restoration references">
-                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT paper ↗</a>
-                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR paper ↗</a>
+              <div class="review-line">
+                <strong>Needs review:</strong> the résumé gives a broader architecture/deblurring role than the final report. It also targeted resource-constrained Android deployment, but completed deployment and the earlier “+0.23% F1” claim are not supported.
               </div>
             </div>
 
-            <div class="span-7 figure-stack">
-              <figure class="artifact-figure">
-                <img src="assets/portfolio/video-text-pipeline.webp" alt="Project slide diagram showing selected text frames, feature extraction, alignment, fusion, and recognition" loading="lazy">
-                <figcaption>
-                  <span><strong>Pipeline artifact.</strong> Reference frame plus selected support frames feed feature alignment and recognition.</span>
-                  <span>Source: project slides, p. 2</span>
-                </figcaption>
-              </figure>
-
-              <figure class="artifact-figure">
-                <img src="assets/portfolio/video-text-results.webp" alt="Acceptance report comparison table with results on IC13, IC15, Chinese Benchmark, and ICDAR2019-LSVT" loading="lazy">
-                <figcaption>
-                  <span><strong>Reported comparison.</strong> Exact values replace the prior unsupported F1 summary.</span>
-                  <span>Source: acceptance report, p. 38</span>
-                </figcaption>
-              </figure>
+            <div class="span-7 evidence-board">
+              <h3>Cross-frame recognition path</h3>
+              <div class="fusion-diagram" aria-label="Reference and support frames fused before text recognition">
+                <div class="frame-stack" aria-label="Ranked text crops">
+                  <div class="frame-card" style="--offset:0"><strong>Support −4</strong><span>ranked earlier crop</span></div>
+                  <div class="frame-card" style="--offset:1"><strong>Support −3</strong><span>ranked earlier crop</span></div>
+                  <div class="frame-card" style="--offset:2"><strong>Support −2/−1</strong><span>top-quality history</span></div>
+                  <div class="frame-card" style="--offset:3"><strong>Reference</strong><span>current text crop</span></div>
+                </div>
+                <div class="map-arrow" aria-hidden="true">→</div>
+                <div class="fusion-steps">
+                  <div><strong>Extract</strong><span>features per crop</span></div>
+                  <div><strong>Align + fuse</strong><span>cross-frame evidence</span></div>
+                  <div><strong>Recognize</strong><span>Transformer-inspired decoder</span></div>
+                </div>
+                <div class="map-arrow" aria-hidden="true">→</div>
+                <div class="fusion-output"><strong>Text</strong><span>recognized sequence</span></div>
+              </div>
+              <div class="source-links">
+                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT ↗</a>
+                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR ↗</a>
+              </div>
+              <p class="evidence-note">The diagram retains the final report’s reference/support-frame logic without reproducing an unreadable report page.</p>
             </div>
           </div>
         </div>
@@ -1820,108 +2675,206 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">07 / 08 · LLM evaluation &amp; open source</p>
-              <h2 class="slide-title" id="public-code-title" tabindex="-1">Public code is the strongest evidence</h2>
-              <p class="slide-deckline">Merged changes, test descriptions, and an openly readable evaluation report provide inspectable proof beyond résumé prose.</p>
+              <p class="slide-kicker">07 / 09 · Open work</p>
+              <h2 class="slide-title" id="public-code-title" tabindex="-1">Open-source and LLM evaluation work</h2>
+              <p class="slide-deckline">Merged vector-search changes, an agricultural KBQA evaluation, and early prompt-engineering education work.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip public">Merged public PRs</span>
-              <span class="status-chip reported">Private counts reported</span>
+            <div class="role-stamp">
+              <strong>Languages</strong>
+              C++ · Python · C# · MATLAB
             </div>
           </header>
 
-          <div class="grid-12">
-            <article class="code-card public-proof span-4">
-              <div class="repo">camel-ai/camel · PR #3758</div>
-              <h3>OceanBase ANN query options</h3>
-              <p>Extended distance metrics and filtering, then added tests and examples around the new query behavior.</p>
-              <div class="proof-line">Merged · 8 commits · 11 tests described in PR · Feb 2026</div>
-              <a href="https://github.com/camel-ai/camel/pull/3758" target="_blank" rel="noopener noreferrer">Inspect merged PR ↗</a>
-            </article>
+          <div>
+            <div class="code-grid">
+              <article class="code-card">
+                <div class="repo">camel-ai/camel · PR #3758</div>
+                <h3>OceanBase ANN query options</h3>
+                <p>Extended distance metrics and filtering, with tests and examples around the new query behavior. Merged Feb 2026.</p>
+                <a href="https://github.com/camel-ai/camel/pull/3758" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
+              </article>
 
-            <article class="code-card public-proof span-4">
-              <div class="repo">labring/FastGPT · PR #6348</div>
-              <h3>OceanBase HNSW quantization</h3>
-              <p>Added SQ/BQ vector-index quantization levels and the corresponding distance constraints for OceanBase.</p>
-              <div class="proof-line">Merged · public diff · PR reports 75 test files / 1,061 tests passing</div>
-              <a href="https://github.com/labring/FastGPT/pull/6348" target="_blank" rel="noopener noreferrer">Inspect merged PR ↗</a>
-            </article>
+              <article class="code-card">
+                <div class="repo">labring/FastGPT · PR #6348</div>
+                <h3>OceanBase HNSW quantization</h3>
+                <p>Added SQ/BQ vector-index quantization levels and corresponding distance constraints. Merged Jan 2026.</p>
+                <a href="https://github.com/labring/FastGPT/pull/6348" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
+              </article>
 
-            <article class="code-card reported-proof span-4">
-              <div class="repo">YixinZ-NUS/SparkDesk-LLM-KBQA-Assessment</div>
-              <h3>KBQA performance + attack surface</h3>
-              <p>Agricultural knowledge-base augmentation, closed/open questions, prompt injection, and jailbreak testing.</p>
-              <div class="proof-line">Public report · résumé reports 100+ QA cases and 10+ attacks</div>
-              <a href="https://github.com/YixinZ-NUS/SparkDesk-LLM-KBQA-Assessment" target="_blank" rel="noopener noreferrer">Open report repository ↗</a>
-            </article>
+              <article class="code-card needs-check">
+                <div class="repo">SparkDesk-LLM-KBQA-Assessment · Oct–Nov 2023</div>
+                <h3>Agricultural KBQA evaluation</h3>
+                <p>RAG knowledge base, closed/open questions, prompt injection, and jailbreak testing. Résumé reports 100+ questions and 10+ attacks.</p>
+                <a href="https://github.com/YixinZ-NUS/SparkDesk-LLM-KBQA-Assessment" target="_blank" rel="noopener noreferrer">Open report ↗</a>
+              </article>
 
-            <article class="panel span-12" style="margin-top: 2px;">
-              <p class="panel-label">Open education contribution</p>
-              <h3>LLM-Cookbook: concrete work, not a star-count claim</h3>
-              <p>Résumé-described contribution: proofread localized course material, aligned terminology/API usage, reproduced prompts, and added experiments for the chatbot chapter. The current README does not list Yixin among its named core contributors, so this deck describes tasks rather than elevating the title.</p>
-              <div class="source-links">
-                <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">Inspect LLM-Cookbook ↗</a>
-              </div>
-            </article>
+              <article class="code-card needs-check">
+                <div class="repo">datawhalechina/llm-cookbook · 2023</div>
+                <h3>Prompt-engineering course work</h3>
+                <p>Proofreading, terminology/API alignment, prompt reproduction, and chatbot experiments. The current README does not identify me as a core contributor; exact commits should be linked before using that title.</p>
+                <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">Open repository ↗</a>
+              </article>
+            </div>
+
+            <div class="tech-strip" aria-label="Additional technical coverage">
+              <strong>Also used:</strong>
+              <span>RAG</span><span>OceanBase</span><span>ReAct</span><span>agent skills</span><span>A2A / MPP / x402</span><span>Codex CLI</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="evidence" aria-labelledby="evidence-title" aria-hidden="true" inert>
+      <section class="slide" id="credentials" aria-labelledby="credentials-title" aria-hidden="true" inert>
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">08 / 08 · Evidence ledger</p>
-              <h2 class="slide-title" id="evidence-title" tabindex="-1">What can be inspected now—and what I won’t claim yet</h2>
-              <p class="slide-deckline">Structural validity is not scientific verification. This portfolio keeps that distinction visible.</p>
+              <p class="slide-kicker">08 / 09 · Credentials</p>
+              <h2 class="slide-title" id="credentials-title" tabindex="-1">ML, cloud, and data credentials</h2>
+              <p class="slide-deckline">Seven professional certifications and two course certificates visible in the supplied record, issued from Dec 2024 to Jan 2026.</p>
             </div>
-            <div class="status-row" aria-label="Evidence status">
-              <span class="status-chip artifact">Inspectable</span>
-              <span class="status-chip review">Review queue</span>
-              <span class="status-chip boundary">Deliberately not claimed</span>
+            <div class="role-stamp">
+              <strong>Current record</strong>
+              Expiry dates shown where supplied
             </div>
           </header>
 
-          <div class="ledger">
-            <article class="panel">
-              <p class="panel-label">Inspectable now</p>
-              <h3>Artifacts</h3>
-              <ul class="clean-list">
-                <li>Cabinet-operation demo video.</li>
-                <li>Video-text acceptance report and results table.</li>
-                <li>DQN and climate-modeling project slides.</li>
-                <li>SparkDesk report repository.</li>
-                <li>Merged CAMEL and FastGPT pull requests.</li>
-              </ul>
-            </article>
+          <div class="credential-groups">
+            <section class="credential-group">
+              <div class="credential-issuer">
+                <h3>NVIDIA</h3>
+                <span>1 professional · 2 courses</span>
+              </div>
+              <article class="credential-row">
+                <div>
+                  <strong>NVIDIA Certified Professional: Gen AI LLMs</strong>
+                  <p>Professional certification</p>
+                </div>
+                <time class="credential-date">Issued Jan 2026<br>Expires Jan 2028</time>
+              </article>
+              <article class="credential-row">
+                <div>
+                  <strong>Disaster Risk Monitoring Using Satellite Imagery</strong>
+                  <p>Localized Chinese course · NVIDIA with UNOSAT (UNITAR)</p>
+                </div>
+                <time class="credential-date">Issued Dec 2024</time>
+              </article>
+              <article class="credential-row">
+                <div>
+                  <strong>Introduction to Transformer-Based Natural Language Processing</strong>
+                  <p>NVIDIA course certificate</p>
+                </div>
+                <time class="credential-date">Issued Dec 2024</time>
+              </article>
+            </section>
 
-            <article class="panel review">
-              <p class="panel-label">Review queue</p>
-              <h3>Evidence debt</h3>
-              <ul class="clean-list">
-                <li>Robot success-rate and time-to-build logs.</li>
-                <li>Wastewater 89% versus 92% accuracy reconciliation.</li>
-                <li>DQN code, seeds, delay model, and uncertainty.</li>
-                <li>GenAI Pass@1 dataset, rubric, and failures.</li>
-                <li>Exact early LLM-Cookbook contribution trace.</li>
-              </ul>
-            </article>
+            <section class="credential-group">
+              <div class="credential-issuer">
+                <h3>Oracle Cloud</h3>
+                <span>3 professional</span>
+              </div>
+              <article class="credential-row">
+                <div>
+                  <strong>OCI 2025 Certified DevOps Professional</strong>
+                </div>
+                <time class="credential-date">Issued Nov 2025<br>Expires Nov 2027</time>
+              </article>
+              <article class="credential-row">
+                <div>
+                  <strong>OCI 2025 Certified Data Science Professional</strong>
+                </div>
+                <time class="credential-date">Issued Oct 2025<br>Expires Oct 2027</time>
+              </article>
+              <article class="credential-row">
+                <div>
+                  <strong>OCI 2025 Certified Generative AI Professional</strong>
+                </div>
+                <time class="credential-date">Issued Oct 2025<br>Expires Oct 2027</time>
+              </article>
+            </section>
 
-            <article class="panel boundary">
-              <p class="panel-label">Not claimed</p>
-              <h3>Boundaries</h3>
-              <ul class="clean-list">
-                <li>Production wastewater control or live-plant RL.</li>
-                <li>Oil thickness from RGB imagery.</li>
-                <li>Personal ownership of GMPA adoption or Cascade.</li>
-                <li>Completed mobile deployment of the OCR system.</li>
-                <li>Independent reproduction of private project metrics.</li>
+            <section class="credential-group">
+              <div class="credential-issuer">
+                <h3>Microsoft</h3>
+                <span>2 associate</span>
+              </div>
+              <article class="credential-row">
+                <div>
+                  <strong>Azure Data Scientist Associate</strong>
+                </div>
+                <time class="credential-date">Issued May 2025<br>Expires May 2027</time>
+              </article>
+              <article class="credential-row">
+                <div>
+                  <strong>Power BI Data Analyst Associate</strong>
+                </div>
+                <time class="credential-date">Issued Jun 2025<br>Expires Jun 2027</time>
+              </article>
+            </section>
+
+            <section class="credential-group">
+              <div class="credential-issuer">
+                <h3>AWS</h3>
+                <span>1 associate</span>
+              </div>
+              <article class="credential-row">
+                <div>
+                  <strong>AWS Certified Machine Learning Engineer – Associate</strong>
+                </div>
+                <time class="credential-date">Issued Dec 2024<br>Expires Dec 2027</time>
+              </article>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="direction" aria-labelledby="direction-title" aria-hidden="true" inert>
+        <div class="slide-frame">
+          <header class="slide-header">
+            <div>
+              <p class="slide-kicker">09 / 09 · Direction</p>
+              <h2 class="slide-title" id="direction-title" tabindex="-1">What I want to learn next</h2>
+              <p class="slide-deckline">Robot learning first: seek hard problems, shorten the learning loop, and make failures useful.</p>
+            </div>
+            <div class="role-stamp">
+              <strong>Working principle</strong>
+              Take ownership · find the next useful step
+            </div>
+          </header>
+
+          <div class="direction-grid">
+            <section class="direction-section" aria-labelledby="goal-heading">
+              <p class="panel-label">My goal</p>
+              <h3 id="goal-heading">Be challenged where robots meet research</h3>
+              <p>Robot learning is my main direction. I want problems where industrial robot programs contribute fast iteration, compute, operational data, and real failure cases, while school research contributes depth, open evaluation, and room to test new ideas.</p>
+              <p>I am looking for a two-way loop in which deployment exposes better research questions and research changes the system—not application-only delivery centered mainly on business needs.</p>
+              <p>A smaller thread is decentralized multi-agent infrastructure. My practical touchpoint is the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a> for agent identity and E2EE messaging.</p>
+              <p>I am also curious about AI + formalized mathematics. My current foundation is limited to formal languages, context-free grammars, and propositional logic.</p>
+            </section>
+
+            <section class="direction-section" aria-labelledby="questions-heading">
+              <p class="panel-label">Questions I’m chasing</p>
+              <h3 id="questions-heading">Make assumptions testable</h3>
+              <ol class="question-list">
+                <li>How can a robot verify that a physical task is actually complete?</li>
+                <li>How should perception, calibration, and control error be represented and recovered?</li>
+                <li>Which moments—contact, failure, intervention—are worth retaining or sharing across agents and robots?</li>
+                <li>Which assumptions in LLM-driven robotics can be formalized, checked, and falsified?</li>
+              </ol>
+            </section>
+
+            <section class="direction-section" aria-labelledby="curiosity-heading">
+              <p class="panel-label">What keeps me curious</p>
+              <h3 id="curiosity-heading">Systems, ideas, and fieldwork</h3>
+              <ul class="curiosity-list">
+                <li>Inference-time learning, world models, action-conditioned models, and long-horizon memory.</li>
+                <li>Personal knowledge workflows that surface conflicts instead of silently flattening them.</li>
+                <li>Science translation, sustained reading, and coastal volunteering outside engineering work.</li>
               </ul>
-            </article>
+            </section>
           </div>
 
-          <div class="closing-contact">
-            <p>If you want to inspect the system boundary, evaluation setup, or failure cases behind any project, that is the conversation I am prepared to have.</p>
+          <div class="direction-footer">
+            <p>Dedicated to extreme ownership and proactive problem-solving—stepping outside my comfort zone and taking one extra step to deliver exceptional results.</p>
             <div class="contact-links">
               <a href="mailto:hi.yixinz@gmail.com">Email</a>
               <a href="https://github.com/yixin-zh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -1937,13 +2890,13 @@
         <button id="previous-slide" type="button" aria-label="Previous slide" disabled>
           <span aria-hidden="true">←</span><span>Previous</span>
         </button>
-        <div class="deck-counter" aria-hidden="true"><strong id="current-slide">01</strong> / 08</div>
+        <div class="deck-counter" aria-hidden="true"><strong id="current-slide">01</strong> / <span data-total>09</span></div>
         <button id="next-slide" type="button" aria-label="Next slide">
           <span>Next</span><span aria-hidden="true">→</span>
         </button>
       </nav>
 
-      <p class="sr-only" id="slide-announcement" aria-live="polite">Slide 1 of 8: About</p>
+      <p class="sr-only" id="slide-announcement" aria-live="polite">Slide 1 of 9: Profile</p>
     </main>
   </div>
 
@@ -1957,23 +2910,21 @@
       const mobileCurrentLabel = document.getElementById("mobile-current");
       const announcement = document.getElementById("slide-announcement");
       const deck = document.querySelector(".deck");
-      const slideNames = [
-        "About",
-        "Robot loop",
-        "Plant CV",
-        "Climate data",
-        "DQN planner",
-        "Video OCR",
-        "Public code",
-        "Evidence"
-      ];
+      const total = slides.length;
       let currentIndex = 0;
       let touchStartX = null;
       let touchStartY = null;
+      let resizeFrame = null;
+
+      document.querySelectorAll("[data-total]").forEach(function (node) {
+        node.textContent = String(total).padStart(2, "0");
+      });
 
       function indexFromHash() {
         const hash = window.location.hash.slice(1);
-        const index = slides.findIndex((slide) => slide.id === hash);
+        const index = slides.findIndex(function (slide) {
+          return slide.id === hash;
+        });
         return index >= 0 ? index : 0;
       }
 
@@ -1983,24 +2934,57 @@
         );
       }
 
+      function fitSlide(slide) {
+        const frame = slide.querySelector(".slide-frame");
+        if (!frame) {
+          return;
+        }
+
+        frame.style.transform = "none";
+        frame.style.width = "100%";
+        frame.style.marginInline = "auto";
+        const style = getComputedStyle(slide);
+        const available = slide.clientHeight
+          - parseFloat(style.paddingTop)
+          - parseFloat(style.paddingBottom);
+        const required = frame.scrollHeight;
+        const scale = required > available ? Math.max(0.68, available / required) : 1;
+        frame.style.transform = `scale(${scale})`;
+        frame.style.width = `${100 / scale}%`;
+        frame.style.marginInline = scale < 1 ? "0" : "auto";
+        slide.dataset.fitScale = scale.toFixed(3);
+      }
+
+      function fitAllSlides() {
+        slides.forEach(fitSlide);
+      }
+
+      function scheduleFit() {
+        if (resizeFrame) {
+          cancelAnimationFrame(resizeFrame);
+        }
+        resizeFrame = requestAnimationFrame(function () {
+          fitAllSlides();
+          resizeFrame = null;
+        });
+      }
+
       function goToSlide(index, options) {
         const config = Object.assign({ updateHash: true, focusHeading: false }, options);
-        const nextIndex = Math.max(0, Math.min(slides.length - 1, index));
-        currentIndex = nextIndex;
+        currentIndex = Math.max(0, Math.min(total - 1, index));
 
-        slides.forEach((slide, slideIndex) => {
+        slides.forEach(function (slide, slideIndex) {
           const active = slideIndex === currentIndex;
           slide.classList.toggle("is-active", active);
           slide.toggleAttribute("inert", !active);
           if (active) {
             slide.removeAttribute("aria-hidden");
-            slide.scrollTop = 0;
           } else {
             slide.setAttribute("aria-hidden", "true");
           }
         });
 
-        navButtons.forEach((button, buttonIndex) => {
+        navButtons.forEach(function (button, buttonIndex) {
           if (buttonIndex === currentIndex) {
             button.setAttribute("aria-current", "step");
           } else {
@@ -2009,28 +2993,41 @@
         });
 
         previousButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === slides.length - 1;
+        nextButton.disabled = currentIndex === total - 1;
 
         const number = String(currentIndex + 1).padStart(2, "0");
+        const heading = slides[currentIndex].querySelector("h1, h2");
+        const headingText = heading ? heading.textContent.trim() : `Slide ${currentIndex + 1}`;
         currentLabel.textContent = number;
         mobileCurrentLabel.textContent = number;
-        announcement.textContent = `Slide ${currentIndex + 1} of ${slides.length}: ${slideNames[currentIndex]}`;
+        announcement.textContent = `Slide ${currentIndex + 1} of ${total}: ${headingText}`;
+        const activeVideo = document.getElementById("cabinet-video");
+        if (activeVideo && slides[currentIndex].id !== "robot-loop") {
+          activeVideo.pause();
+        }
+        deck.scrollLeft = 0;
+        deck.scrollTop = 0;
+        requestAnimationFrame(function () {
+          deck.scrollLeft = 0;
+          deck.scrollTop = 0;
+        });
 
         if (config.updateHash) {
           history.replaceState(null, "", `#${slides[currentIndex].id}`);
         }
 
-        if (config.focusHeading) {
-          const heading = slides[currentIndex].querySelector("h1, h2");
-          if (heading) {
-            heading.focus({ preventScroll: true });
-          }
+        fitSlide(slides[currentIndex]);
+
+        if (config.focusHeading && heading) {
+          heading.focus({ preventScroll: true });
         }
       }
 
-      navButtons.forEach((button) => {
+      navButtons.forEach(function (button) {
         button.addEventListener("click", function () {
-          const targetIndex = slides.findIndex((slide) => slide.id === button.dataset.slide);
+          const targetIndex = slides.findIndex(function (slide) {
+            return slide.id === button.dataset.slide;
+          });
           goToSlide(targetIndex, { focusHeading: true });
         });
       });
@@ -2059,12 +3056,22 @@
           goToSlide(0);
         } else if (event.key === "End") {
           event.preventDefault();
-          goToSlide(slides.length - 1);
+          goToSlide(total - 1);
         }
       });
 
       window.addEventListener("hashchange", function () {
         goToSlide(indexFromHash(), { updateHash: false });
+      });
+
+      window.addEventListener("resize", scheduleFit);
+      window.addEventListener("load", scheduleFit);
+      document.fonts.ready.then(scheduleFit);
+
+      document.querySelectorAll("img").forEach(function (image) {
+        if (!image.complete) {
+          image.addEventListener("load", scheduleFit, { once: true });
+        }
       });
 
       deck.addEventListener("touchstart", function (event) {
@@ -2095,15 +3102,14 @@
       const playButton = document.getElementById("cabinet-play");
       const cabinetVideo = document.getElementById("cabinet-video");
       const videoError = document.getElementById("cabinet-video-error");
+      const videoStatus = document.getElementById("cabinet-video-status");
       const hostedVideo = "https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4";
 
-      function revealVideo() {
+      playButton.addEventListener("click", function () {
         playButton.hidden = true;
         cabinetVideo.hidden = false;
-      }
-
-      playButton.addEventListener("click", function () {
-        revealVideo();
+        videoStatus.textContent = "loading hosted file…";
+        videoError.classList.remove("is-visible");
         cabinetVideo.src = hostedVideo;
         cabinetVideo.load();
         cabinetVideo.play().catch(function () {
@@ -2111,11 +3117,27 @@
         });
       });
 
+      cabinetVideo.addEventListener("loadedmetadata", function () {
+        videoError.classList.remove("is-visible");
+        videoStatus.textContent = "ready.";
+      });
+
+      cabinetVideo.addEventListener("playing", function () {
+        videoError.classList.remove("is-visible");
+        videoStatus.textContent = "playing.";
+      });
+
+      cabinetVideo.addEventListener("waiting", function () {
+        videoStatus.textContent = "buffering…";
+      });
+
       cabinetVideo.addEventListener("error", function () {
+        videoStatus.textContent = "load failed.";
         videoError.classList.add("is-visible");
       });
 
       goToSlide(indexFromHash(), { updateHash: false });
+      scheduleFit();
     })();
   </script>
 </body>
