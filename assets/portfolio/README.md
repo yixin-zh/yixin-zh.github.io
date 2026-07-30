@@ -7,9 +7,9 @@ illustrations.
 
 | Public asset | Private source | Treatment |
 | --- | --- | --- |
-| `robot-arrival.webp` | `cabinet-operation.mp4`, opening frame | Cropped to the robot; surrounding workplace excluded. |
-| `robot-contact.webp` | `cabinet-operation.mp4`, about 107.5 s | Tight crop of hand-to-control contact; identifiable coworkers excluded. |
-| `robot-release.webp` | `cabinet-operation.mp4`, about 232 s | Tight cabinet/robot crop. |
+| `robot-door-open.webp` | `cabinet-operation.mp4`, 169.5 s | Door-opening frame; top workplace area removed. |
+| `robot-air-breaker.webp` | `cabinet-operation.mp4`, 170.5 s | Tight crop of gripper-to-breaker contact; identifiable coworkers excluded. |
+| `robot-door-close.webp` | `cabinet-operation.mp4`, 204.5 s | Door-closing frame; top workplace area removed. |
 | `cabinet-poster.jpg` | `cabinet-operation.mp4` | Optimized click-to-load video poster. |
 | `floc-gui-comparison.webp` | Wastewater prototype `Picture1.png` | Original-frame and binary-mask region only. |
 | `floc-decision-strip.webp` | Wastewater prototype `Picture1.png` | Threshold/XGBoost disagreement region only. |

@@ -40,6 +40,10 @@
       display: none !important;
     }
 
+    .responsive-short {
+      display: none;
+    }
+
     html,
     body {
       width: 100%;
@@ -1689,7 +1693,7 @@
       }
 
       .journey-date {
-        font-size: 7px;
+        font-size: 8px;
       }
 
       .journey-node {
@@ -1704,7 +1708,7 @@
 
       .journey-type,
       .overlap-note {
-        font-size: 7px;
+        font-size: 8px;
       }
 
       .journey-role,
@@ -1715,7 +1719,7 @@
 
       .journey-org,
       .slide[data-density="essential"] .journey-org {
-        font-size: 9px;
+        font-size: 10px;
         line-height: 1.24;
       }
 
@@ -1723,7 +1727,7 @@
       .slide[data-density="essential"] .journey-meta {
         gap: 2px 8px;
         margin-top: 2px;
-        font-size: 7px;
+        font-size: 8px;
       }
 
       .case-grid,
@@ -1968,18 +1972,17 @@
         padding: 0 10px;
       }
 
-      .profile-goal p {
+      .profile-goal h2 + p {
         display: -webkit-box;
         overflow: hidden;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
       }
 
-      .journey-org {
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+      .profile-goal .motto,
+      .slide[data-density="essential"] .profile-goal h2 + p,
+      .slide[data-density="essential"] .journey-org {
+        display: none;
       }
 
       .case-copy {
@@ -2101,6 +2104,29 @@
       }
     }
 
+    @media (max-width: 340px) {
+      .slide[data-density="essential"] .responsive-full,
+      .slide[data-density="essential"] .overlap-note {
+        display: none;
+      }
+
+      .slide[data-density="essential"] .responsive-short {
+        display: inline;
+      }
+
+      .slide[data-density="essential"] .profile-goal h2 {
+        font-size: 17px;
+      }
+
+      .slide[data-density="essential"] .vertical-timeline {
+        gap: 4px;
+      }
+
+      .slide[data-density="essential"] .journey-role {
+        font-size: 13px;
+      }
+    }
+
     @media (max-height: 620px) and (orientation: landscape) {
       .shell {
         grid-template-rows: 46px minmax(0, 1fr);
@@ -2121,6 +2147,12 @@
       .slide[data-density="essential"] {
         padding-top: 11px;
         padding-bottom: 58px;
+      }
+
+      .slide-frame,
+      .slide[data-density="compact"] .slide-frame,
+      .slide[data-density="essential"] .slide-frame {
+        gap: 6px;
       }
 
       .slide-title,
@@ -2153,16 +2185,46 @@
         font-size: 10px;
       }
 
-      .vertical-timeline {
-        gap: 4px;
+      .slide[data-density="essential"] .profile-goal h2 + p,
+      .slide[data-density="essential"] .journey-org {
+        display: none;
       }
 
-      .journey-role {
-        font-size: 14px;
+      .vertical-timeline,
+      .slide[data-density="essential"] .vertical-timeline {
+        gap: 2px;
       }
 
-      .journey-org {
-        font-size: 9px;
+      .slide[data-density="essential"] .journey-item {
+        grid-template-columns: 72px 18px minmax(0, 1fr);
+      }
+
+      .slide[data-density="essential"] .journey-body {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        column-gap: 6px;
+        align-items: baseline;
+        padding-left: 4px;
+      }
+
+      .slide[data-density="essential"] .journey-type {
+        grid-column: 1;
+        margin: 0;
+        font-size: 7px;
+      }
+
+      .slide[data-density="essential"] .journey-role {
+        grid-column: 2;
+        margin: 0;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .slide[data-density="essential"] .overlap-note,
+      .slide[data-density="essential"] .journey-meta {
+        grid-column: 2;
+        margin-top: 0;
+        font-size: 7px;
       }
 
       .case-grid {
@@ -2176,6 +2238,19 @@
 
       .case-block:nth-of-type(n + 3) {
         display: none;
+      }
+
+      .slide[data-density="essential"] .slide-deckline,
+      .slide[data-density="essential"] .case-block:nth-of-type(n + 2) {
+        display: none;
+      }
+
+      .slide[data-density="essential"] .case-note .responsive-full {
+        display: none;
+      }
+
+      .slide[data-density="essential"] .case-note .responsive-short {
+        display: inline;
       }
 
       .case-block h3 {
@@ -2203,6 +2278,12 @@
       .question-list li,
       .curiosity-list li {
         font-size: 10px;
+      }
+
+      .slide[data-density="essential"] .question-list li:nth-child(n + 3),
+      .slide[data-density="essential"] .curiosity-list li:nth-child(n + 3),
+      .slide[data-density="essential"] .small-interests {
+        display: none;
       }
     }
 
@@ -2314,7 +2395,10 @@
 
             <section class="profile-goal" aria-labelledby="profile-goal-title">
               <p class="eyebrow">My goal</p>
-              <h2 id="profile-goal-title">Be challenged in robot learning—and shorten the loop from failure to a better policy.</h2>
+              <h2 id="profile-goal-title">
+                <span class="responsive-full">Be challenged in robot learning—and shorten the loop from failure to a better policy.</span>
+                <span class="responsive-short">Robot learning: turn deployment failures into better policies.</span>
+              </h2>
               <p>Industrial robot programs can contribute fast iteration, compute, operational data, and real failure cases; school research can contribute depth, open evaluation, and room to test new ideas. I want the two to change each other, not an application-only track centered on delivery.</p>
               <p class="motto" data-priority="supplemental">Dedicated to extreme ownership and proactive problem-solving—taking one extra step when it improves the result.</p>
             </section>
@@ -2327,7 +2411,10 @@
                 <span class="journey-node current" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
-                  <h2 class="journey-role">R&amp;D Engineer · InsightOS, Shanghai</h2>
+                  <h2 class="journey-role">
+                    <span class="responsive-full">R&amp;D Engineer · InsightOS, Shanghai</span>
+                    <span class="responsive-short">R&amp;D Engineer · InsightOS</span>
+                  </h2>
                   <p class="journey-org">Robot media I/O, sensor synchronization, and cabinet-operation tooling.</p>
                 </div>
               </article>
@@ -2337,7 +2424,10 @@
                 <span class="journey-node" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
-                  <h2 class="journey-role">Industrial Digitalization Engineer · Beijing Zhongke Shengtai</h2>
+                  <h2 class="journey-role">
+                    <span class="responsive-full">Industrial Digitalization Engineer · Beijing Zhongke Shengtai</span>
+                    <span class="responsive-short">Industrial Digitalization · Zhongke Shengtai</span>
+                  </h2>
                   <p class="journey-org">Industrial-wastewater vision PoCs and a floc-analysis handoff.</p>
                 </div>
               </article>
@@ -2347,7 +2437,10 @@
                 <span class="journey-node" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
-                  <h2 class="journey-role">Scientist Intern · SIMTech, A*STAR</h2>
+                  <h2 class="journey-role">
+                    <span class="responsive-full">Scientist Intern · SIMTech, A*STAR</span>
+                    <span class="responsive-short">Scientist Intern · SIMTech</span>
+                  </h2>
                   <p class="journey-org">ASEAN energy-system studies converted into model-ready data.</p>
                   <span class="overlap-note"><strong>Overlap:</strong> NUS-ISS in-person phase in Singapore.</span>
                 </div>
@@ -2358,7 +2451,10 @@
                 <span class="journey-node education" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
-                  <h2 class="journey-role">NUS-ISS · Graduate Diploma in Systems Analysis</h2>
+                  <h2 class="journey-role">
+                    <span class="responsive-full">NUS-ISS · Graduate Diploma in Systems Analysis</span>
+                    <span class="responsive-short">NUS-ISS · Systems Analysis · overlaps HIT</span>
+                  </h2>
                   <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025.</p>
                   <span class="overlap-note"><strong>Overlap:</strong> first year ran alongside the final HIT year.</span>
                   <div class="journey-meta">
@@ -2372,7 +2468,10 @@
                 <span class="journey-node education" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
-                  <h2 class="journey-role">HIT · B.Eng., Intelligent Test &amp; Control Engineering</h2>
+                  <h2 class="journey-role">
+                    <span class="responsive-full">HIT · B.Eng., Intelligent Test &amp; Control Engineering</span>
+                    <span class="responsive-short">HIT · B.Eng., Intelligent Test &amp; Control</span>
+                  </h2>
                   <p class="journey-org">Electrical Engineering · 86.95/100 · People’s Scholarship ×5.</p>
                   <div class="journey-meta">
                     <span class="project">Video OCR · 2021–22</span>
@@ -2425,7 +2524,8 @@
               <p class="tech-line" data-priority="supplemental">C++ · Linux · ROS2 · DDS · RGB-D · shared memory · REST/CLI</p>
 
               <div class="case-note">
-                <strong>Needs review:</strong> the video demonstrates one cabinet interaction. It does not establish an internal pipeline, success rate, or production reliability; the résumé’s “&gt;95% within 15 minutes” metric still needs logs and a denominator.
+                <span class="responsive-full"><strong>Needs review:</strong> the video shows physical door and breaker contact, not electrical state change, the internal pipeline, success rate, or production reliability. The résumé’s “&gt;95% within 15 minutes” metric still needs logs and a denominator; confirm employer clearance for internal-cabinet frames.</span>
+                <span class="responsive-short"><strong>Needs review:</strong> the frames show physical contact—not electrical state, autonomy, or reliability. Internal-cabinet publication clearance is still required.</span>
               </div>
 
               <div class="source-links" data-priority="supplemental">
@@ -2437,20 +2537,20 @@
             <div class="artifact-stage robot-media">
               <div class="robot-storyboard" id="robot-storyboard">
                 <figure class="artifact-figure">
-                  <img src="assets/portfolio/robot-arrival.webp" alt="Robot approaching the cabinet work area" decoding="async">
-                  <figcaption><strong>01 · approach</strong> · video frame</figcaption>
+                  <img src="assets/portfolio/robot-door-open.webp" alt="Robot gripper opening the cabinet door and revealing the internal control bank" decoding="async">
+                  <figcaption><strong>01 · open door</strong> · 169.5 s</figcaption>
                 </figure>
                 <figure class="artifact-figure">
-                  <img src="assets/portfolio/robot-contact.webp" alt="Robot hand contacting the cabinet control panel" decoding="async">
-                  <figcaption><strong>02 · contact</strong> · video frame</figcaption>
+                  <img src="assets/portfolio/robot-air-breaker.webp" alt="Robot gripper contacting the blue internal air-breaker bank" decoding="async">
+                  <figcaption><strong>02 · breaker contact</strong> · 170.5 s</figcaption>
                 </figure>
                 <figure class="artifact-figure">
-                  <img src="assets/portfolio/robot-release.webp" alt="Robot hand releasing from the cabinet after interaction" decoding="async">
-                  <figcaption><strong>03 · release</strong> · video frame</figcaption>
+                  <img src="assets/portfolio/robot-door-close.webp" alt="Robot hand pushing the cabinet door nearly shut" decoding="async">
+                  <figcaption><strong>03 · close door</strong> · 204.5 s</figcaption>
                 </figure>
               </div>
               <button class="video-launch" id="cabinet-play" type="button" aria-controls="cabinet-video">Play cabinet video</button>
-              <video class="robot-video" id="cabinet-video" controls playsinline preload="none" poster="assets/portfolio/cabinet-poster.jpg" hidden>
+              <video class="robot-video" id="cabinet-video" controls playsinline muted preload="none" poster="assets/portfolio/cabinet-poster.jpg" hidden>
                 Your browser does not support embedded video.
               </video>
               <div class="video-status" id="cabinet-video-status" aria-live="polite">
@@ -2498,7 +2598,8 @@
               </section>
 
               <div class="case-note">
-                <strong>Needs review:</strong> 2,270 labeled images were expanded into 258,887 floc records before a random stratified split. Temporal/video independence and plant generalization were not tested. The archived model is binary (“good / add more”); the résumé’s five dose steps remain a separate, unresolved claim.
+                <span class="responsive-full"><strong>Needs review:</strong> 2,270 labeled images were expanded into 258,887 floc records before a random stratified split. Temporal/video independence and plant generalization were not tested. The archived model is binary (“good / add more”); the résumé’s five dose steps remain a separate, unresolved claim.</span>
+                <span class="responsive-short"><strong>Needs review:</strong> 88.5% comes from a random floc-level split after 2,270 images became 258,887 records; video/plant generalization and the résumé’s five-step claim remain untested.</span>
               </div>
 
               <div class="source-links" data-priority="supplemental">
@@ -2577,7 +2678,8 @@
               <p class="tech-line" data-priority="supplemental">Python · JSON Schema · convex optimization · OSeMOSYS/TIMES context · LLM workflow</p>
 
               <div class="case-note">
-                <strong>Needs review:</strong> “Pass@1 &gt;85%” is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade work does not imply product ownership; confirm publication clearance for the project-only scenario crops.
+                <span class="responsive-full"><strong>Needs review:</strong> “Pass@1 &gt;85%” is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade work does not imply product ownership; confirm publication clearance for the project-only scenario crops.</span>
+                <span class="responsive-short"><strong>Needs review:</strong> “Pass@1 &gt;85%” lacks its dataset and rubric. Early Cascade work is not product ownership; publication clearance is still required.</span>
               </div>
 
               <div class="source-links" data-priority="supplemental">
@@ -2700,7 +2802,8 @@
               </section>
 
               <div class="case-note">
-                <strong>Needs review:</strong> the résumé describes a broader architecture/deblurring role than the final report. Resource-constrained Android deployment and the earlier “+0.23% F1” claim are not preserved in the supplied evidence.
+                <span class="responsive-full"><strong>Needs review:</strong> the résumé describes a broader architecture/deblurring role than the final report. Resource-constrained Android deployment and the earlier “+0.23% F1” claim are not preserved in the supplied evidence.</span>
+                <span class="responsive-short"><strong>Needs review:</strong> the final report supports recognizer/feature coupling—not the broader deblurring scope, Android deployment, or “+0.23% F1” wording.</span>
               </div>
 
               <div class="source-links" data-priority="supplemental">
@@ -2976,8 +3079,35 @@
         if (!frame) {
           return true;
         }
-        return frame.scrollHeight <= frame.clientHeight + 1
-          && frame.scrollWidth <= frame.clientWidth + 1;
+        if (
+          frame.scrollHeight > frame.clientHeight + 1
+          || frame.scrollWidth > frame.clientWidth + 1
+        ) {
+          return false;
+        }
+
+        const frameBounds = frame.getBoundingClientRect();
+        const contentNodes = frame.querySelectorAll(
+          "h1, h2, h3, p, li, time, .profile-intro, .profile-chronology, "
+          + ".vertical-timeline, .journey-item, .case-copy, .case-block, "
+          + ".case-note, .code-ledger, .code-row, .credential-groups, "
+          + ".credential-group, .questions-grid, .question-column, .small-interests"
+        );
+
+        return Array.from(contentNodes).every(function (node) {
+          const style = getComputedStyle(node);
+          if (style.display === "none" || style.visibility === "hidden") {
+            return true;
+          }
+          const bounds = node.getBoundingClientRect();
+          if (bounds.width === 0 || bounds.height === 0) {
+            return true;
+          }
+          return bounds.top >= frameBounds.top - 2
+            && bounds.left >= frameBounds.left - 2
+            && bounds.right <= frameBounds.right + 2
+            && bounds.bottom <= frameBounds.bottom + 2;
+        });
       }
 
       function fitSlide(slide) {
@@ -3046,6 +3176,12 @@
         if (config.updateHash) {
           history.replaceState(null, "", `#${slides[currentIndex].id}`);
         }
+
+        // Hash navigation can scroll the overflow-hidden deck toward an
+        // off-screen slide while its entrance transform is still applied.
+        // Always restore the stage origin so the active slide is not clipped.
+        deck.scrollLeft = 0;
+        deck.scrollTop = 0;
 
         fitSlide(slides[currentIndex]);
 

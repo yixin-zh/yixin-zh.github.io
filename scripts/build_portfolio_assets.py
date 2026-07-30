@@ -173,13 +173,13 @@ def build_wastewater_visuals(source_dir: Path) -> None:
 def build_robot_frames(source_dir: Path) -> None:
     source = source_dir / "cabinet-operation.mp4"
     timestamps = [
-        (0, "robot-arrival.webp"),
-        (107.5, "robot-contact.webp"),
-        (232, "robot-release.webp"),
+        (169.5, "robot-door-open.webp", (0, 0.19, 1, 0.97)),
+        (170.5, "robot-air-breaker.webp", (0.03, 0.19, 1, 0.96)),
+        (204.5, "robot-door-close.webp", (0, 0.19, 1, 0.98)),
     ]
     with tempfile.TemporaryDirectory(prefix="portfolio-robot-frames-") as temp_dir:
         temp = Path(temp_dir)
-        for index, (timestamp, filename) in enumerate(timestamps, start=1):
+        for index, (timestamp, filename, crop) in enumerate(timestamps, start=1):
             clip = temp / f"clip-{index:02d}.m4v"
             subprocess.run(
                 [
@@ -216,12 +216,7 @@ def build_robot_frames(source_dir: Path) -> None:
                 stderr=subprocess.DEVNULL,
             )
             frame = Image.open(temp / f"{clip.name}.png").convert("RGB")
-            if filename == "robot-contact.webp":
-                # Keep the cabinet contact in frame while excluding identifiable
-                # coworkers and most of the surrounding office.
-                frame = crop_fraction(frame, 0.34, 0.20, 1, 1)
-            else:
-                frame = crop_fraction(frame, 0, 0.20, 1, 1)
+            frame = crop_fraction(frame, *crop)
             save_webp(frame, filename, quality=86)
 
 
