@@ -240,6 +240,7 @@
       min-width: 0;
       min-height: 0;
       overflow: hidden;
+      overflow: clip;
       container-type: size;
       background:
         linear-gradient(rgba(23, 24, 22, 0.022) 1px, transparent 1px),
@@ -855,17 +856,95 @@
       object-fit: cover;
     }
 
-    .floc-table {
+    .floc-results {
       grid-column: 8 / -1;
       grid-row: 1;
-      display: grid;
       align-self: start;
-      transform: translate(5px, 4px) rotate(0.35deg);
+      padding: clamp(11px, 1.25cqw, 17px);
+      border-top: 3px solid var(--green);
+      background: rgba(252, 251, 247, 0.94);
+      box-shadow: 0 12px 28px rgba(23, 24, 22, 0.09);
     }
 
-    .floc-table img {
-      height: auto;
-      object-fit: contain;
+    .result-eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .result-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .result-metric {
+      padding: 8px 9px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+    }
+
+    .result-metric strong {
+      display: block;
+      font-family: var(--display);
+      font-size: clamp(25px, 2.35cqw, 36px);
+      font-weight: 500;
+      line-height: 0.95;
+    }
+
+    .result-metric span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 7px;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--muted);
+      font-size: clamp(8px, 0.66cqw, 10px);
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 6px 5px;
+      border-bottom: 1px solid var(--rule);
+      text-align: right;
+    }
+
+    .result-table th:first-child,
+    .result-table td:first-child {
+      text-align: left;
+    }
+
+    .result-table th {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .result-table tbody tr:first-child {
+      background: var(--green-tint);
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    .result-footnote {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 8px;
+      line-height: 1.35;
     }
 
     .floc-decisions {
@@ -1021,47 +1100,154 @@
       object-fit: cover;
     }
 
-    /* OCR collage */
-    .ocr-collage {
+    /* OCR algorithm + result evidence */
+    .ocr-evidence {
       height: 100%;
       min-height: 0;
       display: grid;
-      grid-template-columns: 0.83fr 1.17fr;
-      grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.68fr);
+      grid-template-rows: minmax(0, 1fr) minmax(150px, 0.62fr);
       gap: clamp(10px, 1.3cqw, 18px);
       padding: 2px 4px 18px;
     }
 
-    .ocr-flow {
-      grid-column: 1 / -1;
+    .ocr-algorithm {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 10px;
+      padding: clamp(12px, 1.3cqw, 18px);
+      border-top: 3px solid var(--blue);
+      background: rgba(252, 251, 247, 0.92);
+      box-shadow: 0 12px 28px rgba(23, 24, 22, 0.08);
+    }
+
+    .ocr-algorithm h3 {
+      font-family: var(--display);
+      font-size: clamp(20px, 1.75cqw, 27px);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .fusion-diagram {
+      min-height: 0;
+      display: grid;
+      grid-template-columns:
+        minmax(92px, 0.78fr)
+        18px
+        minmax(140px, 1.08fr)
+        18px
+        minmax(72px, 0.52fr);
+      gap: 6px;
+      align-items: center;
+    }
+
+    .frame-stack {
+      position: relative;
+      min-height: 150px;
+    }
+
+    .frame-card {
+      position: absolute;
+      left: calc(var(--offset) * 12px);
+      top: calc(var(--offset) * 17px);
+      width: calc(100% - 48px);
+      min-height: 72px;
+      display: grid;
+      align-content: center;
+      padding: 8px;
+      border: 1px solid #9aa7bd;
+      background: var(--surface);
+      box-shadow: 5px 5px 0 rgba(23, 70, 162, 0.08);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.35;
+    }
+
+    .frame-card strong {
+      color: var(--ink);
+      font-size: 10px;
+    }
+
+    .map-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 24px;
+    }
+
+    .fusion-steps {
+      display: grid;
+      gap: 7px;
+    }
+
+    .fusion-steps div,
+    .fusion-output {
+      padding: 10px;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-tint);
+      font-size: 10px;
+      line-height: 1.3;
+    }
+
+    .fusion-steps strong,
+    .fusion-output strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .fusion-steps span,
+    .fusion-output span {
+      color: var(--muted);
+      font-size: 8px;
+    }
+
+    .fusion-output {
+      border-left-color: var(--green);
+      background: var(--green-tint);
+    }
+
+    .ocr-result-row {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(205px, 0.74fr) minmax(0, 1.26fr);
+      gap: clamp(10px, 1.25cqw, 17px);
+    }
+
+    .ocr-results {
+      min-height: 0;
+      padding: 10px 12px;
+      border-top: 3px solid var(--green);
+      background: rgba(252, 251, 247, 0.94);
+      box-shadow: 0 10px 22px rgba(23, 24, 22, 0.07);
+      transform: translateX(7px) rotate(0.25deg);
+    }
+
+    .ocr-results .result-metrics {
+      margin-bottom: 5px;
+    }
+
+    .ocr-results .result-metric {
+      padding: 6px 7px;
+    }
+
+    .ocr-results .result-metric strong {
+      font-size: clamp(22px, 2cqw, 31px);
+    }
+
+    .ocr-qualitative {
       min-height: 0;
       display: grid;
       grid-template-rows: minmax(0, 1fr) auto;
-      transform: rotate(-0.25deg);
+      transform: translate(-4px, 4px) rotate(-0.25deg);
     }
 
-    .ocr-flow img {
-      object-fit: cover;
+    .ocr-qualitative img {
+      object-fit: contain;
     }
 
-    .ocr-restore,
-    .ocr-attention {
-      min-height: 0;
-      display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
-    }
-
-    .ocr-restore {
-      transform: translate(8px, -2px) rotate(0.55deg);
-    }
-
-    .ocr-attention {
-      transform: translate(-5px, 6px) rotate(-0.35deg);
-    }
-
-    .ocr-restore img,
-    .ocr-attention img {
-      object-fit: cover;
+    .ocr-qualitative figcaption {
+      max-width: 620px;
     }
 
     /* Open-source ledger */
@@ -1813,8 +1999,9 @@
         grid-column: 1 / span 9;
       }
 
-      .floc-table {
+      .floc-results {
         grid-column: 9 / -1;
+        padding: 8px;
         transform: none;
       }
 
@@ -1832,14 +2019,80 @@
         display: none;
       }
 
+      .result-metric {
+        padding: 6px;
+      }
+
+      .result-metric strong {
+        font-size: 21px;
+      }
+
+      .result-table th,
+      .result-table td {
+        padding: 4px 3px;
+        font-size: 7px;
+      }
+
       .climate-collage {
         grid-template-columns: 0.95fr 0.55fr 0.8fr;
         gap: 7px;
       }
 
       .dqn-collage,
-      .ocr-collage {
+      .ocr-evidence {
         gap: 7px;
+      }
+
+      .ocr-algorithm {
+        gap: 6px;
+        padding: 9px;
+      }
+
+      .ocr-algorithm h3 {
+        font-size: 18px;
+      }
+
+      .fusion-diagram {
+        grid-template-columns:
+          minmax(74px, 0.72fr)
+          11px
+          minmax(110px, 1fr)
+          11px
+          minmax(60px, 0.55fr);
+        gap: 3px;
+      }
+
+      .frame-stack {
+        min-height: 112px;
+      }
+
+      .frame-card {
+        left: calc(var(--offset) * 8px);
+        top: calc(var(--offset) * 12px);
+        width: calc(100% - 32px);
+        min-height: 54px;
+        padding: 5px;
+        font-size: 6px;
+      }
+
+      .fusion-steps {
+        gap: 4px;
+      }
+
+      .fusion-steps div,
+      .fusion-output {
+        padding: 6px;
+        font-size: 8px;
+      }
+
+      .ocr-result-row {
+        grid-template-columns: minmax(175px, 0.7fr) minmax(0, 1.3fr);
+        gap: 7px;
+      }
+
+      .ocr-results {
+        padding: 7px 8px;
+        transform: none;
       }
 
       .code-row {
@@ -2001,17 +2254,37 @@
         grid-template-columns: 0.9fr 1.08fr 0.9fr;
       }
 
-      .floc-table {
-        display: none;
-      }
-
       .floc-gui,
       .floc-decisions {
         grid-column: 1 / -1;
+        grid-row: 1;
       }
 
       .mask-sequence {
+        display: none;
+      }
+
+      .floc-collage {
+        grid-template-rows: minmax(0, 1fr) minmax(96px, 0.58fr);
+      }
+
+      .floc-results {
         grid-column: 1 / -1;
+        grid-row: 2;
+        padding: 6px 8px;
+      }
+
+      .floc-results .result-eyebrow {
+        margin-bottom: 4px;
+      }
+
+      .floc-results .result-metrics {
+        margin: 0;
+      }
+
+      .floc-results .result-table,
+      .floc-results .result-footnote {
+        display: none;
       }
 
       .climate-collage {
@@ -2038,21 +2311,60 @@
         display: none;
       }
 
-      .ocr-collage {
-        grid-template-columns: 1fr;
-        grid-template-rows: minmax(0, 1.12fr) minmax(0, 0.66fr);
+      .ocr-evidence {
+        grid-template-rows: minmax(0, 1.04fr) minmax(96px, 0.62fr);
       }
 
-      .ocr-flow {
-        grid-column: 1;
+      .ocr-algorithm {
+        padding: 7px;
       }
 
-      .ocr-restore {
+      .ocr-algorithm h3 {
+        font-size: 16px;
+      }
+
+      .frame-stack {
+        min-height: 96px;
+      }
+
+      .frame-card {
+        min-height: 45px;
+      }
+
+      .ocr-result-row {
+        grid-template-columns: minmax(112px, 0.78fr) minmax(0, 1.22fr);
+        gap: 5px;
+      }
+
+      .ocr-results {
+        padding: 5px 6px;
+      }
+
+      .ocr-results .result-eyebrow {
+        margin-bottom: 3px;
+        font-size: 6px;
+      }
+
+      .ocr-results .result-metrics {
+        gap: 4px;
+        margin: 0;
+      }
+
+      .ocr-results .result-metric {
+        padding: 4px;
+      }
+
+      .ocr-results .result-metric strong {
+        font-size: 18px;
+      }
+
+      .ocr-results .result-metric span {
+        margin-top: 2px;
+        font-size: 5px;
+      }
+
+      .ocr-results .result-footnote {
         display: none;
-      }
-
-      .ocr-attention {
-        grid-column: 1;
       }
 
       .code-row {
@@ -2101,6 +2413,103 @@
       .small-interests {
         grid-template-columns: 1fr;
         gap: 3px;
+      }
+    }
+
+    @media (max-width: 420px) and (max-height: 700px) {
+      .floc-collage {
+        grid-template-rows: minmax(0, 1fr);
+      }
+
+      .floc-gui,
+      .floc-decisions {
+        display: none;
+      }
+
+      .floc-results {
+        grid-row: 1;
+        align-self: start;
+      }
+
+      .ocr-evidence {
+        grid-template-rows: minmax(66px, 0.88fr) minmax(64px, 0.62fr);
+        gap: 4px;
+        padding-bottom: 0;
+      }
+
+      .ocr-algorithm {
+        gap: 3px;
+        padding: 4px 5px;
+      }
+
+      .ocr-algorithm h3 {
+        display: none;
+      }
+
+      .fusion-diagram {
+        grid-template-columns:
+          minmax(48px, 0.72fr)
+          7px
+          minmax(76px, 1fr)
+          7px
+          minmax(39px, 0.52fr);
+        gap: 2px;
+      }
+
+      .frame-stack {
+        min-height: 52px;
+      }
+
+      .frame-card {
+        left: calc(var(--offset) * 4px);
+        top: calc(var(--offset) * 6px);
+        width: calc(100% - 16px);
+        min-height: 26px;
+        padding: 3px;
+        font-size: 5px;
+        line-height: 1.15;
+      }
+
+      .frame-card strong {
+        font-size: 6px;
+      }
+
+      .frame-card span,
+      .fusion-steps span,
+      .fusion-output span {
+        display: none;
+      }
+
+      .fusion-steps {
+        gap: 2px;
+      }
+
+      .fusion-steps div,
+      .fusion-output {
+        padding: 3px;
+        font-size: 6px;
+        line-height: 1.15;
+      }
+
+      .map-arrow {
+        font-size: 13px;
+      }
+
+      .ocr-result-row {
+        grid-template-columns: minmax(104px, 0.78fr) minmax(0, 1.22fr);
+        gap: 4px;
+      }
+
+      .ocr-results .result-eyebrow {
+        display: none;
+      }
+
+      .ocr-results .result-metric strong {
+        font-size: 15px;
+      }
+
+      .ocr-qualitative figcaption {
+        display: none;
       }
     }
 
@@ -2265,6 +2674,24 @@
 
       .case-note {
         font-size: 9px;
+      }
+
+      .floc-results {
+        padding: 7px 9px;
+      }
+
+      .floc-results .result-eyebrow {
+        margin-bottom: 4px;
+      }
+
+      .floc-results .result-metrics {
+        margin: 0;
+      }
+
+      .floc-results .result-table,
+      .floc-results .result-footnote,
+      .floc-callout {
+        display: none;
       }
 
       .artifact-figure figcaption {
@@ -2633,10 +3060,29 @@
                 </figure>
               </div>
 
-              <figure class="artifact-figure floc-table" data-priority="supplemental">
-                <img src="assets/portfolio/floc-reported-comparison.webp" alt="Project document table comparing the reported threshold and XGBoost classifier metrics" decoding="async">
-                <figcaption><strong>Document table</strong> · reported metrics; split unit clarified from the archived code</figcaption>
-              </figure>
+              <section class="floc-results" aria-labelledby="floc-result-title">
+                <p class="result-eyebrow" id="floc-result-title">Reported binary-classifier result</p>
+                <div class="result-metrics" aria-label="Floc classifier headline accuracies">
+                  <div class="result-metric">
+                    <strong>88.5%</strong>
+                    <span>XGBoost · test split</span>
+                  </div>
+                  <div class="result-metric">
+                    <strong>67.4%</strong>
+                    <span>Fixed threshold</span>
+                  </div>
+                </div>
+                <table class="result-table" aria-label="Floc classifier metrics reported in the handoff document">
+                  <thead>
+                    <tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
+                    <tr><td>Threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
+                  </tbody>
+                </table>
+                <p class="result-footnote">Redrawn from the handoff table. The split is floc-level after frame expansion—not an independent video or plant test.</p>
+              </section>
 
               <div class="visual-callout floc-callout">Consecutive masks make frame dependence visible.</div>
             </div>
@@ -2812,19 +3258,48 @@
               </div>
             </div>
 
-            <div class="artifact-stage ocr-collage">
-              <figure class="artifact-figure ocr-flow">
-                <img src="assets/portfolio/ocr-system-flow.webp" alt="Team project flow showing current text crop selection, support frames, feature extraction, alignment, fusion, recognition, and output" decoding="async">
-                <figcaption><strong>System flow</strong> · crop from the supplied project slide</figcaption>
-              </figure>
-              <figure class="artifact-figure ocr-restore">
-                <img src="assets/portfolio/ocr-restoration-comparison.webp" alt="Project slide crop comparing restored video frames from several methods with ground truth" decoding="async">
-                <figcaption><strong>Restoration study</strong> · benchmark comparison shown in the team deck</figcaption>
-              </figure>
-              <figure class="artifact-figure ocr-attention">
-                <img src="assets/portfolio/ocr-attention-maps.webp" alt="Acceptance report crop showing recognition attention maps over a blurred word image" decoding="async">
-                <figcaption><strong>Attention artifact</strong> · recognition report, not a redrawn diagram</figcaption>
-              </figure>
+            <div class="artifact-stage ocr-evidence">
+              <section class="ocr-algorithm" aria-labelledby="ocr-path-title">
+                <h3 id="ocr-path-title">Cross-frame recognition path</h3>
+                <div class="fusion-diagram" aria-label="Reference and support frames fused before text recognition">
+                  <div class="frame-stack" aria-label="Ranked text crops">
+                    <div class="frame-card" style="--offset:0"><strong>Support −4</strong><span>ranked earlier crop</span></div>
+                    <div class="frame-card" style="--offset:1"><strong>Support −3</strong><span>ranked earlier crop</span></div>
+                    <div class="frame-card" style="--offset:2"><strong>Support −2/−1</strong><span>top-quality history</span></div>
+                    <div class="frame-card" style="--offset:3"><strong>Reference</strong><span>current text crop</span></div>
+                  </div>
+                  <div class="map-arrow" aria-hidden="true">→</div>
+                  <div class="fusion-steps">
+                    <div><strong>Extract</strong><span>features per crop</span></div>
+                    <div><strong>Align + fuse</strong><span>cross-frame evidence</span></div>
+                    <div><strong>Recognize</strong><span>Transformer-inspired decoder</span></div>
+                  </div>
+                  <div class="map-arrow" aria-hidden="true">→</div>
+                  <div class="fusion-output"><strong>Text</strong><span>recognized sequence</span></div>
+                </div>
+              </section>
+
+              <div class="ocr-result-row">
+                <section class="ocr-results" aria-labelledby="ocr-result-title">
+                  <p class="result-eyebrow" id="ocr-result-title">Reported recognition accuracy</p>
+                  <div class="result-metrics" aria-label="Reported OCR benchmark results">
+                    <div class="result-metric">
+                      <strong>69.2%</strong>
+                      <span>Chinese Benchmark</span>
+                    </div>
+                    <div class="result-metric">
+                      <strong>68.5%</strong>
+                      <span>ICDAR 2019-LSVT</span>
+                    </div>
+                  </div>
+                  <p class="result-footnote">Acceptance-report table; SVTR-S is listed at 69.0 and 68.2. No raw predictions or independent rerun were supplied.</p>
+                </section>
+
+                <figure class="artifact-figure ocr-qualitative">
+                  <img src="assets/portfolio/ocr-vrt-triptych.webp" alt="Three enlarged benchmark crops showing a low-quality input, VRT restoration, and ground truth" decoding="async">
+                  <figcaption><strong>What restoration changes</strong> · VRT reference benchmark reproduced in the team deck; method context, not this project’s output</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -3091,7 +3566,9 @@
           "h1, h2, h3, p, li, time, .profile-intro, .profile-chronology, "
           + ".vertical-timeline, .journey-item, .case-copy, .case-block, "
           + ".case-note, .code-ledger, .code-row, .credential-groups, "
-          + ".credential-group, .questions-grid, .question-column, .small-interests"
+          + ".credential-group, .questions-grid, .question-column, .small-interests, "
+          + ".floc-results, .ocr-evidence, .ocr-algorithm, .ocr-result-row, "
+          + ".ocr-results, .fusion-diagram"
         );
 
         return Array.from(contentNodes).every(function (node) {
@@ -3133,6 +3610,11 @@
           fitAllSlides();
           resizeFrame = null;
         });
+      }
+
+      function resetDeckOrigin() {
+        deck.scrollLeft = 0;
+        deck.scrollTop = 0;
       }
 
       function goToSlide(index, options) {
@@ -3180,8 +3662,8 @@
         // Hash navigation can scroll the overflow-hidden deck toward an
         // off-screen slide while its entrance transform is still applied.
         // Always restore the stage origin so the active slide is not clipped.
-        deck.scrollLeft = 0;
-        deck.scrollTop = 0;
+        resetDeckOrigin();
+        requestAnimationFrame(resetDeckOrigin);
 
         fitSlide(slides[currentIndex]);
 
@@ -3232,7 +3714,10 @@
       });
 
       window.addEventListener("resize", scheduleFit);
-      window.addEventListener("load", scheduleFit);
+      window.addEventListener("load", function () {
+        resetDeckOrigin();
+        scheduleFit();
+      });
       document.fonts.ready.then(scheduleFit);
 
       document.querySelectorAll("img").forEach(function (image) {

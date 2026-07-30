@@ -108,11 +108,49 @@ def build_pdf_visuals(source_dir: Path) -> None:
     )
 
     ocr_restoration = render_page(zuguang, 10, 1600)
+    restoration_comparison = crop_fraction(
+        ocr_restoration,
+        0.435,
+        0.235,
+        0.815,
+        0.49,
+    )
     save_webp(
-        crop_fraction(ocr_restoration, 0.435, 0.235, 0.815, 0.49),
+        restoration_comparison,
         "ocr-restoration-comparison.webp",
         quality=88,
     )
+
+    # The source slide reproduces a VRT benchmark grid. Keep only the low-quality
+    # input, the VRT reconstruction, and ground truth so the visual difference
+    # remains legible at portfolio scale. This is method context, not a project
+    # output, and is labelled accordingly in the page.
+    restoration_cells = [
+        crop_fraction(restoration_comparison, 0.005, 0.015, 0.245, 0.50),
+        crop_fraction(restoration_comparison, 0.505, 0.54, 0.735, 0.995),
+        crop_fraction(restoration_comparison, 0.755, 0.54, 0.965, 0.995),
+    ]
+    cell_width = max(cell.width for cell in restoration_cells)
+    cell_height = max(cell.height for cell in restoration_cells)
+    gap = 12
+    triptych = Image.new(
+        "RGB",
+        (cell_width * len(restoration_cells) + gap * 2, cell_height),
+        "#fcfbf7",
+    )
+    for index, cell in enumerate(restoration_cells):
+        fitted = ImageOps.pad(
+            cell,
+            (cell_width, cell_height),
+            color="#fcfbf7",
+            method=Image.Resampling.LANCZOS,
+        )
+        triptych.paste(fitted, (index * (cell_width + gap), 0))
+    triptych = triptych.resize(
+        (triptych.width * 2, triptych.height * 2),
+        Image.Resampling.LANCZOS,
+    )
+    save_webp(triptych, "ocr-vrt-triptych.webp", quality=90)
 
     results_page = render_page(acceptance, 38, 1500)
     save_webp(

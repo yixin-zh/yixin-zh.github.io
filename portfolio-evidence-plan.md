@@ -23,13 +23,15 @@ derivatives under `assets/portfolio/` are public.
 2. **Robot loop** — runtime and cabinet-operation scope beside three privacy-
    cropped video frames and a click-to-load hosted demo.
 3. **Plant CV** — original/mask GUI crop, the observed classifier disagreement,
-   three consecutive masks, and a narrowly cropped metric table.
+   three consecutive masks, and a legible result card redrawn from the handoff
+   table.
 4. **Climate data** — case-model diagram, JSON directory contract, and two
    scenario-output fragments.
 5. **DQN planner** — simulator, learning curves, and the reported 15-run
    comparison table.
-6. **Video OCR** — system flow, restoration comparison, and attention-map
-   artifacts from the project record.
+6. **Video OCR** — a redrawn cross-frame recognition path, a compact scorecard
+   transcribed from the acceptance report, and an enlarged VRT reference
+   triptych from the team deck.
 7. **Public code** — public repositories and merged pull requests, plus a small
    ANP-handle note.
 8. **Credentials** — NVIDIA, Oracle, Microsoft, and AWS records grouped by
@@ -83,6 +85,11 @@ derivatives under `assets/portfolio/` are public.
 - The final project record supports a Transformer-inspired recognizer and feature
   coupling contribution within a team system.
 - First prize and national-level continuation are retained as recorded outcomes.
+- The acceptance-report table lists 69.2% on Chinese Benchmark and 68.5% on
+  ICDAR 2019-LSVT, versus 69.0% and 68.2% for SVTR-S. Raw predictions and an
+  independent rerun are unavailable.
+- The low-quality/VRT/ground-truth triptych is method context reproduced in the
+  team deck, not a qualitative output of this project.
 - The broader résumé architecture/deblurring scope, Android deployment, and
   earlier `+0.23% F1` wording are not treated as established results.
 
