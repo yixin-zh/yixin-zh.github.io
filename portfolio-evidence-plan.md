@@ -66,8 +66,8 @@ Reported implementation:
 
 Evidence:
 
-- `raw/cabinet-operation.mp4` and the matching hosted video.
-- `raw/resume.pdf` and `source/cv.md`.
+- Private `cabinet-operation.mp4` and the matching hosted video.
+- Private `resume.pdf` and `source/cv.md`.
 - Public company context: <https://www.insightos.cn/>.
 
 Boundaries:
@@ -92,8 +92,8 @@ Implemented story that is supported by the retrospective scope and resume:
 
 Evidence and references:
 
-- `raw/industrial-wastewater-cv/scope.md`.
-- `raw/industrial-wastewater-cv/brag-doc.md`, used only as a retrospective interpretation.
+- Private wastewater project scope.
+- Private wastewater retrospective, used only as an interpretation.
 - C-FIA paper for the narrower claim that image-derived floc indices can track coagulation dynamics: <https://doi.org/10.1039/D2EW00389A>.
 
 Review flags:
@@ -118,8 +118,8 @@ Implemented / reported contribution:
 
 Evidence:
 
-- User-authored project visuals in `raw/previous-slides.pdf`, pages 9-12.
-- `raw/moya-analytics-discovery/discovery.md`.
+- User-authored project visuals in the private slide archive, pages 9-12.
+- Private Moya analytics discovery notes.
 - Official public context: <https://mitigationatlas.org/> and <https://mitigationatlas.org/about>.
 
 Boundaries:
@@ -142,7 +142,7 @@ Implemented story:
 
 Evidence:
 
-- `raw/previous-slides.pdf`, pages 4-8.
+- Private project slides, pages 4-8.
 - The results slide reports `98.1%` success and mean path length `29.113` for the proposed method, versus `92.6%` and `30.852` for traditional DQN, averaged over 15 repeated experiments.
 - DQN reference: <https://doi.org/10.1038/nature14236>.
 
@@ -168,7 +168,7 @@ Best-supported personal contribution:
 
 Evidence:
 
-- `raw/word_extraction/项目验收书.pdf`, especially pages 1, 23, 38, and 43.
+- Private video-text acceptance report, especially pages 1, 23, 38, and 43.
 - Project level and membership are recorded on pages 1-2.
 - Page 38 reports `69.2` on Chinese Benchmark and `68.5` on ICDAR2019-LSVT, compared with `69.0` and `68.2` for SVTR-S.
 - VRT reference: <https://arxiv.org/abs/2201.12288>.
@@ -217,8 +217,8 @@ Close with:
 | --- | --- | --- |
 | Cabinet poster/frame | Yes | Derived from the user-provided cabinet video. |
 | Cabinet video | Yes, click-to-load | User-provided local file and hosted OSS object. |
-| DQN result slide | Yes | Rendered from user-authored `raw/previous-slides.pdf`, page 8. |
-| GMPA diagrams/charts | Yes | Rendered from user-authored `raw/previous-slides.pdf`, pages 9-12. |
+| DQN result slide | Yes | Rendered from user-authored private project slides, page 8. |
+| GMPA diagrams/charts | Yes | Rendered from user-authored private project slides, pages 9-12. |
 | Video-text pipeline/results | Yes | Rendered from the project acceptance report and user-authored slides. |
 | Wastewater correlation PNGs | No for now | They show a third-party university presentation and lack a clean original citation/license in the repository. |
 | Headshot | No | Missing source image; leave the space intentionally empty. |
@@ -235,4 +235,4 @@ Close with:
 
 ## Repository exposure note
 
-The Pages branch currently contains `raw/`, resumes, drafts, `events.jsonl`, and the local cabinet video. These may be directly reachable even when the portfolio does not link to them. This recreation will not delete or relocate them without explicit approval, but public/private review should happen before treating the repository as a polished publication surface.
+The private source archive is excluded from the Pages branch and ignored by Git. The generated derivatives above are the only source-derived media intended for public delivery.

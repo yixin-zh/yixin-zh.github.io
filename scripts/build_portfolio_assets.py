@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build web-ready portfolio visuals from the repository's source artifacts."""
+"""Build web-ready portfolio visuals from a private source archive."""
 
 from __future__ import annotations
 
+import argparse
 import shutil
 import subprocess
 import tempfile
@@ -30,9 +31,9 @@ def save_webp(image: Image.Image, filename: str, quality: int = 84) -> None:
     image.save(OUTPUT / filename, "WEBP", quality=quality, method=6)
 
 
-def build_pdf_visuals() -> None:
-    slides = ROOT / "raw" / "previous-slides.pdf"
-    acceptance = ROOT / "raw" / "word_extraction" / "项目验收书.pdf"
+def build_pdf_visuals(source_dir: Path) -> None:
+    slides = source_dir / "previous-slides.pdf"
+    acceptance = source_dir / "word_extraction" / "项目验收书.pdf"
 
     save_webp(render_page(slides, 8, 1440), "dqn-results.webp")
     save_webp(render_page(slides, 10, 1440), "moya-collaboration.webp")
@@ -52,8 +53,8 @@ def build_pdf_visuals() -> None:
     save_webp(results_crop, "video-text-results.webp", quality=86)
 
 
-def build_cabinet_poster() -> None:
-    source = ROOT / "raw" / "cabinet-operation.mp4"
+def build_cabinet_poster(source_dir: Path) -> None:
+    source = source_dir / "cabinet-operation.mp4"
     with tempfile.TemporaryDirectory(prefix="portfolio-poster-") as temp_dir:
         subprocess.run(
             [
@@ -80,11 +81,33 @@ def build_cabinet_poster() -> None:
         )
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Rebuild portfolio derivatives from a private local archive."
+    )
+    parser.add_argument(
+        "source_dir",
+        type=Path,
+        help="Directory containing previous-slides.pdf, cabinet-operation.mp4, and word_extraction/.",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    source_dir = parse_args().source_dir.expanduser().resolve()
+    required = [
+        source_dir / "previous-slides.pdf",
+        source_dir / "word_extraction" / "项目验收书.pdf",
+    ]
+    missing = [path for path in required if not path.is_file()]
+    if missing:
+        missing_list = "\n".join(f"- {path}" for path in missing)
+        raise SystemExit(f"Missing required source artifacts:\n{missing_list}")
+
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    build_pdf_visuals()
-    if shutil.which("qlmanage"):
-        build_cabinet_poster()
+    build_pdf_visuals(source_dir)
+    if shutil.which("qlmanage") and (source_dir / "cabinet-operation.mp4").is_file():
+        build_cabinet_poster(source_dir)
 
 
 if __name__ == "__main__":

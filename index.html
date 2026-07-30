@@ -1497,7 +1497,7 @@
                 <div class="video-caption">
                   <div>
                     <p>Observed artifact · portrait video · click to load.</p>
-                    <p class="video-error" id="cabinet-video-error">The hosted copy did not play; the repository copy was also unavailable.</p>
+                    <p class="video-error" id="cabinet-video-error">The hosted copy did not play. Use “Open file” to retry directly.</p>
                   </div>
                   <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Open file ↗</a>
                 </div>
@@ -2096,8 +2096,6 @@
       const cabinetVideo = document.getElementById("cabinet-video");
       const videoError = document.getElementById("cabinet-video-error");
       const hostedVideo = "https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4";
-      const localVideo = "raw/cabinet-operation.mp4";
-      let fallbackAttempted = false;
 
       function revealVideo() {
         playButton.hidden = true;
@@ -2114,15 +2112,6 @@
       });
 
       cabinetVideo.addEventListener("error", function () {
-        if (!fallbackAttempted) {
-          fallbackAttempted = true;
-          cabinetVideo.src = localVideo;
-          cabinetVideo.load();
-          cabinetVideo.play().catch(function () {
-            // Keep native controls visible for a manual retry.
-          });
-          return;
-        }
         videoError.classList.add("is-visible");
       });
 
