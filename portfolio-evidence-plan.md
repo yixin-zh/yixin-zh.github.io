@@ -18,8 +18,9 @@ derivatives under `assets/portfolio/` are public.
 ## Page structure
 
 1. **Profile** — robot-learning goal, motto, contact links, and a frameless
-   career/education/project/volunteering chronology. HIT projects remain nested
-   under HIT; the HIT and NUS-ISS overlap is explicit.
+   career/education/project/volunteering chronology. Each project has its own
+   dated row; the dates make the HIT and NUS-ISS overlap legible without a
+   separate explanatory panel.
 2. **Robot loop** — runtime and cabinet-operation scope beside three privacy-
    cropped video frames and a click-to-load hosted demo.
 3. **Plant CV** — original/mask GUI crop, the observed classifier disagreement,
@@ -27,11 +28,11 @@ derivatives under `assets/portfolio/` are public.
    table.
 4. **Climate data** — case-model diagram, JSON directory contract, and two
    scenario-output fragments.
-5. **DQN planner** — simulator, learning curves, and the reported 15-run
-   comparison table.
+5. **DQN planner** — simulator, learning curves, and a legible bar/table panel
+   for the reported 15-run comparison.
 6. **Video OCR** — a redrawn cross-frame recognition path, a compact scorecard
-   transcribed from the acceptance report, and an enlarged VRT reference
-   triptych from the team deck.
+   transcribed from the acceptance report, and two project-specific
+   blurred/restored text pairs isolated from the team deck.
 7. **Public code** — public repositories and merged pull requests, plus a small
    ANP-handle note.
 8. **Credentials** — NVIDIA, Oracle, Microsoft, and AWS records grouped by
@@ -77,6 +78,10 @@ derivatives under `assets/portfolio/` are public.
 - The supplied scorecard reports 98.1% success and mean path length 29.113 for
   the proposed method versus 92.6% and 30.852 for traditional DQN, averaged over
   15 reported runs.
+- The preserved algorithm slide uses `argmax` over DQN action candidates, which
+  supports a discrete action space. The exact movement or steering catalogue is
+  not preserved, so the portfolio does not infer it from the visually smooth
+  plotted path.
 - Raw logs, seeds, confidence intervals, exact simulator configuration, and
   real-robot evaluation are unavailable.
 
@@ -88,8 +93,9 @@ derivatives under `assets/portfolio/` are public.
 - The acceptance-report table lists 69.2% on Chinese Benchmark and 68.5% on
   ICDAR 2019-LSVT, versus 69.0% and 68.2% for SVTR-S. Raw predictions and an
   independent rerun are unavailable.
-- The low-quality/VRT/ground-truth triptych is method context reproduced in the
-  team deck, not a qualitative output of this project.
+- The blurred/restored Chinese text pairs are qualitative outputs reproduced in
+  the project-results slide. Their source images, per-sample predictions, and an
+  independent rerun are unavailable.
 - The broader résumé architecture/deblurring scope, Android deployment, and
   earlier `+0.23% F1` wording are not treated as established results.
 

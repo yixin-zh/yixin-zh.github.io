@@ -44,10 +44,11 @@ Meaning is never conveyed by color alone.
 
 ## Layout
 
-- Nine full-viewport slides under a slim top masthead.
+- Nine full-viewport slides beside a quiet vertical desktop rail; switch to a
+  compact top bar below 960px.
 - Page one pairs the robot-learning goal with a frameless vertical chronology.
-- Career and education use distinct timeline labels; HIT projects remain nested
-  under HIT, and volunteering is separately named.
+- Career, education, HIT projects, and volunteering use distinct timeline
+  labels; each project receives its own dated row.
 - Project pages use an open case-story layout: concise problem/method/result copy
   alongside a loose collage of traceable artifacts.
 - Credentials occupy a dedicated provider-grouped page.

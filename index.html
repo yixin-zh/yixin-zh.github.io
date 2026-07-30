@@ -117,39 +117,38 @@
       width: 100%;
       height: 100dvh;
       display: grid;
-      grid-template-rows: 58px minmax(0, 1fr);
+      grid-template-columns: 190px minmax(0, 1fr);
       overflow: hidden;
     }
 
     .masthead {
       position: relative;
       z-index: 30;
-      display: grid;
-      grid-template-columns: 190px minmax(0, 1fr) auto;
-      align-items: stretch;
-      border-bottom: 1px solid var(--rule);
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px 18px;
+      border-right: 1px solid var(--rule);
       background: rgba(244, 242, 236, 0.97);
       backdrop-filter: blur(12px);
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 8px 18px;
+      display: block;
+      padding: 0 4px;
       color: var(--ink);
       text-decoration: none;
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       display: grid;
-      flex: 0 0 auto;
       place-items: center;
+      margin-bottom: 10px;
       border: 1px solid var(--ink);
       font-family: var(--display);
-      font-size: 16px;
+      font-size: 19px;
     }
 
     .brand-copy strong,
@@ -159,41 +158,41 @@
 
     .brand-copy strong {
       font-family: var(--display);
-      font-size: 16px;
-      line-height: 1;
+      font-size: 18px;
+      line-height: 1.15;
     }
 
     .brand-copy span {
       margin-top: 4px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 7px;
+      font-size: 8px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .mast-nav {
-      min-width: 0;
+      width: 100%;
       display: grid;
-      grid-template-columns: repeat(9, minmax(0, 1fr));
-      border-left: 1px solid var(--rule);
+      gap: 1px;
+      margin-top: 28px;
     }
 
     .mast-nav button {
       min-width: 0;
-      min-height: 44px;
+      min-height: 41px;
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: 24px minmax(0, 1fr);
       align-items: center;
-      gap: 7px;
-      padding: 7px 9px;
+      gap: 8px;
+      padding: 7px 8px;
       border: 0;
-      border-right: 1px solid var(--rule);
+      border-left: 2px solid transparent;
       background: transparent;
       color: var(--muted);
       text-align: left;
       cursor: pointer;
-      transition: color 180ms ease, background 180ms ease;
+      transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
     .mast-nav button:hover {
@@ -202,6 +201,7 @@
     }
 
     .mast-nav button[aria-current="step"] {
+      border-left-color: var(--blue);
       background: var(--blue-tint);
       color: var(--ink);
     }
@@ -209,26 +209,40 @@
     .mast-nav .nav-number {
       color: var(--blue-dark);
       font-family: var(--mono);
-      font-size: 8px;
+      font-size: 9px;
     }
 
     .mast-nav .nav-label {
       overflow: hidden;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
     .mast-contact {
-      min-width: 106px;
-      display: grid;
-      place-items: center;
-      padding: 0 16px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      margin-top: auto;
+      padding: 8px 4px;
       font-family: var(--mono);
       font-size: 9px;
       font-weight: 700;
       white-space: nowrap;
+    }
+
+    .masthead::after {
+      margin-top: 8px;
+      padding: 0 4px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      content: "← → navigate\A Home / End jump";
+      white-space: pre;
     }
 
     .mobile-status {
@@ -443,17 +457,14 @@
 
     .profile-chronology {
       min-height: 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.31fr);
-      gap: clamp(28px, 4.6cqw, 72px);
-      align-items: start;
+      display: block;
     }
 
     .vertical-timeline {
       position: relative;
       min-height: 0;
       display: grid;
-      gap: clamp(11px, 1.65cqh, 18px);
+      gap: clamp(5px, 0.75cqh, 9px);
       align-content: start;
     }
 
@@ -503,6 +514,20 @@
       border-color: var(--green);
     }
 
+    .journey-node.project {
+      border-color: var(--amber);
+      border-radius: 1px;
+    }
+
+    .journey-node.volunteer {
+      border-color: var(--red);
+      transform: rotate(45deg);
+    }
+
+    .journey-node.education {
+      box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--green);
+    }
+
     .journey-body {
       min-width: 0;
       padding-left: clamp(8px, 1cqw, 15px);
@@ -522,10 +547,18 @@
       color: var(--green);
     }
 
+    .journey-type.project {
+      color: var(--amber);
+    }
+
+    .journey-type.volunteer {
+      color: var(--red);
+    }
+
     .journey-role {
       margin: 1px 0 0;
       font-family: var(--display);
-      font-size: clamp(18px, 1.55cqw, 24px);
+      font-size: clamp(15px, 1.3cqw, 20px);
       font-weight: 600;
       line-height: 1.08;
     }
@@ -533,7 +566,7 @@
     .journey-org {
       margin: 2px 0 0;
       color: var(--muted);
-      font-size: clamp(10px, 0.84cqw, 13px);
+      font-size: clamp(9px, 0.76cqw, 11px);
       line-height: 1.32;
     }
 
@@ -581,24 +614,6 @@
 
     .overlap-note strong {
       color: var(--red);
-    }
-
-    .profile-aside {
-      min-width: 0;
-      align-self: end;
-      padding: 14px 0 4px;
-      border-top: 1px solid var(--rule);
-    }
-
-    .profile-aside p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(10px, 0.82cqw, 12px);
-      line-height: 1.48;
-    }
-
-    .profile-aside strong {
-      color: var(--ink);
     }
 
     /* Project stories */
@@ -1089,15 +1104,75 @@
       object-fit: cover;
     }
 
-    .dqn-score {
+    .dqn-results-board {
       min-height: 0;
       display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
-      transform: translate(15px, -3px) rotate(0.25deg);
+      gap: 7px;
+      padding: clamp(10px, 1.1cqw, 15px);
+      border: 1px solid var(--rule);
+      background: rgba(252, 251, 247, 0.94);
+      box-shadow: 0 10px 24px rgba(23, 24, 22, 0.08);
     }
 
-    .dqn-score img {
-      object-fit: cover;
+    .dqn-results-board h3 {
+      font-family: var(--display);
+      font-size: clamp(18px, 1.55cqw, 24px);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .bar-comparison {
+      display: grid;
+      gap: 5px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(92px, 0.8fr) minmax(110px, 1.7fr) 42px;
+      gap: 7px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 8px;
+      line-height: 1.2;
+    }
+
+    .bar-track {
+      height: 9px;
+      overflow: hidden;
+      background: #e0e2dc;
+    }
+
+    .bar-fill {
+      width: var(--value);
+      height: 100%;
+      background: var(--blue);
+    }
+
+    .bar-row:first-child .bar-fill {
+      background: var(--green);
+    }
+
+    .bar-row strong {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 8px;
+      text-align: right;
+    }
+
+    .dqn-results-board .result-table {
+      font-size: 8px;
+    }
+
+    .dqn-results-board .result-table th,
+    .dqn-results-board .result-table td {
+      padding: 4px 5px;
+    }
+
+    .dqn-result-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 8px;
+      line-height: 1.32;
     }
 
     /* OCR algorithm + result evidence */
@@ -1235,19 +1310,57 @@
       font-size: clamp(22px, 2cqw, 31px);
     }
 
-    .ocr-qualitative {
+    .ocr-text-examples {
       min-height: 0;
       display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
+      grid-template-rows: auto repeat(2, minmax(0, 1fr)) auto;
+      gap: 5px;
+      margin: 0;
       transform: translate(-4px, 4px) rotate(-0.25deg);
     }
 
-    .ocr-qualitative img {
-      object-fit: contain;
+    .ocr-text-head,
+    .ocr-text-pair {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+      gap: 5px;
+      align-items: center;
     }
 
-    .ocr-qualitative figcaption {
+    .ocr-text-head {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ocr-text-head span:last-child {
+      grid-column: 3;
+    }
+
+    .ocr-text-pair img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      border: 1px solid rgba(23, 24, 22, 0.16);
+      background: #d8d7d2;
+      object-fit: contain;
+      box-shadow: 0 6px 13px rgba(23, 24, 22, 0.1);
+    }
+
+    .ocr-text-pair > span {
+      color: var(--blue);
+      font-size: 17px;
+      text-align: center;
+    }
+
+    .ocr-text-examples figcaption {
       max-width: 620px;
+      color: var(--muted);
+      font-size: 8px;
+      line-height: 1.35;
     }
 
     /* Open-source ledger */
@@ -1583,7 +1696,7 @@
     }
 
     .slide[data-density="compact"] .vertical-timeline {
-      gap: 8px;
+      gap: 5px;
     }
 
     .slide[data-density="compact"] .journey-role {
@@ -1671,7 +1784,7 @@
     }
 
     .slide[data-density="essential"] .vertical-timeline {
-      gap: 7px;
+      gap: 3px;
     }
 
     .slide[data-density="essential"] .journey-role {
@@ -1679,7 +1792,7 @@
     }
 
     .slide[data-density="essential"] .journey-org {
-      font-size: 10px;
+      display: none;
     }
 
     .slide[data-density="essential"] .journey-meta {
@@ -1701,21 +1814,66 @@
         gap: 34px;
       }
 
-      .profile-chronology {
-        grid-template-columns: minmax(0, 1fr) 220px;
-        gap: 30px;
-      }
     }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 960px) {
+      .shell {
+        grid-template-columns: 1fr;
+        grid-template-rows: 58px minmax(0, 1fr);
+      }
+
       .masthead {
-        grid-template-columns: 170px minmax(0, 1fr) auto;
+        min-height: 58px;
+        display: grid;
+        grid-template-columns: 176px minmax(0, 1fr) auto;
+        align-items: stretch;
+        padding: 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .masthead::after {
+        display: none;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 auto;
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .brand-copy strong {
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .brand-copy span {
+        font-size: 7px;
+      }
+
+      .mast-nav {
+        min-width: 0;
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+        gap: 0;
+        margin: 0;
+        border-left: 1px solid var(--rule);
       }
 
       .mast-nav button {
         grid-template-columns: 1fr;
         place-items: center;
         padding: 7px 4px;
+        border-left: 0;
+        border-right: 1px solid var(--rule);
       }
 
       .mast-nav .nav-label {
@@ -1724,16 +1882,20 @@
 
       .mast-contact {
         min-width: 92px;
+        justify-content: center;
+        margin: 0;
         padding: 0 10px;
       }
     }
 
     @media (max-width: 760px) {
       .shell {
+        grid-template-columns: 1fr;
         grid-template-rows: 50px minmax(0, 1fr);
       }
 
       .masthead {
+        min-height: 50px;
         grid-template-columns: minmax(0, 1fr) auto;
       }
 
@@ -1860,14 +2022,10 @@
         gap: 0;
       }
 
-      .profile-aside {
-        display: none;
-      }
-
       .vertical-timeline,
       .slide[data-density="compact"] .vertical-timeline,
       .slide[data-density="essential"] .vertical-timeline {
-        gap: 6px;
+        gap: 4px;
       }
 
       .vertical-timeline::before {
@@ -2234,8 +2392,56 @@
 
       .profile-goal .motto,
       .slide[data-density="essential"] .profile-goal h2 + p,
-      .slide[data-density="essential"] .journey-org {
+      .journey-org {
         display: none;
+      }
+
+      .vertical-timeline,
+      .slide[data-density="compact"] .vertical-timeline,
+      .slide[data-density="essential"] .vertical-timeline {
+        gap: 2px;
+      }
+
+      .vertical-timeline::before {
+        left: 59px;
+      }
+
+      .journey-item,
+      .slide[data-density="essential"] .journey-item {
+        grid-template-columns: 52px 14px minmax(0, 1fr);
+      }
+
+      .journey-date {
+        font-size: 7px;
+        line-height: 1.15;
+      }
+
+      .journey-node {
+        width: 7px;
+        height: 7px;
+        margin-top: 3px;
+      }
+
+      .journey-body {
+        padding-left: 3px;
+      }
+
+      .journey-type {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .journey-role,
+      .slide[data-density="compact"] .journey-role,
+      .slide[data-density="essential"] .journey-role {
+        margin-top: 0;
+        font-size: 11px;
+        line-height: 1.04;
       }
 
       .case-copy {
@@ -2304,15 +2510,55 @@
       }
 
       .dqn-collage {
-        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-columns: 0.72fr 1.28fr;
+        grid-template-rows: minmax(0, 1fr);
       }
 
-      .dqn-score {
+      .dqn-sim {
+        grid-row: 1;
+      }
+
+      .dqn-curves {
+        display: none;
+      }
+
+      .dqn-results-board {
+        grid-column: 2;
+        grid-row: 1;
+        gap: 5px;
+        padding: 6px;
+      }
+
+      .dqn-results-board h3 {
+        font-size: 14px;
+      }
+
+      .bar-comparison {
+        gap: 4px;
+      }
+
+      .bar-row {
+        grid-template-columns: minmax(56px, 0.85fr) minmax(56px, 1.5fr) 31px;
+        gap: 4px;
+        font-size: 6px;
+      }
+
+      .bar-track {
+        height: 7px;
+      }
+
+      .bar-row strong {
+        font-size: 6px;
+      }
+
+      .dqn-results-board .result-table,
+      .dqn-result-note {
         display: none;
       }
 
       .ocr-evidence {
         grid-template-rows: minmax(0, 1.04fr) minmax(96px, 0.62fr);
+        padding-bottom: 4px;
       }
 
       .ocr-algorithm {
@@ -2508,8 +2754,28 @@
         font-size: 15px;
       }
 
-      .ocr-qualitative figcaption {
+      .ocr-text-examples figcaption {
         display: none;
+      }
+
+      .ocr-text-examples {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 3px;
+        transform: none;
+      }
+
+      .ocr-text-head {
+        display: none;
+      }
+
+      .ocr-text-head,
+      .ocr-text-pair {
+        grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr);
+        gap: 3px;
+      }
+
+      .ocr-text-pair > span {
+        font-size: 12px;
       }
     }
 
@@ -2528,17 +2794,28 @@
       }
 
       .slide[data-density="essential"] .vertical-timeline {
-        gap: 4px;
+        gap: 1px;
       }
 
       .slide[data-density="essential"] .journey-role {
-        font-size: 13px;
+        font-size: 10.5px;
+      }
+    }
+
+    @media (max-width: 960px) and (max-height: 620px) and (orientation: landscape) {
+      .shell {
+        grid-template-columns: 1fr;
+        grid-template-rows: 46px minmax(0, 1fr);
       }
     }
 
     @media (max-height: 620px) and (orientation: landscape) {
-      .shell {
-        grid-template-rows: 46px minmax(0, 1fr);
+      .profile-frame .responsive-full {
+        display: none;
+      }
+
+      .profile-frame .responsive-short {
+        display: inline;
       }
 
       .brand {
@@ -2601,11 +2878,33 @@
 
       .vertical-timeline,
       .slide[data-density="essential"] .vertical-timeline {
-        gap: 2px;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(6, minmax(0, auto));
+        gap: 1px 18px;
+      }
+
+      .vertical-timeline::before {
+        left: 80px;
+      }
+
+      .vertical-timeline::after {
+        position: absolute;
+        top: 6px;
+        bottom: 4px;
+        left: calc(50% + 89px);
+        width: 1px;
+        background: var(--rule);
+        content: "";
       }
 
       .slide[data-density="essential"] .journey-item {
         grid-template-columns: 72px 18px minmax(0, 1fr);
+      }
+
+      .slide[data-density="essential"] .journey-date {
+        font-size: 7px;
+        line-height: 1.05;
       }
 
       .slide[data-density="essential"] .journey-body {
@@ -2619,13 +2918,13 @@
       .slide[data-density="essential"] .journey-type {
         grid-column: 1;
         margin: 0;
-        font-size: 7px;
+        font-size: 6px;
       }
 
       .slide[data-density="essential"] .journey-role {
         grid-column: 2;
         margin: 0;
-        font-size: 13px;
+        font-size: 12px;
         white-space: nowrap;
       }
 
@@ -2634,6 +2933,10 @@
         grid-column: 2;
         margin-top: 0;
         font-size: 7px;
+      }
+
+      .dqn-result-note {
+        display: none;
       }
 
       .case-grid {
@@ -2832,7 +3135,7 @@
           </div>
 
           <div class="profile-chronology slide-body">
-            <div class="vertical-timeline" aria-label="Career, education, project, and volunteering timeline from 2020 to now">
+            <div class="vertical-timeline" aria-label="Career, education, individual project, and volunteering timeline from 2020 to now">
               <article class="journey-item">
                 <time class="journey-date">Sep 2025<br>— now</time>
                 <span class="journey-node current" aria-hidden="true"></span>
@@ -2869,7 +3172,16 @@
                     <span class="responsive-short">Scientist Intern · SIMTech</span>
                   </h2>
                   <p class="journey-org">ASEAN energy-system studies converted into model-ready data.</p>
-                  <span class="overlap-note"><strong>Overlap:</strong> NUS-ISS in-person phase in Singapore.</span>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Jun 2024<br>— Jan 2025</time>
+                <span class="journey-node volunteer" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type volunteer">Volunteering</p>
+                  <h2 class="journey-role">SG Beach Warriors</h2>
+                  <p class="journey-org">Coastal cleanup across Singapore’s north and east shores.</p>
                 </div>
               </article>
 
@@ -2883,10 +3195,56 @@
                     <span class="responsive-short">NUS-ISS · Systems Analysis · overlaps HIT</span>
                   </h2>
                   <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025.</p>
-                  <span class="overlap-note"><strong>Overlap:</strong> first year ran alongside the final HIT year.</span>
-                  <div class="journey-meta">
-                    <span class="volunteer">SG Beach Warriors · 2024–25</span>
-                  </div>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Sep 2023<br>— Jun 2024</time>
+                <span class="journey-node project" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type project">HIT project</p>
+                  <h2 class="journey-role">DQN path-planning capstone</h2>
+                  <p class="journey-org">Delayed observations, reward shaping, and dynamic-obstacle simulation.</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Oct — Nov<br>2023</time>
+                <span class="journey-node project" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type project">HIT project</p>
+                  <h2 class="journey-role">SparkDesk KBQA &amp; security evaluation</h2>
+                  <p class="journey-org">Agricultural RAG, 100+ questions, and prompt-injection tests.</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Jun — Aug<br>2023</time>
+                <span class="journey-node project" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type project">HIT-period project</p>
+                  <h2 class="journey-role">LLM-Cookbook contributor</h2>
+                  <p class="journey-org">Terminology, localized prompts, reproducibility checks, and demos.</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Jun — Sep<br>2022</time>
+                <span class="journey-node volunteer" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type volunteer">Social practice</p>
+                  <h2 class="journey-role">Exploring the Pillars of a Great Power</h2>
+                  <p class="journey-org">HIT field-research team lead · second prize and key incubation team.</p>
+                </div>
+              </article>
+
+              <article class="journey-item">
+                <time class="journey-date">Sep 2021<br>— Nov 2022</time>
+                <span class="journey-node project" aria-hidden="true"></span>
+                <div class="journey-body">
+                  <p class="journey-type project">HIT project</p>
+                  <h2 class="journey-role">Video-text restoration &amp; recognition</h2>
+                  <p class="journey-org">First prize; selected for national-level continuation.</p>
                 </div>
               </article>
 
@@ -2900,19 +3258,9 @@
                     <span class="responsive-short">HIT · B.Eng., Intelligent Test &amp; Control</span>
                   </h2>
                   <p class="journey-org">Electrical Engineering · 86.95/100 · People’s Scholarship ×5.</p>
-                  <div class="journey-meta">
-                    <span class="project">Video OCR · 2021–22</span>
-                    <span class="project">DQN capstone · 2023–24</span>
-                    <span class="volunteer">HIT field research · 2022</span>
-                  </div>
                 </div>
               </article>
             </div>
-
-            <aside class="profile-aside" data-priority="supplemental">
-              <p class="section-label">How the overlaps read</p>
-              <p><strong>Career</strong> sits on the blue spine. <strong>Education</strong> uses green nodes; HIT projects are nested under HIT in amber, while volunteering stays separate in red.</p>
-            </aside>
           </div>
         </div>
       </section>
@@ -3181,7 +3529,8 @@
               <section class="case-block">
                 <p class="section-label">Method</p>
                 <ul class="case-list">
-                  <li>Main/target networks with replay memory and randomized observation delay.</li>
+                  <li>A finite set of action candidates scored by main/target DQN networks; the exact move catalogue is not preserved.</li>
+                  <li>Replay memory and randomized observation delay.</li>
                   <li>Reward terms for path progress, collision avoidance, and convergence.</li>
                   <li>Fifteen repeated runs averaged on the supplied results slide.</li>
                 </ul>
@@ -3193,23 +3542,40 @@
               </section>
 
               <div class="case-note">
-                <strong>Needs review:</strong> values are transcribed from the capstone slide. Raw logs, confidence intervals, simulator details, and a real-robot evaluation are not available.
+                <strong>Needs review:</strong> values are transcribed from the capstone slide. The exact discrete action set, raw logs, confidence intervals, simulator details, and a real-robot evaluation are not available.
               </div>
             </div>
 
             <div class="artifact-stage dqn-collage">
               <figure class="artifact-figure dqn-sim">
                 <img src="assets/portfolio/dqn-simulation.webp" alt="Capstone simulation screenshot showing a planned path around moving obstacles" decoding="async">
-                <figcaption><strong>Simulation</strong> · path and moving-obstacle snapshots</figcaption>
+                <figcaption><strong>Simulation</strong> · discrete DQN choices; exact action catalogue not supplied</figcaption>
               </figure>
               <figure class="artifact-figure dqn-curves">
                 <img src="assets/portfolio/dqn-learning-curves.webp" alt="Capstone learning curves comparing reward and DQN variants" decoding="async">
                 <figcaption><strong>Learning curves</strong> · supplied result artifact</figcaption>
               </figure>
-              <figure class="artifact-figure dqn-score">
-                <img src="assets/portfolio/dqn-scorecard.webp" alt="Capstone scorecard comparing success rate and mean path length" decoding="async">
-                <figcaption><strong>Scorecard</strong> · mean over 15 reported runs</figcaption>
-              </figure>
+              <section class="dqn-results-board" aria-labelledby="dqn-results-title">
+                <h3 id="dqn-results-title">Reported mean results · 15 repetitions</h3>
+                <div class="bar-comparison" aria-label="Reported success-rate comparison">
+                  <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill" style="--value:98.1%"></div></div><strong>98.1%</strong></div>
+                  <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill" style="--value:97.2%"></div></div><strong>97.2%</strong></div>
+                  <div class="bar-row"><span>Traditional DQN</span><div class="bar-track"><div class="bar-fill" style="--value:92.6%"></div></div><strong>92.6%</strong></div>
+                  <div class="bar-row"><span>Traditional Q-learning</span><div class="bar-track"><div class="bar-fill" style="--value:93.1%"></div></div><strong>93.1%</strong></div>
+                </div>
+                <table class="result-table" aria-label="Reported DQN capstone mean results">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th><th>Mean path length</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Proposed</td><td>98.1%</td><td>29.113</td></tr>
+                    <tr><td>Without reward logic</td><td>97.2%</td><td>29.474</td></tr>
+                    <tr><td>Traditional DQN</td><td>92.6%</td><td>30.852</td></tr>
+                    <tr><td>Traditional Q-learning</td><td>93.1%</td><td>32.224</td></tr>
+                  </tbody>
+                </table>
+                <p class="dqn-result-note">98.1% versus 92.6% is +5.5 percentage points (+5.9% relative). Values are transcribed from the capstone slide; raw logs are unavailable.</p>
+              </section>
             </div>
           </div>
         </div>
@@ -3295,9 +3661,19 @@
                   <p class="result-footnote">Acceptance-report table; SVTR-S is listed at 69.0 and 68.2. No raw predictions or independent rerun were supplied.</p>
                 </section>
 
-                <figure class="artifact-figure ocr-qualitative">
-                  <img src="assets/portfolio/ocr-vrt-triptych.webp" alt="Three enlarged benchmark crops showing a low-quality input, VRT restoration, and ground truth" decoding="async">
-                  <figcaption><strong>What restoration changes</strong> · VRT reference benchmark reproduced in the team deck; method context, not this project’s output</figcaption>
+                <figure class="ocr-text-examples" aria-labelledby="ocr-examples-caption">
+                  <div class="ocr-text-head" aria-hidden="true"><span>Blurred input</span><span>Restored</span></div>
+                  <div class="ocr-text-pair">
+                    <img src="assets/portfolio/ocr-text-before-01.webp" alt="Blurred Chinese text sample from the team slide" decoding="async">
+                    <span aria-hidden="true">→</span>
+                    <img src="assets/portfolio/ocr-text-after-01.webp" alt="Restored version of the first Chinese text sample" decoding="async">
+                  </div>
+                  <div class="ocr-text-pair">
+                    <img src="assets/portfolio/ocr-text-before-02.webp" alt="Second blurred Chinese text sample from the team slide" decoding="async">
+                    <span aria-hidden="true">→</span>
+                    <img src="assets/portfolio/ocr-text-after-02.webp" alt="Restored version of the second Chinese text sample" decoding="async">
+                  </div>
+                  <figcaption id="ocr-examples-caption"><strong>Team-slide examples</strong> · restoration outputs with perceivable characters; source images and an independent rerun were not supplied</figcaption>
                 </figure>
               </div>
             </div>
@@ -3567,8 +3943,9 @@
           + ".vertical-timeline, .journey-item, .case-copy, .case-block, "
           + ".case-note, .code-ledger, .code-row, .credential-groups, "
           + ".credential-group, .questions-grid, .question-column, .small-interests, "
-          + ".floc-results, .ocr-evidence, .ocr-algorithm, .ocr-result-row, "
-          + ".ocr-results, .fusion-diagram"
+          + ".floc-results, .dqn-results-board, .ocr-evidence, .ocr-algorithm, "
+          + ".ocr-result-row, .ocr-results, .ocr-text-examples, .ocr-text-pair, "
+          + ".fusion-diagram"
         );
 
         return Array.from(contentNodes).every(function (node) {

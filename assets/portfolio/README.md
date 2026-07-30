@@ -23,6 +23,8 @@ illustrations.
 | `moya-scenario-autarky.webp` | Private project deck | Cropped modeled self-sufficient scenario output. |
 | `moya-scenario-cooperation.webp` | Private project deck | Cropped idealized-collaboration scenario output. |
 | `ocr-system-flow.webp` | Private project deck | Cropped cross-frame system flow. |
+| `ocr-text-before-01.webp`, `ocr-text-after-01.webp` | Private project deck, page 3 | First blurred/restored Chinese text pair isolated from the project-results slide. |
+| `ocr-text-before-02.webp`, `ocr-text-after-02.webp` | Private project deck, page 3 | Third blurred/restored Chinese text pair isolated from the project-results slide. |
 | `ocr-restoration-comparison.webp` | Private team presentation, VRT method slide | Cropped VRT reference comparison; not a project output. |
 | `ocr-vrt-triptych.webp` | Same VRT reference comparison | Low-quality input, VRT reconstruction, and ground truth isolated and enlarged for legibility. |
 | `ocr-attention-maps.webp` | Private acceptance report | Cropped attention-map artifact. |

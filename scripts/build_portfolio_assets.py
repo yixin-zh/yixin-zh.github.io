@@ -107,6 +107,47 @@ def build_pdf_visuals(source_dir: Path) -> None:
         quality=88,
     )
 
+    # Page 3 contains project-specific before/after Chinese text examples.
+    # Isolate two strong rows instead of publishing the surrounding slide or
+    # presenting a benchmark reference as if it were a project output.
+    ocr_examples = render_page(slides, 3, 1600)
+    example_pairs = [
+        (0.215, 0.259, 0.459, 0.348, 0.506, 0.259, 0.751, 0.348),
+        (0.215, 0.556, 0.459, 0.651, 0.506, 0.556, 0.751, 0.651),
+    ]
+    for index, (
+        before_left,
+        before_top,
+        before_right,
+        before_bottom,
+        after_left,
+        after_top,
+        after_right,
+        after_bottom,
+    ) in enumerate(example_pairs, start=1):
+        save_webp(
+            crop_fraction(
+                ocr_examples,
+                before_left,
+                before_top,
+                before_right,
+                before_bottom,
+            ),
+            f"ocr-text-before-{index:02d}.webp",
+            quality=90,
+        )
+        save_webp(
+            crop_fraction(
+                ocr_examples,
+                after_left,
+                after_top,
+                after_right,
+                after_bottom,
+            ),
+            f"ocr-text-after-{index:02d}.webp",
+            quality=90,
+        )
+
     ocr_restoration = render_page(zuguang, 10, 1600)
     restoration_comparison = crop_fraction(
         ocr_restoration,
