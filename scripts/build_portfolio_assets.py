@@ -4,13 +4,15 @@
 from __future__ import annotations
 
 import argparse
+import io
 import shutil
 import subprocess
 import tempfile
+import zipfile
 from pathlib import Path
 
 import pypdfium2 as pdfium
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,30 +29,200 @@ def render_page(pdf_path: Path, page_number: int, width: int) -> Image.Image:
 
 
 def save_webp(image: Image.Image, filename: str, quality: int = 84) -> None:
-    image = ImageEnhance.Sharpness(image).enhance(1.05)
+    image = ImageEnhance.Sharpness(image.convert("RGB")).enhance(1.05)
     image.save(OUTPUT / filename, "WEBP", quality=quality, method=6)
+
+
+def crop_fraction(
+    image: Image.Image,
+    left: float,
+    top: float,
+    right: float,
+    bottom: float,
+) -> Image.Image:
+    """Crop using fractions so the source render width can change safely."""
+    width, height = image.size
+    return image.crop(
+        (
+            round(width * left),
+            round(height * top),
+            round(width * right),
+            round(height * bottom),
+        )
+    )
 
 
 def build_pdf_visuals(source_dir: Path) -> None:
     slides = source_dir / "previous-slides.pdf"
     acceptance = source_dir / "word_extraction" / "项目验收书.pdf"
+    zuguang = source_dir / "word_extraction" / "祖光杯PPT_改.pdf"
 
-    save_webp(render_page(slides, 8, 1440), "dqn-results.webp")
-    save_webp(render_page(slides, 10, 1440), "moya-collaboration.webp")
-    save_webp(render_page(slides, 11, 1440), "moya-schema.webp")
-    save_webp(render_page(slides, 2, 1440), "video-text-pipeline.webp")
+    dqn_simulation = render_page(slides, 7, 1600)
+    save_webp(
+        crop_fraction(dqn_simulation, 0.29, 0.11, 0.75, 0.97),
+        "dqn-simulation.webp",
+        quality=88,
+    )
+
+    dqn_results = render_page(slides, 8, 1600)
+    save_webp(
+        crop_fraction(dqn_results, 0.035, 0.27, 0.51, 0.56),
+        "dqn-scorecard.webp",
+        quality=88,
+    )
+    save_webp(
+        crop_fraction(dqn_results, 0.515, 0.075, 0.995, 0.70),
+        "dqn-learning-curves.webp",
+        quality=88,
+    )
+
+    moya_scenarios = render_page(slides, 10, 1600)
+    save_webp(
+        crop_fraction(moya_scenarios, 0.015, 0.13, 0.47, 0.94),
+        "moya-scenario-autarky.webp",
+        quality=88,
+    )
+    save_webp(
+        crop_fraction(moya_scenarios, 0.52, 0.13, 0.995, 0.94),
+        "moya-scenario-cooperation.webp",
+        quality=88,
+    )
+
+    moya_schema = render_page(slides, 11, 1600)
+    save_webp(
+        crop_fraction(moya_schema, 0.08, 0.09, 0.53, 0.995),
+        "moya-case-model.webp",
+        quality=88,
+    )
+    save_webp(
+        crop_fraction(moya_schema, 0.62, 0.21, 0.885, 0.85),
+        "moya-file-tree.webp",
+        quality=88,
+    )
+
+    ocr_pipeline = render_page(slides, 2, 1600)
+    save_webp(
+        crop_fraction(ocr_pipeline, 0.09, 0.15, 0.89, 0.87),
+        "ocr-system-flow.webp",
+        quality=88,
+    )
+
+    ocr_restoration = render_page(zuguang, 10, 1600)
+    save_webp(
+        crop_fraction(ocr_restoration, 0.435, 0.235, 0.815, 0.49),
+        "ocr-restoration-comparison.webp",
+        quality=88,
+    )
 
     results_page = render_page(acceptance, 38, 1500)
-    width, height = results_page.size
-    results_crop = results_page.crop(
-        (
-            int(width * 0.10),
-            int(height * 0.34),
-            int(width * 0.94),
-            int(height * 0.86),
-        )
+    save_webp(
+        crop_fraction(results_page, 0.12, 0.055, 0.94, 0.315),
+        "ocr-attention-maps.webp",
+        quality=88,
     )
-    save_webp(results_crop, "video-text-results.webp", quality=86)
+
+
+def build_wastewater_visuals(source_dir: Path) -> None:
+    wastewater = source_dir / "industrial-wastewater-cv"
+    gui = Image.open(wastewater / "Picture1.png").convert("RGB")
+
+    save_webp(
+        crop_fraction(gui, 0.006, 0.405, 0.94, 0.93),
+        "floc-gui-comparison.webp",
+        quality=90,
+    )
+
+    decision = crop_fraction(gui, 0.005, 0.915, 0.995, 0.998)
+    decision = decision.resize(
+        (decision.width * 3, decision.height * 3),
+        Image.Resampling.LANCZOS,
+    )
+    decision = ImageOps.expand(decision, border=(8, 10), fill="#fcfbf7")
+    save_webp(decision, "floc-decision-strip.webp", quality=92)
+
+    design = (
+        wastewater
+        / "交接单-张艺馨"
+        / "嵌入式边缘端工业智能"
+        / "智能矾花分析系统"
+        / "智能矾花分析系统设计文档.pdf"
+    )
+    comparison = render_page(design, 14, 1600)
+    save_webp(
+        # Keep only the table title, method headers, and the three reported
+        # quality metrics. Later rows make broader qualitative claims that the
+        # archived experiment does not independently substantiate.
+        crop_fraction(comparison, 0.125, 0.205, 0.55, 0.335),
+        "floc-reported-comparison.webp",
+        quality=90,
+    )
+
+    archive = design.parent / "Flocs_PoC_1.zip"
+    mask_names = [
+        "Flocs_PoC_1/dataset/images/1_000036.png",
+        "Flocs_PoC_1/dataset/images/1_000037.png",
+        "Flocs_PoC_1/dataset/images/1_000038.png",
+    ]
+    with zipfile.ZipFile(archive) as bundle:
+        for index, name in enumerate(mask_names, start=1):
+            with bundle.open(name) as source:
+                mask = Image.open(io.BytesIO(source.read())).convert("L")
+            save_webp(mask, f"floc-mask-{index:02d}.webp", quality=88)
+
+
+def build_robot_frames(source_dir: Path) -> None:
+    source = source_dir / "cabinet-operation.mp4"
+    timestamps = [
+        (0, "robot-arrival.webp"),
+        (107.5, "robot-contact.webp"),
+        (232, "robot-release.webp"),
+    ]
+    with tempfile.TemporaryDirectory(prefix="portfolio-robot-frames-") as temp_dir:
+        temp = Path(temp_dir)
+        for index, (timestamp, filename) in enumerate(timestamps, start=1):
+            clip = temp / f"clip-{index:02d}.m4v"
+            subprocess.run(
+                [
+                    "/usr/bin/avconvert",
+                    "--source",
+                    str(source),
+                    "--preset",
+                    "Preset960x540",
+                    "--output",
+                    str(clip),
+                    "--start",
+                    str(timestamp),
+                    "--duration",
+                    "0.6",
+                    "--replace",
+                    "--disableMetadataFilter",
+                ],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            subprocess.run(
+                [
+                    "/usr/bin/qlmanage",
+                    "-t",
+                    "-s",
+                    "1600",
+                    "-o",
+                    str(temp),
+                    str(clip),
+                ],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            frame = Image.open(temp / f"{clip.name}.png").convert("RGB")
+            if filename == "robot-contact.webp":
+                # Keep the cabinet contact in frame while excluding identifiable
+                # coworkers and most of the surrounding office.
+                frame = crop_fraction(frame, 0.34, 0.20, 1, 1)
+            else:
+                frame = crop_fraction(frame, 0, 0.20, 1, 1)
+            save_webp(frame, filename, quality=86)
 
 
 def build_cabinet_poster(source_dir: Path) -> None:
@@ -98,6 +270,20 @@ def main() -> None:
     required = [
         source_dir / "previous-slides.pdf",
         source_dir / "word_extraction" / "项目验收书.pdf",
+        source_dir / "word_extraction" / "祖光杯PPT_改.pdf",
+        source_dir / "industrial-wastewater-cv" / "Picture1.png",
+        source_dir
+        / "industrial-wastewater-cv"
+        / "交接单-张艺馨"
+        / "嵌入式边缘端工业智能"
+        / "智能矾花分析系统"
+        / "智能矾花分析系统设计文档.pdf",
+        source_dir
+        / "industrial-wastewater-cv"
+        / "交接单-张艺馨"
+        / "嵌入式边缘端工业智能"
+        / "智能矾花分析系统"
+        / "Flocs_PoC_1.zip",
     ]
     missing = [path for path in required if not path.is_file()]
     if missing:
@@ -106,8 +292,15 @@ def main() -> None:
 
     OUTPUT.mkdir(parents=True, exist_ok=True)
     build_pdf_visuals(source_dir)
+    build_wastewater_visuals(source_dir)
     if shutil.which("qlmanage") and (source_dir / "cabinet-operation.mp4").is_file():
         build_cabinet_poster(source_dir)
+    if (
+        Path("/usr/bin/avconvert").is_file()
+        and shutil.which("qlmanage")
+        and (source_dir / "cabinet-operation.mp4").is_file()
+    ):
+        build_robot_frames(source_dir)
 
 
 if __name__ == "__main__":

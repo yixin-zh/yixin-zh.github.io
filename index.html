@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yixin Zhang — Robotics &amp; Applied AI Portfolio</title>
-  <meta name="description" content="Yixin Zhang's portfolio in robotics systems, industrial computer vision, climate analytics, reinforcement learning, open-source engineering, and professional credentials.">
+  <meta name="description" content="Yixin Zhang's evidence-led portfolio in robot systems, industrial computer vision, climate analytics, reinforcement learning, open-source engineering, and professional credentials.">
   <meta name="theme-color" content="#f4f2ec">
   <script>document.documentElement.classList.add("js");</script>
   <style>
@@ -25,9 +25,7 @@
       --amber: #7a4e00;
       --amber-tint: #fff1d6;
       --red: #8a3030;
-      --red-tint: #f8e7e4;
       --violet: #66518c;
-      --violet-tint: #eee9f6;
       --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
       --sans: Inter, "SF Pro Text", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
       --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Menlo, monospace;
@@ -54,7 +52,7 @@
     body {
       font-family: var(--sans);
       font-size: 15px;
-      line-height: 1.45;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -76,7 +74,7 @@
     a {
       color: var(--blue-dark);
       text-decoration-thickness: 1px;
-      text-underline-offset: 0.2em;
+      text-underline-offset: 0.22em;
     }
 
     a:hover {
@@ -95,15 +93,15 @@
 
     .skip-link {
       position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 100;
-      transform: translateY(-160%);
+      top: 8px;
+      left: 8px;
+      z-index: 200;
+      transform: translateY(-150%);
       padding: 9px 13px;
       border: 1px solid var(--ink);
       background: var(--surface);
       color: var(--ink);
-      font-weight: 700;
+      font-weight: 750;
       transition: transform 160ms ease;
     }
 
@@ -111,132 +109,148 @@
       transform: translateY(0);
     }
 
-    .deck-shell {
-      min-height: 100dvh;
+    .shell {
+      width: 100%;
+      height: 100dvh;
       display: grid;
-      grid-template-columns: 190px minmax(0, 1fr);
+      grid-template-rows: 58px minmax(0, 1fr);
+      overflow: hidden;
     }
 
-    .rail {
+    .masthead {
       position: relative;
-      z-index: 20;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      padding: 24px 16px 18px;
-      border-right: 1px solid var(--rule);
-      background: rgba(244, 242, 236, 0.98);
-    }
-
-    .rail-brand {
-      margin-bottom: 28px;
-    }
-
-    .rail-monogram {
-      width: 40px;
-      height: 40px;
+      z-index: 30;
       display: grid;
+      grid-template-columns: 190px minmax(0, 1fr) auto;
+      align-items: stretch;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(244, 242, 236, 0.97);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 8px 18px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      flex: 0 0 auto;
       place-items: center;
-      margin-bottom: 10px;
       border: 1px solid var(--ink);
       font-family: var(--display);
-      font-size: 19px;
+      font-size: 16px;
     }
 
-    .rail-brand strong {
+    .brand-copy strong,
+    .brand-copy span {
       display: block;
+    }
+
+    .brand-copy strong {
       font-family: var(--display);
-      font-size: 18px;
-      line-height: 1.15;
+      font-size: 16px;
+      line-height: 1;
     }
 
-    .rail-brand span {
-      display: block;
+    .brand-copy span {
       margin-top: 4px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 7px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .rail-nav {
+    .mast-nav {
+      min-width: 0;
       display: grid;
-      gap: 1px;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      border-left: 1px solid var(--rule);
     }
 
-    .rail-nav button {
-      min-height: 41px;
+    .mast-nav button {
+      min-width: 0;
+      min-height: 44px;
       display: grid;
-      grid-template-columns: 24px minmax(0, 1fr);
+      grid-template-columns: auto minmax(0, 1fr);
       align-items: center;
-      gap: 8px;
-      padding: 7px 8px;
+      gap: 7px;
+      padding: 7px 9px;
       border: 0;
-      border-left: 2px solid transparent;
+      border-right: 1px solid var(--rule);
       background: transparent;
       color: var(--muted);
       text-align: left;
       cursor: pointer;
-      transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+      transition: color 180ms ease, background 180ms ease;
     }
 
-    .rail-nav button:hover {
-      background: rgba(23, 70, 162, 0.06);
+    .mast-nav button:hover {
+      background: rgba(23, 70, 162, 0.055);
       color: var(--ink);
     }
 
-    .rail-nav button[aria-current="step"] {
-      border-left-color: var(--blue);
+    .mast-nav button[aria-current="step"] {
       background: var(--blue-tint);
       color: var(--ink);
     }
 
-    .nav-number {
+    .mast-nav .nav-number {
+      color: var(--blue-dark);
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
     }
 
-    .nav-label {
+    .mast-nav .nav-label {
       overflow: hidden;
-      font-size: 11px;
-      font-weight: 680;
+      font-size: 9px;
+      font-weight: 700;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    .rail-footer {
-      margin-top: auto;
-      color: var(--faint);
+    .mast-contact {
+      min-width: 106px;
+      display: grid;
+      place-items: center;
+      padding: 0 16px;
       font-family: var(--mono);
       font-size: 9px;
-      line-height: 1.65;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .mobile-status {
+      display: none;
     }
 
     .deck {
       position: relative;
       min-width: 0;
-      min-height: 100dvh;
+      min-height: 0;
       overflow: hidden;
-      overflow: clip;
+      container-type: size;
       background:
-        linear-gradient(rgba(23, 24, 22, 0.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(23, 24, 22, 0.026) 1px, transparent 1px),
+        linear-gradient(rgba(23, 24, 22, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 24, 22, 0.022) 1px, transparent 1px),
         var(--paper);
       background-size: 32px 32px;
     }
 
-    .mobile-bar {
-      display: none;
-    }
-
     .slide {
       position: relative;
-      min-height: 100vh;
-      padding: 32px clamp(28px, 3.5vw, 54px) 78px;
-      background: rgba(244, 242, 236, 0.965);
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      padding: clamp(20px, 3.2cqw, 48px) clamp(24px, 4.2cqw, 64px) 72px;
+      background: rgba(244, 242, 236, 0.97);
     }
 
     .js .slide {
@@ -247,7 +261,7 @@
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
-      transform: translateX(24px);
+      transform: translateX(18px);
       visibility: hidden;
       transition:
         opacity 180ms var(--ease),
@@ -266,67 +280,70 @@
 
     .slide-frame {
       width: 100%;
-      max-width: 1380px;
-      min-height: 100%;
-      margin: 0 auto;
+      height: 100%;
+      max-width: 1480px;
+      min-height: 0;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr);
-      gap: clamp(16px, 2.2vh, 24px);
-      transform-origin: top left;
+      gap: clamp(14px, 2.1cqh, 24px);
+      margin: 0 auto;
+      overflow: hidden;
     }
 
     .slide-header {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      align-items: start;
       gap: 24px;
+      align-items: start;
     }
 
     .slide-kicker,
-    .eyebrow {
+    .eyebrow,
+    .section-label {
       margin: 0 0 7px;
       color: var(--blue-dark);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 750;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .slide-title,
-    h1 {
+    h1,
+    h2,
+    h3 {
       margin: 0;
       font-family: var(--display);
       font-weight: 500;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.023em;
     }
 
     h1 {
-      font-size: clamp(52px, 6vw, 86px);
-      line-height: 0.94;
+      font-size: clamp(50px, 6.5cqw, 94px);
+      line-height: 0.91;
     }
 
     .slide-title {
-      max-width: 930px;
-      font-size: clamp(35px, 4vw, 58px);
-      line-height: 1;
+      max-width: 1040px;
+      font-size: clamp(38px, 4.6cqw, 68px);
+      line-height: 0.98;
     }
 
     .slide-deckline {
-      max-width: 840px;
-      margin: 10px 0 0;
+      max-width: 920px;
+      margin: 9px 0 0;
       color: var(--muted);
-      font-size: clamp(15px, 1.25vw, 18px);
-      line-height: 1.45;
+      font-size: clamp(14px, 1.25cqw, 18px);
+      line-height: 1.42;
     }
 
     .role-stamp {
-      max-width: 280px;
+      max-width: 260px;
       padding-top: 3px;
       color: var(--muted);
       font-family: var(--mono);
       font-size: 9px;
-      line-height: 1.55;
+      line-height: 1.5;
       text-align: right;
       text-transform: uppercase;
     }
@@ -337,187 +354,9 @@
       font-size: 10px;
     }
 
-    .grid-12 {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: clamp(11px, 1.3vw, 18px);
+    .slide-body {
       min-height: 0;
-    }
-
-    .span-3 { grid-column: span 3; }
-    .span-4 { grid-column: span 4; }
-    .span-5 { grid-column: span 5; }
-    .span-6 { grid-column: span 6; }
-    .span-7 { grid-column: span 7; }
-    .span-8 { grid-column: span 8; }
-    .span-9 { grid-column: span 9; }
-    .span-12 { grid-column: span 12; }
-
-    .stack {
-      min-height: 0;
-      display: grid;
-      align-content: start;
-      gap: 10px;
-    }
-
-    .panel {
-      min-width: 0;
-      padding: clamp(13px, 1.25vw, 18px);
-      border: 1px solid var(--rule);
-      background: rgba(252, 251, 247, 0.85);
-    }
-
-    .panel.tint {
-      border-color: #bdc9df;
-      background: var(--blue-tint);
-    }
-
-    .panel h3,
-    .section-heading {
-      margin: 0 0 7px;
-      font-family: var(--display);
-      font-size: clamp(20px, 1.75vw, 27px);
-      font-weight: 500;
-      line-height: 1.08;
-    }
-
-    .panel p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(12px, 0.98vw, 14px);
-      line-height: 1.48;
-    }
-
-    .panel-label {
-      margin: 0 0 7px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 750;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .problem-line {
-      padding: 11px 13px;
-      border-left: 3px solid var(--blue);
-      background: var(--blue-tint);
-      color: var(--ink);
-      font-size: clamp(13px, 1vw, 15px);
-      line-height: 1.43;
-    }
-
-    .clean-list {
-      display: grid;
-      gap: 6px;
-      margin: 8px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .clean-list li {
-      position: relative;
-      padding-left: 15px;
-      color: var(--muted);
-      font-size: clamp(12px, 0.98vw, 14px);
-      line-height: 1.42;
-    }
-
-    .clean-list li::before {
-      position: absolute;
-      top: 0.65em;
-      left: 0;
-      width: 8px;
-      height: 1px;
-      background: var(--blue);
-      content: "";
-    }
-
-    .flow {
-      display: flex;
-      align-items: stretch;
-      gap: 6px;
-      margin-top: 9px;
-    }
-
-    .flow-step {
-      position: relative;
-      min-width: 0;
-      flex: 1 1 0;
-      padding: 9px 8px;
-      border: 1px solid var(--rule);
-      background: var(--surface);
-    }
-
-    .flow-step:not(:last-child)::after {
-      position: absolute;
-      top: 50%;
-      right: -6px;
-      z-index: 2;
-      width: 6px;
-      color: var(--blue);
-      content: "›";
-      font-weight: 800;
-      line-height: 0;
-      text-align: center;
-    }
-
-    .flow-step strong {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .flow-step span {
-      display: block;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.4;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .metric {
-      min-width: 0;
-      padding: 10px;
-      border: 1px solid var(--rule);
-      background: var(--surface);
-    }
-
-    .metric-value {
-      display: block;
-      font-family: var(--display);
-      font-size: clamp(23px, 2.2vw, 34px);
-      line-height: 1;
-    }
-
-    .metric-label {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.4;
-      text-transform: uppercase;
-    }
-
-    .review-line {
-      padding: 9px 11px;
-      border: 1px solid #ddc18f;
-      background: var(--amber-tint);
-      color: #5f4210;
-      font-size: clamp(11px, 0.9vw, 13px);
-      line-height: 1.42;
-    }
-
-    .review-line strong {
-      color: var(--ink);
+      overflow: hidden;
     }
 
     .source-links,
@@ -525,88 +364,99 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 5px 16px;
+      gap: 4px 16px;
     }
 
     .source-links a,
     .contact-links a {
-      min-height: 30px;
+      min-height: 32px;
       display: inline-flex;
       align-items: center;
       font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 680;
+      font-size: 9px;
+      font-weight: 700;
     }
 
-    .about-top {
+    /* Profile */
+    .profile-frame {
+      gap: clamp(12px, 1.8cqh, 20px);
+    }
+
+    .profile-intro {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(255px, 0.38fr);
-      gap: clamp(22px, 3.5vw, 54px);
+      grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+      gap: clamp(34px, 6cqw, 94px);
       align-items: end;
     }
 
-    .about-lead {
-      max-width: 850px;
-      margin: 14px 0 0;
-      font-size: clamp(18px, 1.75vw, 25px);
-      font-weight: 600;
-      line-height: 1.32;
+    .profile-lead {
+      max-width: 710px;
+      margin: 13px 0 0;
+      font-size: clamp(18px, 1.85cqw, 27px);
+      font-weight: 700;
+      line-height: 1.28;
     }
 
-    .about-copy {
-      max-width: 840px;
-      margin: 9px 0 0;
+    .profile-goal {
+      position: relative;
+      max-width: 760px;
+      padding: 0 0 2px 22px;
+    }
+
+    .profile-goal::before {
+      position: absolute;
+      inset: 3px auto 5px 0;
+      width: 2px;
+      background: var(--blue);
+      content: "";
+    }
+
+    .profile-goal h2 {
+      max-width: 690px;
+      font-size: clamp(25px, 2.35cqw, 36px);
+      line-height: 1.08;
+    }
+
+    .profile-goal p {
+      max-width: 720px;
+      margin: 8px 0 0;
       color: var(--muted);
-      font-size: clamp(12px, 1vw, 15px);
-      line-height: 1.52;
+      font-size: clamp(12px, 1cqw, 15px);
+      line-height: 1.48;
     }
 
-    .principle {
-      padding: 14px 0 3px 18px;
-      border-left: 2px solid var(--blue);
-    }
-
-    .principle span {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--blue-dark);
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 750;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .principle p {
-      margin: 0;
+    .motto {
+      color: var(--ink) !important;
       font-family: var(--display);
-      font-size: clamp(18px, 1.65vw, 25px);
-      line-height: 1.25;
+      font-size: clamp(14px, 1.15cqw, 17px) !important;
+      font-style: italic;
     }
 
-    .about-links {
-      margin-top: 9px;
+    .profile-links {
+      margin-top: 8px;
     }
 
     .profile-chronology {
       min-height: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1.62fr) minmax(260px, 0.78fr);
-      gap: clamp(24px, 3.6vw, 54px);
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.31fr);
+      gap: clamp(28px, 4.6cqw, 72px);
       align-items: start;
     }
 
     .vertical-timeline {
       position: relative;
+      min-height: 0;
       display: grid;
-      gap: clamp(8px, 1.15vh, 13px);
+      gap: clamp(11px, 1.65cqh, 18px);
+      align-content: start;
     }
 
     .vertical-timeline::before {
       position: absolute;
       top: 7px;
       bottom: 7px;
-      left: clamp(94px, 10vw, 130px);
+      left: clamp(88px, 8.6cqw, 122px);
       width: 1px;
       background: var(--rule-strong);
       content: "";
@@ -614,7 +464,7 @@
 
     .journey-item {
       display: grid;
-      grid-template-columns: clamp(83px, 9vw, 118px) 25px minmax(0, 1fr);
+      grid-template-columns: clamp(78px, 8cqw, 110px) 26px minmax(0, 1fr);
       align-items: start;
     }
 
@@ -622,7 +472,7 @@
       padding-top: 2px;
       color: var(--faint);
       font-family: var(--mono);
-      font-size: clamp(8px, 0.72vw, 10px);
+      font-size: clamp(8px, 0.68cqw, 10px);
       line-height: 1.35;
       text-align: right;
       text-transform: uppercase;
@@ -650,11 +500,10 @@
 
     .journey-body {
       min-width: 0;
-      padding-left: clamp(8px, 1vw, 14px);
+      padding-left: clamp(8px, 1cqw, 15px);
     }
 
-    .journey-type,
-    .side-heading {
+    .journey-type {
       margin: 0;
       color: var(--blue-dark);
       font-family: var(--mono);
@@ -671,7 +520,7 @@
     .journey-role {
       margin: 1px 0 0;
       font-family: var(--display);
-      font-size: clamp(16px, 1.42vw, 21px);
+      font-size: clamp(18px, 1.55cqw, 24px);
       font-weight: 600;
       line-height: 1.08;
     }
@@ -679,44 +528,27 @@
     .journey-org {
       margin: 2px 0 0;
       color: var(--muted);
-      font-size: clamp(10px, 0.82vw, 12px);
+      font-size: clamp(10px, 0.84cqw, 13px);
       line-height: 1.32;
     }
 
-    .overlap-note {
-      display: inline-block;
-      margin-top: 3px;
-      color: var(--red);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.3;
-    }
-
-    .overlap-note strong {
-      color: var(--red);
-    }
-
-    .nested-projects {
+    .journey-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 3px 11px;
-      margin: 4px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nested-projects li {
-      position: relative;
-      padding-left: 9px;
-      color: var(--amber);
-      font-size: clamp(8px, 0.72vw, 10px);
+      gap: 3px 13px;
+      margin-top: 4px;
+      font-size: clamp(8px, 0.7cqw, 10px);
       line-height: 1.3;
     }
 
-    .nested-projects li::before {
+    .journey-meta span {
+      position: relative;
+      padding-left: 9px;
+    }
+
+    .journey-meta span::before {
       position: absolute;
-      top: 0.55em;
+      top: 0.5em;
       left: 0;
       width: 4px;
       height: 4px;
@@ -725,171 +557,266 @@
       content: "";
     }
 
-    .profile-side {
-      min-width: 0;
-      display: grid;
-      gap: 13px;
+    .journey-meta .project {
+      color: var(--amber);
     }
 
-    .side-section {
-      padding-top: 8px;
+    .journey-meta .volunteer {
+      color: var(--red);
+    }
+
+    .overlap-note {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      line-height: 1.35;
+    }
+
+    .overlap-note strong {
+      color: var(--red);
+    }
+
+    .profile-aside {
+      min-width: 0;
+      align-self: end;
+      padding: 14px 0 4px;
       border-top: 1px solid var(--rule);
     }
 
-    .side-heading {
-      margin-bottom: 6px;
+    .profile-aside p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(10px, 0.82cqw, 12px);
+      line-height: 1.48;
     }
 
-    .activity-list,
-    .credential-mini {
+    .profile-aside strong {
+      color: var(--ink);
+    }
+
+    /* Project stories */
+    .case-grid {
+      height: 100%;
+      min-height: 0;
       display: grid;
-      gap: 5px;
-      margin: 0;
+      grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.42fr);
+      gap: clamp(28px, 4.6cqw, 72px);
+      align-items: stretch;
+    }
+
+    .case-copy {
+      min-height: 0;
+      display: grid;
+      align-content: start;
+      gap: clamp(11px, 1.6cqh, 18px);
+      padding-top: 2px;
+    }
+
+    .case-block {
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .case-block:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .case-block h3 {
+      font-size: clamp(21px, 1.9cqw, 29px);
+      line-height: 1.06;
+    }
+
+    .case-block p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: clamp(12px, 0.92cqw, 14px);
+      line-height: 1.48;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 6px;
+      margin: 7px 0 0;
       padding: 0;
       list-style: none;
     }
 
-    .activity-list li,
-    .credential-mini li {
+    .case-list li {
+      position: relative;
+      padding-left: 15px;
       color: var(--muted);
-      font-size: clamp(9px, 0.78vw, 11px);
-      line-height: 1.33;
+      font-size: clamp(11px, 0.9cqw, 14px);
+      line-height: 1.42;
     }
 
-    .activity-list time,
-    .credential-mini time {
-      color: var(--ink);
-      font-family: var(--mono);
-      font-size: 0.88em;
-    }
-
-    .activity-list strong,
-    .credential-mini strong {
-      color: var(--ink);
-    }
-
-    .category-key {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px 11px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 7px;
-      text-transform: uppercase;
-    }
-
-    .category-key span::before {
-      width: 6px;
-      height: 6px;
-      display: inline-block;
-      margin-right: 4px;
-      border-radius: 50%;
+    .case-list li::before {
+      position: absolute;
+      top: 0.65em;
+      left: 0;
+      width: 8px;
+      height: 1px;
       background: var(--blue);
       content: "";
     }
 
-    .category-key .key-education::before {
-      background: var(--green);
-    }
-
-    .category-key .key-project::before {
-      background: var(--amber);
-    }
-
-    .category-key .key-volunteer::before {
-      background: var(--red);
-    }
-
-    .category-key .key-credential::before {
-      background: var(--violet);
-    }
-
-    .video-card {
-      height: 100%;
-      min-height: 0;
-      display: grid;
-      grid-template-rows: minmax(0, 1fr) auto;
-      gap: 8px;
-      padding: 9px;
-      border: 1px solid var(--rule);
-      background: #111;
-    }
-
-    .video-stage {
-      position: relative;
-      min-height: 0;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #111;
-    }
-
-    .video-trigger {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      border: 0;
-      background: #111;
-      cursor: pointer;
-    }
-
-    .video-trigger img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      opacity: 0.78;
-      filter: saturate(0.84) contrast(1.04);
-    }
-
-    .play-label {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 82px;
-      height: 82px;
-      display: grid;
-      place-items: center;
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 50%;
-      background: rgba(17, 17, 17, 0.76);
-      color: #fff;
+    .tech-line {
+      margin: 0;
+      color: var(--ink);
       font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 750;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
+      font-size: clamp(9px, 0.72cqw, 11px);
+      line-height: 1.5;
     }
 
-    .video-stage video {
+    .case-note {
+      padding: 9px 0 9px 12px;
+      border-left: 2px solid #c99c45;
+      background: linear-gradient(90deg, rgba(255, 241, 214, 0.88), transparent 92%);
+      color: #5f4210;
+      font-size: clamp(10px, 0.78cqw, 12px);
+      line-height: 1.42;
+    }
+
+    .case-note strong {
+      color: var(--ink);
+    }
+
+    .artifact-stage {
+      min-width: 0;
+      min-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artifact-figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .artifact-figure img {
       width: 100%;
       height: 100%;
       display: block;
+      background: #fff;
       object-fit: contain;
-      background: #111;
+      box-shadow: 0 12px 28px rgba(23, 24, 22, 0.09);
     }
 
-    .video-caption {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      color: #d8d8d4;
+    .artifact-figure figcaption {
+      margin-top: 5px;
+      color: var(--muted);
+      font-family: var(--mono);
       font-size: 9px;
       line-height: 1.35;
     }
 
-    .video-caption p {
-      margin: 0;
+    .artifact-figure figcaption strong {
+      color: var(--ink);
     }
 
-    .video-caption a {
-      flex: 0 0 auto;
+    .visual-callout {
+      position: absolute;
+      z-index: 8;
+      max-width: 250px;
+      padding: 7px 9px;
+      background: var(--ink);
       color: #fff;
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1.35;
+    }
+
+    /* Robot storyboard */
+    .robot-media {
+      height: 100%;
+      min-height: 0;
+      position: relative;
+    }
+
+    .robot-storyboard {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.92fr;
+      gap: clamp(10px, 1.4cqw, 20px);
+      align-items: stretch;
+      padding: 2px 8px 20px 0;
+    }
+
+    .robot-storyboard figure {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .robot-storyboard figure:nth-child(1) {
+      height: 86%;
+      align-self: start;
+      transform: rotate(-1.2deg);
+    }
+
+    .robot-storyboard figure:nth-child(2) {
+      height: 92%;
+      align-self: center;
+      transform: translateY(1%) rotate(0.7deg);
+    }
+
+    .robot-storyboard figure:nth-child(3) {
+      height: 82%;
+      align-self: end;
+      transform: rotate(-0.5deg);
+    }
+
+    .robot-storyboard img {
+      object-fit: cover;
+      object-position: center bottom;
+    }
+
+    .video-launch {
+      position: absolute;
+      z-index: 10;
+      left: 50%;
+      bottom: 16%;
+      min-width: 148px;
+      min-height: 48px;
+      transform: translateX(-50%);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: rgba(17, 17, 17, 0.86);
+      color: #fff;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .video-launch:hover {
+      transform: translateX(-50%) translateY(-2px);
+      background: #111;
+    }
+
+    .robot-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #111;
+      object-fit: contain;
+    }
+
+    .video-status {
+      position: absolute;
+      z-index: 9;
+      right: 9px;
+      bottom: 9px;
+      padding: 5px 7px;
+      background: rgba(17, 17, 17, 0.78);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 9px;
     }
 
     .video-error {
@@ -898,612 +825,497 @@
     }
 
     .video-error.is-visible {
-      display: block;
+      display: inline;
     }
 
-    .figure-grid {
-      min-height: 0;
+    /* Wastewater collage */
+    .floc-collage {
+      height: 100%;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 9px;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.72fr);
+      gap: clamp(9px, 1.1cqw, 15px);
+      align-items: stretch;
+      padding: 3px 3px 18px;
     }
 
-    .artifact-figure {
-      min-width: 0;
-      margin: 0;
-      padding: 7px;
-      border: 1px solid var(--rule);
-      background: var(--surface);
+    .floc-gui {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      align-self: start;
     }
 
-    .artifact-figure a {
-      display: block;
+    .floc-gui img {
+      object-fit: cover;
     }
 
-    .artifact-figure img {
-      width: 100%;
-      height: clamp(140px, 24vh, 230px);
-      display: block;
-      border: 1px solid #e1e2dd;
-      background: #fff;
+    .floc-table {
+      grid-column: 8 / -1;
+      grid-row: 1;
+      display: grid;
+      align-self: start;
+      transform: translate(5px, 4px) rotate(0.35deg);
+    }
+
+    .floc-table img {
+      height: auto;
       object-fit: contain;
     }
 
-    .artifact-figure figcaption {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 6px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.35;
+    .floc-decisions {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+      align-self: end;
+      transform: translateY(18px);
     }
 
-    .artifact-figure figcaption strong {
-      color: var(--ink);
+    .floc-decisions img {
+      box-shadow: 0 8px 20px rgba(23, 24, 22, 0.08);
     }
 
-    .single-figure img {
-      height: clamp(240px, 39vh, 360px);
-    }
-
-    .evidence-board {
+    .mask-sequence {
+      grid-column: 4 / -1;
+      grid-row: 2;
       min-height: 0;
-      display: grid;
-      align-content: start;
-      align-self: start;
-      gap: 10px;
-      padding: clamp(14px, 1.4vw, 20px);
-      border: 1px solid var(--rule);
-      background: rgba(252, 251, 247, 0.82);
-    }
-
-    .evidence-board h3 {
-      margin: 0;
-      font-family: var(--display);
-      font-size: clamp(20px, 1.8vw, 27px);
-      font-weight: 500;
-      line-height: 1.08;
-    }
-
-    .evidence-note {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(10px, 0.82vw, 12px);
-      line-height: 1.42;
-    }
-
-    .schema-map {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) 24px minmax(190px, 0.82fr);
-      gap: 9px;
-      align-items: stretch;
-    }
-
-    .schema-system {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 7px;
-      padding: 11px;
-      background: var(--green-tint);
-    }
-
-    .schema-system strong {
-      grid-column: 1 / -1;
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .schema-system span {
-      min-height: 42px;
-      display: grid;
-      place-items: center;
-      padding: 6px;
-      border: 1px solid #aecab9;
-      background: rgba(252, 251, 247, 0.86);
-      font-size: 10px;
-      line-height: 1.25;
-      text-align: center;
-    }
-
-    .map-arrow {
-      display: grid;
-      place-items: center;
-      color: var(--blue);
-      font-size: 24px;
-    }
-
-    .schema-tree {
-      margin: 0;
-      padding: 11px;
-      overflow: hidden;
-      background: #17201b;
-      color: #f4f7f1;
-      font-family: var(--mono);
-      font-size: clamp(8px, 0.73vw, 10px);
-      line-height: 1.55;
-      white-space: pre-wrap;
-    }
-
-    .validation-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 7px;
-    }
-
-    .validation-strip div {
-      padding: 9px;
-      border-top: 2px solid var(--blue);
-      background: var(--blue-tint);
-    }
-
-    .validation-strip strong {
-      display: block;
-      font-size: 10px;
-    }
-
-    .validation-strip span {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 8px;
-      line-height: 1.35;
-    }
-
-    .result-table {
-      width: 100%;
-      border-collapse: collapse;
-      color: var(--muted);
-      font-size: clamp(9px, 0.77vw, 11px);
-    }
-
-    .result-table th,
-    .result-table td {
-      padding: 7px 8px;
-      border-bottom: 1px solid var(--rule);
-      text-align: right;
-    }
-
-    .result-table th:first-child,
-    .result-table td:first-child {
-      text-align: left;
-    }
-
-    .result-table thead th {
-      color: var(--ink);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .result-table tbody tr:first-child {
-      background: var(--green-tint);
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .bar-comparison {
-      display: grid;
-      gap: 8px;
-    }
-
-    .bar-row {
-      display: grid;
-      grid-template-columns: minmax(100px, 1fr) minmax(150px, 2fr) 46px;
-      gap: 8px;
-      align-items: center;
-      font-size: 10px;
-    }
-
-    .bar-row span:first-child {
-      color: var(--muted);
-    }
-
-    .bar-track {
-      height: 12px;
-      overflow: hidden;
-      background: #e0e2dc;
-    }
-
-    .bar-fill {
-      width: var(--value);
-      height: 100%;
-      background: var(--blue);
-    }
-
-    .bar-row:first-child .bar-fill {
-      background: var(--green);
-    }
-
-    .bar-row strong {
-      font-family: var(--mono);
-      font-size: 9px;
-      text-align: right;
-    }
-
-    .fusion-diagram {
-      display: grid;
-      grid-template-columns: minmax(90px, 0.75fr) 14px minmax(130px, 1fr) 14px minmax(64px, 0.55fr);
-      gap: 5px;
-      align-items: center;
-    }
-
-    .frame-stack {
-      position: relative;
-      min-height: 148px;
-    }
-
-    .frame-card {
-      position: absolute;
-      left: calc(var(--offset) * 12px);
-      top: calc(var(--offset) * 17px);
-      width: calc(100% - 48px);
-      min-height: 72px;
-      display: grid;
-      align-content: center;
-      padding: 8px;
-      border: 1px solid #9aa7bd;
-      background: var(--surface);
-      box-shadow: 5px 5px 0 rgba(23, 70, 162, 0.08);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.35;
-    }
-
-    .frame-card strong {
-      color: var(--ink);
-      font-size: 10px;
-    }
-
-    .fusion-steps {
-      display: grid;
-      gap: 7px;
-    }
-
-    .fusion-steps div,
-    .fusion-output {
-      padding: 10px;
-      border-left: 3px solid var(--blue);
-      background: var(--blue-tint);
-      font-size: 10px;
-      line-height: 1.3;
-    }
-
-    .fusion-steps strong,
-    .fusion-output strong {
-      display: block;
-      color: var(--ink);
-    }
-
-    .fusion-steps span,
-    .fusion-output span {
-      color: var(--muted);
-      font-size: 8px;
-    }
-
-    .fusion-output {
-      border-left-color: var(--green);
-      background: var(--green-tint);
-    }
-
-    .code-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      min-height: 0;
-    }
-
-    .code-card {
-      min-height: 0;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      padding: 14px 16px;
-      border: 1px solid var(--rule);
-      border-top: 3px solid var(--green);
-      background: var(--surface);
-    }
-
-    .code-card.needs-check {
-      border-top-color: var(--amber);
-    }
-
-    .code-card .repo {
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.03em;
-    }
-
-    .code-card h3 {
-      margin: 5px 0 6px;
-      font-family: var(--display);
-      font-size: clamp(20px, 1.8vw, 28px);
-      font-weight: 500;
-      line-height: 1.05;
-    }
-
-    .code-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(11px, 0.9vw, 13px);
-      line-height: 1.42;
-    }
-
-    .code-card a {
-      min-height: 27px;
-      display: inline-flex;
       align-items: end;
-      justify-self: start;
-      padding-top: 6px;
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 700;
+      padding-top: 16px;
     }
 
-    .tech-strip {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 9px;
+    .mask-sequence figure {
+      min-height: 0;
     }
 
-    .tech-strip strong {
-      color: var(--ink);
+    .mask-sequence figure:nth-child(2) {
+      transform: translateY(-7px);
     }
 
-    .tech-strip span {
-      padding: 3px 6px;
-      border: 1px solid var(--rule);
-      background: var(--surface);
+    .mask-sequence img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
-    .credential-groups {
+    .floc-callout {
+      left: 4%;
+      bottom: 3px;
+      max-width: 330px;
+    }
+
+    /* Climate collage */
+    .climate-collage {
+      height: 100%;
       min-height: 0;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: clamp(28px, 4vw, 58px);
-      align-content: start;
+      grid-template-columns: 1.05fr 0.61fr 0.88fr;
+      grid-template-rows: minmax(0, 1fr) minmax(0, 0.68fr);
+      gap: clamp(10px, 1.3cqw, 18px);
+      padding: 2px 4px 18px;
     }
 
-    .credential-group {
-      min-width: 0;
-      padding: 9px 0 4px;
-      border-top: 1px solid var(--rule-strong);
-    }
-
-    .credential-group:nth-child(-n + 2) {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .credential-issuer {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 3px;
-    }
-
-    .credential-issuer h3 {
-      margin: 0;
-      font-family: var(--display);
-      font-size: clamp(22px, 2vw, 30px);
-      font-weight: 500;
-    }
-
-    .credential-issuer span {
-      color: var(--faint);
-      font-family: var(--mono);
-      font-size: 8px;
-      text-transform: uppercase;
-    }
-
-    .credential-row {
+    .climate-model {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      min-height: 0;
       display: grid;
-      grid-template-columns: 9px minmax(0, 1fr) auto;
-      gap: 9px;
-      align-items: start;
-      padding: 8px 0;
-      border-top: 1px solid rgba(174, 178, 170, 0.6);
+      grid-template-rows: minmax(0, 1fr) auto;
+      transform: rotate(-0.45deg);
     }
 
-    .credential-row::before {
-      width: 7px;
-      height: 7px;
-      margin-top: 5px;
-      border-radius: 50%;
-      background: var(--violet);
-      content: "";
+    .climate-model img {
+      object-fit: cover;
     }
 
-    .credential-row strong {
-      display: block;
-      font-size: clamp(11px, 0.95vw, 14px);
-      line-height: 1.25;
+    .climate-tree {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      align-self: center;
+      height: 88%;
+      transform: translateY(3%) rotate(0.55deg);
     }
 
-    .credential-row p {
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: clamp(9px, 0.75vw, 11px);
-      line-height: 1.3;
+    .climate-tree img {
+      object-fit: cover;
     }
 
-    .credential-date {
-      color: var(--faint);
+    .climate-scenario {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .climate-scenario img {
+      object-fit: cover;
+    }
+
+    .scenario-one {
+      grid-column: 3;
+      grid-row: 1;
+      transform: translateX(-2px);
+    }
+
+    .scenario-two {
+      grid-column: 3;
+      grid-row: 2;
+      transform: translateX(13px) rotate(-0.35deg);
+    }
+
+    .climate-callout {
+      right: 2%;
+      top: 44%;
+      background: var(--blue-dark);
+    }
+
+    /* DQN collage */
+    .dqn-collage {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: clamp(10px, 1.3cqw, 18px);
+      padding: 2px 4px 18px;
+    }
+
+    .dqn-sim {
+      grid-row: 1 / -1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      transform: rotate(-0.7deg);
+    }
+
+    .dqn-sim img {
+      object-fit: cover;
+    }
+
+    .dqn-curves {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      transform: translateX(-5px);
+    }
+
+    .dqn-curves img {
+      object-fit: cover;
+    }
+
+    .dqn-score {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      transform: translate(15px, -3px) rotate(0.25deg);
+    }
+
+    .dqn-score img {
+      object-fit: cover;
+    }
+
+    /* OCR collage */
+    .ocr-collage {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 0.83fr 1.17fr;
+      grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.68fr);
+      gap: clamp(10px, 1.3cqw, 18px);
+      padding: 2px 4px 18px;
+    }
+
+    .ocr-flow {
+      grid-column: 1 / -1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      transform: rotate(-0.25deg);
+    }
+
+    .ocr-flow img {
+      object-fit: cover;
+    }
+
+    .ocr-restore,
+    .ocr-attention {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .ocr-restore {
+      transform: translate(8px, -2px) rotate(0.55deg);
+    }
+
+    .ocr-attention {
+      transform: translate(-5px, 6px) rotate(-0.35deg);
+    }
+
+    .ocr-restore img,
+    .ocr-attention img {
+      object-fit: cover;
+    }
+
+    /* Open-source ledger */
+    .code-ledger {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: repeat(4, minmax(0, 1fr)) auto;
+      border-top: 1px solid var(--ink);
+    }
+
+    .code-row {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1fr) auto;
+      gap: clamp(18px, 3cqw, 46px);
+      align-items: center;
+      padding: clamp(9px, 1.35cqh, 15px) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .repo-name {
+      color: var(--blue-dark);
       font-family: var(--mono);
-      font-size: 8px;
-      line-height: 1.45;
-      text-align: right;
+      font-size: clamp(9px, 0.75cqw, 11px);
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .code-row h3 {
+      font-size: clamp(18px, 1.6cqw, 24px);
+      line-height: 1.08;
+    }
+
+    .code-row p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: clamp(10px, 0.82cqw, 13px);
+      line-height: 1.4;
+    }
+
+    .code-row > a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
       white-space: nowrap;
     }
 
-    .direction-grid {
+    .exploration-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      align-items: center;
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: clamp(10px, 0.82cqw, 12px);
+    }
+
+    .exploration-line strong {
+      color: var(--ink);
+    }
+
+    /* Credentials */
+    .credential-groups {
+      height: 100%;
       min-height: 0;
       display: grid;
-      grid-template-columns: 1.25fr 1fr 0.9fr;
-      gap: 0;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: clamp(14px, 2cqw, 28px) clamp(28px, 4cqw, 58px);
     }
 
-    .direction-section {
-      min-width: 0;
-      padding: clamp(14px, 1.7vw, 24px);
-    }
-
-    .direction-section + .direction-section {
-      border-left: 1px solid var(--rule);
-    }
-
-    .direction-section h3 {
-      margin: 0 0 10px;
-      font-family: var(--display);
-      font-size: clamp(23px, 2.25vw, 34px);
-      font-weight: 500;
-      line-height: 1.04;
-    }
-
-    .direction-section p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(12px, 1vw, 14px);
-      line-height: 1.5;
-    }
-
-    .direction-section p + p {
-      margin-top: 10px;
-    }
-
-    .question-list {
+    .credential-group {
+      min-height: 0;
       display: grid;
-      gap: 8px;
+      grid-template-columns: minmax(120px, 0.33fr) minmax(0, 1fr);
+      gap: clamp(15px, 2cqw, 28px);
+      align-content: start;
+      padding-top: 13px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .credential-issuer h3 {
+      font-size: clamp(22px, 2.1cqw, 32px);
+      line-height: 1;
+    }
+
+    .credential-issuer span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .credential-list {
+      display: grid;
+      gap: clamp(8px, 1.1cqh, 13px);
       margin: 0;
       padding: 0;
       list-style: none;
-      counter-reset: question;
+    }
+
+    .credential-list li {
+      color: var(--muted);
+      font-size: clamp(10px, 0.82cqw, 13px);
+      line-height: 1.35;
+    }
+
+    .credential-list strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.04em;
+    }
+
+    .credential-list time {
+      display: block;
+      margin-top: 2px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 0.78em;
+    }
+
+    /* Closing questions */
+    .questions-grid {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.07fr) minmax(0, 0.93fr);
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: clamp(24px, 4cqw, 62px);
+      align-items: start;
+    }
+
+    .question-column {
+      min-height: 0;
+      padding-top: 12px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .question-column h3 {
+      max-width: 620px;
+      font-size: clamp(27px, 2.7cqw, 42px);
+      line-height: 1.03;
+    }
+
+    .question-list,
+    .curiosity-list {
+      display: grid;
+      gap: clamp(10px, 1.5cqh, 17px);
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: questions;
     }
 
     .question-list li {
       position: relative;
-      padding-left: 28px;
+      padding-left: 34px;
       color: var(--muted);
-      font-size: clamp(11px, 0.95vw, 14px);
-      line-height: 1.4;
-      counter-increment: question;
+      font-size: clamp(13px, 1.05cqw, 16px);
+      line-height: 1.42;
+      counter-increment: questions;
     }
 
     .question-list li::before {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       color: var(--blue-dark);
-      content: "Q" counter(question) ".";
+      content: "0" counter(questions);
       font-family: var(--mono);
       font-size: 9px;
       font-weight: 750;
     }
 
-    .curiosity-list {
-      display: grid;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
     .curiosity-list li {
-      padding-top: 8px;
-      border-top: 1px solid var(--rule);
+      padding-bottom: clamp(8px, 1.1cqh, 13px);
+      border-bottom: 1px solid var(--rule);
       color: var(--muted);
-      font-size: clamp(11px, 0.95vw, 13px);
-      line-height: 1.4;
+      font-size: clamp(13px, 1.05cqw, 16px);
+      line-height: 1.42;
     }
 
-    .direction-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .small-interests {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
-      align-self: end;
+      padding-top: 11px;
+      border-top: 1px solid var(--rule);
     }
 
-    .direction-footer p {
-      max-width: 750px;
+    .small-interests p {
       margin: 0;
       color: var(--muted);
-      font-family: var(--display);
-      font-size: clamp(16px, 1.4vw, 21px);
-      line-height: 1.32;
+      font-size: clamp(10px, 0.82cqw, 12px);
+      line-height: 1.45;
     }
 
+    .small-interests strong {
+      color: var(--ink);
+    }
+
+    /* Navigation */
     .deck-controls {
       position: absolute;
-      right: clamp(20px, 3vw, 42px);
-      bottom: 18px;
-      z-index: 30;
-      display: flex;
+      right: clamp(16px, 2.2cqw, 34px);
+      bottom: 14px;
+      z-index: 25;
+      display: grid;
+      grid-template-columns: auto auto auto;
       align-items: center;
-      gap: 7px;
+      border: 1px solid var(--rule-strong);
+      background: rgba(252, 251, 247, 0.94);
+      backdrop-filter: blur(8px);
     }
 
     .deck-controls button {
-      min-width: 44px;
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 8px 12px;
-      border: 1px solid var(--ink);
-      background: var(--surface);
-      color: var(--ink);
+      min-width: 94px;
+      min-height: 46px;
+      border: 0;
+      background: transparent;
       cursor: pointer;
+      font-size: 10px;
+      font-weight: 750;
+      transition: background 160ms ease;
     }
 
     .deck-controls button:hover:not(:disabled) {
-      background: var(--ink);
-      color: var(--surface);
+      background: var(--blue-tint);
     }
 
     .deck-controls button:disabled {
+      color: var(--faint);
       cursor: not-allowed;
-      opacity: 0.3;
-    }
-
-    .deck-controls button span {
-      font-size: 11px;
-      font-weight: 700;
     }
 
     .deck-counter {
-      min-width: 65px;
-      color: var(--muted);
+      min-width: 68px;
+      padding: 0 11px;
+      border-right: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       text-align: center;
-    }
-
-    .deck-counter strong {
-      color: var(--ink);
-      font-size: 12px;
     }
 
     .keyboard-hint {
       position: absolute;
-      left: clamp(18px, 2.6vw, 38px);
-      bottom: 23px;
-      z-index: 30;
+      left: clamp(18px, 2.6cqw, 40px);
+      bottom: 22px;
+      z-index: 20;
       color: var(--faint);
       font-family: var(--mono);
       font-size: 8px;
@@ -1511,16 +1323,17 @@
       text-transform: uppercase;
     }
 
-    .keyboard-hint kbd {
-      min-width: 20px;
-      display: inline-block;
+    kbd {
+      min-width: 23px;
+      min-height: 23px;
+      display: inline-grid;
+      place-items: center;
       margin-right: 3px;
-      padding: 2px 4px;
       border: 1px solid var(--rule-strong);
       background: var(--surface);
       color: var(--ink);
-      font-family: inherit;
-      text-align: center;
+      font-family: var(--mono);
+      font-size: 8px;
     }
 
     .sr-only {
@@ -1535,154 +1348,813 @@
       border: 0;
     }
 
-    @media (max-width: 1100px) {
-      .deck-shell {
-        grid-template-columns: 174px minmax(0, 1fr);
-      }
+    /* Discrete editorial density modes. No whole-slide scaling. */
+    .slide[data-density="compact"] {
+      padding-top: 18px;
+      padding-right: clamp(22px, 3.5cqw, 48px);
+      padding-left: clamp(22px, 3.5cqw, 48px);
+    }
 
-      .rail {
-        padding-inline: 12px;
-      }
+    .slide[data-density="compact"] .slide-frame {
+      gap: 12px;
+    }
 
-      .slide {
-        padding: 24px 28px 70px;
-      }
+    .slide[data-density="compact"] .slide-title {
+      font-size: clamp(34px, 4cqw, 54px);
+    }
 
+    .slide[data-density="compact"] .slide-deckline {
+      margin-top: 6px;
+      font-size: clamp(12px, 1.05cqw, 15px);
+    }
+
+    .slide[data-density="compact"] .case-grid {
+      gap: clamp(22px, 3.5cqw, 48px);
+    }
+
+    .slide[data-density="compact"] .case-copy {
+      gap: 9px;
+    }
+
+    .slide[data-density="compact"] .case-block {
+      padding-top: 7px;
+    }
+
+    .slide[data-density="compact"] .case-list {
+      gap: 4px;
+    }
+
+    .slide[data-density="compact"] .profile-intro {
+      gap: 34px;
+    }
+
+    .slide[data-density="compact"] .profile-goal p {
+      margin-top: 5px;
+    }
+
+    .slide[data-density="compact"] .vertical-timeline {
+      gap: 8px;
+    }
+
+    .slide[data-density="compact"] .journey-role {
+      font-size: clamp(17px, 1.45cqw, 21px);
+    }
+
+    .slide[data-density="essential"] {
+      padding: 15px clamp(18px, 3cqw, 36px) 66px;
+    }
+
+    .slide[data-density="essential"] [data-priority="supplemental"] {
+      display: none !important;
+    }
+
+    .slide[data-density="essential"] .slide-frame {
+      gap: 10px;
+    }
+
+    .slide[data-density="essential"] .slide-header {
+      gap: 12px;
+    }
+
+    .slide[data-density="essential"] .slide-title {
+      font-size: clamp(30px, 3.6cqw, 46px);
+    }
+
+    .slide[data-density="essential"] .slide-deckline {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .slide[data-density="essential"] .role-stamp {
+      display: none;
+    }
+
+    .slide[data-density="essential"] .case-grid {
+      grid-template-columns: minmax(230px, 0.57fr) minmax(0, 1.43fr);
+      gap: 22px;
+    }
+
+    .slide[data-density="essential"] .case-copy {
+      gap: 7px;
+    }
+
+    .slide[data-density="essential"] .case-block {
+      padding-top: 6px;
+    }
+
+    .slide[data-density="essential"] .case-block h3 {
+      font-size: 19px;
+    }
+
+    .slide[data-density="essential"] .case-block p,
+    .slide[data-density="essential"] .case-list li {
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .slide[data-density="essential"] .case-note {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      font-size: 10px;
+    }
+
+    .slide[data-density="essential"] .profile-intro {
+      grid-template-columns: minmax(0, 0.78fr) minmax(360px, 1.22fr);
+      gap: 28px;
+    }
+
+    .slide[data-density="essential"] h1 {
+      font-size: clamp(45px, 5.5cqw, 72px);
+    }
+
+    .slide[data-density="essential"] .profile-lead {
+      font-size: 17px;
+    }
+
+    .slide[data-density="essential"] .profile-goal h2 {
+      font-size: 23px;
+    }
+
+    .slide[data-density="essential"] .profile-goal p {
+      font-size: 11px;
+      line-height: 1.38;
+    }
+
+    .slide[data-density="essential"] .vertical-timeline {
+      gap: 7px;
+    }
+
+    .slide[data-density="essential"] .journey-role {
+      font-size: 16px;
+    }
+
+    .slide[data-density="essential"] .journey-org {
+      font-size: 10px;
+    }
+
+    .slide[data-density="essential"] .journey-meta {
+      font-size: 8px;
+    }
+
+    @container (max-width: 1100px) {
       .slide-title {
-        font-size: clamp(32px, 4vw, 47px);
+        font-size: clamp(34px, 4.3cqw, 48px);
       }
 
-      .role-stamp {
-        max-width: 220px;
+      .case-grid {
+        grid-template-columns: minmax(245px, 0.72fr) minmax(0, 1.28fr);
+        gap: 30px;
+      }
+
+      .profile-intro {
+        grid-template-columns: minmax(0, 0.82fr) minmax(370px, 1.18fr);
+        gap: 34px;
       }
 
       .profile-chronology {
-        grid-template-columns: minmax(0, 1.45fr) minmax(235px, 0.8fr);
-        gap: 24px;
-      }
-
-      .vertical-timeline::before {
-        left: 83px;
-      }
-
-      .journey-item {
-        grid-template-columns: 72px 22px minmax(0, 1fr);
-      }
-
-      .journey-role {
-        font-size: 16px;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 30px;
       }
     }
 
-    @media (max-width: 900px) {
-      .deck-shell {
-        display: block;
+    @media (max-width: 1180px) {
+      .masthead {
+        grid-template-columns: 170px minmax(0, 1fr) auto;
       }
 
-      .rail {
+      .mast-nav button {
+        grid-template-columns: 1fr;
+        place-items: center;
+        padding: 7px 4px;
+      }
+
+      .mast-nav .nav-label {
         display: none;
       }
 
-      .mobile-bar {
-        position: absolute;
-        inset: 0 0 auto;
-        z-index: 25;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 16px;
-        border-bottom: 1px solid var(--rule);
-        background: rgba(244, 242, 236, 0.98);
+      .mast-contact {
+        min-width: 92px;
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        grid-template-rows: 50px minmax(0, 1fr);
       }
 
-      .mobile-bar strong {
-        font-family: var(--display);
+      .masthead {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .brand {
+        padding: 7px 13px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .brand-copy strong {
         font-size: 15px;
       }
 
-      .mobile-progress {
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 9px;
+      .brand-copy span,
+      .mast-nav,
+      .mast-contact {
+        display: none;
       }
 
-      .slide {
-        padding: 65px 16px 62px;
+      .mobile-status {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+        border-left: 1px solid var(--rule);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 8px;
+        text-transform: uppercase;
+      }
+
+      .mobile-status strong {
+        color: var(--ink);
+      }
+
+      .deck {
+        background-size: 24px 24px;
+      }
+
+      .slide,
+      .slide[data-density="compact"],
+      .slide[data-density="essential"] {
+        padding: 14px 16px 62px;
       }
 
       .slide-frame {
-        gap: 12px;
+        gap: 9px;
       }
 
       .slide-header {
         grid-template-columns: 1fr;
-        gap: 5px;
+      }
+
+      .slide-kicker {
+        margin-bottom: 4px;
+        font-size: 8px;
+      }
+
+      .slide-title,
+      .slide[data-density="compact"] .slide-title,
+      .slide[data-density="essential"] .slide-title {
+        max-width: 100%;
+        font-size: clamp(28px, 8.4vw, 38px);
+        line-height: 0.98;
+      }
+
+      .slide-deckline,
+      .slide[data-density="compact"] .slide-deckline,
+      .slide[data-density="essential"] .slide-deckline {
+        margin-top: 5px;
+        font-size: 11px;
+        line-height: 1.32;
       }
 
       .role-stamp {
-        max-width: none;
-        padding: 0;
-        font-size: 8px;
-        text-align: left;
+        display: none;
       }
 
-      h1 {
-        font-size: clamp(45px, 15vw, 66px);
-      }
-
-      .slide-title {
-        font-size: clamp(29px, 8.8vw, 40px);
-      }
-
-      .slide-deckline {
-        margin-top: 6px;
-        font-size: 13px;
-      }
-
-      .about-top {
+      .profile-intro,
+      .slide[data-density="essential"] .profile-intro {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 9px;
         align-items: start;
       }
 
-      .about-lead {
-        margin-top: 8px;
-        font-size: 16px;
+      h1,
+      .slide[data-density="essential"] h1 {
+        font-size: clamp(43px, 15vw, 61px);
       }
 
-      .about-copy {
-        margin-top: 6px;
+      .profile-lead,
+      .slide[data-density="essential"] .profile-lead {
+        margin-top: 7px;
+        font-size: 15px;
+        line-height: 1.22;
+      }
+
+      .profile-goal {
+        padding-left: 13px;
+      }
+
+      .profile-goal h2,
+      .slide[data-density="essential"] .profile-goal h2 {
+        font-size: 18px;
+      }
+
+      .profile-goal p,
+      .slide[data-density="essential"] .profile-goal p {
+        margin-top: 4px;
         font-size: 11px;
+        line-height: 1.34;
       }
 
-      .principle {
-        padding: 7px 0 0 12px;
-      }
-
-      .principle p {
-        font-size: 16px;
+      .motto,
+      .profile-links {
+        display: none;
       }
 
       .profile-chronology {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 0;
       }
 
-      .vertical-timeline {
-        gap: 7px;
+      .profile-aside {
+        display: none;
+      }
+
+      .vertical-timeline,
+      .slide[data-density="compact"] .vertical-timeline,
+      .slide[data-density="essential"] .vertical-timeline {
+        gap: 6px;
       }
 
       .vertical-timeline::before {
-        left: 70px;
+        left: 68px;
       }
 
       .journey-item {
-        grid-template-columns: 60px 20px minmax(0, 1fr);
+        grid-template-columns: 60px 18px minmax(0, 1fr);
       }
 
       .journey-date {
         font-size: 7px;
+      }
+
+      .journey-node {
+        width: 8px;
+        height: 8px;
+        margin-top: 3px;
+      }
+
+      .journey-body {
+        padding-left: 6px;
+      }
+
+      .journey-type,
+      .overlap-note {
+        font-size: 7px;
+      }
+
+      .journey-role,
+      .slide[data-density="compact"] .journey-role,
+      .slide[data-density="essential"] .journey-role {
+        font-size: 14px;
+      }
+
+      .journey-org,
+      .slide[data-density="essential"] .journey-org {
+        font-size: 9px;
+        line-height: 1.24;
+      }
+
+      .journey-meta,
+      .slide[data-density="essential"] .journey-meta {
+        gap: 2px 8px;
+        margin-top: 2px;
+        font-size: 7px;
+      }
+
+      .case-grid,
+      .slide[data-density="essential"] .case-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .case-copy,
+      .slide[data-density="essential"] .case-copy {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 13px;
+      }
+
+      .case-block,
+      .slide[data-density="essential"] .case-block {
+        padding-top: 6px;
+      }
+
+      .case-block:first-child {
+        border-top: 1px solid var(--rule);
+      }
+
+      .case-block h3,
+      .slide[data-density="essential"] .case-block h3 {
+        font-size: 16px;
+      }
+
+      .case-block p,
+      .case-list li,
+      .slide[data-density="essential"] .case-block p,
+      .slide[data-density="essential"] .case-list li {
+        font-size: 10px;
+        line-height: 1.32;
+      }
+
+      .case-list {
+        gap: 3px;
+        margin-top: 4px;
+      }
+
+      .case-note {
+        grid-column: 1 / -1;
+        padding: 6px 0 6px 9px;
+        font-size: 9px;
+      }
+
+      .tech-line,
+      .source-links {
+        display: none;
+      }
+
+      .artifact-figure figcaption {
+        font-size: 8px;
+      }
+
+      .robot-storyboard {
+        gap: 7px;
+        padding-bottom: 13px;
+      }
+
+      .robot-storyboard figure:nth-child(1),
+      .robot-storyboard figure:nth-child(2),
+      .robot-storyboard figure:nth-child(3) {
+        height: 100%;
+        transform: none;
+      }
+
+      .video-launch {
+        bottom: 13%;
+        min-width: 132px;
+        min-height: 44px;
+      }
+
+      .floc-collage {
+        grid-template-rows: minmax(0, 1fr) minmax(0, 0.62fr);
+        gap: 7px;
+      }
+
+      .floc-gui {
+        grid-column: 1 / span 9;
+      }
+
+      .floc-table {
+        grid-column: 9 / -1;
+        transform: none;
+      }
+
+      .floc-decisions {
+        grid-column: 1 / span 9;
+      }
+
+      .mask-sequence {
+        grid-column: 1 / span 8;
+        padding-top: 10px;
+      }
+
+      .floc-callout,
+      .visual-callout {
+        display: none;
+      }
+
+      .climate-collage {
+        grid-template-columns: 0.95fr 0.55fr 0.8fr;
+        gap: 7px;
+      }
+
+      .dqn-collage,
+      .ocr-collage {
+        gap: 7px;
+      }
+
+      .code-row {
+        grid-template-columns: 95px minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 7px 0;
+      }
+
+      .repo-name {
+        font-size: 8px;
+      }
+
+      .code-row h3 {
+        font-size: 15px;
+      }
+
+      .code-row p {
+        font-size: 9px;
+        line-height: 1.3;
+      }
+
+      .code-row > a {
+        min-height: 40px;
+        font-size: 8px;
+      }
+
+      .exploration-line {
+        font-size: 9px;
+      }
+
+      .credential-groups {
+        gap: 9px 16px;
+      }
+
+      .credential-group {
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 10px;
+        padding-top: 8px;
+      }
+
+      .credential-issuer h3 {
+        font-size: 18px;
+      }
+
+      .credential-issuer span {
+        font-size: 7px;
+      }
+
+      .credential-list {
+        gap: 6px;
+      }
+
+      .credential-list li {
+        font-size: 9px;
+        line-height: 1.27;
+      }
+
+      .questions-grid {
+        gap: 15px;
+      }
+
+      .question-column {
+        padding-top: 8px;
+      }
+
+      .question-column h3 {
+        font-size: 21px;
+      }
+
+      .question-list,
+      .curiosity-list {
+        gap: 8px;
+        margin-top: 9px;
+      }
+
+      .question-list li,
+      .curiosity-list li {
+        font-size: 11px;
+        line-height: 1.32;
+      }
+
+      .question-list li {
+        padding-left: 26px;
+      }
+
+      .small-interests {
+        gap: 10px;
+        padding-top: 7px;
+      }
+
+      .small-interests p {
+        font-size: 9px;
+        line-height: 1.32;
+      }
+
+      .deck-controls {
+        right: 10px;
+        bottom: 9px;
+      }
+
+      .deck-controls button {
+        min-width: 54px;
+        min-height: 44px;
+        font-size: 0;
+      }
+
+      .deck-controls button span[aria-hidden="true"] {
+        font-size: 17px;
+      }
+
+      .deck-counter {
+        min-width: 58px;
+        font-size: 8px;
+      }
+
+      .keyboard-hint {
+        display: none;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .slide,
+      .slide[data-density="compact"],
+      .slide[data-density="essential"] {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .mobile-status {
+        padding: 0 10px;
+      }
+
+      .profile-goal p {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .journey-org {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+      }
+
+      .case-copy {
+        grid-template-columns: 1fr;
+      }
+
+      .case-copy .case-block:nth-of-type(n + 2) {
+        display: none;
+      }
+
+      .case-note {
+        display: block !important;
+      }
+
+      .robot-storyboard {
+        grid-template-columns: 0.9fr 1.08fr 0.9fr;
+      }
+
+      .floc-table {
+        display: none;
+      }
+
+      .floc-gui,
+      .floc-decisions {
+        grid-column: 1 / -1;
+      }
+
+      .mask-sequence {
+        grid-column: 1 / -1;
+      }
+
+      .climate-collage {
+        grid-template-columns: 1.08fr 0.62fr;
+      }
+
+      .climate-model {
+        grid-column: 1;
+      }
+
+      .climate-tree {
+        grid-column: 2;
+      }
+
+      .climate-scenario {
+        display: none;
+      }
+
+      .dqn-collage {
+        grid-template-columns: 0.8fr 1.2fr;
+      }
+
+      .dqn-score {
+        display: none;
+      }
+
+      .ocr-collage {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.12fr) minmax(0, 0.66fr);
+      }
+
+      .ocr-flow {
+        grid-column: 1;
+      }
+
+      .ocr-restore {
+        display: none;
+      }
+
+      .ocr-attention {
+        grid-column: 1;
+      }
+
+      .code-row {
+        grid-template-columns: 76px minmax(0, 1fr);
+      }
+
+      .code-row > a {
+        display: none;
+      }
+
+      .credential-groups {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .credential-group {
+        grid-template-columns: 82px minmax(0, 1fr);
+      }
+
+      .credential-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .questions-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1fr) minmax(0, 0.83fr) auto;
+        gap: 8px;
+      }
+
+      .question-column h3 {
+        font-size: 18px;
+      }
+
+      .question-list,
+      .curiosity-list {
+        gap: 5px;
+        margin-top: 6px;
+      }
+
+      .question-list li,
+      .curiosity-list li {
+        font-size: 10px;
+      }
+
+      .small-interests {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+    }
+
+    @media (max-height: 620px) and (orientation: landscape) {
+      .shell {
+        grid-template-rows: 46px minmax(0, 1fr);
+      }
+
+      .brand {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+      }
+
+      .slide,
+      .slide[data-density="compact"],
+      .slide[data-density="essential"] {
+        padding-top: 11px;
+        padding-bottom: 58px;
+      }
+
+      .slide-title,
+      .slide[data-density="compact"] .slide-title,
+      .slide[data-density="essential"] .slide-title {
+        font-size: clamp(27px, 3.4cqw, 42px);
+      }
+
+      .slide-deckline {
+        font-size: 11px;
+      }
+
+      .profile-intro {
+        grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+      }
+
+      h1 {
+        font-size: clamp(42px, 5.4cqw, 70px);
+      }
+
+      .profile-lead {
+        font-size: 16px;
+      }
+
+      .profile-goal h2 {
+        font-size: 21px;
+      }
+
+      .profile-goal p {
+        font-size: 10px;
+      }
+
+      .vertical-timeline {
+        gap: 4px;
       }
 
       .journey-role {
@@ -1693,387 +2165,44 @@
         font-size: 9px;
       }
 
-      .overlap-note,
-      .nested-projects li {
-        font-size: 7px;
+      .case-grid {
+        grid-template-columns: minmax(220px, 0.56fr) minmax(0, 1.44fr);
+        gap: 22px;
       }
 
-      .profile-side {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px 14px;
-      }
-
-      .profile-side .category-key {
-        grid-column: 1 / -1;
-      }
-
-      .activity-list li,
-      .credential-mini li {
-        font-size: 8px;
-      }
-
-      .span-3,
-      .span-4,
-      .span-5,
-      .span-6,
-      .span-7,
-      .span-8,
-      .span-9,
-      .span-12 {
-        grid-column: 1 / -1;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-grid > * {
-        grid-column: 1 / -1;
-      }
-
-      .project-grid .stack {
-        gap: 7px;
-      }
-
-      .problem-line {
-        padding: 8px 10px;
-        font-size: 11px;
-      }
-
-      .panel {
-        padding: 10px 11px;
-      }
-
-      .panel h3,
-      .section-heading {
-        font-size: 18px;
-      }
-
-      .panel p,
-      .clean-list li {
-        font-size: 10px;
-      }
-
-      .clean-list {
-        gap: 4px;
-        margin-top: 5px;
-      }
-
-      .flow {
-        gap: 4px;
-        margin-top: 5px;
-      }
-
-      .flow-step {
-        padding: 6px 4px;
-      }
-
-      .flow-step strong {
-        font-size: 9px;
-      }
-
-      .flow-step span {
-        font-size: 6px;
-      }
-
-      .metric {
-        padding: 7px;
-      }
-
-      .metric-value {
-        font-size: 21px;
-      }
-
-      .metric-label {
-        font-size: 6px;
-      }
-
-      .review-line {
-        padding: 7px 8px;
-        font-size: 9px;
-      }
-
-      .video-card {
-        height: 260px;
-      }
-
-      .video-caption {
-        font-size: 7px;
-      }
-
-      .mobile-hide {
-        display: none !important;
-      }
-
-      .artifact-figure img,
-      .single-figure img {
-        height: 145px;
-      }
-
-      .figure-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .figure-grid .artifact-figure:nth-child(2) {
-        display: none;
-      }
-
-      .artifact-figure figcaption {
-        font-size: 6px;
-      }
-
-      .evidence-board {
-        gap: 7px;
-        padding: 10px;
-      }
-
-      .evidence-board h3 {
-        font-size: 18px;
-      }
-
-      .schema-map {
-        grid-template-columns: minmax(0, 1.15fr) 18px minmax(150px, 0.85fr);
-        gap: 5px;
-      }
-
-      .schema-system {
-        gap: 4px;
-        padding: 7px;
-      }
-
-      .schema-system span {
-        min-height: 32px;
-        padding: 4px;
-        font-size: 8px;
-      }
-
-      .schema-tree {
-        padding: 7px;
-        font-size: 7px;
-      }
-
-      .validation-strip div {
-        padding: 6px;
-      }
-
-      .result-table th,
-      .result-table td {
-        padding: 5px;
-        font-size: 8px;
-      }
-
-      .bar-row {
-        grid-template-columns: minmax(78px, 1fr) minmax(110px, 2fr) 40px;
-        gap: 5px;
-        font-size: 8px;
-      }
-
-      .fusion-diagram {
-        grid-template-columns: minmax(70px, 0.72fr) 10px minmax(110px, 1fr) 10px minmax(60px, 0.58fr);
-        gap: 3px;
-      }
-
-      .frame-stack {
-        min-height: 118px;
-      }
-
-      .frame-card {
-        left: calc(var(--offset) * 8px);
-        top: calc(var(--offset) * 12px);
-        width: calc(100% - 32px);
-        min-height: 56px;
-        padding: 5px;
-        font-size: 6px;
-      }
-
-      .fusion-steps {
-        gap: 4px;
-      }
-
-      .fusion-steps div,
-      .fusion-output {
-        padding: 7px;
-        font-size: 8px;
-      }
-
-      .credential-groups {
-        column-gap: 20px;
-      }
-
-      .credential-group {
-        padding-top: 6px;
-      }
-
-      .credential-row {
-        padding: 5px 0;
-      }
-
-      .credential-row strong {
-        font-size: 9px;
-      }
-
-      .credential-row p,
-      .credential-date {
-        font-size: 7px;
-      }
-
-      .code-grid {
+      .case-copy {
         gap: 6px;
       }
 
-      .code-card {
-        padding: 9px 10px;
+      .case-block:nth-of-type(n + 3) {
+        display: none;
       }
 
-      .code-card h3 {
-        margin: 3px 0 4px;
-        font-size: 17px;
+      .case-block h3 {
+        font-size: 18px;
       }
 
-      .code-card p {
+      .case-block p,
+      .case-list li {
+        font-size: 10px;
+        line-height: 1.3;
+      }
+
+      .case-note {
         font-size: 9px;
       }
 
-      .code-card a {
-        min-height: 20px;
-        font-size: 7px;
-      }
-
-      .tech-strip {
-        gap: 3px;
-        margin-top: 5px;
-        font-size: 7px;
-      }
-
-      .direction-grid {
-        grid-template-columns: 1fr;
-        border-bottom: 0;
-      }
-
-      .direction-section {
-        padding: 10px 0;
-      }
-
-      .direction-section + .direction-section {
-        border-top: 1px solid var(--rule);
-        border-left: 0;
-      }
-
-      .direction-section h3 {
-        margin-bottom: 6px;
-        font-size: 20px;
-      }
-
-      .direction-section p,
-      .question-list li,
-      .curiosity-list li {
-        font-size: 9px;
-      }
-
-      .question-list,
-      .curiosity-list {
-        gap: 5px;
-      }
-
-      .direction-footer {
-        gap: 10px;
-      }
-
-      .direction-footer p {
-        font-size: 13px;
-      }
-
-      .source-links a,
-      .contact-links a {
-        min-height: 24px;
+      .artifact-figure figcaption {
         font-size: 8px;
       }
 
-      .keyboard-hint {
-        display: none;
+      .credential-list li {
+        font-size: 9px;
       }
 
-      .deck-controls {
-        right: 14px;
-        bottom: 11px;
-      }
-
-      .deck-controls button {
-        min-width: 44px;
-        min-height: 42px;
-        padding: 7px 10px;
-      }
-
-      .deck-controls button span:not([aria-hidden="true"]) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .code-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .code-card .repo {
-        font-size: 6px;
-      }
-
-      .flow-step span {
-        display: none;
-      }
-
-      .about-links {
-        margin-top: 4px;
-      }
-
-      .credential-row {
-        grid-template-columns: 6px minmax(0, 1fr);
-        gap: 5px;
-      }
-
-      .credential-date {
-        grid-column: 2;
-        text-align: left;
-      }
-    }
-
-    @media (min-width: 901px) and (max-height: 820px) {
-      .slide {
-        padding-top: 22px;
-        padding-bottom: 68px;
-      }
-
-      .slide-frame {
-        gap: 13px;
-      }
-
-      .slide-title {
-        font-size: clamp(31px, 3.5vw, 48px);
-      }
-
-      .slide-deckline {
-        margin-top: 6px;
-        font-size: 14px;
-      }
-
-      .vertical-timeline {
-        gap: 7px;
-      }
-
-      .artifact-figure img {
-        height: clamp(130px, 22vh, 185px);
-      }
-
-      .single-figure img {
-        height: clamp(210px, 36vh, 285px);
-      }
-
-      .panel {
-        padding: 12px 14px;
-      }
-
-      .video-card {
-        max-height: 490px;
+      .question-list li,
+      .curiosity-list li {
+        font-size: 10px;
       }
     }
 
@@ -2082,77 +2211,55 @@
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
 
     @media print {
-      @page {
-        size: landscape;
-        margin: 0;
-      }
-
-      .js body {
+      .shell {
         height: auto;
-        overflow: visible;
-      }
-
-      .deck-shell {
         display: block;
       }
 
-      .rail,
-      .mobile-bar,
+      .masthead,
       .deck-controls,
-      .keyboard-hint,
-      .skip-link {
+      .keyboard-hint {
         display: none !important;
       }
 
       .deck {
         overflow: visible;
-        background: #fff;
       }
 
-      .js .slide,
-      .slide {
+      .slide,
+      .js .slide {
         position: relative;
         inset: auto;
         min-height: 100vh;
-        padding: 28px 36px;
-        overflow: visible;
+        break-after: page;
         opacity: 1;
         transform: none;
         visibility: visible;
-        break-after: page;
-        page-break-after: always;
-      }
-
-      .slide-frame {
-        width: 100% !important;
-        min-height: calc(100vh - 56px);
-        zoom: 1 !important;
-      }
-
-      .deck .slide:last-of-type {
-        break-after: auto;
       }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to current slide</a>
+  <a class="skip-link" href="#about">Skip to portfolio</a>
 
-  <div class="deck-shell">
-    <aside class="rail" aria-label="Portfolio sections">
-      <div class="rail-brand">
-        <div class="rail-monogram" aria-hidden="true">YZ</div>
-        <strong>Yixin Zhang</strong>
-        <span>Robotics &amp; applied AI</span>
-      </div>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="#about" aria-label="Yixin Zhang, profile slide">
+        <span class="brand-mark" aria-hidden="true">YZ</span>
+        <span class="brand-copy">
+          <strong>Yixin Zhang</strong>
+          <span>robotics · applied AI</span>
+        </span>
+      </a>
 
-      <nav class="rail-nav" aria-label="Slide navigation">
+      <nav class="mast-nav" aria-label="Portfolio slides">
         <button type="button" data-slide="about" aria-current="step">
           <span class="nav-number">01</span><span class="nav-label">Profile</span>
         </button>
@@ -2178,55 +2285,50 @@
           <span class="nav-number">08</span><span class="nav-label">Credentials</span>
         </button>
         <button type="button" data-slide="direction">
-          <span class="nav-number">09</span><span class="nav-label">Next questions</span>
+          <span class="nav-number">09</span><span class="nav-label">Questions</span>
         </button>
       </nav>
 
-      <div class="rail-footer">
-        <div>← → navigate</div>
-        <div>Home / End jump</div>
+      <a class="mast-contact" href="mailto:hi.yixinz@gmail.com">say hello ↗</a>
+      <div class="mobile-status" aria-hidden="true">
+        <strong id="mobile-current">01</strong>
+        <span>/</span>
+        <span data-total>09</span>
       </div>
-    </aside>
+    </header>
 
-    <main class="deck" id="main" tabindex="-1">
-      <div class="mobile-bar" aria-hidden="true">
-        <strong>Yixin Zhang</strong>
-        <span class="mobile-progress"><span id="mobile-current">01</span> / <span data-total>09</span></span>
-      </div>
-
+    <main class="deck" id="portfolio">
       <section class="slide is-active" id="about" aria-labelledby="about-title">
-        <div class="slide-frame">
-          <div class="about-top">
+        <div class="slide-frame profile-frame">
+          <div class="profile-intro">
             <div>
-              <p class="eyebrow">01 / 09 · Profile</p>
+              <p class="slide-kicker">01 / 09 · Profile</p>
               <h1 id="about-title" tabindex="-1">Yixin Zhang</h1>
-              <p class="about-lead">R&amp;D engineer building robot media infrastructure and closed-loop manipulation.</p>
-              <p class="about-copy">
-                Previously: industrial wastewater vision at Beijing Zhongke Shengtai, and climate-model data at SIMTech, A*STAR. B.Eng. in Intelligent Test and Control Engineering under Electrical Engineering at HIT; Graduate Diploma in Systems Analysis at NUS-ISS.
-              </p>
-              <div class="contact-links about-links">
+              <p class="profile-lead">R&amp;D engineer building dependable sensing and control infrastructure.</p>
+              <div class="contact-links profile-links" data-priority="supplemental">
                 <a href="mailto:hi.yixinz@gmail.com">hi.yixinz@gmail.com</a>
                 <a href="https://github.com/yixin-zh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                 <a href="https://www.linkedin.com/in/yixin-zh" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">ANP · zyx.awiki.ai ↗</a>
               </div>
             </div>
 
-            <div class="principle">
-              <span>My motto</span>
-              <p>Extreme ownership, proactive problem-solving, and one extra step beyond the comfort zone.</p>
-            </div>
+            <section class="profile-goal" aria-labelledby="profile-goal-title">
+              <p class="eyebrow">My goal</p>
+              <h2 id="profile-goal-title">Be challenged in robot learning—and shorten the loop from failure to a better policy.</h2>
+              <p>Industrial robot programs can contribute fast iteration, compute, operational data, and real failure cases; school research can contribute depth, open evaluation, and room to test new ideas. I want the two to change each other, not an application-only track centered on delivery.</p>
+              <p class="motto" data-priority="supplemental">Dedicated to extreme ownership and proactive problem-solving—taking one extra step when it improves the result.</p>
+            </section>
           </div>
 
-          <div class="profile-chronology">
-            <div class="vertical-timeline" aria-label="Career and education timeline from 2020 to now">
+          <div class="profile-chronology slide-body">
+            <div class="vertical-timeline" aria-label="Career, education, project, and volunteering timeline from 2020 to now">
               <article class="journey-item">
                 <time class="journey-date">Sep 2025<br>— now</time>
                 <span class="journey-node current" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
-                  <h2 class="journey-role">R&amp;D Engineer · 上海具识智能有限公司</h2>
-                  <p class="journey-org">InsightOS media I/O and closed-loop cabinet operation</p>
+                  <h2 class="journey-role">R&amp;D Engineer · InsightOS, Shanghai</h2>
+                  <p class="journey-org">Robot media I/O, sensor synchronization, and cabinet-operation tooling.</p>
                 </div>
               </article>
 
@@ -2235,8 +2337,8 @@
                 <span class="journey-node" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
-                  <h2 class="journey-role">Industrial Digitalization Engineer · 北京中科圣泰环境科技有限公司</h2>
-                  <p class="journey-org">Industrial-wastewater vision and floc-analysis PoCs</p>
+                  <h2 class="journey-role">Industrial Digitalization Engineer · Beijing Zhongke Shengtai</h2>
+                  <p class="journey-org">Industrial-wastewater vision PoCs and a floc-analysis handoff.</p>
                 </div>
               </article>
 
@@ -2246,7 +2348,8 @@
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
                   <h2 class="journey-role">Scientist Intern · SIMTech, A*STAR</h2>
-                  <p class="journey-org">ASEAN energy-model studies to optimization-ready data</p>
+                  <p class="journey-org">ASEAN energy-system studies converted into model-ready data.</p>
+                  <span class="overlap-note"><strong>Overlap:</strong> NUS-ISS in-person phase in Singapore.</span>
                 </div>
               </article>
 
@@ -2256,8 +2359,11 @@
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
                   <h2 class="journey-role">NUS-ISS · Graduate Diploma in Systems Analysis</h2>
-                  <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025</p>
-                  <p class="overlap-note"><strong>Overlap:</strong> the online year ran alongside the final HIT year.</p>
+                  <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025.</p>
+                  <span class="overlap-note"><strong>Overlap:</strong> first year ran alongside the final HIT year.</span>
+                  <div class="journey-meta">
+                    <span class="volunteer">SG Beach Warriors · 2024–25</span>
+                  </div>
                 </div>
               </article>
 
@@ -2266,44 +2372,20 @@
                 <span class="journey-node education" aria-hidden="true"></span>
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
-                  <h2 class="journey-role">HIT · B.Eng., Intelligent Test &amp; Control Engineering (EE)</h2>
-                  <p class="journey-org">School of Electronics and Information Engineering · average 86.95/100</p>
-                  <ul class="nested-projects" aria-label="Projects undertaken at HIT">
-                    <li>Video OCR · 2021–22</li>
-                    <li>SparkDesk KBQA · 2023</li>
-                    <li>DQN capstone · 2023–24</li>
-                  </ul>
+                  <h2 class="journey-role">HIT · B.Eng., Intelligent Test &amp; Control Engineering</h2>
+                  <p class="journey-org">Electrical Engineering · 86.95/100 · People’s Scholarship ×5.</p>
+                  <div class="journey-meta">
+                    <span class="project">Video OCR · 2021–22</span>
+                    <span class="project">DQN capstone · 2023–24</span>
+                    <span class="volunteer">HIT field research · 2022</span>
+                  </div>
                 </div>
               </article>
             </div>
 
-            <aside class="profile-side" aria-label="Volunteering, certifications, and timeline legend">
-              <div class="category-key" aria-label="Timeline categories">
-                <span>Career</span>
-                <span class="key-education">Education</span>
-                <span class="key-project">HIT projects</span>
-                <span class="key-volunteer">Volunteering</span>
-                <span class="key-credential">Credentials</span>
-              </div>
-
-              <section class="side-section">
-                <h2 class="side-heading">Volunteering</h2>
-                <ul class="activity-list">
-                  <li><time>2022</time> · led a nine-person HIT field-research team</li>
-                  <li><time>2024–25</time> · SG Beach Warriors cleanups</li>
-                  <li><strong>Also:</strong> Veritasium Bilibili translation and HIT events</li>
-                </ul>
-              </section>
-
-              <section class="side-section">
-                <h2 class="side-heading">Credentials · 2024–26</h2>
-                <ul class="credential-mini">
-                  <li><strong>NVIDIA:</strong> GenAI LLMs; Transformer NLP; satellite disaster-risk imagery</li>
-                  <li><strong>Oracle:</strong> OCI DevOps, Data Science, and Generative AI</li>
-                  <li><strong>Microsoft:</strong> Azure Data Scientist; Power BI Data Analyst</li>
-                  <li><strong>AWS:</strong> ML Engineer – Associate</li>
-                </ul>
-              </section>
+            <aside class="profile-aside" data-priority="supplemental">
+              <p class="section-label">How the overlaps read</p>
+              <p><strong>Career</strong> sits on the blue spine. <strong>Education</strong> uses green nodes; HIT projects are nested under HIT in amber, while volunteering stays separate in red.</p>
             </aside>
           </div>
         </div>
@@ -2315,73 +2397,64 @@
             <div>
               <p class="slide-kicker">02 / 09 · Current work</p>
               <h2 class="slide-title" id="robot-loop-title" tabindex="-1">Closing the cabinet-operation loop</h2>
-              <p class="slide-deckline">Reusable robot media infrastructure underneath a perception-to-control demonstration.</p>
+              <p class="slide-deckline">A reusable robot media runtime underneath perception, pose estimation, and contact.</p>
             </div>
             <div class="role-stamp">
-              <strong>R&amp;D Engineer · Sep 2025–Now</strong>
+              <strong>R&amp;D Engineer · Sep 2025—now</strong>
               上海具识智能有限公司 · InsightOS
             </div>
           </header>
 
-          <div class="grid-12 project-grid">
-            <div class="span-7 stack">
-              <div class="problem-line">
-                <strong>Problem.</strong> Camera and depth sources change across devices, while open-loop motion becomes brittle when target and robot frames drift.
+          <div class="case-grid slide-body">
+            <div class="case-copy">
+              <section class="case-block">
+                <p class="section-label">Problem</p>
+                <h3>Keep sensing stable while the hardware changes</h3>
+                <p>Cameras and depth sensors move across devices; open-loop motion becomes brittle when target and robot frames drift.</p>
+              </section>
+
+              <section class="case-block">
+                <p class="section-label">Built</p>
+                <ul class="case-list">
+                  <li>Media I/O daemon, memfd IPC, ROS2 bridge, C++ SDK, and <code>insightos://</code> routing.</li>
+                  <li>Device discovery, topology-drift recovery, and cross-view time synchronization.</li>
+                  <li>YOLO11 segmentation, RGB-D pose estimation, ROS TF transforms, and visual/tactile correction.</li>
+                </ul>
+              </section>
+
+              <p class="tech-line" data-priority="supplemental">C++ · Linux · ROS2 · DDS · RGB-D · shared memory · REST/CLI</p>
+
+              <div class="case-note">
+                <strong>Needs review:</strong> the video demonstrates one cabinet interaction. It does not establish an internal pipeline, success rate, or production reliability; the résumé’s “&gt;95% within 15 minutes” metric still needs logs and a denominator.
               </div>
 
-              <article class="panel">
-                <h3>Observation to correction</h3>
-                <div class="flow" aria-label="Cabinet operation pipeline">
-                  <div class="flow-step"><strong>Segment</strong><span>YOLO11 mask</span></div>
-                  <div class="flow-step"><strong>Project</strong><span>RGB-D → 3D</span></div>
-                  <div class="flow-step"><strong>Estimate</strong><span>SVD + plane constraint</span></div>
-                  <div class="flow-step"><strong>Transform</strong><span>ROS TF frames</span></div>
-                  <div class="flow-step"><strong>Correct</strong><span>Closed-loop IK</span></div>
-                </div>
-              </article>
-
-              <div class="grid-12">
-                <article class="panel span-6">
-                  <p class="panel-label">Robot media runtime</p>
-                  <ul class="clean-list">
-                    <li>Device discovery and RGB/depth synchronization.</li>
-                    <li>Reusable stream routing without recompiling apps after hardware swaps.</li>
-                    <li>Agent skills for faster media-app development.</li>
-                  </ul>
-                </article>
-                <article class="panel span-6">
-                  <p class="panel-label">Manipulation work</p>
-                  <ul class="clean-list">
-                    <li>Camera-to-robot transforms managed through ROS TF.</li>
-                    <li>Visual/tactile feedback and arm/hand FK/IK.</li>
-                    <li>Electrical-panel demo prepared for WAIC 2026.</li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="review-line">
-                <strong>Needs review:</strong> the video shows real cabinet interaction, but does not establish the internal pipeline, success rate, or production reliability. The résumé’s “&gt;95% within 15 minutes” development metric still needs a denominator and logs.
-              </div>
-
-              <div class="source-links">
+              <div class="source-links" data-priority="supplemental">
                 <a href="https://www.insightos.cn/" target="_blank" rel="noopener noreferrer">InsightOS ↗</a>
                 <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Direct video ↗</a>
               </div>
             </div>
 
-            <div class="span-5">
-              <div class="video-card">
-                <div class="video-stage">
-                  <button class="video-trigger" id="cabinet-play" type="button" aria-label="Load and play the cabinet operation demo">
-                    <img src="assets/portfolio/cabinet-poster.jpg" alt="Robot arm positioned in front of an electrical control cabinet">
-                    <span class="play-label">Play demo</span>
-                  </button>
-                  <video id="cabinet-video" controls playsinline preload="none" poster="assets/portfolio/cabinet-poster.jpg" hidden aria-label="Cabinet operation robot demo"></video>
-                </div>
-                <div class="video-caption">
-                  <p>Cabinet-operation demo · <span id="cabinet-video-status">click to load.</span><span class="video-error" id="cabinet-video-error"> Hosted video unavailable; use the direct file link.</span></p>
-                  <a href="https://video-host.oss-cn-shenzhen.aliyuncs.com/cabinet-operation.mp4" target="_blank" rel="noopener noreferrer">Open file ↗</a>
-                </div>
+            <div class="artifact-stage robot-media">
+              <div class="robot-storyboard" id="robot-storyboard">
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/robot-arrival.webp" alt="Robot approaching the cabinet work area" decoding="async">
+                  <figcaption><strong>01 · approach</strong> · video frame</figcaption>
+                </figure>
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/robot-contact.webp" alt="Robot hand contacting the cabinet control panel" decoding="async">
+                  <figcaption><strong>02 · contact</strong> · video frame</figcaption>
+                </figure>
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/robot-release.webp" alt="Robot hand releasing from the cabinet after interaction" decoding="async">
+                  <figcaption><strong>03 · release</strong> · video frame</figcaption>
+                </figure>
+              </div>
+              <button class="video-launch" id="cabinet-play" type="button" aria-controls="cabinet-video">Play cabinet video</button>
+              <video class="robot-video" id="cabinet-video" controls playsinline preload="none" poster="assets/portfolio/cabinet-poster.jpg" hidden>
+                Your browser does not support embedded video.
+              </video>
+              <div class="video-status" id="cabinet-video-status" aria-live="polite">
+                click to load · <span class="video-error" id="cabinet-video-error">hosted video failed; use the direct link.</span>
               </div>
             </div>
           </div>
@@ -2393,80 +2466,78 @@
           <header class="slide-header">
             <div>
               <p class="slide-kicker">03 / 09 · Industrial computer vision</p>
-              <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc video to dose advice</h2>
-              <p class="slide-deckline">A working desktop pipeline turned underwater floc video into a documented XGBoost operator cue.</p>
+              <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc video to a binary operator cue</h2>
+              <p class="slide-deckline">A desktop prototype joined underwater video, morphology, geometric features, and XGBoost.</p>
             </div>
             <div class="role-stamp">
-              <strong>Industrial Digitalization Engineer · Jul–Sep 2025</strong>
-              北京中科圣泰环境科技有限公司
+              <strong>Industrial Digitalization Engineer · 2025</strong>
+              Beijing Zhongke Shengtai
             </div>
           </header>
 
-          <div class="grid-12 project-grid">
-            <div class="span-6 stack">
-              <div class="problem-line">
-                <strong>Problem.</strong> Manual assessment of floc formation is subjective and hard to quantify; video frames also repeat nearly the same process state.
-              </div>
+          <div class="case-grid slide-body">
+            <div class="case-copy">
+              <section class="case-block">
+                <p class="section-label">Problem</p>
+                <h3>Turn subjective floc inspection into a visible, testable cue</h3>
+                <p>The GUI exposed the original frame, processed mask, parameters, and two classifiers side by side.</p>
+              </section>
 
-              <article class="panel">
-                <h3>Documented handoff pipeline</h3>
-                <div class="flow" aria-label="Wastewater computer vision workflow">
-                  <div class="flow-step"><strong>Video</strong><span>Underwater frames</span></div>
-                  <div class="flow-step"><strong>Segment</strong><span>Adaptive threshold + morphology</span></div>
-                  <div class="flow-step"><strong>Measure</strong><span>Connected components</span></div>
-                  <div class="flow-step"><strong>Classify</strong><span>XGBoost</span></div>
-                  <div class="flow-step"><strong>Cue</strong><span>Good / add more</span></div>
-                </div>
-                <ul class="clean-list">
-                  <li>Section 3.2.2 names count, diameter, equivalent diameter, circularity, and area share; later pages list a different five-feature set.</li>
-                  <li>Python, OpenCV, NumPy, scikit-learn, XGBoost, and a Tkinter interface.</li>
+              <section class="case-block" data-priority="supplemental">
+                <p class="section-label">Pipeline</p>
+                <ul class="case-list">
+                  <li>Grayscale → median filter → adaptive threshold → morphology.</li>
+                  <li>Connected components → five geometric features → threshold or XGBoost.</li>
+                  <li>Python, OpenCV, NumPy, scikit-learn, XGBoost, and Tkinter.</li>
                 </ul>
-              </article>
+              </section>
 
-              <article class="panel mobile-hide">
-                <p class="panel-label">What was built</p>
-                <h3>Threshold baseline + learned classifier</h3>
-                <p>The interface supported video playback, side-by-side preprocessing, parameter adjustment, model loading, and per-frame classification.</p>
-              </article>
-            </div>
+              <section class="case-block">
+                <p class="section-label">Reported result</p>
+                <p><strong>88.5%</strong> floc-level test accuracy for the binary XGBoost classifier; the résumé’s 89% is the rounded value. The same document reports 67.4% for a fixed threshold.</p>
+              </section>
 
-            <div class="span-6 stack">
-              <div class="metric-grid">
-                <div class="metric">
-                  <span class="metric-value">≈89%</span>
-                  <span class="metric-label">88.5% XGBoost test accuracy in handoff design doc</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">67.4%</span>
-                  <span class="metric-label">Threshold-classifier accuracy in the same document</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">5</span>
-                  <span class="metric-label">Geometric features feeding XGBoost</span>
-                </div>
+              <div class="case-note">
+                <strong>Needs review:</strong> 2,270 labeled images were expanded into 258,887 floc records before a random stratified split. Temporal/video independence and plant generalization were not tested. The archived model is binary (“good / add more”); the résumé’s five dose steps remain a separate, unresolved claim.
               </div>
 
-              <article class="evidence-board">
-                <h3>What the number means</h3>
-                <table class="result-table" aria-label="Floc classifier results from the handoff design document">
-                  <thead>
-                    <tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
-                    <tr><td>Fixed threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
-                  </tbody>
-                </table>
-                <p class="evidence-note">The document reports 88.6% on training data and 88.5% on test data. The 89% résumé figure is the rounded test result. A supplied GUI capture shows the threshold and XGBoost classifiers disagreeing on one frame; no fusion rule is documented.</p>
-              </article>
-
-              <div class="review-line">
-                <strong>Needs review:</strong> the handoff document describes a binary “good / add more” model, while the résumé describes five dose steps (−20% to +20%); their mapping is not documented. It does not state whether video sequences, plants, or operating periods were held out, so its 238,176 “samples” may include adjacent frames. Feature definitions also change between sections. Accuracy is prototype classification performance—not plant generalization, correct dosing, chemical savings, or effluent improvement.
-              </div>
-
-              <div class="source-links">
+              <div class="source-links" data-priority="supplemental">
                 <a href="https://doi.org/10.1039/D2EW00389A" target="_blank" rel="noopener noreferrer">Floc-imaging method context ↗</a>
               </div>
+            </div>
+
+            <div class="artifact-stage floc-collage">
+              <figure class="artifact-figure floc-gui">
+                <img src="assets/portfolio/floc-gui-comparison.webp" alt="GUI crop with the original underwater floc frame beside the processed binary mask" decoding="async">
+                <figcaption><strong>GUI crop</strong> · original frame and processed mask</figcaption>
+              </figure>
+
+              <figure class="artifact-figure floc-decisions">
+                <img src="assets/portfolio/floc-decision-strip.webp" alt="GUI decision strip showing disagreement between the threshold and XGBoost classifiers" decoding="async">
+                <figcaption><strong>Same frame</strong> · threshold says add coagulant; XGBoost says coagulation is sufficient</figcaption>
+              </figure>
+
+              <div class="mask-sequence" aria-label="Three consecutive processed mask frames">
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/floc-mask-01.webp" alt="Processed floc mask at 18.0 seconds" decoding="async">
+                  <figcaption>18.0 s</figcaption>
+                </figure>
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/floc-mask-02.webp" alt="Processed floc mask at 18.5 seconds" decoding="async">
+                  <figcaption>18.5 s</figcaption>
+                </figure>
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/floc-mask-03.webp" alt="Processed floc mask at 19.0 seconds" decoding="async">
+                  <figcaption>19.0 s</figcaption>
+                </figure>
+              </div>
+
+              <figure class="artifact-figure floc-table" data-priority="supplemental">
+                <img src="assets/portfolio/floc-reported-comparison.webp" alt="Project document table comparing the reported threshold and XGBoost classifier metrics" decoding="async">
+                <figcaption><strong>Document table</strong> · reported metrics; split unit clarified from the archived code</figcaption>
+              </figure>
+
+              <div class="visual-callout floc-callout">Consecutive masks make frame dependence visible.</div>
             </div>
           </div>
         </div>
@@ -2477,72 +2548,61 @@
           <header class="slide-header">
             <div>
               <p class="slide-kicker">04 / 09 · Climate analytics</p>
-              <h2 class="slide-title" id="climate-data-title" tabindex="-1">Turning case studies into model inputs</h2>
+              <h2 class="slide-title" id="climate-data-title" tabindex="-1">Turning case studies into model-ready data</h2>
               <p class="slide-deckline">Structured ASEAN energy-system studies for optimization and interactive scenario analysis.</p>
             </div>
             <div class="role-stamp">
-              <strong>Scientist Intern · Sep 2024–Jan 2025</strong>
-              SIMTech, A*STAR Singapore
+              <strong>Scientist Intern · Sep 2024—Jan 2025</strong>
+              SIMTech, A*STAR · Singapore
             </div>
           </header>
 
-          <div class="grid-12 project-grid">
-            <div class="span-5 stack">
-              <div class="problem-line">
-                <strong>Problem.</strong> Research studies describe assets, constraints, trade, and policy in prose and equations; scenario engines require consistent structured inputs.
-              </div>
+          <div class="case-grid slide-body">
+            <div class="case-copy">
+              <section class="case-block">
+                <p class="section-label">Problem</p>
+                <h3>Translate prose, equations, and policy assumptions into consistent inputs</h3>
+                <p>Scenario engines need explicit assets, constraints, trade links, units, and carbon-policy settings.</p>
+              </section>
 
-              <article class="panel">
-                <h3>Study to optimization-ready JSON</h3>
-                <div class="flow" aria-label="Climate case conversion workflow">
-                  <div class="flow-step"><strong>Read</strong><span>Case study</span></div>
-                  <div class="flow-step"><strong>Structure</strong><span>JSON schema</span></div>
-                  <div class="flow-step"><strong>Run</strong><span>Convex model</span></div>
-                  <div class="flow-step"><strong>Check</strong><span>Prior studies</span></div>
-                </div>
-                <ul class="clean-list">
-                  <li>Generation, storage, electricity/ammonia trade, and carbon-policy cases.</li>
-                  <li>Visualized outputs and checked behavior against OSeMOSYS and TIMES studies.</li>
-                  <li>Prototyped ChatGPT o1 conversion and contributed to early MOYA Cascade concepts.</li>
+              <section class="case-block">
+                <p class="section-label">Work</p>
+                <ul class="case-list">
+                  <li>Mapped generation, storage, demand, trade pools, and CO₂ budgets into JSON.</li>
+                  <li>Visualized convex-optimization outputs and checked behavior against prior OSeMOSYS and TIMES cases.</li>
+                  <li>Prototyped an LLM-assisted conversion workflow and contributed to early MOYA Cascade concepts.</li>
                 </ul>
-              </article>
+              </section>
 
-              <div class="review-line">
-                <strong>Needs review:</strong> Pass@1 &gt;85% is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade concept work does not imply ownership of later implementation or adoption.
+              <p class="tech-line" data-priority="supplemental">Python · JSON Schema · convex optimization · OSeMOSYS/TIMES context · LLM workflow</p>
+
+              <div class="case-note">
+                <strong>Needs review:</strong> “Pass@1 &gt;85%” is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade work does not imply product ownership; confirm publication clearance for the project-only scenario crops.
               </div>
 
-              <div class="source-links">
-                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">GMPA ↗</a>
-                <a href="https://mitigationatlas.org/about" target="_blank" rel="noopener noreferrer">About GMPA ↗</a>
+              <div class="source-links" data-priority="supplemental">
+                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">Global Mitigation Potential Atlas ↗</a>
               </div>
             </div>
 
-            <div class="span-7 evidence-board">
-              <h3>Selected structure, redrawn from the project artifact</h3>
-              <div class="schema-map" aria-label="Energy-system case study mapped to structured data">
-                <div class="schema-system">
-                  <strong>Case-study model</strong>
-                  <span>CO₂ budget</span>
-                  <span>Locations</span>
-                  <span>Generation</span>
-                  <span>Storage</span>
-                  <span>Demand</span>
-                  <span>Trade pools</span>
-                </div>
-                <div class="map-arrow" aria-hidden="true">→</div>
-                <pre class="schema-tree">/data
-├─ locations/
-├─ components/
-├─ assets/
-├─ systems/
-└─ input/</pre>
-              </div>
-              <div class="validation-strip" aria-label="Conversion checks">
-                <div><strong>1 · Structure</strong><span>Required entities, units, and links</span></div>
-                <div><strong>2 · Execute</strong><span>Run the convex optimization case</span></div>
-                <div><strong>3 · Compare</strong><span>Check behavior against OSeMOSYS/TIMES studies</span></div>
-              </div>
-              <p class="evidence-note">The reconstruction keeps the useful model-to-directory relationship and omits the unreadable report chrome and unexplained scenario plots.</p>
+            <div class="artifact-stage climate-collage">
+              <figure class="artifact-figure climate-model">
+                <img src="assets/portfolio/moya-case-model.webp" alt="Project artifact mapping an energy case-study model with locations, generation, storage, demand, and trade" decoding="async">
+                <figcaption><strong>Case model</strong> · source artifact</figcaption>
+              </figure>
+              <figure class="artifact-figure climate-tree">
+                <img src="assets/portfolio/moya-file-tree.webp" alt="Project artifact showing the JSON data directory hierarchy" decoding="async">
+                <figcaption><strong>File contract</strong> · locations, components, assets, systems, inputs</figcaption>
+              </figure>
+              <figure class="artifact-figure climate-scenario scenario-one">
+                <img src="assets/portfolio/moya-scenario-autarky.webp" alt="Optimization output for Singapore and Indonesia modeled as self-sufficient energy systems" decoding="async">
+                <figcaption><strong>Self-sufficient</strong> · cost-optimal mix</figcaption>
+              </figure>
+              <figure class="artifact-figure climate-scenario scenario-two">
+                <img src="assets/portfolio/moya-scenario-cooperation.webp" alt="Optimization output for an idealized cooperation scenario between Singapore and Indonesia" decoding="async">
+                <figcaption><strong>Idealized cooperation</strong> · comparison case</figcaption>
+              </figure>
+              <div class="visual-callout climate-callout">structure → execute → compare</div>
             </div>
           </div>
         </div>
@@ -2557,53 +2617,51 @@
               <p class="slide-deckline">A simulated study of reward design and stale observations in dynamic navigation.</p>
             </div>
             <div class="role-stamp">
-              <strong>Sep 2023–Jun 2024</strong>
-              Harbin Institute of Technology
+              <strong>B.Eng. capstone · 2023—24</strong>
+              HIT · Electrical Engineering
             </div>
           </header>
 
-          <div class="grid-12 project-grid">
-            <div class="span-5 stack">
-              <div class="problem-line">
-                <strong>Problem.</strong> A planner must avoid moving obstacles even when its observation of the world is delayed.
-              </div>
+          <div class="case-grid slide-body">
+            <div class="case-copy">
+              <section class="case-block">
+                <p class="section-label">Question</p>
+                <h3>Can a DQN planner stay useful when the observation arrives late?</h3>
+                <p>The simulation varied stale observations while comparing reward logic and network variants.</p>
+              </section>
 
-              <article class="panel">
-                <h3>Delay-aware DQN study</h3>
-                <ul class="clean-list">
-                  <li>Introduced delayed observation updates into a discrete simulation.</li>
-                  <li>Added goal-directed reward shaping and compared obstacle layouts.</li>
-                  <li>Repeated the reported experiment 15 times and compared means.</li>
+              <section class="case-block">
+                <p class="section-label">Method</p>
+                <ul class="case-list">
+                  <li>Main/target networks with replay memory and randomized observation delay.</li>
+                  <li>Reward terms for path progress, collision avoidance, and convergence.</li>
+                  <li>Fifteen repeated runs averaged on the supplied results slide.</li>
                 </ul>
-              </article>
+              </section>
 
-              <div class="review-line">
-                <strong>Needs review:</strong> code, seeds, delay specification, and uncertainty are unavailable. The résumé’s ~12% faster convergence and Rainbow/D3QN wording cannot be checked from the supplied results slide.
-              </div>
+              <section class="case-block" data-priority="supplemental">
+                <p class="section-label">Reported result</p>
+                <p>98.1% versus 92.6% success is +5.5 percentage points (+5.9% relative); mean path length was 29.113 versus 30.852.</p>
+              </section>
 
-              <div class="source-links">
-                <a href="https://doi.org/10.1038/nature14236" target="_blank" rel="noopener noreferrer">DQN reference ↗</a>
+              <div class="case-note">
+                <strong>Needs review:</strong> values are transcribed from the capstone slide. Raw logs, confidence intervals, simulator details, and a real-robot evaluation are not available.
               </div>
             </div>
 
-            <div class="span-7 evidence-board">
-              <h3>Reported mean results · 15 repetitions</h3>
-              <div class="bar-comparison" aria-label="Success rate comparison">
-                <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill" style="--value:98.1%"></div></div><strong>98.1%</strong></div>
-                <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill" style="--value:97.2%"></div></div><strong>97.2%</strong></div>
-                <div class="bar-row"><span>Traditional DQN</span><div class="bar-track"><div class="bar-fill" style="--value:92.6%"></div></div><strong>92.6%</strong></div>
-                <div class="bar-row"><span>Traditional Q-learning</span><div class="bar-track"><div class="bar-fill" style="--value:93.1%"></div></div><strong>93.1%</strong></div>
-              </div>
-              <table class="result-table" aria-label="DQN capstone result table">
-                <thead><tr><th>Method</th><th>Success</th><th>Mean path length</th></tr></thead>
-                <tbody>
-                  <tr><td>Proposed</td><td>98.1%</td><td>29.113</td></tr>
-                  <tr><td>Without reward logic</td><td>97.2%</td><td>29.474</td></tr>
-                  <tr><td>Traditional DQN</td><td>92.6%</td><td>30.852</td></tr>
-                  <tr><td>Traditional Q-learning</td><td>93.1%</td><td>32.224</td></tr>
-                </tbody>
-              </table>
-              <p class="evidence-note">98.1% versus 92.6% is +5.5 percentage points, or about +5.9% relative. Values are transcribed from the capstone results slide; raw logs are unavailable.</p>
+            <div class="artifact-stage dqn-collage">
+              <figure class="artifact-figure dqn-sim">
+                <img src="assets/portfolio/dqn-simulation.webp" alt="Capstone simulation screenshot showing a planned path around moving obstacles" decoding="async">
+                <figcaption><strong>Simulation</strong> · path and moving-obstacle snapshots</figcaption>
+              </figure>
+              <figure class="artifact-figure dqn-curves">
+                <img src="assets/portfolio/dqn-learning-curves.webp" alt="Capstone learning curves comparing reward and DQN variants" decoding="async">
+                <figcaption><strong>Learning curves</strong> · supplied result artifact</figcaption>
+              </figure>
+              <figure class="artifact-figure dqn-score">
+                <img src="assets/portfolio/dqn-scorecard.webp" alt="Capstone scorecard comparing success rate and mean path length" decoding="async">
+                <figcaption><strong>Scorecard</strong> · mean over 15 reported runs</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -2615,57 +2673,55 @@
             <div>
               <p class="slide-kicker">06 / 09 · HIT innovation project</p>
               <h2 class="slide-title" id="video-ocr-title" tabindex="-1">Recognizing text across blurred frames</h2>
-              <p class="slide-deckline">First-prize HIT project selected at national level; four stages from detection to recognition.</p>
+              <p class="slide-deckline">A first-prize HIT team project selected at national level, from detection to cross-frame restoration and recognition.</p>
             </div>
             <div class="role-stamp">
-              <strong>Team member · Sep 2021–Nov 2022</strong>
+              <strong>Team member · 2021—22</strong>
               Innovation &amp; Entrepreneurship Programme
             </div>
           </header>
 
-          <div class="grid-12 project-grid">
-            <div class="span-5 stack">
-              <div class="problem-line">
-                <strong>Problem.</strong> Motion can erase character strokes in one frame; adjacent frames carry complementary evidence that must be tracked, aligned, and fused.
+          <div class="case-grid slide-body">
+            <div class="case-copy">
+              <section class="case-block">
+                <p class="section-label">Problem</p>
+                <h3>One frame can lose a character stroke; adjacent frames can recover it</h3>
+                <p>The team pipeline covered text detection, frame tracking, multi-frame restoration, and recognition.</p>
+              </section>
+
+              <section class="case-block">
+                <p class="section-label">Documented contribution</p>
+                <p>The final acceptance report assigns me the Transformer-inspired recognizer and the coupling of recognition features into the restoration network.</p>
+              </section>
+
+              <section class="case-block" data-priority="supplemental">
+                <p class="section-label">Outcome</p>
+                <p>First prize in HIT’s Innovation and Entrepreneurship Programme; selected for national-level continuation.</p>
+              </section>
+
+              <div class="case-note">
+                <strong>Needs review:</strong> the résumé describes a broader architecture/deblurring role than the final report. Resource-constrained Android deployment and the earlier “+0.23% F1” claim are not preserved in the supplied evidence.
               </div>
 
-              <article class="panel">
-                <h3>Team system, documented contribution</h3>
-                <ul class="clean-list">
-                  <li>The team pipeline covered text detection, frame tracking, multi-frame restoration, and recognition.</li>
-                  <li>The final acceptance report assigns me the Transformer-inspired recognizer and coupling of recognition features to the restoration network.</li>
-                  <li>The project won first prize in HIT’s Innovation and Entrepreneurship Programme and was selected at national level.</li>
-                </ul>
-              </article>
-
-              <div class="review-line">
-                <strong>Needs review:</strong> the résumé gives a broader architecture/deblurring role than the final report. It also targeted resource-constrained Android deployment, but completed deployment and the earlier “+0.23% F1” claim are not supported.
+              <div class="source-links" data-priority="supplemental">
+                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT method ↗</a>
+                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR method ↗</a>
               </div>
             </div>
 
-            <div class="span-7 evidence-board">
-              <h3>Cross-frame recognition path</h3>
-              <div class="fusion-diagram" aria-label="Reference and support frames fused before text recognition">
-                <div class="frame-stack" aria-label="Ranked text crops">
-                  <div class="frame-card" style="--offset:0"><strong>Support −4</strong><span>ranked earlier crop</span></div>
-                  <div class="frame-card" style="--offset:1"><strong>Support −3</strong><span>ranked earlier crop</span></div>
-                  <div class="frame-card" style="--offset:2"><strong>Support −2/−1</strong><span>top-quality history</span></div>
-                  <div class="frame-card" style="--offset:3"><strong>Reference</strong><span>current text crop</span></div>
-                </div>
-                <div class="map-arrow" aria-hidden="true">→</div>
-                <div class="fusion-steps">
-                  <div><strong>Extract</strong><span>features per crop</span></div>
-                  <div><strong>Align + fuse</strong><span>cross-frame evidence</span></div>
-                  <div><strong>Recognize</strong><span>Transformer-inspired decoder</span></div>
-                </div>
-                <div class="map-arrow" aria-hidden="true">→</div>
-                <div class="fusion-output"><strong>Text</strong><span>recognized sequence</span></div>
-              </div>
-              <div class="source-links">
-                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT ↗</a>
-                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR ↗</a>
-              </div>
-              <p class="evidence-note">The diagram retains the final report’s reference/support-frame logic without reproducing an unreadable report page.</p>
+            <div class="artifact-stage ocr-collage">
+              <figure class="artifact-figure ocr-flow">
+                <img src="assets/portfolio/ocr-system-flow.webp" alt="Team project flow showing current text crop selection, support frames, feature extraction, alignment, fusion, recognition, and output" decoding="async">
+                <figcaption><strong>System flow</strong> · crop from the supplied project slide</figcaption>
+              </figure>
+              <figure class="artifact-figure ocr-restore">
+                <img src="assets/portfolio/ocr-restoration-comparison.webp" alt="Project slide crop comparing restored video frames from several methods with ground truth" decoding="async">
+                <figcaption><strong>Restoration study</strong> · benchmark comparison shown in the team deck</figcaption>
+              </figure>
+              <figure class="artifact-figure ocr-attention">
+                <img src="assets/portfolio/ocr-attention-maps.webp" alt="Acceptance report crop showing recognition attention maps over a blurred word image" decoding="async">
+                <figcaption><strong>Attention artifact</strong> · recognition report, not a redrawn diagram</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -2676,49 +2732,55 @@
           <header class="slide-header">
             <div>
               <p class="slide-kicker">07 / 09 · Open work</p>
-              <h2 class="slide-title" id="public-code-title" tabindex="-1">Open-source and LLM evaluation work</h2>
-              <p class="slide-deckline">Merged vector-search changes, an agricultural KBQA evaluation, and early prompt-engineering education work.</p>
+              <h2 class="slide-title" id="public-code-title" tabindex="-1">Public code and model evaluation</h2>
+              <p class="slide-deckline">Two merged vector-search changes, an agricultural KBQA assessment, and early prompt-engineering course work.</p>
             </div>
             <div class="role-stamp">
-              <strong>Languages</strong>
-              C++ · Python · C# · MATLAB
+              <strong>Inspect the artifacts</strong>
+              Public links wherever preserved
             </div>
           </header>
 
-          <div>
-            <div class="code-grid">
-              <article class="code-card">
-                <div class="repo">camel-ai/camel · PR #3758</div>
-                <h3>OceanBase ANN query options</h3>
-                <p>Extended distance metrics and filtering, with tests and examples around the new query behavior. Merged Feb 2026.</p>
-                <a href="https://github.com/camel-ai/camel/pull/3758" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
-              </article>
+          <div class="code-ledger slide-body">
+            <article class="code-row">
+              <div class="repo-name">camel-ai/camel · PR #3758<br>Feb 2026 · merged</div>
+              <div>
+                <h3>Qdrant query filters</h3>
+                <p>Added distance metrics and filtering, with tests and examples around the new query behavior.</p>
+              </div>
+              <a href="https://github.com/camel-ai/camel/pull/3758" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
+            </article>
 
-              <article class="code-card">
-                <div class="repo">labring/FastGPT · PR #6348</div>
+            <article class="code-row">
+              <div class="repo-name">labring/FastGPT · PR #6348<br>Jan 2026 · merged</div>
+              <div>
                 <h3>OceanBase HNSW quantization</h3>
-                <p>Added SQ/BQ vector-index quantization levels and corresponding distance constraints. Merged Jan 2026.</p>
-                <a href="https://github.com/labring/FastGPT/pull/6348" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
-              </article>
+                <p>Added SQ/BQ vector-index quantization levels and corresponding distance constraints.</p>
+              </div>
+              <a href="https://github.com/labring/FastGPT/pull/6348" target="_blank" rel="noopener noreferrer">Inspect PR ↗</a>
+            </article>
 
-              <article class="code-card needs-check">
-                <div class="repo">SparkDesk-LLM-KBQA-Assessment · Oct–Nov 2023</div>
-                <h3>Agricultural KBQA evaluation</h3>
-                <p>RAG knowledge base, closed/open questions, prompt injection, and jailbreak testing. Résumé reports 100+ questions and 10+ attacks.</p>
-                <a href="https://github.com/YixinZ-NUS/SparkDesk-LLM-KBQA-Assessment" target="_blank" rel="noopener noreferrer">Open report ↗</a>
-              </article>
+            <article class="code-row">
+              <div class="repo-name">SparkDesk KBQA<br>Oct—Nov 2023</div>
+              <div>
+                <h3>Agricultural KBQA assessment</h3>
+                <p>RAG knowledge base, closed/open questions, prompt injection, and jailbreak tests; résumé reports 100+ questions and 10+ attacks.</p>
+              </div>
+              <a href="https://github.com/YixinZ-NUS/SparkDesk-LLM-KBQA-Assessment" target="_blank" rel="noopener noreferrer">Open report ↗</a>
+            </article>
 
-              <article class="code-card needs-check">
-                <div class="repo">datawhalechina/llm-cookbook · 2023</div>
+            <article class="code-row">
+              <div class="repo-name">datawhalechina/llm-cookbook<br>2023</div>
+              <div>
                 <h3>Prompt-engineering course work</h3>
-                <p>Proofreading, terminology/API alignment, prompt reproduction, and chatbot experiments. The current README does not identify me as a core contributor; exact commits should be linked before using that title.</p>
-                <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">Open repository ↗</a>
-              </article>
-            </div>
+                <p>Proofreading, terminology/API alignment, prompt reproduction, and chatbot experiments. Exact contribution commits still need linking.</p>
+              </div>
+              <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">Open repo ↗</a>
+            </article>
 
-            <div class="tech-strip" aria-label="Additional technical coverage">
-              <strong>Also used:</strong>
-              <span>RAG</span><span>OceanBase</span><span>ReAct</span><span>agent skills</span><span>A2A / MPP / x402</span><span>Codex CLI</span>
+            <div class="exploration-line">
+              <strong>Smaller exploration:</strong>
+              <span>decentralized agent identity and E2EE messaging through the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a>.</span>
             </div>
           </div>
         </div>
@@ -2730,66 +2792,55 @@
             <div>
               <p class="slide-kicker">08 / 09 · Credentials</p>
               <h2 class="slide-title" id="credentials-title" tabindex="-1">ML, cloud, and data credentials</h2>
-              <p class="slide-deckline">Seven professional certifications and two course certificates visible in the supplied record, issued from Dec 2024 to Jan 2026.</p>
+              <p class="slide-deckline">Seven professional certifications and two NVIDIA DLI course certificates visible in the supplied record.</p>
             </div>
             <div class="role-stamp">
-              <strong>Current record</strong>
-              Expiry dates shown where supplied
+              <strong>Issued Dec 2024—Jan 2026</strong>
+              Expiry shown where supplied
             </div>
           </header>
 
-          <div class="credential-groups">
+          <div class="credential-groups slide-body">
             <section class="credential-group">
               <div class="credential-issuer">
                 <h3>NVIDIA</h3>
-                <span>1 professional · 2 courses</span>
+                <span>1 professional<br>2 DLI courses</span>
               </div>
-              <article class="credential-row">
-                <div>
-                  <strong>NVIDIA Certified Professional: Gen AI LLMs</strong>
-                  <p>Professional certification</p>
-                </div>
-                <time class="credential-date">Issued Jan 2026<br>Expires Jan 2028</time>
-              </article>
-              <article class="credential-row">
-                <div>
+              <ul class="credential-list">
+                <li>
+                  <strong>Certified Professional: Gen AI LLMs</strong>
+                  <time>Jan 2026 · expires Jan 2028</time>
+                </li>
+                <li>
                   <strong>Disaster Risk Monitoring Using Satellite Imagery</strong>
-                  <p>Localized Chinese course · NVIDIA with UNOSAT (UNITAR)</p>
-                </div>
-                <time class="credential-date">Issued Dec 2024</time>
-              </article>
-              <article class="credential-row">
-                <div>
-                  <strong>Introduction to Transformer-Based Natural Language Processing</strong>
-                  <p>NVIDIA course certificate</p>
-                </div>
-                <time class="credential-date">Issued Dec 2024</time>
-              </article>
+                  <time>Dec 2024 · NVIDIA with UNOSAT / UNITAR</time>
+                </li>
+                <li>
+                  <strong>Introduction to Transformer-Based NLP</strong>
+                  <time>Dec 2024</time>
+                </li>
+              </ul>
             </section>
 
             <section class="credential-group">
               <div class="credential-issuer">
-                <h3>Oracle Cloud</h3>
+                <h3>Oracle</h3>
                 <span>3 professional</span>
               </div>
-              <article class="credential-row">
-                <div>
-                  <strong>OCI 2025 Certified DevOps Professional</strong>
-                </div>
-                <time class="credential-date">Issued Nov 2025<br>Expires Nov 2027</time>
-              </article>
-              <article class="credential-row">
-                <div>
-                  <strong>OCI 2025 Certified Data Science Professional</strong>
-                </div>
-                <time class="credential-date">Issued Oct 2025<br>Expires Oct 2027</time>
-              </article>
-              <article class="credential-row">
-                <div>
-                  <strong>OCI 2025 Certified Generative AI Professional</strong>
-                </div>
-                <time class="credential-date">Issued Oct 2025<br>Expires Oct 2027</time>
-              </article>
+              <ul class="credential-list">
+                <li>
+                  <strong>OCI 2025 DevOps Professional</strong>
+                  <time>Nov 2025 · expires Nov 2027</time>
+                </li>
+                <li>
+                  <strong>OCI 2025 Data Science Professional</strong>
+                  <time>Oct 2025 · expires Oct 2027</time>
+                </li>
+                <li>
+                  <strong>OCI 2025 Generative AI Professional</strong>
+                  <time>Oct 2025 · expires Oct 2027</time>
+                </li>
+              </ul>
             </section>
 
             <section class="credential-group">
@@ -2797,18 +2848,16 @@
                 <h3>Microsoft</h3>
                 <span>2 associate</span>
               </div>
-              <article class="credential-row">
-                <div>
+              <ul class="credential-list">
+                <li>
                   <strong>Azure Data Scientist Associate</strong>
-                </div>
-                <time class="credential-date">Issued May 2025<br>Expires May 2027</time>
-              </article>
-              <article class="credential-row">
-                <div>
+                  <time>May 2025 · expires May 2027</time>
+                </li>
+                <li>
                   <strong>Power BI Data Analyst Associate</strong>
-                </div>
-                <time class="credential-date">Issued Jun 2025<br>Expires Jun 2027</time>
-              </article>
+                  <time>Jun 2025 · expires Jun 2027</time>
+                </li>
+              </ul>
             </section>
 
             <section class="credential-group">
@@ -2816,12 +2865,12 @@
                 <h3>AWS</h3>
                 <span>1 associate</span>
               </div>
-              <article class="credential-row">
-                <div>
-                  <strong>AWS Certified Machine Learning Engineer – Associate</strong>
-                </div>
-                <time class="credential-date">Issued Dec 2024<br>Expires Dec 2027</time>
-              </article>
+              <ul class="credential-list">
+                <li>
+                  <strong>Machine Learning Engineer — Associate</strong>
+                  <time>Dec 2024 · expires Dec 2027</time>
+                </li>
+              </ul>
             </section>
           </div>
         </div>
@@ -2831,54 +2880,41 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">09 / 09 · Direction</p>
-              <h2 class="slide-title" id="direction-title" tabindex="-1">What I want to learn next</h2>
-              <p class="slide-deckline">Robot learning first: seek hard problems, shorten the learning loop, and make failures useful.</p>
+              <p class="slide-kicker">09 / 09 · Questions</p>
+              <h2 class="slide-title" id="direction-title" tabindex="-1">What is worth testing next?</h2>
+              <p class="slide-deckline">Systems engineering now; robot learning next. Keep the questions close to physical evidence.</p>
             </div>
             <div class="role-stamp">
               <strong>Working principle</strong>
-              Take ownership · find the next useful step
+              Make assumptions observable and falsifiable
             </div>
           </header>
 
-          <div class="direction-grid">
-            <section class="direction-section" aria-labelledby="goal-heading">
-              <p class="panel-label">My goal</p>
-              <h3 id="goal-heading">Be challenged where robots meet research</h3>
-              <p>Robot learning is my main direction. I want problems where industrial robot programs contribute fast iteration, compute, operational data, and real failure cases, while school research contributes depth, open evaluation, and room to test new ideas.</p>
-              <p>I am looking for a two-way loop in which deployment exposes better research questions and research changes the system—not application-only delivery centered mainly on business needs.</p>
-              <p>A smaller thread is decentralized multi-agent infrastructure. My practical touchpoint is the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a> for agent identity and E2EE messaging.</p>
-              <p>I am also curious about AI + formalized mathematics. My current foundation is limited to formal languages, context-free grammars, and propositional logic.</p>
-            </section>
-
-            <section class="direction-section" aria-labelledby="questions-heading">
-              <p class="panel-label">Questions I’m chasing</p>
-              <h3 id="questions-heading">Make assumptions testable</h3>
+          <div class="questions-grid slide-body">
+            <section class="question-column" aria-labelledby="questions-heading">
+              <p class="section-label">Questions I’m chasing</p>
+              <h3 id="questions-heading">Turn robot failures into better experiments</h3>
               <ol class="question-list">
                 <li>How can a robot verify that a physical task is actually complete?</li>
                 <li>How should perception, calibration, and control error be represented and recovered?</li>
-                <li>Which moments—contact, failure, intervention—are worth retaining or sharing across agents and robots?</li>
+                <li>Which moments—contact, failure, intervention—are worth retaining or sharing across robots?</li>
                 <li>Which assumptions in LLM-driven robotics can be formalized, checked, and falsified?</li>
               </ol>
             </section>
 
-            <section class="direction-section" aria-labelledby="curiosity-heading">
-              <p class="panel-label">What keeps me curious</p>
+            <section class="question-column" aria-labelledby="curiosity-heading">
+              <p class="section-label">What keeps me curious</p>
               <h3 id="curiosity-heading">Systems, ideas, and fieldwork</h3>
               <ul class="curiosity-list">
                 <li>Inference-time learning, world models, action-conditioned models, and long-horizon memory.</li>
-                <li>Personal knowledge workflows that surface conflicts instead of silently flattening them.</li>
+                <li>Knowledge workflows that surface conflicts instead of silently flattening them.</li>
                 <li>Science translation, sustained reading, and coastal volunteering outside engineering work.</li>
               </ul>
             </section>
-          </div>
 
-          <div class="direction-footer">
-            <p>Dedicated to extreme ownership and proactive problem-solving—stepping outside my comfort zone and taking one extra step to deliver exceptional results.</p>
-            <div class="contact-links">
-              <a href="mailto:hi.yixinz@gmail.com">Email</a>
-              <a href="https://github.com/yixin-zh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-              <a href="https://www.linkedin.com/in/yixin-zh" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <div class="small-interests">
+              <p><strong>Decentralized multi-agent infrastructure:</strong> a practical touchpoint is the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a>.</p>
+              <p><strong>AI + formalized mathematics:</strong> still an early interest; current foundations are formal languages, context-free grammars, and propositional logic.</p>
             </div>
           </div>
         </div>
@@ -2888,11 +2924,11 @@
 
       <nav class="deck-controls" aria-label="Previous and next slide">
         <button id="previous-slide" type="button" aria-label="Previous slide" disabled>
-          <span aria-hidden="true">←</span><span>Previous</span>
+          <span aria-hidden="true">←</span><span> Previous</span>
         </button>
         <div class="deck-counter" aria-hidden="true"><strong id="current-slide">01</strong> / <span data-total>09</span></div>
         <button id="next-slide" type="button" aria-label="Next slide">
-          <span>Next</span><span aria-hidden="true">→</span>
+          <span>Next </span><span aria-hidden="true">→</span>
         </button>
       </nav>
 
@@ -2911,6 +2947,7 @@
       const announcement = document.getElementById("slide-announcement");
       const deck = document.querySelector(".deck");
       const total = slides.length;
+      const densityModes = ["roomy", "compact", "essential"];
       let currentIndex = 0;
       let touchStartX = null;
       let touchStartY = null;
@@ -2934,25 +2971,24 @@
         );
       }
 
-      function fitSlide(slide) {
+      function contentFits(slide) {
         const frame = slide.querySelector(".slide-frame");
         if (!frame) {
-          return;
+          return true;
         }
+        return frame.scrollHeight <= frame.clientHeight + 1
+          && frame.scrollWidth <= frame.clientWidth + 1;
+      }
 
-        frame.style.transform = "none";
-        frame.style.width = "100%";
-        frame.style.marginInline = "auto";
-        const style = getComputedStyle(slide);
-        const available = slide.clientHeight
-          - parseFloat(style.paddingTop)
-          - parseFloat(style.paddingBottom);
-        const required = frame.scrollHeight;
-        const scale = required > available ? Math.max(0.68, available / required) : 1;
-        frame.style.transform = `scale(${scale})`;
-        frame.style.width = `${100 / scale}%`;
-        frame.style.marginInline = scale < 1 ? "0" : "auto";
-        slide.dataset.fitScale = scale.toFixed(3);
+      function fitSlide(slide) {
+        for (const mode of densityModes) {
+          slide.dataset.density = mode;
+          if (contentFits(slide)) {
+            slide.dataset.fit = "true";
+            return;
+          }
+        }
+        slide.dataset.fit = "false";
       }
 
       function fitAllSlides() {
@@ -3001,16 +3037,11 @@
         currentLabel.textContent = number;
         mobileCurrentLabel.textContent = number;
         announcement.textContent = `Slide ${currentIndex + 1} of ${total}: ${headingText}`;
+
         const activeVideo = document.getElementById("cabinet-video");
         if (activeVideo && slides[currentIndex].id !== "robot-loop") {
           activeVideo.pause();
         }
-        deck.scrollLeft = 0;
-        deck.scrollTop = 0;
-        requestAnimationFrame(function () {
-          deck.scrollLeft = 0;
-          deck.scrollTop = 0;
-        });
 
         if (config.updateHash) {
           history.replaceState(null, "", `#${slides[currentIndex].id}`);
@@ -3100,6 +3131,7 @@
       }, { passive: true });
 
       const playButton = document.getElementById("cabinet-play");
+      const storyboard = document.getElementById("robot-storyboard");
       const cabinetVideo = document.getElementById("cabinet-video");
       const videoError = document.getElementById("cabinet-video-error");
       const videoStatus = document.getElementById("cabinet-video-status");
@@ -3107,8 +3139,9 @@
 
       playButton.addEventListener("click", function () {
         playButton.hidden = true;
+        storyboard.hidden = true;
         cabinetVideo.hidden = false;
-        videoStatus.textContent = "loading hosted file…";
+        videoStatus.firstChild.textContent = "loading hosted file · ";
         videoError.classList.remove("is-visible");
         cabinetVideo.src = hostedVideo;
         cabinetVideo.load();
@@ -3119,20 +3152,20 @@
 
       cabinetVideo.addEventListener("loadedmetadata", function () {
         videoError.classList.remove("is-visible");
-        videoStatus.textContent = "ready.";
+        videoStatus.firstChild.textContent = "ready · ";
       });
 
       cabinetVideo.addEventListener("playing", function () {
         videoError.classList.remove("is-visible");
-        videoStatus.textContent = "playing.";
+        videoStatus.firstChild.textContent = "playing · ";
       });
 
       cabinetVideo.addEventListener("waiting", function () {
-        videoStatus.textContent = "buffering…";
+        videoStatus.firstChild.textContent = "buffering · ";
       });
 
       cabinetVideo.addEventListener("error", function () {
-        videoStatus.textContent = "load failed.";
+        videoStatus.firstChild.textContent = "load failed · ";
         videoError.classList.add("is-visible");
       });
 
