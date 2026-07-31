@@ -15,13 +15,13 @@ illustrations.
 | `floc-decision-strip.webp` | Wastewater prototype `Picture1.png` | Threshold/XGBoost disagreement region only. |
 | `floc-reported-comparison.webp` | Floc-analysis design document, table 3-1 | Title, headers, and accuracy/recall/F1 rows only; broader qualitative rows omitted. |
 | `floc-mask-01.webp`–`03.webp` | Consecutive frames in the archived PoC bundle | Three adjacent binary masks retained as temporal-dependence evidence. |
-| `dqn-simulation.webp` | Private project deck | Cropped simulator frame. |
-| `dqn-learning-curves.webp` | Private project deck | Cropped learning-curve artifact. |
+| `dqn-simulation.webp` | Private project deck | Complete simulator figure isolated from the surrounding slide; path, obstacles, frame, and plot controls retained. |
+| `dqn-learning-curves.webp` | Private project deck | Complete learning-curve figure isolated from the surrounding slide; axes and legend retained. |
 | `dqn-scorecard.webp` | Private project deck | Cropped reported comparison table. |
 | `moya-case-model.webp` | Private project deck | Cropped energy-system case diagram. |
 | `moya-file-tree.webp` | Private project deck | Cropped JSON-directory contract. |
-| `moya-scenario-autarky.webp` | Private project deck | Cropped modeled self-sufficient scenario output. |
-| `moya-scenario-cooperation.webp` | Private project deck | Cropped idealized-collaboration scenario output. |
+| `moya-scenario-autarky.webp` | Private project deck | Complete modeled self-sufficient scenario panel; the unrelated central comparison arrow is excluded. |
+| `moya-scenario-cooperation.webp` | Private project deck | Complete idealized-collaboration scenario panel. |
 | `ocr-system-flow.webp` | Private project deck | Cropped cross-frame system flow. |
 | `ocr-text-before-01.webp`, `ocr-text-after-01.webp` | Private project deck, page 3 | First blurred/restored Chinese text pair isolated from the project-results slide. |
 | `ocr-text-before-02.webp`, `ocr-text-after-02.webp` | Private project deck, page 3 | Third blurred/restored Chinese text pair isolated from the project-results slide. |

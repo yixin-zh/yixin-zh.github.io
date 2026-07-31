@@ -49,8 +49,13 @@ Meaning is never conveyed by color alone.
 - Page one pairs the robot-learning goal with a frameless vertical chronology.
 - Career, education, HIT projects, and volunteering use distinct timeline
   labels; each project receives its own dated row.
-- Project pages use an open case-story layout: concise problem/method/result copy
-  alongside a loose collage of traceable artifacts.
+- Pages 3–6 use open academic-poster grids with explicit problem/definition,
+  implemented method, experiment/result, and evidence-boundary panels.
+- Separate implemented artifacts, reported project results, modeled outputs, and
+  reference-study findings with small textual evidence tags.
+- Figures may be isolated from surrounding source slides, but the figure itself
+  must remain complete. Charts, axes, legends, simulation frames, and algorithm
+  paths use `object-fit: contain`; never crop them in the page layout.
 - Credentials occupy a dedicated provider-grouped page.
 - No slide has an internal vertical scrollbar.
 - Choose among discrete `roomy`, `compact`, and `essential` layouts. Essential

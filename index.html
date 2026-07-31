@@ -25,6 +25,7 @@
       --amber: #7a4e00;
       --amber-tint: #fff1d6;
       --red: #8a3030;
+      --red-tint: #f8e9e9;
       --violet: #66518c;
       --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
       --sans: Inter, "SF Pro Text", "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
@@ -3017,6 +3018,1219 @@
       }
     }
 
+    /* Evidence-led academic posters: pages 03–06 */
+    .research-poster {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      gap: clamp(10px, 1.05cqw, 15px);
+      overflow: hidden;
+    }
+
+    .poster-panel {
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding: clamp(10px, 1cqw, 14px);
+      border: 1px solid var(--rule);
+      background: rgba(252, 251, 247, 0.9);
+    }
+
+    .poster-panel-head {
+      min-width: 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .poster-label {
+      margin: 0 0 7px;
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: clamp(7px, 0.58cqw, 9px);
+      font-weight: 780;
+      letter-spacing: 0.09em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .poster-panel h3 {
+      font-size: clamp(17px, 1.42cqw, 22px);
+      line-height: 1.08;
+    }
+
+    .poster-panel h4 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: clamp(8px, 0.66cqw, 10px);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .poster-panel p,
+    .poster-list li {
+      color: var(--muted);
+      font-size: clamp(8.5px, 0.7cqw, 11px);
+      line-height: 1.38;
+    }
+
+    .poster-panel > p:not(.poster-label, .poster-footnote, .study-intro, .scenario-question, .ocr-transcript) {
+      margin: 6px 0 0;
+    }
+
+    .poster-list {
+      display: grid;
+      gap: 5px;
+      margin: 6px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .poster-list li {
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .poster-list li::before {
+      position: absolute;
+      top: 0.63em;
+      left: 0;
+      width: 7px;
+      height: 1px;
+      background: var(--blue);
+      content: "";
+    }
+
+    .compact-list {
+      gap: 3px;
+    }
+
+    .poster-divider {
+      height: 1px;
+      margin: 9px 0;
+      background: var(--rule);
+    }
+
+    .evidence-tag {
+      flex: 0 0 auto;
+      padding: 3px 5px;
+      border: 1px solid currentColor;
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: 6px;
+      font-weight: 780;
+      letter-spacing: 0.05em;
+      line-height: 1.15;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .evidence-tag.reference {
+      max-width: 124px;
+      color: var(--red);
+    }
+
+    .evidence-tag.implemented {
+      color: var(--green);
+    }
+
+    .evidence-tag.reported,
+    .evidence-tag.modeled {
+      color: var(--amber);
+    }
+
+    .evidence-tag.public {
+      color: var(--blue);
+    }
+
+    .poster-footnote {
+      margin: 6px 0 0;
+      color: var(--faint) !important;
+      font-family: var(--mono);
+      font-size: clamp(6.5px, 0.54cqw, 8px) !important;
+      line-height: 1.35 !important;
+    }
+
+    .poster-review {
+      margin-top: 7px;
+      padding: 6px 0 6px 8px;
+      font-size: clamp(7px, 0.6cqw, 9px);
+      line-height: 1.34;
+    }
+
+    .poster-statline {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .poster-statline span {
+      padding-top: 6px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: clamp(6px, 0.52cqw, 8px);
+      line-height: 1.3;
+    }
+
+    .poster-statline strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: clamp(18px, 1.55cqw, 24px);
+      font-weight: 500;
+    }
+
+    .poster-panel.artifact-figure {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 5px;
+    }
+
+    .poster-panel.artifact-figure img,
+    .research-poster .artifact-figure img {
+      min-width: 0;
+      min-height: 0;
+      object-fit: contain;
+      box-shadow: none;
+    }
+
+    .research-poster .artifact-figure figcaption {
+      margin-top: 0;
+      font-size: clamp(6px, 0.52cqw, 8px);
+      line-height: 1.3;
+    }
+
+    /* 03 — floc analysis */
+    .floc-poster {
+      grid-template-columns: minmax(200px, 0.82fr) minmax(260px, 1.15fr) minmax(250px, 1.06fr);
+      grid-template-rows: minmax(0, 0.69fr) minmax(0, 1.31fr);
+    }
+
+    .floc-question {
+      grid-column: 1;
+      grid-row: 1;
+      border-top: 3px solid var(--blue);
+    }
+
+    .floc-method {
+      grid-column: 1;
+      grid-row: 2;
+      border-top: 3px solid var(--green);
+    }
+
+    .floc-evidence {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      display: grid;
+      grid-template-rows: auto minmax(88px, 0.78fr) auto auto auto auto;
+      gap: 6px;
+      border-top: 3px solid var(--green);
+    }
+
+    .floc-study {
+      grid-column: 3;
+      grid-row: 1 / -1;
+      display: grid;
+      align-content: start;
+      border-top: 3px solid var(--red);
+    }
+
+    .method-chain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      align-items: center;
+      margin-top: 3px;
+    }
+
+    .method-chain span {
+      padding: 3px 5px;
+      background: var(--green-tint);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.48cqw, 7px);
+      line-height: 1.15;
+    }
+
+    .method-chain i,
+    .window-track i,
+    .dqn-loop i,
+    .flow-entry i,
+    .flow-recognition i {
+      color: var(--blue);
+      font-style: normal;
+      font-size: 9px;
+    }
+
+    .metric-rationale {
+      display: grid;
+      gap: 3px;
+      margin: 8px 0 0;
+    }
+
+    .metric-rationale div {
+      display: grid;
+      grid-template-columns: minmax(68px, 0.72fr) minmax(0, 1.28fr);
+      gap: 5px;
+      padding-top: 3px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .metric-rationale dt {
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.47cqw, 7px);
+      font-weight: 760;
+      line-height: 1.25;
+    }
+
+    .metric-rationale dd {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(6px, 0.5cqw, 8px);
+      line-height: 1.25;
+    }
+
+    .floc-gui-poster {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .floc-gui-poster img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .floc-decision-poster {
+      display: grid;
+      grid-template-rows: auto auto;
+    }
+
+    .floc-decision-poster img {
+      width: 100%;
+      height: auto;
+      max-height: 42px;
+    }
+
+    .poster-metrics {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      margin: 0;
+    }
+
+    .poster-metrics .result-metric {
+      padding: 5px 6px;
+    }
+
+    .poster-metrics .result-metric strong {
+      font-size: clamp(18px, 1.75cqw, 27px);
+    }
+
+    .poster-metrics .result-metric span {
+      font-size: clamp(5px, 0.43cqw, 6.5px);
+    }
+
+    .floc-evidence .result-table th,
+    .floc-evidence .result-table td,
+    .ocr-results-poster .result-table th,
+    .ocr-results-poster .result-table td {
+      padding: 4px;
+      font-size: clamp(6px, 0.5cqw, 8px);
+    }
+
+    .study-intro,
+    .scenario-question {
+      margin: 2px 0 8px;
+      color: var(--ink) !important;
+      font-size: clamp(7.5px, 0.62cqw, 9.5px) !important;
+      font-weight: 680;
+      line-height: 1.35 !important;
+    }
+
+    .correlation-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .correlation-group {
+      min-width: 0;
+      padding: 7px;
+      background: var(--blue-tint);
+    }
+
+    .correlation-group.dose {
+      background: var(--green-tint);
+    }
+
+    .correlation-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4px;
+      margin-top: 4px;
+      padding-top: 3px;
+      border-top: 1px solid rgba(23, 24, 22, 0.11);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.47cqw, 7px);
+      line-height: 1.2;
+    }
+
+    .correlation-row strong {
+      color: var(--ink);
+    }
+
+    .correlation-group p {
+      margin: 5px 0 0;
+      color: var(--faint);
+      font-size: clamp(5.5px, 0.46cqw, 7px);
+      line-height: 1.3;
+    }
+
+    .temporal-protocol {
+      margin-top: 9px;
+      padding-top: 8px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .window-track {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .window-track span {
+      padding: 4px 5px;
+      border: 1px solid #a9b8d2;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: clamp(5px, 0.44cqw, 6.5px);
+      line-height: 1.15;
+    }
+
+    .window-track .lag {
+      border-color: #d0ab65;
+      background: var(--amber-tint);
+    }
+
+    .temporal-protocol p {
+      margin: 5px 0 0;
+      font-size: clamp(6px, 0.5cqw, 8px);
+      line-height: 1.34;
+    }
+
+    .reference-comparison {
+      margin-top: 9px;
+      padding: 7px;
+      border-left: 2px solid var(--red);
+      background: var(--red-tint);
+    }
+
+    .reference-values {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3px 7px;
+      margin-top: 5px;
+    }
+
+    .reference-values span {
+      display: flex;
+      justify-content: space-between;
+      gap: 4px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.46cqw, 7px);
+      line-height: 1.2;
+    }
+
+    .reference-values strong {
+      color: var(--ink);
+    }
+
+    .reference-comparison p {
+      margin: 5px 0 0;
+      font-size: clamp(5.5px, 0.47cqw, 7px);
+      line-height: 1.3;
+    }
+
+    /* 04 — mitigation data */
+    .climate-poster {
+      grid-template-columns: minmax(230px, 0.84fr) minmax(220px, 0.8fr) minmax(370px, 1.48fr);
+    }
+
+    .climate-context {
+      border-top: 3px solid var(--blue);
+    }
+
+    .climate-contract {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1.3fr) minmax(0, 0.8fr);
+      gap: 6px;
+      border-top: 3px solid var(--green);
+    }
+
+    .climate-results {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      border-top: 3px solid var(--amber);
+    }
+
+    .climate-links,
+    .ocr-links {
+      margin-top: 5px;
+      gap: 3px 10px;
+    }
+
+    .climate-links a,
+    .ocr-links a {
+      min-height: 25px;
+      font-size: 7px;
+    }
+
+    .climate-model-poster,
+    .climate-tree-poster {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .climate-model-poster img,
+    .climate-tree-poster img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .scenario-grid {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .scenario-grid figure {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .scenario-grid img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 05 — DQN capstone */
+    .dqn-poster {
+      grid-template-columns: minmax(245px, 0.88fr) minmax(190px, 0.68fr) minmax(370px, 1.38fr);
+      grid-template-rows: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    }
+
+    .dqn-context {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      border-top: 3px solid var(--blue);
+    }
+
+    .dqn-simulation-poster {
+      grid-column: 2;
+      grid-row: 1;
+      border-top: 3px solid var(--green);
+    }
+
+    .dqn-curves-poster {
+      grid-column: 3;
+      grid-row: 1;
+      border-top: 3px solid var(--amber);
+    }
+
+    .dqn-results-poster {
+      grid-column: 2 / -1;
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      align-content: start;
+      gap: 5px;
+      border-top: 3px solid var(--green);
+    }
+
+    .dqn-results-poster .poster-panel-head,
+    .dqn-results-poster .dqn-result-note,
+    .dqn-takeaways {
+      grid-column: 1 / -1;
+    }
+
+    .dqn-results-poster .bar-comparison {
+      grid-column: 1;
+    }
+
+    .dqn-results-poster .result-table {
+      grid-column: 2;
+    }
+
+    .dqn-takeaways {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .dqn-takeaways span {
+      padding: 6px;
+      background: var(--blue-tint);
+      color: var(--muted);
+      font-size: clamp(6px, 0.51cqw, 8px);
+      line-height: 1.28;
+    }
+
+    .dqn-takeaways strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: clamp(15px, 1.25cqw, 19px);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .dqn-loop {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .dqn-loop span {
+      padding: 5px 6px;
+      background: var(--blue-tint);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.47cqw, 7px);
+      line-height: 1.2;
+    }
+
+    .dqn-loop b {
+      flex: 1 0 100%;
+      padding: 5px 6px;
+      background: var(--green-tint);
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: clamp(5.5px, 0.47cqw, 7px);
+      font-weight: 720;
+      line-height: 1.25;
+    }
+
+    .dqn-simulation-poster img,
+    .dqn-curves-poster img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .dqn-results-poster .bar-comparison {
+      gap: 4px;
+    }
+
+    .dqn-results-poster .bar-row {
+      grid-template-columns: minmax(83px, 0.78fr) minmax(90px, 1.7fr) 38px;
+      font-size: clamp(6px, 0.52cqw, 8px);
+    }
+
+    .dqn-results-poster .result-table th,
+    .dqn-results-poster .result-table td {
+      padding: 3px 4px;
+      font-size: clamp(6px, 0.5cqw, 7.5px);
+    }
+
+    /* 06 — video OCR */
+    .ocr-poster {
+      grid-template-columns: minmax(230px, 0.82fr) minmax(290px, 1.12fr) minmax(290px, 1.1fr);
+      grid-template-rows: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .ocr-context {
+      grid-column: 1;
+      grid-row: 1;
+      border-top: 3px solid var(--blue);
+    }
+
+    .ocr-experiment {
+      grid-column: 1;
+      grid-row: 2;
+      border-top: 3px solid var(--amber);
+    }
+
+    .ocr-pipeline-poster {
+      grid-column: 2 / -1;
+      grid-row: 1;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 5px;
+      border-top: 3px solid var(--blue);
+    }
+
+    .ocr-results-poster {
+      grid-column: 2;
+      grid-row: 2;
+      display: grid;
+      align-content: start;
+      gap: 5px;
+      border-top: 3px solid var(--green);
+    }
+
+    .ocr-examples-poster {
+      grid-column: 3;
+      grid-row: 2;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1fr) auto auto;
+      gap: 3px;
+      margin: 0;
+      border-top: 3px solid var(--amber);
+    }
+
+    .poster-outcome {
+      margin-top: 8px;
+      padding: 6px 7px;
+      background: var(--green-tint);
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: clamp(6px, 0.52cqw, 8px);
+      font-weight: 720;
+      line-height: 1.3;
+    }
+
+    .ocr-original-flow {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(150px, 0.78fr) minmax(165px, 0.82fr);
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 6px 8px;
+    }
+
+    .flow-entry {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr) 12px minmax(0, 0.78fr);
+      gap: 3px;
+      align-items: center;
+    }
+
+    .flow-entry span,
+    .flow-branches span,
+    .flow-recognition > span {
+      min-width: 0;
+      padding: 6px;
+      border: 1px solid #a9b8d2;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: clamp(5.5px, 0.48cqw, 7.5px);
+      line-height: 1.22;
+    }
+
+    .flow-entry strong,
+    .flow-branches strong,
+    .flow-recognition strong {
+      display: block;
+    }
+
+    .flow-entry small,
+    .flow-branches small,
+    .flow-recognition small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.83em;
+      line-height: 1.22;
+    }
+
+    .flow-decision {
+      border-color: var(--amber) !important;
+      background: var(--amber-tint) !important;
+    }
+
+    .flow-branches {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+      gap: 5px;
+    }
+
+    .flow-yes,
+    .flow-no {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+      align-content: start;
+      padding: 5px;
+      border-left: 2px solid var(--green);
+      background: var(--green-tint);
+    }
+
+    .flow-no {
+      border-left-color: var(--red);
+      background: var(--red-tint);
+    }
+
+    .flow-yes > b,
+    .flow-no > b {
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 6px;
+    }
+
+    .flow-no > b {
+      color: var(--red);
+    }
+
+    .flow-recognition {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(120px, 1.2fr) 10px minmax(74px, 0.74fr) 10px minmax(74px, 0.76fr) 10px minmax(94px, 0.92fr) 10px minmax(72px, 0.72fr);
+      gap: 3px;
+      align-items: center;
+    }
+
+    .support-bundle {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 2px;
+      padding: 5px;
+      background: var(--blue-tint);
+    }
+
+    .support-bundle span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      min-height: 36px;
+      padding: 2px;
+      border: 1px solid #a9b8d2;
+      background: var(--surface);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: clamp(4.5px, 0.39cqw, 6px);
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    .support-bundle .reference {
+      border-color: var(--green);
+      color: var(--green);
+      font-weight: 750;
+    }
+
+    .flow-output {
+      border-color: var(--green) !important;
+      background: var(--green-tint) !important;
+    }
+
+    .ocr-poster-pair {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr);
+      gap: 3px;
+      align-items: center;
+    }
+
+    .ocr-poster-pair img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      border: 1px solid var(--rule);
+      object-fit: contain;
+    }
+
+    .ocr-poster-pair span {
+      color: var(--blue);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .ocr-transcript {
+      margin: 0;
+      color: var(--ink) !important;
+      font-size: clamp(6px, 0.52cqw, 8px) !important;
+      text-align: right;
+    }
+
+    .ocr-examples-poster figcaption {
+      color: var(--muted);
+      font-size: clamp(5.5px, 0.46cqw, 7px);
+      line-height: 1.3;
+    }
+
+    .slide[data-density="compact"] .research-poster,
+    .slide[data-density="essential"] .research-poster {
+      gap: 7px;
+    }
+
+    .slide[data-density="compact"] .poster-panel,
+    .slide[data-density="essential"] .poster-panel {
+      padding: 8px;
+    }
+
+    .slide[data-density="essential"] .poster-panel p,
+    .slide[data-density="essential"] .poster-list li {
+      font-size: 8px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 1100px) {
+      .floc-poster {
+        grid-template-columns: minmax(155px, 0.78fr) minmax(215px, 1.15fr) minmax(205px, 1.07fr);
+      }
+
+      .climate-poster {
+        grid-template-columns: minmax(175px, 0.8fr) minmax(165px, 0.76fr) minmax(285px, 1.44fr);
+      }
+
+      .dqn-poster {
+        grid-template-columns: minmax(195px, 0.84fr) minmax(140px, 0.64fr) minmax(285px, 1.32fr);
+      }
+
+      .ocr-poster {
+        grid-template-columns: minmax(175px, 0.78fr) minmax(205px, 1.12fr) minmax(205px, 1.1fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .research-poster {
+        gap: 7px;
+      }
+
+      .poster-panel {
+        padding: 7px;
+      }
+
+      .poster-label {
+        margin-bottom: 4px;
+      }
+
+      .floc-poster {
+        grid-template-columns: minmax(160px, 0.72fr) minmax(250px, 1.28fr);
+        grid-template-rows: minmax(0, 0.65fr) minmax(0, 1.35fr);
+      }
+
+      .floc-question {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .floc-method {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .floc-evidence {
+        grid-column: 2;
+        grid-row: 1 / -1;
+      }
+
+      .floc-study {
+        display: none;
+      }
+
+      .climate-poster {
+        grid-template-columns: minmax(185px, 0.83fr) minmax(210px, 0.82fr) minmax(250px, 1.35fr);
+      }
+
+      .climate-context .poster-list li:nth-child(2) {
+        display: none;
+      }
+
+      .dqn-poster {
+        grid-template-columns: minmax(195px, 0.83fr) minmax(150px, 0.65fr) minmax(270px, 1.32fr);
+      }
+
+      .ocr-poster {
+        grid-template-columns: minmax(180px, 0.72fr) minmax(250px, 1.18fr);
+        grid-template-rows: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+
+      .ocr-context {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .ocr-experiment {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .ocr-pipeline-poster {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .ocr-results-poster {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .ocr-examples-poster {
+        display: none;
+      }
+
+      .ocr-original-flow {
+        grid-template-columns: minmax(130px, 0.84fr) minmax(120px, 0.76fr);
+      }
+
+      .flow-recognition {
+        grid-template-columns: minmax(96px, 1fr) 7px minmax(60px, 0.68fr) 7px minmax(60px, 0.7fr) 7px minmax(72px, 0.82fr) 7px minmax(58px, 0.64fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .poster-panel h3 {
+        font-size: 14px;
+      }
+
+      .poster-panel p,
+      .poster-list li {
+        font-size: 7.5px;
+        line-height: 1.28;
+      }
+
+      .poster-review,
+      .poster-footnote {
+        font-size: 6px !important;
+      }
+
+      .poster-statline {
+        display: none;
+      }
+
+      .method-chain span:nth-of-type(n + 5),
+      .method-chain i:nth-of-type(n + 5),
+      .metric-rationale div:nth-child(n + 4) {
+        display: none;
+      }
+
+      .climate-poster {
+        grid-template-columns: minmax(150px, 0.68fr) minmax(0, 1.32fr);
+        grid-template-rows: minmax(0, 1fr);
+      }
+
+      .climate-context {
+        grid-column: 1;
+      }
+
+      .climate-contract {
+        display: none;
+      }
+
+      .climate-results {
+        grid-column: 2;
+      }
+
+      .scenario-grid {
+        gap: 4px;
+      }
+
+      .dqn-poster {
+        grid-template-columns: minmax(135px, 0.62fr) minmax(0, 1.38fr);
+        grid-template-rows: minmax(0, 1fr) minmax(0, 0.92fr);
+      }
+
+      .dqn-context {
+        grid-column: 1;
+        grid-row: 1 / -1;
+      }
+
+      .dqn-context .poster-list li:nth-child(n + 2),
+      .dqn-context .poster-divider,
+      .dqn-context .poster-label:nth-of-type(2) {
+        display: none;
+      }
+
+      .dqn-simulation-poster {
+        display: none;
+      }
+
+      .dqn-curves-poster {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .dqn-results-poster {
+        grid-column: 2;
+        grid-row: 2;
+        grid-template-columns: 1fr;
+      }
+
+      .dqn-results-poster .bar-comparison,
+      .dqn-results-poster .result-table {
+        grid-column: 1;
+      }
+
+      .dqn-takeaways {
+        display: none;
+      }
+
+      .ocr-poster {
+        grid-template-columns: minmax(130px, 0.62fr) minmax(0, 1.38fr);
+      }
+
+      .ocr-experiment {
+        display: none;
+      }
+
+      .ocr-context {
+        grid-row: 1 / -1;
+      }
+
+      .ocr-context > p:nth-of-type(3),
+      .ocr-context .poster-outcome {
+        display: none;
+      }
+
+      .ocr-original-flow {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto minmax(0, 1fr);
+      }
+
+      .flow-branches {
+        grid-row: 2;
+      }
+
+      .flow-recognition {
+        grid-row: 3;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .poster-panel {
+        padding: 5px;
+      }
+
+      .poster-panel-head {
+        gap: 3px;
+      }
+
+      .evidence-tag {
+        display: none;
+      }
+
+      .floc-poster {
+        grid-template-columns: minmax(100px, 0.52fr) minmax(0, 1.48fr);
+      }
+
+      .floc-question > p,
+      .floc-method .poster-footnote,
+      .floc-evidence .result-table,
+      .floc-decision-poster,
+      .floc-evidence .poster-review {
+        display: none;
+      }
+
+      .floc-evidence {
+        grid-template-rows: auto minmax(0, 1fr) auto;
+      }
+
+      .floc-method {
+        overflow: hidden;
+      }
+
+      .metric-rationale {
+        margin-top: 4px;
+      }
+
+      .metric-rationale div {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-rationale dd {
+        display: none;
+      }
+
+      .poster-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .climate-context > p:nth-of-type(n + 2),
+      .climate-context .poster-divider,
+      .climate-context .poster-label:nth-of-type(2),
+      .climate-context .poster-list,
+      .climate-context .poster-review,
+      .climate-links {
+        display: none;
+      }
+
+      .scenario-question,
+      .climate-results .poster-footnote {
+        display: none;
+      }
+
+      .dqn-context > p,
+      .dqn-context .poster-list,
+      .dqn-context .poster-review,
+      .dqn-results-poster .result-table,
+      .dqn-result-note {
+        display: none;
+      }
+
+      .dqn-loop b {
+        display: none;
+      }
+
+      .ocr-context > p,
+      .ocr-context .poster-review,
+      .ocr-pipeline-poster .poster-footnote,
+      .ocr-results-poster .result-table,
+      .ocr-results-poster .poster-footnote {
+        display: none;
+      }
+
+      .flow-entry {
+        grid-template-columns: minmax(0, 1fr) 7px minmax(0, 1fr) 7px minmax(0, 0.72fr);
+      }
+
+      .flow-entry span,
+      .flow-branches span,
+      .flow-recognition > span {
+        padding: 3px;
+        font-size: 5px;
+      }
+
+      .flow-entry small,
+      .flow-branches small,
+      .flow-recognition small {
+        display: none;
+      }
+
+      .flow-recognition {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      .flow-recognition .support-bundle {
+        flex: 1 0 100%;
+      }
+
+      .flow-recognition > i {
+        display: none;
+      }
+
+      .flow-recognition > span {
+        flex: 1 1 22%;
+      }
+
+      .support-bundle span {
+        min-height: 20px;
+        font-size: 4px;
+      }
+
+      .dqn-results-poster .bar-row {
+        grid-template-columns: minmax(62px, 0.8fr) minmax(58px, 1.6fr) 31px;
+        gap: 4px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -3066,7 +4280,7 @@
         <span class="brand-mark" aria-hidden="true">YZ</span>
         <span class="brand-copy">
           <strong>Yixin Zhang</strong>
-          <span>robotics · applied AI</span>
+          <span>robotics — applied AI</span>
         </span>
       </a>
 
@@ -3113,7 +4327,7 @@
         <div class="slide-frame profile-frame">
           <div class="profile-intro">
             <div>
-              <p class="slide-kicker">01 / 09 · Profile</p>
+              <p class="slide-kicker">01 / 09 — Profile</p>
               <h1 id="about-title" tabindex="-1">Yixin Zhang</h1>
               <p class="profile-lead">R&amp;D engineer building dependable sensing and control infrastructure.</p>
               <div class="contact-links profile-links" data-priority="supplemental">
@@ -3142,8 +4356,8 @@
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
                   <h2 class="journey-role">
-                    <span class="responsive-full">R&amp;D Engineer · InsightOS, Shanghai</span>
-                    <span class="responsive-short">R&amp;D Engineer · InsightOS</span>
+                    <span class="responsive-full">R&amp;D Engineer — InsightOS, Shanghai</span>
+                    <span class="responsive-short">R&amp;D Engineer — InsightOS</span>
                   </h2>
                   <p class="journey-org">Robot media I/O, sensor synchronization, and cabinet-operation tooling.</p>
                 </div>
@@ -3155,8 +4369,8 @@
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
                   <h2 class="journey-role">
-                    <span class="responsive-full">Industrial Digitalization Engineer · Beijing Zhongke Shengtai</span>
-                    <span class="responsive-short">Industrial Digitalization · Zhongke Shengtai</span>
+                    <span class="responsive-full">Industrial Digitalization Engineer — Beijing Zhongke Shengtai</span>
+                    <span class="responsive-short">Industrial Digitalization — Zhongke Shengtai</span>
                   </h2>
                   <p class="journey-org">Industrial-wastewater vision PoCs and a floc-analysis handoff.</p>
                 </div>
@@ -3168,8 +4382,8 @@
                 <div class="journey-body">
                   <p class="journey-type">Career</p>
                   <h2 class="journey-role">
-                    <span class="responsive-full">Scientist Intern · SIMTech, A*STAR</span>
-                    <span class="responsive-short">Scientist Intern · SIMTech</span>
+                    <span class="responsive-full">Scientist Intern — SIMTech, A*STAR</span>
+                    <span class="responsive-short">Scientist Intern — SIMTech</span>
                   </h2>
                   <p class="journey-org">ASEAN energy-system studies converted into model-ready data.</p>
                 </div>
@@ -3191,10 +4405,10 @@
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
                   <h2 class="journey-role">
-                    <span class="responsive-full">NUS-ISS · Graduate Diploma in Systems Analysis</span>
-                    <span class="responsive-short">NUS-ISS · Systems Analysis · overlaps HIT</span>
+                    <span class="responsive-full">NUS-ISS — Graduate Diploma in Systems Analysis</span>
+                    <span class="responsive-short">NUS-ISS — Systems Analysis — overlaps HIT</span>
                   </h2>
-                  <p class="journey-org">GPA 4.61/5.0 · online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025.</p>
+                  <p class="journey-org">GPA 4.61/5.0 — online Jun 2023–Jun 2024; in person Jun 2024–Mar 2025.</p>
                 </div>
               </article>
 
@@ -3234,7 +4448,7 @@
                 <div class="journey-body">
                   <p class="journey-type volunteer">Social practice</p>
                   <h2 class="journey-role">Exploring the Pillars of a Great Power</h2>
-                  <p class="journey-org">HIT field-research team lead · second prize and key incubation team.</p>
+                  <p class="journey-org">HIT field-research team lead — second prize and key incubation team.</p>
                 </div>
               </article>
 
@@ -3254,10 +4468,10 @@
                 <div class="journey-body">
                   <p class="journey-type education">Education</p>
                   <h2 class="journey-role">
-                    <span class="responsive-full">HIT · B.Eng., Intelligent Test &amp; Control Engineering</span>
-                    <span class="responsive-short">HIT · B.Eng., Intelligent Test &amp; Control</span>
+                    <span class="responsive-full">HIT — B.Eng., Intelligent Test &amp; Control Engineering</span>
+                    <span class="responsive-short">HIT — B.Eng., Intelligent Test &amp; Control</span>
                   </h2>
-                  <p class="journey-org">Electrical Engineering · 86.95/100 · People’s Scholarship ×5.</p>
+                  <p class="journey-org">Electrical Engineering — 86.95/100 — People’s Scholarship ×5.</p>
                 </div>
               </article>
             </div>
@@ -3269,13 +4483,13 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">02 / 09 · Current work</p>
+              <p class="slide-kicker">02 / 09 — Current work</p>
               <h2 class="slide-title" id="robot-loop-title" tabindex="-1">Closing the cabinet-operation loop</h2>
               <p class="slide-deckline">A reusable robot media runtime underneath perception, pose estimation, and contact.</p>
             </div>
             <div class="role-stamp">
-              <strong>R&amp;D Engineer · Sep 2025—now</strong>
-              上海具识智能有限公司 · InsightOS
+              <strong>R&amp;D Engineer — Sep 2025—now</strong>
+              上海具识智能有限公司 — InsightOS
             </div>
           </header>
 
@@ -3296,7 +4510,7 @@
                 </ul>
               </section>
 
-              <p class="tech-line" data-priority="supplemental">C++ · Linux · ROS2 · DDS · RGB-D · shared memory · REST/CLI</p>
+              <p class="tech-line" data-priority="supplemental">C++ — Linux — ROS2 — DDS — RGB-D — shared memory — REST/CLI</p>
 
               <div class="case-note">
                 <span class="responsive-full"><strong>Needs review:</strong> the video shows physical door and breaker contact, not electrical state change, the internal pipeline, success rate, or production reliability. The résumé’s “&gt;95% within 15 minutes” metric still needs logs and a denominator; confirm employer clearance for internal-cabinet frames.</span>
@@ -3313,15 +4527,15 @@
               <div class="robot-storyboard" id="robot-storyboard">
                 <figure class="artifact-figure">
                   <img src="assets/portfolio/robot-door-open.webp" alt="Robot gripper opening the cabinet door and revealing the internal control bank" decoding="async">
-                  <figcaption><strong>01 · open door</strong> · 169.5 s</figcaption>
+                  <figcaption><strong>01 — open door</strong> — 169.5 s</figcaption>
                 </figure>
                 <figure class="artifact-figure">
                   <img src="assets/portfolio/robot-air-breaker.webp" alt="Robot gripper contacting the blue internal air-breaker bank" decoding="async">
-                  <figcaption><strong>02 · breaker contact</strong> · 170.5 s</figcaption>
+                  <figcaption><strong>02 — breaker contact</strong> — 170.5 s</figcaption>
                 </figure>
                 <figure class="artifact-figure">
                   <img src="assets/portfolio/robot-door-close.webp" alt="Robot hand pushing the cabinet door nearly shut" decoding="async">
-                  <figcaption><strong>03 · close door</strong> · 204.5 s</figcaption>
+                  <figcaption><strong>03 — close door</strong> — 204.5 s</figcaption>
                 </figure>
               </div>
               <button class="video-launch" id="cabinet-play" type="button" aria-controls="cabinet-video">Play cabinet video</button>
@@ -3329,7 +4543,7 @@
                 Your browser does not support embedded video.
               </video>
               <div class="video-status" id="cabinet-video-status" aria-live="polite">
-                click to load · <span class="video-error" id="cabinet-video-error">hosted video failed; use the direct link.</span>
+                click to load — <span class="video-error" id="cabinet-video-error">hosted video failed; use the direct link.</span>
               </div>
             </div>
           </div>
@@ -3340,100 +4554,128 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">03 / 09 · Industrial computer vision</p>
+              <p class="slide-kicker">03 / 09 — Industrial computer vision</p>
               <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc video to a binary operator cue</h2>
-              <p class="slide-deckline">A desktop prototype joined underwater video, morphology, geometric features, and XGBoost.</p>
+              <p class="slide-deckline">Implemented evidence, reported evaluation, and the next temporal study are kept distinct.</p>
             </div>
             <div class="role-stamp">
-              <strong>Industrial Digitalization Engineer · 2025</strong>
+              <strong>Industrial Digitalization Engineer — 2025</strong>
               Beijing Zhongke Shengtai
             </div>
           </header>
 
-          <div class="case-grid slide-body">
-            <div class="case-copy">
-              <section class="case-block">
-                <p class="section-label">Problem</p>
-                <h3>Turn subjective floc inspection into a visible, testable cue</h3>
-                <p>The GUI exposed the original frame, processed mask, parameters, and two classifiers side by side.</p>
-              </section>
-
-              <section class="case-block" data-priority="supplemental">
-                <p class="section-label">Pipeline</p>
-                <ul class="case-list">
-                  <li>Grayscale → median filter → adaptive threshold → morphology.</li>
-                  <li>Connected components → five geometric features → threshold or XGBoost.</li>
-                  <li>Python, OpenCV, NumPy, scikit-learn, XGBoost, and Tkinter.</li>
-                </ul>
-              </section>
-
-              <section class="case-block">
-                <p class="section-label">Reported result</p>
-                <p><strong>88.5%</strong> floc-level test accuracy for the binary XGBoost classifier; the résumé’s 89% is the rounded value. The same document reports 67.4% for a fixed threshold.</p>
-              </section>
-
-              <div class="case-note">
-                <span class="responsive-full"><strong>Needs review:</strong> 2,270 labeled images were expanded into 258,887 floc records before a random stratified split. Temporal/video independence and plant generalization were not tested. The archived model is binary (“good / add more”); the résumé’s five dose steps remain a separate, unresolved claim.</span>
-                <span class="responsive-short"><strong>Needs review:</strong> 88.5% comes from a random floc-level split after 2,270 images became 258,887 records; video/plant generalization and the résumé’s five-step claim remain untested.</span>
+          <div class="slide-body research-poster floc-poster">
+            <section class="poster-panel floc-question">
+              <p class="poster-label">Problem / decision</p>
+              <h3>Make an operator’s visual judgement inspectable</h3>
+              <p>Underwater frames are noisy and flocs overlap. The desktop PoC exposes the source frame, binary mask, thresholds, features, and a binary cue: coagulation sufficient or add more coagulant.</p>
+              <div class="poster-statline">
+                <span><strong>2,270</strong> labeled images</span>
+                <span><strong>258,887</strong> extracted floc records</span>
               </div>
+            </section>
 
-              <div class="source-links" data-priority="supplemental">
-                <a href="https://doi.org/10.1039/D2EW00389A" target="_blank" rel="noopener noreferrer">Floc-imaging method context ↗</a>
+            <section class="poster-panel floc-method">
+              <div class="poster-panel-head">
+                <p class="poster-label">Implemented method</p>
+                <span class="evidence-tag implemented">archived code</span>
               </div>
-            </div>
+              <div class="method-chain" aria-label="Implemented floc preprocessing and classification pipeline">
+                <span>grayscale</span><i>→</i><span>median blur</span><i>→</i><span>adaptive threshold</span><i>→</i><span>open / close / erode</span><i>→</i><span>components</span><i>→</i><span>XGBoost</span>
+              </div>
+              <dl class="metric-rationale">
+                <div><dt>Count</dt><dd>population of valid connected components</dd></div>
+                <div><dt>Major-axis diameter</dt><dd>elongated floc scale</dd></div>
+                <div><dt>Equivalent diameter</dt><dd>area expressed as a circle</dd></div>
+                <div><dt>Circularity</dt><dd>shape compactness, 4πA/P²</dd></div>
+                <div><dt>Area fraction</dt><dd>scene coverage by retained flocs</dd></div>
+              </dl>
+              <p class="poster-footnote">The features were chosen to cover population, scale, shape, and coverage with inexpensive geometry. The archived classifier is binary, not a five-step dosing controller.</p>
+            </section>
 
-            <div class="artifact-stage floc-collage">
-              <figure class="artifact-figure floc-gui">
+            <section class="poster-panel floc-evidence" aria-labelledby="floc-result-title">
+              <div class="poster-panel-head">
+                <p class="poster-label">Experiment / reported result</p>
+                <span class="evidence-tag implemented">PoC evidence</span>
+              </div>
+              <figure class="artifact-figure floc-gui-poster">
                 <img src="assets/portfolio/floc-gui-comparison.webp" alt="GUI crop with the original underwater floc frame beside the processed binary mask" decoding="async">
-                <figcaption><strong>GUI crop</strong> · original frame and processed mask</figcaption>
+                <figcaption><strong>Visible intermediate</strong> — original frame beside the processed mask</figcaption>
               </figure>
 
-              <figure class="artifact-figure floc-decisions">
+              <figure class="artifact-figure floc-decision-poster">
                 <img src="assets/portfolio/floc-decision-strip.webp" alt="GUI decision strip showing disagreement between the threshold and XGBoost classifiers" decoding="async">
-                <figcaption><strong>Same frame</strong> · threshold says add coagulant; XGBoost says coagulation is sufficient</figcaption>
+                <figcaption><strong>Same frame</strong> — the threshold and XGBoost cues disagree</figcaption>
               </figure>
 
-              <div class="mask-sequence" aria-label="Three consecutive processed mask frames">
-                <figure class="artifact-figure">
-                  <img src="assets/portfolio/floc-mask-01.webp" alt="Processed floc mask at 18.0 seconds" decoding="async">
-                  <figcaption>18.0 s</figcaption>
-                </figure>
-                <figure class="artifact-figure">
-                  <img src="assets/portfolio/floc-mask-02.webp" alt="Processed floc mask at 18.5 seconds" decoding="async">
-                  <figcaption>18.5 s</figcaption>
-                </figure>
-                <figure class="artifact-figure">
-                  <img src="assets/portfolio/floc-mask-03.webp" alt="Processed floc mask at 19.0 seconds" decoding="async">
-                  <figcaption>19.0 s</figcaption>
-                </figure>
+              <div class="result-metrics poster-metrics" aria-label="Floc classifier headline accuracies">
+                <div class="result-metric">
+                  <strong>88.5%</strong>
+                  <span>XGBoost test accuracy</span>
+                </div>
+                <div class="result-metric">
+                  <strong>87.9%</strong>
+                  <span>XGBoost weighted F1</span>
+                </div>
+                <div class="result-metric">
+                  <strong>67.4%</strong>
+                  <span>fixed-threshold accuracy</span>
+                </div>
               </div>
 
-              <section class="floc-results" aria-labelledby="floc-result-title">
-                <p class="result-eyebrow" id="floc-result-title">Reported binary-classifier result</p>
-                <div class="result-metrics" aria-label="Floc classifier headline accuracies">
-                  <div class="result-metric">
-                    <strong>88.5%</strong>
-                    <span>XGBoost · test split</span>
-                  </div>
-                  <div class="result-metric">
-                    <strong>67.4%</strong>
-                    <span>Fixed threshold</span>
-                  </div>
-                </div>
-                <table class="result-table" aria-label="Floc classifier metrics reported in the handoff document">
-                  <thead>
-                    <tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
-                    <tr><td>Threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
-                  </tbody>
-                </table>
-                <p class="result-footnote">Redrawn from the handoff table. The split is floc-level after frame expansion—not an independent video or plant test.</p>
-              </section>
+              <table class="result-table" aria-labelledby="floc-result-title">
+                <caption class="sr-only" id="floc-result-title">Reported binary classifier metrics</caption>
+                <thead><tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr></thead>
+                <tbody>
+                  <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
+                  <tr><td>Threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
+                </tbody>
+              </table>
+              <div class="case-note poster-review"><strong>Needs review:</strong> image labels were replicated to individual flocs, then randomly split. Video/day/plant independence and a held-out future period were not tested; 89% is the rounded résumé value.</div>
+            </section>
 
-              <div class="visual-callout floc-callout">Consecutive masks make frame dependence visible.</div>
-            </div>
+            <section class="poster-panel floc-study">
+              <div class="poster-panel-head">
+                <p class="poster-label">Research extension</p>
+                <span class="evidence-tag reference">reference results, not my experiment</span>
+              </div>
+              <p class="study-intro">Pearson screening is useful for the next study only when redundancy and dose relevance are both visible.</p>
+              <div class="correlation-groups">
+                <div class="correlation-group">
+                  <h4>Floc morphology ↔ morphology</h4>
+                  <div class="correlation-row"><span>area / circumference</span><strong>0.72</strong></div>
+                  <div class="correlation-row"><span>area / circularity</span><strong>0.70</strong></div>
+                  <div class="correlation-row"><span>fractal dimension / circularity</span><strong>0.71</strong></div>
+                  <p>High pairwise values flag redundant descriptors and unstable attribution.</p>
+                </div>
+                <div class="correlation-group dose">
+                  <h4>Floc morphology ↔ coagulant dose</h4>
+                  <div class="correlation-row"><span>area</span><strong>0.61</strong></div>
+                  <div class="correlation-row"><span>circumference</span><strong>0.58</strong></div>
+                  <div class="correlation-row"><span>fractal dimension</span><strong>0.55</strong></div>
+                  <div class="correlation-row"><span>circularity</span><strong>0.60</strong></div>
+                  <p>Association supports screening, not causality or a dosing optimum.</p>
+                </div>
+              </div>
+              <div class="temporal-protocol">
+                <h4>Causal window protocol</h4>
+                <div class="window-track" aria-label="Proposed causal evaluation with aggregation, response lag, target horizon, and purged folds">
+                  <span>frames</span><i>→</i><span>1-min robust summaries</span><i>→</i><span>x[t−W:t]</span><i>→</i><span class="lag">plant lag τ</span><i>→</i><span>y[t+τ:t+τ+H]</span>
+                </div>
+                <p>Estimate τ from HRT and training-only cross-correlation. Compare W = 2.5 h, 4 h, and 24 h as reference candidates; split by time/video/day and purge at least W+τ+H between folds.</p>
+              </div>
+              <div class="reference-comparison">
+                <h4>A second supplied study is directionally similar, not numerically transferable</h4>
+                <div class="reference-values">
+                  <span>count <strong>0.883</strong></span>
+                  <span>area ratio <strong>0.745</strong></span>
+                  <span>equivalent diameter <strong>0.921</strong></span>
+                  <span>fractal dimension <strong>0.864</strong></span>
+                </div>
+                <p>PAC-dose correlations from the blue conference slide. Different variables and study conditions explain why these coefficients should not be merged with the matrix above.</p>
+              </div>
+              <p class="poster-footnote">Reference only: I used these findings but did not conduct the reported experiments. Correlation screening must be recomputed inside each training fold. TCN/Transformer and SHAP do not appear in the archived PoC.</p>
+            </section>
           </div>
         </div>
       </section>
@@ -3442,64 +4684,72 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">04 / 09 · Climate analytics</p>
+              <p class="slide-kicker">04 / 09 — Climate analytics</p>
               <h2 class="slide-title" id="climate-data-title" tabindex="-1">Turning case studies into model-ready data</h2>
-              <p class="slide-deckline">Structured ASEAN energy-system studies for optimization and interactive scenario analysis.</p>
+              <p class="slide-deckline">Data contracts connect published assumptions to optimization and country-level mitigation choices.</p>
             </div>
             <div class="role-stamp">
-              <strong>Scientist Intern · Sep 2024—Jan 2025</strong>
-              SIMTech, A*STAR · Singapore
+              <strong>Scientist Intern — Sep 2024–Jan 2025</strong>
+              SIMTech, A*STAR — Singapore
             </div>
           </header>
 
-          <div class="case-grid slide-body">
-            <div class="case-copy">
-              <section class="case-block">
-                <p class="section-label">Problem</p>
-                <h3>Translate prose, equations, and policy assumptions into consistent inputs</h3>
-                <p>Scenario engines need explicit assets, constraints, trade links, units, and carbon-policy settings.</p>
-              </section>
-
-              <section class="case-block">
-                <p class="section-label">Work</p>
-                <ul class="case-list">
-                  <li>Mapped generation, storage, demand, trade pools, and CO₂ budgets into JSON.</li>
-                  <li>Visualized convex-optimization outputs and checked behavior against prior OSeMOSYS and TIMES cases.</li>
-                  <li>Prototyped an LLM-assisted conversion workflow and contributed to early MOYA Cascade concepts.</li>
-                </ul>
-              </section>
-
-              <p class="tech-line" data-priority="supplemental">Python · JSON Schema · convex optimization · OSeMOSYS/TIMES context · LLM workflow</p>
-
-              <div class="case-note">
-                <span class="responsive-full"><strong>Needs review:</strong> “Pass@1 &gt;85%” is résumé-reported; dataset, rubric, sample count, and failures are absent. Early Cascade work does not imply product ownership; confirm publication clearance for the project-only scenario crops.</span>
-                <span class="responsive-short"><strong>Needs review:</strong> “Pass@1 &gt;85%” lacks its dataset and rubric. Early Cascade work is not product ownership; publication clearance is still required.</span>
+          <div class="slide-body research-poster climate-poster">
+            <section class="poster-panel climate-context">
+              <div class="poster-panel-head">
+                <p class="poster-label">Platform / problem</p>
+                <span class="evidence-tag public">public context</span>
               </div>
-
-              <div class="source-links" data-priority="supplemental">
-                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">Global Mitigation Potential Atlas ↗</a>
+              <h3>Global Mitigation Potential Atlas</h3>
+              <p>The Atlas is a decision-support platform for exploring country mitigation potential at different costs and how collaboration can unlock additional strategies.</p>
+              <p>Its pilot methodology focuses on technical potential at cost levels, translating national systems into comparable, optimization-ready cases.</p>
+              <div class="source-links climate-links">
+                <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">Open Atlas ↗</a>
+                <a href="https://mitigationatlas.org/methodology" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
               </div>
-            </div>
+              <div class="poster-divider"></div>
+              <p class="poster-label">My contribution</p>
+              <ul class="poster-list">
+                <li>Mapped ASEAN case-study prose, equations, assets, constraints, trade links, units, and CO₂ budgets into consistent JSON.</li>
+                <li>Built a schema-aware, LLM-assisted conversion workflow and inspected optimization output against prior OSeMOSYS/TIMES cases.</li>
+                <li>Contributed to early MOYA Cascade concepts; the launched product and platform modeling were broader team efforts.</li>
+              </ul>
+              <div class="case-note poster-review"><strong>Needs review:</strong> “Pass@1 &gt;85%” lacks its dataset, rubric, sample count, and failures. Publication clearance is still required for project-only scenario crops.</div>
+            </section>
 
-            <div class="artifact-stage climate-collage">
-              <figure class="artifact-figure climate-model">
+            <section class="poster-panel climate-contract">
+              <div class="poster-panel-head">
+                <p class="poster-label">Method / data contract</p>
+                <span class="evidence-tag implemented">internship artifacts</span>
+              </div>
+              <figure class="artifact-figure climate-model-poster">
                 <img src="assets/portfolio/moya-case-model.webp" alt="Project artifact mapping an energy case-study model with locations, generation, storage, demand, and trade" decoding="async">
-                <figcaption><strong>Case model</strong> · source artifact</figcaption>
+                <figcaption><strong>Case graph</strong> — locations, generation, storage, demand, and trade</figcaption>
               </figure>
-              <figure class="artifact-figure climate-tree">
+              <figure class="artifact-figure climate-tree-poster">
                 <img src="assets/portfolio/moya-file-tree.webp" alt="Project artifact showing the JSON data directory hierarchy" decoding="async">
-                <figcaption><strong>File contract</strong> · locations, components, assets, systems, inputs</figcaption>
+                <figcaption><strong>JSON contract</strong> — components, assets, systems, and inputs</figcaption>
               </figure>
-              <figure class="artifact-figure climate-scenario scenario-one">
-                <img src="assets/portfolio/moya-scenario-autarky.webp" alt="Optimization output for Singapore and Indonesia modeled as self-sufficient energy systems" decoding="async">
-                <figcaption><strong>Self-sufficient</strong> · cost-optimal mix</figcaption>
-              </figure>
-              <figure class="artifact-figure climate-scenario scenario-two">
-                <img src="assets/portfolio/moya-scenario-cooperation.webp" alt="Optimization output for an idealized cooperation scenario between Singapore and Indonesia" decoding="async">
-                <figcaption><strong>Idealized cooperation</strong> · comparison case</figcaption>
-              </figure>
-              <div class="visual-callout climate-callout">structure → execute → compare</div>
-            </div>
+            </section>
+
+            <section class="poster-panel climate-results">
+              <div class="poster-panel-head">
+                <p class="poster-label">Experiment / scenario comparison</p>
+                <span class="evidence-tag modeled">modeled output</span>
+              </div>
+              <p class="scenario-question">What changes when Singapore and Indonesia are modeled as isolated systems versus an idealized collaboration?</p>
+              <div class="scenario-grid">
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/moya-scenario-autarky.webp" alt="Complete optimization output for Singapore and Indonesia modeled as self-sufficient energy systems" decoding="async">
+                  <figcaption><strong>Self-sufficient systems</strong> — full cost/emissions curve and asset-cost mix</figcaption>
+                </figure>
+                <figure class="artifact-figure">
+                  <img src="assets/portfolio/moya-scenario-cooperation.webp" alt="Complete optimization output for an idealized cooperation scenario between Singapore and Indonesia" decoding="async">
+                  <figcaption><strong>Idealized collaboration</strong> — full comparison artifact</figcaption>
+                </figure>
+              </div>
+              <p class="poster-footnote">These are model outputs used to inspect scenario behavior, not observed forecasts. My contribution was data translation and workflow prototyping, not ownership of the Atlas or its full quantitative model.</p>
+            </section>
           </div>
         </div>
       </section>
@@ -3508,55 +4758,58 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">05 / 09 · HIT capstone</p>
+              <p class="slide-kicker">05 / 09 — HIT capstone</p>
               <h2 class="slide-title" id="dqn-planner-title" tabindex="-1">Path planning with delayed observations</h2>
-              <p class="slide-deckline">A simulated study of reward design and stale observations in dynamic navigation.</p>
+              <p class="slide-deckline">Discrete DQN actions, delayed state estimates, and repeated simulation comparisons.</p>
             </div>
             <div class="role-stamp">
-              <strong>B.Eng. capstone · 2023—24</strong>
-              HIT · Electrical Engineering
+              <strong>B.Eng. capstone — 2023–24</strong>
+              HIT — Electrical Engineering
             </div>
           </header>
 
-          <div class="case-grid slide-body">
-            <div class="case-copy">
-              <section class="case-block">
-                <p class="section-label">Question</p>
-                <h3>Can a DQN planner stay useful when the observation arrives late?</h3>
-                <p>The simulation varied stale observations while comparing reward logic and network variants.</p>
-              </section>
-
-              <section class="case-block">
-                <p class="section-label">Method</p>
-                <ul class="case-list">
-                  <li>A finite set of action candidates scored by main/target DQN networks; the exact move catalogue is not preserved.</li>
-                  <li>Replay memory and randomized observation delay.</li>
-                  <li>Reward terms for path progress, collision avoidance, and convergence.</li>
-                  <li>Fifteen repeated runs averaged on the supplied results slide.</li>
-                </ul>
-              </section>
-
-              <section class="case-block" data-priority="supplemental">
-                <p class="section-label">Reported result</p>
-                <p>98.1% versus 92.6% success is +5.5 percentage points (+5.9% relative); mean path length was 29.113 versus 30.852.</p>
-              </section>
-
-              <div class="case-note">
-                <strong>Needs review:</strong> values are transcribed from the capstone slide. The exact discrete action set, raw logs, confidence intervals, simulator details, and a real-robot evaluation are not available.
+          <div class="slide-body research-poster dqn-poster">
+            <section class="poster-panel dqn-context">
+              <p class="poster-label">Problem / definition</p>
+              <h3>Plan while the newest observation is already stale</h3>
+              <p>A dynamic simulator injects observation delay while the agent must still reach the goal and avoid moving obstacles.</p>
+              <div class="poster-divider"></div>
+              <p class="poster-label">Method</p>
+              <div class="dqn-loop" aria-label="Discrete DQN control loop">
+                <span>delayed state s<t−d></span><i>→</i><span>main Q(s,a)</span><i>→</i><span>argmax action a</span><i>→</i><span>environment</span>
+                <b>replay memory → main network; periodic weights → target network</b>
               </div>
-            </div>
+              <ul class="poster-list compact-list">
+                <li>Finite action candidates are confirmed by the preserved argmax decision rule.</li>
+                <li>Replay memory, main/target networks, and randomized observation delay.</li>
+                <li>Reward terms cover progress, collision avoidance, and convergence.</li>
+              </ul>
+              <div class="case-note poster-review"><strong>Needs review:</strong> the exact action catalogue, raw logs, seeds, confidence intervals, simulator configuration, and real-robot evaluation are unavailable.</div>
+            </section>
 
-            <div class="artifact-stage dqn-collage">
-              <figure class="artifact-figure dqn-sim">
+            <figure class="poster-panel artifact-figure dqn-simulation-poster">
+              <div class="poster-panel-head">
+                <p class="poster-label">Simulation</p>
+                <span class="evidence-tag implemented">complete figure</span>
+              </div>
                 <img src="assets/portfolio/dqn-simulation.webp" alt="Capstone simulation screenshot showing a planned path around moving obstacles" decoding="async">
-                <figcaption><strong>Simulation</strong> · discrete DQN choices; exact action catalogue not supplied</figcaption>
-              </figure>
-              <figure class="artifact-figure dqn-curves">
+              <figcaption>The blue polyline connects discrete actions; its visual continuity does not imply a continuous action space.</figcaption>
+            </figure>
+
+            <figure class="poster-panel artifact-figure dqn-curves-poster">
+              <div class="poster-panel-head">
+                <p class="poster-label">Learning curves</p>
+                <span class="evidence-tag reported">supplied artifact</span>
+              </div>
                 <img src="assets/portfolio/dqn-learning-curves.webp" alt="Capstone learning curves comparing reward and DQN variants" decoding="async">
-                <figcaption><strong>Learning curves</strong> · supplied result artifact</figcaption>
-              </figure>
-              <section class="dqn-results-board" aria-labelledby="dqn-results-title">
-                <h3 id="dqn-results-title">Reported mean results · 15 repetitions</h3>
+              <figcaption>Reward over episodes for the proposed method, ablated reward logic, and traditional DQN; the complete axes and legend are retained.</figcaption>
+            </figure>
+
+            <section class="poster-panel dqn-results-poster" aria-labelledby="dqn-results-title">
+              <div class="poster-panel-head">
+                <p class="poster-label" id="dqn-results-title">Experiment / reported mean</p>
+                <span class="evidence-tag reported">15 repetitions</span>
+              </div>
                 <div class="bar-comparison" aria-label="Reported success-rate comparison">
                   <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill" style="--value:98.1%"></div></div><strong>98.1%</strong></div>
                   <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill" style="--value:97.2%"></div></div><strong>97.2%</strong></div>
@@ -3575,8 +4828,12 @@
                   </tbody>
                 </table>
                 <p class="dqn-result-note">98.1% versus 92.6% is +5.5 percentage points (+5.9% relative). Values are transcribed from the capstone slide; raw logs are unavailable.</p>
-              </section>
-            </div>
+                <div class="dqn-takeaways" aria-label="Interpretation of the reported DQN comparison">
+                  <span><strong>+5.5 pp</strong> success versus traditional DQN</span>
+                  <span><strong>−1.739</strong> mean path length versus traditional DQN</span>
+                  <span><strong>−0.9 pp</strong> after ablating the proposed reward logic</span>
+                </div>
+            </section>
           </div>
         </div>
       </section>
@@ -3585,98 +4842,121 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">06 / 09 · HIT innovation project</p>
+              <p class="slide-kicker">06 / 09 — HIT innovation project</p>
               <h2 class="slide-title" id="video-ocr-title" tabindex="-1">Recognizing text across blurred frames</h2>
-              <p class="slide-deckline">A first-prize HIT team project selected at national level, from detection to cross-frame restoration and recognition.</p>
+              <p class="slide-deckline">A quality-gated multi-frame path retains usable history, fuses evidence, and recognizes a sequence.</p>
             </div>
             <div class="role-stamp">
-              <strong>Team member · 2021—22</strong>
+              <strong>Team member — 2021–22</strong>
               Innovation &amp; Entrepreneurship Programme
             </div>
           </header>
 
-          <div class="case-grid slide-body">
-            <div class="case-copy">
-              <section class="case-block">
-                <p class="section-label">Problem</p>
-                <h3>One frame can lose a character stroke; adjacent frames can recover it</h3>
-                <p>The team pipeline covered text detection, frame tracking, multi-frame restoration, and recognition.</p>
-              </section>
+          <div class="slide-body research-poster ocr-poster">
+            <section class="poster-panel ocr-context">
+              <p class="poster-label">Problem / contribution</p>
+              <h3>Recover strokes that a single blurred frame cannot preserve</h3>
+              <p>The team system detected and matched text instances, retained the best adjacent observations, fused aligned features, and recognized the sequence.</p>
+              <p><strong>Documented role:</strong> Transformer-inspired recognition and coupling recognition features to the upstream restoration network.</p>
+              <div class="poster-outcome">First prize at HIT; selected for national-level continuation.</div>
+              <div class="case-note poster-review"><strong>Needs review:</strong> the report supports recognizer/feature coupling, not the broader résumé deblurring scope, Android deployment, or “+0.23% F1” wording.</div>
+            </section>
 
-              <section class="case-block">
-                <p class="section-label">Documented contribution</p>
-                <p>The final acceptance report assigns me the Transformer-inspired recognizer and the coupling of recognition features into the restoration network.</p>
-              </section>
-
-              <section class="case-block" data-priority="supplemental">
-                <p class="section-label">Outcome</p>
-                <p>First prize in HIT’s Innovation and Entrepreneurship Programme; selected for national-level continuation.</p>
-              </section>
-
-              <div class="case-note">
-                <span class="responsive-full"><strong>Needs review:</strong> the résumé describes a broader architecture/deblurring role than the final report. Resource-constrained Android deployment and the earlier “+0.23% F1” claim are not preserved in the supplied evidence.</span>
-                <span class="responsive-short"><strong>Needs review:</strong> the final report supports recognizer/feature coupling—not the broader deblurring scope, Android deployment, or “+0.23% F1” wording.</span>
+            <section class="poster-panel ocr-pipeline-poster" aria-labelledby="ocr-path-title">
+              <div class="poster-panel-head">
+                <p class="poster-label" id="ocr-path-title">Original quality-gated pipeline — redrawn</p>
+                <span class="evidence-tag implemented">team algorithm</span>
               </div>
-
-              <div class="source-links" data-priority="supplemental">
-                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT method ↗</a>
-                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR method ↗</a>
-              </div>
-            </div>
-
-            <div class="artifact-stage ocr-evidence">
-              <section class="ocr-algorithm" aria-labelledby="ocr-path-title">
-                <h3 id="ocr-path-title">Cross-frame recognition path</h3>
-                <div class="fusion-diagram" aria-label="Reference and support frames fused before text recognition">
-                  <div class="frame-stack" aria-label="Ranked text crops">
-                    <div class="frame-card" style="--offset:0"><strong>Support −4</strong><span>ranked earlier crop</span></div>
-                    <div class="frame-card" style="--offset:1"><strong>Support −3</strong><span>ranked earlier crop</span></div>
-                    <div class="frame-card" style="--offset:2"><strong>Support −2/−1</strong><span>top-quality history</span></div>
-                    <div class="frame-card" style="--offset:3"><strong>Reference</strong><span>current text crop</span></div>
-                  </div>
-                  <div class="map-arrow" aria-hidden="true">→</div>
-                  <div class="fusion-steps">
-                    <div><strong>Extract</strong><span>features per crop</span></div>
-                    <div><strong>Align + fuse</strong><span>cross-frame evidence</span></div>
-                    <div><strong>Recognize</strong><span>Transformer-inspired decoder</span></div>
-                  </div>
-                  <div class="map-arrow" aria-hidden="true">→</div>
-                  <div class="fusion-output"><strong>Text</strong><span>recognized sequence</span></div>
+              <div class="ocr-original-flow" aria-label="Quality-gated multi-frame OCR algorithm">
+                <div class="flow-entry">
+                  <span><strong>Incoming text crop</strong><small>tracked instance at frame t</small></span>
+                  <i>→</i>
+                  <span><strong>Quality score</strong><small>compare with matched history</small></span>
+                  <i>→</i>
+                  <span class="flow-decision"><strong>In TOP5?</strong><small>quality gate</small></span>
                 </div>
-              </section>
-
-              <div class="ocr-result-row">
-                <section class="ocr-results" aria-labelledby="ocr-result-title">
-                  <p class="result-eyebrow" id="ocr-result-title">Reported recognition accuracy</p>
-                  <div class="result-metrics" aria-label="Reported OCR benchmark results">
-                    <div class="result-metric">
-                      <strong>69.2%</strong>
-                      <span>Chinese Benchmark</span>
-                    </div>
-                    <div class="result-metric">
-                      <strong>68.5%</strong>
-                      <span>ICDAR 2019-LSVT</span>
-                    </div>
+                <div class="flow-branches">
+                  <div class="flow-yes">
+                    <b>YES</b>
+                    <span><strong>Current crop = reference</strong><small>update TOP5 quality memory</small></span>
+                    <span><strong>In TOP4?</strong><small>update four saved support crops</small></span>
                   </div>
-                  <p class="result-footnote">Acceptance-report table; SVTR-S is listed at 69.0 and 68.2. No raw predictions or independent rerun were supplied.</p>
-                </section>
-
-                <figure class="ocr-text-examples" aria-labelledby="ocr-examples-caption">
-                  <div class="ocr-text-head" aria-hidden="true"><span>Blurred input</span><span>Restored</span></div>
-                  <div class="ocr-text-pair">
-                    <img src="assets/portfolio/ocr-text-before-01.webp" alt="Blurred Chinese text sample from the team slide" decoding="async">
-                    <span aria-hidden="true">→</span>
-                    <img src="assets/portfolio/ocr-text-after-01.webp" alt="Restored version of the first Chinese text sample" decoding="async">
+                  <div class="flow-no">
+                    <b>NO</b>
+                    <span><strong>Keep prior output</strong><small>do not rerun the recognizer on a worse crop</small></span>
                   </div>
-                  <div class="ocr-text-pair">
-                    <img src="assets/portfolio/ocr-text-before-02.webp" alt="Second blurred Chinese text sample from the team slide" decoding="async">
-                    <span aria-hidden="true">→</span>
-                    <img src="assets/portfolio/ocr-text-after-02.webp" alt="Restored version of the second Chinese text sample" decoding="async">
+                </div>
+                <div class="flow-recognition">
+                  <div class="support-bundle">
+                    <span>support 1</span><span>support 2</span><span>support 3</span><span>support 4</span><span class="reference">reference t</span>
                   </div>
-                  <figcaption id="ocr-examples-caption"><strong>Team-slide examples</strong> · restoration outputs with perceivable characters; source images and an independent rerun were not supplied</figcaption>
-                </figure>
+                  <i>→</i><span><strong>Feature extraction</strong><small>per crop</small></span>
+                  <i>→</i><span><strong>Align + fuse</strong><small>multi-frame evidence</small></span>
+                  <i>→</i><span><strong>SVTR-inspired recognizer</strong><small>mixing blocks + CTC</small></span>
+                  <i>→</i><span class="flow-output"><strong>Text sequence</strong><small>latest accepted output</small></span>
+                </div>
               </div>
-            </div>
+              <p class="poster-footnote">Faithful to the project flow: only a sufficiently good matched crop becomes the new reference; four saved support crops and the reference are fused before recognition.</p>
+            </section>
+
+            <section class="poster-panel ocr-experiment">
+              <p class="poster-label">Experiment definition</p>
+              <ul class="poster-list compact-list">
+                <li>Because no public blurred-video corpus was available, blur kernels were applied to ground-truth still images to form consecutive degraded frames.</li>
+                <li>Chinese Benchmark and ICDAR 2019-LSVT were used for the reported recognition comparison.</li>
+                <li>The final recognizer is SVTR-inspired with local/global mixing blocks and CTC prediction.</li>
+              </ul>
+              <p class="poster-footnote">Exact sample counts, blur distribution, seeds, and raw predictions are not preserved.</p>
+              <div class="source-links ocr-links">
+                <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT context ↗</a>
+                <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR context ↗</a>
+              </div>
+            </section>
+
+            <section class="poster-panel ocr-results-poster" aria-labelledby="ocr-result-title">
+              <div class="poster-panel-head">
+                <p class="poster-label" id="ocr-result-title">Reported recognition accuracy</p>
+                <span class="evidence-tag reported">acceptance table</span>
+              </div>
+              <div class="result-metrics poster-metrics" aria-label="Reported OCR benchmark results">
+                <div class="result-metric">
+                  <strong>69.2%</strong>
+                  <span>Chinese Benchmark</span>
+                </div>
+                <div class="result-metric">
+                  <strong>68.5%</strong>
+                  <span>ICDAR 2019-LSVT</span>
+                </div>
+              </div>
+              <table class="result-table" aria-label="OCR comparison with SVTR-S">
+                <thead><tr><th>Method</th><th>Chinese</th><th>LSVT</th></tr></thead>
+                <tbody>
+                  <tr><td>Team method</td><td>69.2%</td><td>68.5%</td></tr>
+                  <tr><td>SVTR-S</td><td>69.0%</td><td>68.2%</td></tr>
+                </tbody>
+              </table>
+              <p class="poster-footnote">The table is preserved evidence; raw predictions and an independent rerun were not supplied.</p>
+            </section>
+
+            <figure class="poster-panel ocr-examples-poster" aria-labelledby="ocr-examples-caption">
+              <div class="poster-panel-head">
+                <p class="poster-label">Perceivable qualitative outputs</p>
+                <span class="evidence-tag reported">team slide</span>
+              </div>
+              <div class="ocr-poster-pair">
+                <img src="assets/portfolio/ocr-text-before-01.webp" alt="Blurred Chinese text sample from the team slide" decoding="async">
+                <span aria-hidden="true">→</span>
+                <img src="assets/portfolio/ocr-text-after-01.webp" alt="Restored Chinese text reading I am the first section of text followed by laughter characters" decoding="async">
+              </div>
+              <p class="ocr-transcript">我是第一段文字哈哈哈哈</p>
+              <div class="ocr-poster-pair">
+                <img src="assets/portfolio/ocr-text-before-02.webp" alt="Second blurred Chinese text sample from the team slide" decoding="async">
+                <span aria-hidden="true">→</span>
+                <img src="assets/portfolio/ocr-text-after-02.webp" alt="Restored Chinese text reading I am the third section of text" decoding="async">
+              </div>
+              <p class="ocr-transcript">我是第三段文字呀呀呀</p>
+              <figcaption id="ocr-examples-caption">Blurred inputs and restored outputs from the project-results slide; source images and an independent rerun were not supplied.</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -3685,9 +4965,9 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">07 / 09 · Open work</p>
+              <p class="slide-kicker">07 / 09 — Open work</p>
               <h2 class="slide-title" id="public-code-title" tabindex="-1">Public code and model evaluation</h2>
-              <p class="slide-deckline">Two merged vector-search changes, an agricultural KBQA assessment, and early prompt-engineering course work.</p>
+              <p class="slide-deckline">Two merged vector-search changes, an agricultural KBQA assessment, and early prompt-engineering coursework.</p>
             </div>
             <div class="role-stamp">
               <strong>Inspect the artifacts</strong>
@@ -3697,7 +4977,7 @@
 
           <div class="code-ledger slide-body">
             <article class="code-row">
-              <div class="repo-name">camel-ai/camel · PR #3758<br>Feb 2026 · merged</div>
+              <div class="repo-name">camel-ai/camel — PR #3758<br>Feb 2026 — merged</div>
               <div>
                 <h3>Qdrant query filters</h3>
                 <p>Added distance metrics and filtering, with tests and examples around the new query behavior.</p>
@@ -3706,7 +4986,7 @@
             </article>
 
             <article class="code-row">
-              <div class="repo-name">labring/FastGPT · PR #6348<br>Jan 2026 · merged</div>
+              <div class="repo-name">labring/FastGPT — PR #6348<br>Jan 2026 — merged</div>
               <div>
                 <h3>OceanBase HNSW quantization</h3>
                 <p>Added SQ/BQ vector-index quantization levels and corresponding distance constraints.</p>
@@ -3726,7 +5006,7 @@
             <article class="code-row">
               <div class="repo-name">datawhalechina/llm-cookbook<br>2023</div>
               <div>
-                <h3>Prompt-engineering course work</h3>
+                <h3>Prompt-engineering coursework</h3>
                 <p>Proofreading, terminology/API alignment, prompt reproduction, and chatbot experiments. Exact contribution commits still need linking.</p>
               </div>
               <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">Open repo ↗</a>
@@ -3744,7 +5024,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">08 / 09 · Credentials</p>
+              <p class="slide-kicker">08 / 09 — Credentials</p>
               <h2 class="slide-title" id="credentials-title" tabindex="-1">ML, cloud, and data credentials</h2>
               <p class="slide-deckline">Seven professional certifications and two NVIDIA DLI course certificates visible in the supplied record.</p>
             </div>
@@ -3763,11 +5043,11 @@
               <ul class="credential-list">
                 <li>
                   <strong>Certified Professional: Gen AI LLMs</strong>
-                  <time>Jan 2026 · expires Jan 2028</time>
+                  <time>Jan 2026 — expires Jan 2028</time>
                 </li>
                 <li>
                   <strong>Disaster Risk Monitoring Using Satellite Imagery</strong>
-                  <time>Dec 2024 · NVIDIA with UNOSAT / UNITAR</time>
+                  <time>Dec 2024 — NVIDIA with UNOSAT / UNITAR</time>
                 </li>
                 <li>
                   <strong>Introduction to Transformer-Based NLP</strong>
@@ -3784,15 +5064,15 @@
               <ul class="credential-list">
                 <li>
                   <strong>OCI 2025 DevOps Professional</strong>
-                  <time>Nov 2025 · expires Nov 2027</time>
+                  <time>Nov 2025 — expires Nov 2027</time>
                 </li>
                 <li>
                   <strong>OCI 2025 Data Science Professional</strong>
-                  <time>Oct 2025 · expires Oct 2027</time>
+                  <time>Oct 2025 — expires Oct 2027</time>
                 </li>
                 <li>
                   <strong>OCI 2025 Generative AI Professional</strong>
-                  <time>Oct 2025 · expires Oct 2027</time>
+                  <time>Oct 2025 — expires Oct 2027</time>
                 </li>
               </ul>
             </section>
@@ -3805,11 +5085,11 @@
               <ul class="credential-list">
                 <li>
                   <strong>Azure Data Scientist Associate</strong>
-                  <time>May 2025 · expires May 2027</time>
+                  <time>May 2025 — expires May 2027</time>
                 </li>
                 <li>
                   <strong>Power BI Data Analyst Associate</strong>
-                  <time>Jun 2025 · expires Jun 2027</time>
+                  <time>Jun 2025 — expires Jun 2027</time>
                 </li>
               </ul>
             </section>
@@ -3822,7 +5102,7 @@
               <ul class="credential-list">
                 <li>
                   <strong>Machine Learning Engineer — Associate</strong>
-                  <time>Dec 2024 · expires Dec 2027</time>
+                  <time>Dec 2024 — expires Dec 2027</time>
                 </li>
               </ul>
             </section>
@@ -3834,7 +5114,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">09 / 09 · Questions</p>
+              <p class="slide-kicker">09 / 09 — Questions</p>
               <h2 class="slide-title" id="direction-title" tabindex="-1">What is worth testing next?</h2>
               <p class="slide-deckline">Systems engineering now; robot learning next. Keep the questions close to physical evidence.</p>
             </div>
@@ -3937,6 +5217,17 @@
           return false;
         }
 
+        const boundedPanels = frame.querySelectorAll(
+          ".research-poster, .poster-panel, .ocr-original-flow, "
+          + ".flow-entry, .flow-recognition, .scenario-grid"
+        );
+        if (Array.from(boundedPanels).some(function (node) {
+          return node.scrollHeight > node.clientHeight + 1
+            || node.scrollWidth > node.clientWidth + 1;
+        })) {
+          return false;
+        }
+
         const frameBounds = frame.getBoundingClientRect();
         const contentNodes = frame.querySelectorAll(
           "h1, h2, h3, p, li, time, .profile-intro, .profile-chronology, "
@@ -3945,7 +5236,7 @@
           + ".credential-group, .questions-grid, .question-column, .small-interests, "
           + ".floc-results, .dqn-results-board, .ocr-evidence, .ocr-algorithm, "
           + ".ocr-result-row, .ocr-results, .ocr-text-examples, .ocr-text-pair, "
-          + ".fusion-diagram"
+          + ".fusion-diagram, .research-poster, .poster-panel"
         );
 
         return Array.from(contentNodes).every(function (node) {
@@ -4139,7 +5430,7 @@
         playButton.hidden = true;
         storyboard.hidden = true;
         cabinetVideo.hidden = false;
-        videoStatus.firstChild.textContent = "loading hosted file · ";
+        videoStatus.firstChild.textContent = "loading hosted file — ";
         videoError.classList.remove("is-visible");
         cabinetVideo.src = hostedVideo;
         cabinetVideo.load();
@@ -4150,20 +5441,20 @@
 
       cabinetVideo.addEventListener("loadedmetadata", function () {
         videoError.classList.remove("is-visible");
-        videoStatus.firstChild.textContent = "ready · ";
+        videoStatus.firstChild.textContent = "ready — ";
       });
 
       cabinetVideo.addEventListener("playing", function () {
         videoError.classList.remove("is-visible");
-        videoStatus.firstChild.textContent = "playing · ";
+        videoStatus.firstChild.textContent = "playing — ";
       });
 
       cabinetVideo.addEventListener("waiting", function () {
-        videoStatus.firstChild.textContent = "buffering · ";
+        videoStatus.firstChild.textContent = "buffering — ";
       });
 
       cabinetVideo.addEventListener("error", function () {
-        videoStatus.firstChild.textContent = "load failed · ";
+        videoStatus.firstChild.textContent = "load failed — ";
         videoError.classList.add("is-visible");
       });
 

@@ -78,7 +78,8 @@ def build_pdf_visuals(source_dir: Path) -> None:
 
     moya_scenarios = render_page(slides, 10, 1600)
     save_webp(
-        crop_fraction(moya_scenarios, 0.015, 0.13, 0.47, 0.94),
+        # Keep the complete left scenario panel without the central arrow.
+        crop_fraction(moya_scenarios, 0.015, 0.13, 0.438, 0.94),
         "moya-scenario-autarky.webp",
         quality=88,
     )

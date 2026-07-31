@@ -1,6 +1,6 @@
 # Yixin portfolio: evidence and publication plan
 
-Updated: 2026-07-30
+Updated: 2026-07-31
 
 ## Outcome
 
@@ -23,16 +23,20 @@ derivatives under `assets/portfolio/` are public.
    separate explanatory panel.
 2. **Robot loop** — runtime and cabinet-operation scope beside three privacy-
    cropped video frames and a click-to-load hosted demo.
-3. **Plant CV** — original/mask GUI crop, the observed classifier disagreement,
-   three consecutive masks, and a legible result card redrawn from the handoff
-   table.
-4. **Climate data** — case-model diagram, JSON directory contract, and two
-   scenario-output fragments.
-5. **DQN planner** — simulator, learning curves, and a legible bar/table panel
-   for the reported 15-run comparison.
-6. **Video OCR** — a redrawn cross-frame recognition path, a compact scorecard
-   transcribed from the acceptance report, and two project-specific
-   blurred/restored text pairs isolated from the team deck.
+3. **Plant CV** — an academic-poster layout separates the archived five-feature
+   binary PoC, its GUI and reported metrics, and a reference-only research
+   extension. The extension covers morphology-to-morphology redundancy,
+   morphology-to-dose association, and a causal lag/window protocol.
+4. **Climate data** — the Global Mitigation Potential Atlas is introduced as
+   public platform context. Internship contribution, case-model/JSON artifacts,
+   and complete modeled scenario outputs remain visually distinct.
+5. **DQN planner** — the complete simulator and learning-curve figures are shown
+   with `object-fit: contain`, beside the discrete-action method and a legible
+   bar/table interpretation of the reported 15-run comparison.
+6. **Video OCR** — the original TOP5/TOP4 quality gate, four support frames,
+   reference frame, feature extraction, alignment/fusion, and SVTR-inspired
+   recognition path are redrawn in the portfolio style. The poster also retains
+   experiment definition, reported scores, and two perceivable text examples.
 7. **Public code** — public repositories and merged pull requests, plus a small
    ANP-handle note.
 8. **Credentials** — NVIDIA, Oracle, Microsoft, and AWS records grouped by
@@ -54,6 +58,10 @@ derivatives under `assets/portfolio/` are public.
 
 - The archived GUI supports a binary threshold/XGBoost prototype.
 - Table 3-1 reports 88.5% XGBoost accuracy and 67.4% threshold accuracy.
+- Archived code implements grayscale, median filtering, adaptive thresholding,
+  morphological opening/closing/erosion, connected-component extraction, and
+  five geometric inputs: count, major-axis diameter, equivalent diameter,
+  circularity, and area fraction.
 - Archived code expands 2,270 labeled images into 258,887 floc records, then
   applies a random stratified split at the floc level. The reported 88.5% is
   therefore not an independent video-, day-, or plant-level estimate.
@@ -61,6 +69,13 @@ derivatives under `assets/portfolio/` are public.
 - The archived model is binary; the résumé's five dose steps remain unresolved.
 - No production dosing control, oil-thickness estimate, or generalization claim
   is made.
+- Pearson coefficients, HRT-window candidates, TCN/Transformer models, and SHAP
+  are reference-study results, not implemented PoC results. They are labeled
+  accordingly.
+- A future temporal study should estimate plant lag from HRT plus training-only
+  cross-correlation, aggregate frames before modeling, use causal input/target
+  windows, split by time/video/day/plant, and purge at least the full
+  input-window + lag + target horizon between folds.
 
 ### SIMTech climate analytics
 
@@ -82,6 +97,8 @@ derivatives under `assets/portfolio/` are public.
   supports a discrete action space. The exact movement or steering catalogue is
   not preserved, so the portfolio does not infer it from the visually smooth
   plotted path.
+- The simulator and learning-curve images are never rendered with `cover`; the
+  full axes, legend, path, obstacles, and plotting controls stay visible.
 - Raw logs, seeds, confidence intervals, exact simulator configuration, and
   real-robot evaluation are unavailable.
 
@@ -89,6 +106,11 @@ derivatives under `assets/portfolio/` are public.
 
 - The final project record supports a Transformer-inspired recognizer and feature
   coupling contribution within a team system.
+- The preserved quality gate compares a tracked crop with matched history. A
+  TOP5 crop becomes the new reference; TOP4 membership updates four saved
+  support crops; otherwise the previous recognition is retained.
+- Four support crops and the current reference feed feature extraction,
+  alignment/fusion, and an SVTR-inspired recognizer with CTC prediction.
 - First prize and national-level continuation are retained as recorded outcomes.
 - The acceptance-report table lists 69.2% on Chinese Benchmark and 68.5% on
   ICDAR 2019-LSVT, versus 69.0% and 68.2% for SVTR-S. Raw predictions and an
