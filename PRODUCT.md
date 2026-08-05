@@ -12,11 +12,15 @@ Primary: people evaluating Yixin Zhang for research opportunities and PhD admiss
 
 ## Product Purpose
 
-This personal portfolio helps its author earn research conversations and PhD-admission consideration by making a credible trajectory from systems engineering and applied AI toward robot learning easy to understand and inspect. Success is that an appropriate reviewer can understand the work, its evidence, and how to make contact without treating the site as a conventional résumé alone.
+This personal portfolio helps its author, who is actively seeking PhD opportunities in robot learning, earn research conversations and admission consideration by making a credible trajectory from systems engineering and applied AI toward robot learning easy to understand and inspect. Success is that an appropriate reviewer can understand the work and its evidence without treating the site as a conventional résumé alone.
 
 ## Positioning
 
 An evidence-led robotics and applied-AI portfolio: each technical case separates what was implemented, what an artifact directly supports, reported or modeled results, reference material, and what remains unresolved. This makes the limits of the evidence as legible as the work itself.
+
+## Research Interests
+
+Primary interest: robot learning, especially how deployment failures can inform better policies. Additional forward-looking interests: infrastructure for autonomous agents, including Web3 approaches; AI for mathematics; and AI for biology (for example, proteins) and medicine (for example, radiomics). These are interests, not claims of completed projects.
 
 ## Operating Context
 
@@ -34,6 +38,7 @@ Visitors review a static nine-slide web portfolio covering the profile and caree
 - Identity: Yixin Zhang / YZ; robotics and applied AI.
 - Voice: precise, research-oriented, evidence-aware, and candid about uncertainty.
 - Preserve the distinction between public, inspectable evidence and broader claims that have not been independently established.
+- State the current PhD search as an understated fact rather than a visitor-directed invitation.
 
 ## Evidence on Hand
 

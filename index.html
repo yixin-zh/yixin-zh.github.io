@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yixin Zhang — Robotics &amp; Applied AI Portfolio</title>
-  <meta name="description" content="Yixin Zhang's evidence-led portfolio in robot systems, industrial computer vision, climate analytics, reinforcement learning, open-source engineering, and professional credentials.">
+  <title>Yixin Zhang — Robot Learning PhD Portfolio</title>
+  <meta name="description" content="Yixin Zhang is actively seeking PhD opportunities in robot learning. Explore an evidence-led portfolio in robot systems, applied AI, and research engineering.">
   <meta name="theme-color" content="#f4f2ec">
   <script>document.documentElement.classList.add("js");</script>
   <style>
@@ -175,13 +175,34 @@
     .mast-nav {
       width: 100%;
       display: grid;
+      gap: 15px;
+      margin-top: 26px;
+    }
+
+    .nav-group {
+      display: grid;
+      gap: 5px;
+    }
+
+    .nav-group-label {
+      margin: 0;
+      padding: 0 8px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-group-items {
+      display: grid;
       gap: 1px;
-      margin-top: 28px;
     }
 
     .mast-nav button {
       min-width: 0;
-      min-height: 41px;
+      min-height: 44px;
       display: grid;
       grid-template-columns: 24px minmax(0, 1fr);
       align-items: center;
@@ -222,14 +243,16 @@
     }
 
     .mast-contact {
-      min-height: 40px;
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
       margin-top: auto;
       padding: 8px 4px;
+      color: var(--ink);
       font-family: var(--mono);
       font-size: 9px;
       font-weight: 700;
+      text-decoration: none;
       white-space: nowrap;
     }
 
@@ -246,8 +269,166 @@
       white-space: pre;
     }
 
-    .mobile-status {
+    .mobile-actions {
       display: none;
+    }
+
+    .mobile-cases,
+    .mobile-email {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 12px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-cases {
+      border-right: 1px solid var(--rule);
+      cursor: pointer;
+    }
+
+    .mobile-cases:hover,
+    .mobile-email:hover {
+      background: var(--blue-tint);
+      color: var(--ink);
+    }
+
+    .mobile-case-status {
+      display: inline-flex;
+      gap: 4px;
+      color: var(--faint);
+      font-size: 8px;
+    }
+
+    .mobile-case-status strong {
+      color: var(--ink);
+    }
+
+    .case-menu {
+      width: min(calc(100% - 24px), 480px);
+      max-height: min(78dvh, 620px);
+      margin: auto;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--ink);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .case-menu::backdrop {
+      background: rgba(23, 24, 22, 0.42);
+    }
+
+    .case-menu[open] {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .case-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-menu-header h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .case-menu-header form {
+      margin: 0;
+    }
+
+    .case-menu-close {
+      min-height: 44px;
+      padding: 0 10px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .case-menu-close:hover {
+      background: var(--blue-tint);
+    }
+
+    .case-menu-body {
+      display: grid;
+      gap: 16px;
+      overflow-y: auto;
+      padding: 16px 18px 20px;
+    }
+
+    .case-menu-group + .case-menu-group {
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .case-menu-group h3 {
+      margin: 0 0 7px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .case-menu-list {
+      display: grid;
+      gap: 1px;
+    }
+
+    .case-menu-list button {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+      padding: 8px 9px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .case-menu-list button:hover,
+    .case-menu-list button[aria-current="step"] {
+      background: var(--blue-tint);
+    }
+
+    .case-menu-list .nav-number {
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    .case-menu-list .nav-label {
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .deck {
@@ -415,6 +596,14 @@
       font-size: clamp(18px, 1.85cqw, 27px);
       font-weight: 700;
       line-height: 1.28;
+    }
+
+    .profile-status {
+      max-width: 560px;
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: clamp(11px, 0.95cqw, 14px);
+      line-height: 1.4;
     }
 
     .profile-goal {
@@ -1144,10 +1333,14 @@
     }
 
     .bar-fill {
-      width: var(--value);
       height: 100%;
       background: var(--blue);
     }
+
+    .bar-fill--proposed { width: 98.1%; }
+    .bar-fill--without-reward { width: 97.2%; }
+    .bar-fill--dqn { width: 92.6%; }
+    .bar-fill--q-learning { width: 93.1%; }
 
     .bar-row:first-child .bar-fill {
       background: var(--green);
@@ -1869,6 +2062,15 @@
         border-left: 1px solid var(--rule);
       }
 
+      .mast-nav .nav-group,
+      .mast-nav .nav-group-items {
+        display: contents;
+      }
+
+      .mast-nav .nav-group-label {
+        display: none;
+      }
+
       .mast-nav button {
         grid-template-columns: 1fr;
         place-items: center;
@@ -1886,6 +2088,29 @@
         justify-content: center;
         margin: 0;
         padding: 0 10px;
+      }
+
+      .masthead {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .mast-nav,
+      .mast-contact {
+        display: none;
+      }
+
+      .mobile-actions {
+        display: flex;
+        align-items: stretch;
+        min-height: 58px;
+        border-left: 1px solid var(--rule);
+      }
+
+      .mobile-cases,
+      .mobile-email {
+        min-height: 44px;
+        padding-right: 12px;
+        padding-left: 12px;
       }
     }
 
@@ -1919,20 +2144,18 @@
         display: none;
       }
 
-      .mobile-status {
+      .mobile-actions {
         display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 0 14px;
+        align-items: stretch;
+        min-height: 50px;
         border-left: 1px solid var(--rule);
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 8px;
-        text-transform: uppercase;
       }
 
-      .mobile-status strong {
-        color: var(--ink);
+      .mobile-cases,
+      .mobile-email {
+        min-height: 44px;
+        padding-right: 11px;
+        padding-left: 11px;
       }
 
       .deck {
@@ -1995,6 +2218,12 @@
         margin-top: 7px;
         font-size: 15px;
         line-height: 1.22;
+      }
+
+      .profile-status {
+        margin-top: 5px;
+        font-size: 11px;
+        line-height: 1.32;
       }
 
       .profile-goal {
@@ -2380,8 +2609,10 @@
         padding-left: 12px;
       }
 
-      .mobile-status {
-        padding: 0 10px;
+      .mobile-cases,
+      .mobile-email {
+        padding-right: 8px;
+        padding-left: 8px;
       }
 
       .profile-goal h2 + p {
@@ -3863,6 +4094,247 @@
       line-height: 1.3;
     }
 
+    /* Readable evidence summaries and focused inspection dialogs */
+    .poster-panel .poster-summary {
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: clamp(12px, 0.93cqw, 15px) !important;
+      font-weight: 590;
+      line-height: 1.42 !important;
+    }
+
+    .evidence-open {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 9px 12px;
+      border: 1px solid var(--blue-dark);
+      background: var(--blue-dark);
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 760;
+      line-height: 1.2;
+      text-align: left;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .evidence-open:hover {
+      background: var(--surface);
+      color: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .poster-summary-panel {
+      display: none;
+    }
+
+    .evidence-dialog {
+      width: min(780px, calc(100vw - 28px));
+      max-width: calc(100vw - 28px);
+      max-height: min(780px, calc(100dvh - 28px));
+      margin: auto;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--ink);
+      border-top: 3px solid var(--blue);
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 0 20px 52px rgba(23, 24, 22, 0.24);
+    }
+
+    .evidence-dialog::backdrop {
+      background: rgba(23, 24, 22, 0.55);
+    }
+
+    .evidence-dialog__scroll {
+      max-height: min(777px, calc(100dvh - 31px));
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: clamp(18px, 3vw, 32px);
+      overscroll-behavior: contain;
+    }
+
+    .evidence-dialog__head {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .evidence-dialog__label {
+      margin: 0 0 6px;
+      color: var(--blue-dark);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: 0.07em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .evidence-dialog h2 {
+      max-width: 580px;
+      margin: 0;
+      font-size: clamp(25px, 4vw, 38px);
+      line-height: 1.05;
+    }
+
+    .evidence-dialog__close {
+      min-width: 44px;
+      min-height: 44px;
+      flex: 0 0 auto;
+      padding: 8px 10px;
+      border: 1px solid var(--rule-strong);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 720;
+      line-height: 1.2;
+    }
+
+    .evidence-dialog__close:hover {
+      background: var(--blue-tint);
+      border-color: var(--blue-dark);
+    }
+
+    .evidence-dialog__intro {
+      max-width: 66ch;
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .evidence-dialog__section {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .evidence-dialog h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.22;
+    }
+
+    .evidence-dialog p,
+    .evidence-dialog li,
+    .evidence-dialog dt,
+    .evidence-dialog dd,
+    .evidence-dialog th,
+    .evidence-dialog td {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .evidence-dialog p {
+      max-width: 66ch;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .evidence-dialog ul {
+      max-width: 66ch;
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .evidence-dialog .dialog-method-chain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin: 12px 0 0;
+    }
+
+    .evidence-dialog .dialog-method-chain span {
+      padding: 5px 7px;
+      background: var(--green-tint);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .evidence-dialog .dialog-method-chain i {
+      color: var(--blue);
+      font-style: normal;
+      font-size: 15px;
+    }
+
+    .evidence-dialog dl {
+      display: grid;
+      grid-template-columns: minmax(138px, 0.72fr) minmax(0, 1.28fr);
+      gap: 9px 16px;
+      max-width: 66ch;
+      margin: 14px 0 0;
+    }
+
+    .evidence-dialog dt {
+      color: var(--ink);
+      font-weight: 740;
+    }
+
+    .evidence-dialog dd {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .evidence-dialog table {
+      width: 100%;
+      margin-top: 14px;
+      border-collapse: collapse;
+    }
+
+    .evidence-dialog th,
+    .evidence-dialog td {
+      padding: 9px 8px;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .evidence-dialog th {
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .evidence-dialog__boundary {
+      max-width: none !important;
+      padding: 13px 14px;
+      background: var(--amber-tint);
+      color: #5c3c00 !important;
+    }
+
+    .evidence-dialog__boundary strong {
+      color: var(--ink);
+    }
+
+    .evidence-dialog__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 14px;
+    }
+
+    .evidence-dialog__links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 690;
+    }
+
     .slide[data-density="compact"] .research-poster,
     .slide[data-density="essential"] .research-poster {
       gap: 7px;
@@ -3985,249 +4457,105 @@
     }
 
     @media (max-width: 760px) {
-      .poster-panel h3 {
-        font-size: 14px;
+      .research-poster {
+        display: block;
+        overflow: visible;
       }
 
-      .poster-panel p,
-      .poster-list li {
-        font-size: 7.5px;
-        line-height: 1.28;
+      .research-poster > .poster-panel:not(.poster-summary-panel) {
+        display: none !important;
       }
 
-      .poster-review,
-      .poster-footnote {
-        font-size: 6px !important;
+      .research-poster > .poster-summary-panel {
+        min-height: 0;
+        height: 100%;
+        display: grid;
+        align-content: start;
+        gap: 16px;
+        padding: clamp(16px, 5vw, 28px);
+        overflow: visible;
       }
 
-      .poster-statline {
-        display: none;
+      .poster-summary-panel h3 {
+        max-width: 21ch;
+        font-size: clamp(24px, 7.6vw, 34px);
+        line-height: 1.04;
       }
 
-      .method-chain span:nth-of-type(n + 5),
-      .method-chain i:nth-of-type(n + 5),
-      .metric-rationale div:nth-child(n + 4) {
-        display: none;
+      .poster-summary-panel .poster-summary {
+        max-width: 58ch;
+        margin: 0;
+        font-size: clamp(14px, 4.2vw, 17px) !important;
+        line-height: 1.48 !important;
       }
 
-      .climate-poster {
-        grid-template-columns: minmax(150px, 0.68fr) minmax(0, 1.32fr);
-        grid-template-rows: minmax(0, 1fr);
+      .poster-summary-panel .summary-facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 560px;
       }
 
-      .climate-context {
-        grid-column: 1;
+      .poster-summary-panel .summary-facts span {
+        min-width: 0;
+        padding-top: 9px;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.35;
       }
 
-      .climate-contract {
-        display: none;
+      .poster-summary-panel .summary-facts strong {
+        display: block;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 23px;
+        font-weight: 520;
+        line-height: 1.08;
       }
 
-      .climate-results {
-        grid-column: 2;
+      .poster-summary-panel .evidence-open {
+        justify-self: start;
+        margin-top: 2px;
       }
 
-      .scenario-grid {
-        gap: 4px;
-      }
-
-      .dqn-poster {
-        grid-template-columns: minmax(135px, 0.62fr) minmax(0, 1.38fr);
-        grid-template-rows: minmax(0, 1fr) minmax(0, 0.92fr);
-      }
-
-      .dqn-context {
-        grid-column: 1;
-        grid-row: 1 / -1;
-      }
-
-      .dqn-context .poster-list li:nth-child(n + 2),
-      .dqn-context .poster-divider,
-      .dqn-context .poster-label:nth-of-type(2) {
-        display: none;
-      }
-
-      .dqn-simulation-poster {
-        display: none;
-      }
-
-      .dqn-curves-poster {
-        grid-column: 2;
-        grid-row: 1;
-      }
-
-      .dqn-results-poster {
-        grid-column: 2;
-        grid-row: 2;
-        grid-template-columns: 1fr;
-      }
-
-      .dqn-results-poster .bar-comparison,
-      .dqn-results-poster .result-table {
-        grid-column: 1;
-      }
-
-      .dqn-takeaways {
-        display: none;
-      }
-
-      .ocr-poster {
-        grid-template-columns: minmax(130px, 0.62fr) minmax(0, 1.38fr);
-      }
-
-      .ocr-experiment {
-        display: none;
-      }
-
-      .ocr-context {
-        grid-row: 1 / -1;
-      }
-
-      .ocr-context > p:nth-of-type(3),
-      .ocr-context .poster-outcome {
-        display: none;
-      }
-
-      .ocr-original-flow {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto minmax(0, 1fr);
-      }
-
-      .flow-branches {
-        grid-row: 2;
-      }
-
-      .flow-recognition {
-        grid-row: 3;
+      .evidence-dialog__scroll {
+        padding: 20px;
       }
     }
 
     @media (max-width: 420px) {
-      .poster-panel {
-        padding: 5px;
-      }
-
-      .poster-panel-head {
-        gap: 3px;
-      }
-
-      .evidence-tag {
-        display: none;
-      }
-
-      .floc-poster {
-        grid-template-columns: minmax(100px, 0.52fr) minmax(0, 1.48fr);
-      }
-
-      .floc-question > p,
-      .floc-method .poster-footnote,
-      .floc-evidence .result-table,
-      .floc-decision-poster,
-      .floc-evidence .poster-review {
-        display: none;
-      }
-
-      .floc-evidence {
-        grid-template-rows: auto minmax(0, 1fr) auto;
-      }
-
-      .floc-method {
-        overflow: hidden;
-      }
-
-      .metric-rationale {
-        margin-top: 4px;
-      }
-
-      .metric-rationale div {
+      .poster-summary-panel .summary-facts {
         grid-template-columns: 1fr;
       }
 
-      .metric-rationale dd {
-        display: none;
+      .evidence-dialog {
+        width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+        max-height: calc(100dvh - 20px);
       }
 
-      .poster-metrics {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .evidence-dialog__scroll {
+        max-height: calc(100dvh - 23px);
+        padding: 16px;
       }
 
-      .climate-context > p:nth-of-type(n + 2),
-      .climate-context .poster-divider,
-      .climate-context .poster-label:nth-of-type(2),
-      .climate-context .poster-list,
-      .climate-context .poster-review,
-      .climate-links {
-        display: none;
+      .evidence-dialog__head {
+        gap: 10px;
       }
 
-      .scenario-question,
-      .climate-results .poster-footnote {
-        display: none;
+      .evidence-dialog h2 {
+        font-size: 25px;
       }
 
-      .dqn-context > p,
-      .dqn-context .poster-list,
-      .dqn-context .poster-review,
-      .dqn-results-poster .result-table,
-      .dqn-result-note {
-        display: none;
-      }
-
-      .dqn-loop b {
-        display: none;
-      }
-
-      .ocr-context > p,
-      .ocr-context .poster-review,
-      .ocr-pipeline-poster .poster-footnote,
-      .ocr-results-poster .result-table,
-      .ocr-results-poster .poster-footnote {
-        display: none;
-      }
-
-      .flow-entry {
-        grid-template-columns: minmax(0, 1fr) 7px minmax(0, 1fr) 7px minmax(0, 0.72fr);
-      }
-
-      .flow-entry span,
-      .flow-branches span,
-      .flow-recognition > span {
-        padding: 3px;
-        font-size: 5px;
-      }
-
-      .flow-entry small,
-      .flow-branches small,
-      .flow-recognition small {
-        display: none;
-      }
-
-      .flow-recognition {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2px;
-      }
-
-      .flow-recognition .support-bundle {
-        flex: 1 0 100%;
-      }
-
-      .flow-recognition > i {
-        display: none;
-      }
-
-      .flow-recognition > span {
-        flex: 1 1 22%;
-      }
-
-      .support-bundle span {
-        min-height: 20px;
-        font-size: 4px;
-      }
-
-      .dqn-results-poster .bar-row {
-        grid-template-columns: minmax(62px, 0.8fr) minmax(58px, 1.6fr) 31px;
+      .evidence-dialog dl {
+        grid-template-columns: 1fr;
         gap: 4px;
+      }
+
+      .evidence-dialog th,
+      .evidence-dialog td {
+        padding: 8px 6px;
       }
     }
 
@@ -4285,42 +4613,112 @@
       </a>
 
       <nav class="mast-nav" aria-label="Portfolio slides">
-        <button type="button" data-slide="about" aria-current="step">
-          <span class="nav-number">01</span><span class="nav-label">Profile</span>
-        </button>
-        <button type="button" data-slide="robot-loop">
-          <span class="nav-number">02</span><span class="nav-label">Robot loop</span>
-        </button>
-        <button type="button" data-slide="plant-cv">
-          <span class="nav-number">03</span><span class="nav-label">Plant CV</span>
-        </button>
-        <button type="button" data-slide="climate-data">
-          <span class="nav-number">04</span><span class="nav-label">Climate data</span>
-        </button>
-        <button type="button" data-slide="dqn-planner">
-          <span class="nav-number">05</span><span class="nav-label">DQN planner</span>
-        </button>
-        <button type="button" data-slide="video-ocr">
-          <span class="nav-number">06</span><span class="nav-label">Video OCR</span>
-        </button>
-        <button type="button" data-slide="public-code">
-          <span class="nav-number">07</span><span class="nav-label">Public code</span>
-        </button>
-        <button type="button" data-slide="credentials">
-          <span class="nav-number">08</span><span class="nav-label">Credentials</span>
-        </button>
-        <button type="button" data-slide="direction">
-          <span class="nav-number">09</span><span class="nav-label">Questions</span>
-        </button>
+        <div class="nav-group" role="group" aria-labelledby="nav-research-focus">
+          <p class="nav-group-label" id="nav-research-focus">Research focus</p>
+          <div class="nav-group-items">
+            <button type="button" data-slide="about" aria-current="step">
+              <span class="nav-number">01</span><span class="nav-label">Profile</span>
+            </button>
+            <button type="button" data-slide="robot-loop">
+              <span class="nav-number">02</span><span class="nav-label">Robot systems</span>
+            </button>
+            <button type="button" data-slide="dqn-planner">
+              <span class="nav-number">03</span><span class="nav-label">DQN planner</span>
+            </button>
+            <button type="button" data-slide="direction">
+              <span class="nav-number">04</span><span class="nav-label">Research questions</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-group" role="group" aria-labelledby="nav-supporting-evidence">
+          <p class="nav-group-label" id="nav-supporting-evidence">Selected evidence</p>
+          <div class="nav-group-items">
+            <button type="button" data-slide="plant-cv">
+              <span class="nav-number">05</span><span class="nav-label">Plant CV</span>
+            </button>
+            <button type="button" data-slide="climate-data">
+              <span class="nav-number">06</span><span class="nav-label">Climate data</span>
+            </button>
+            <button type="button" data-slide="video-ocr">
+              <span class="nav-number">07</span><span class="nav-label">Video OCR</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-group" role="group" aria-labelledby="nav-public-record">
+          <p class="nav-group-label" id="nav-public-record">Public record</p>
+          <div class="nav-group-items">
+            <button type="button" data-slide="public-code">
+              <span class="nav-number">08</span><span class="nav-label">Public work</span>
+            </button>
+            <button type="button" data-slide="credentials">
+              <span class="nav-number">09</span><span class="nav-label">Credentials</span>
+            </button>
+          </div>
+        </div>
       </nav>
 
-      <a class="mast-contact" href="mailto:hi.yixinz@gmail.com">say hello ↗</a>
-      <div class="mobile-status" aria-hidden="true">
-        <strong id="mobile-current">01</strong>
-        <span>/</span>
-        <span data-total>09</span>
+      <a class="mast-contact" href="mailto:hi.yixinz@gmail.com">Email</a>
+      <div class="mobile-actions">
+        <button class="mobile-cases" type="button" data-dialog-open="case-menu" aria-haspopup="dialog" aria-controls="case-menu" aria-expanded="false">
+          <span>Cases</span>
+          <span class="mobile-case-status" aria-hidden="true"><strong id="mobile-current">01</strong><span>/</span><span data-total>09</span></span>
+        </button>
+        <a class="mobile-email" href="mailto:hi.yixinz@gmail.com">Email</a>
       </div>
     </header>
+
+    <dialog class="case-menu" id="case-menu" aria-labelledby="case-menu-title">
+      <div class="case-menu-header">
+        <h2 id="case-menu-title">Cases</h2>
+        <form method="dialog">
+          <button class="case-menu-close" type="submit">Close</button>
+        </form>
+      </div>
+      <div class="case-menu-body">
+        <section class="case-menu-group" aria-labelledby="case-menu-research-focus">
+          <h3 id="case-menu-research-focus">Research focus</h3>
+          <div class="case-menu-list">
+            <button type="button" data-slide="about" aria-current="step">
+              <span class="nav-number">01</span><span class="nav-label">Profile</span>
+            </button>
+            <button type="button" data-slide="robot-loop">
+              <span class="nav-number">02</span><span class="nav-label">Robot systems</span>
+            </button>
+            <button type="button" data-slide="dqn-planner">
+              <span class="nav-number">03</span><span class="nav-label">DQN planner</span>
+            </button>
+            <button type="button" data-slide="direction">
+              <span class="nav-number">04</span><span class="nav-label">Research questions</span>
+            </button>
+          </div>
+        </section>
+        <section class="case-menu-group" aria-labelledby="case-menu-supporting-evidence">
+          <h3 id="case-menu-supporting-evidence">Selected evidence</h3>
+          <div class="case-menu-list">
+            <button type="button" data-slide="plant-cv">
+              <span class="nav-number">05</span><span class="nav-label">Plant CV</span>
+            </button>
+            <button type="button" data-slide="climate-data">
+              <span class="nav-number">06</span><span class="nav-label">Climate data</span>
+            </button>
+            <button type="button" data-slide="video-ocr">
+              <span class="nav-number">07</span><span class="nav-label">Video OCR</span>
+            </button>
+          </div>
+        </section>
+        <section class="case-menu-group" aria-labelledby="case-menu-public-record">
+          <h3 id="case-menu-public-record">Public record</h3>
+          <div class="case-menu-list">
+            <button type="button" data-slide="public-code">
+              <span class="nav-number">08</span><span class="nav-label">Public work</span>
+            </button>
+            <button type="button" data-slide="credentials">
+              <span class="nav-number">09</span><span class="nav-label">Credentials</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </dialog>
 
     <main class="deck" id="portfolio">
       <section class="slide is-active" id="about" aria-labelledby="about-title">
@@ -4330,6 +4728,7 @@
               <p class="slide-kicker">01 / 09 — Profile</p>
               <h1 id="about-title" tabindex="-1">Yixin Zhang</h1>
               <p class="profile-lead">R&amp;D engineer building dependable sensing and control infrastructure.</p>
+              <p class="profile-status">I am actively seeking PhD opportunities in robot learning.</p>
               <div class="contact-links profile-links" data-priority="supplemental">
                 <a href="mailto:hi.yixinz@gmail.com">hi.yixinz@gmail.com</a>
                 <a href="https://github.com/yixin-zh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -4349,7 +4748,7 @@
           </div>
 
           <div class="profile-chronology slide-body">
-            <div class="vertical-timeline" aria-label="Career, education, individual project, and volunteering timeline from 2020 to now">
+            <div class="vertical-timeline" role="group" aria-label="Career, education, individual project, and volunteering timeline from 2020 to now">
               <article class="journey-item">
                 <time class="journey-date">Sep 2025<br>— present</time>
                 <span class="journey-node current" aria-hidden="true"></span>
@@ -4554,7 +4953,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">03 / 09 — Industrial computer vision</p>
+              <p class="slide-kicker">05 / 09 — Industrial computer vision</p>
               <h2 class="slide-title" id="plant-cv-title" tabindex="-1">From floc video to a binary operator cue</h2>
               <p class="slide-deckline">Implemented evidence, reported evaluation, and the next temporal study are kept distinct.</p>
             </div>
@@ -4568,7 +4967,8 @@
             <section class="poster-panel floc-question">
               <p class="poster-label">Problem / decision</p>
               <h3>Make an operator’s visual judgement inspectable</h3>
-              <p>Underwater frames are noisy and flocs overlap. The desktop PoC exposes the source frame, binary mask, thresholds, features, and a binary cue: coagulation sufficient or add more coagulant.</p>
+              <p class="poster-summary">Underwater frames are noisy and flocs overlap. The desktop PoC makes the source frame, binary mask, geometry features, and a binary operator cue inspectable.</p>
+              <button class="evidence-open" type="button" data-dialog-open="floc-evidence-dialog" aria-controls="floc-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
               <div class="poster-statline">
                 <span><strong>2,270</strong> labeled images</span>
                 <span><strong>258,887</strong> extracted floc records</span>
@@ -4580,7 +4980,7 @@
                 <p class="poster-label">Implemented method</p>
                 <span class="evidence-tag implemented">archived code</span>
               </div>
-              <div class="method-chain" aria-label="Implemented floc preprocessing and classification pipeline">
+              <div class="method-chain" role="group" aria-label="Implemented floc preprocessing and classification pipeline">
                 <span>grayscale</span><i>→</i><span>median blur</span><i>→</i><span>adaptive threshold</span><i>→</i><span>open / close / erode</span><i>→</i><span>components</span><i>→</i><span>XGBoost</span>
               </div>
               <dl class="metric-rationale">
@@ -4593,7 +4993,7 @@
               <p class="poster-footnote">The features were chosen to cover population, scale, shape, and coverage with inexpensive geometry. The archived classifier is binary, not a five-step dosing controller.</p>
             </section>
 
-            <section class="poster-panel floc-evidence" aria-labelledby="floc-result-title">
+            <section class="poster-panel floc-evidence" role="group" aria-labelledby="floc-result-title">
               <div class="poster-panel-head">
                 <p class="poster-label">Experiment / reported result</p>
                 <span class="evidence-tag implemented">PoC evidence</span>
@@ -4608,7 +5008,7 @@
                 <figcaption><strong>Same frame</strong> — the threshold and XGBoost cues disagree</figcaption>
               </figure>
 
-              <div class="result-metrics poster-metrics" aria-label="Floc classifier headline accuracies">
+              <div class="result-metrics poster-metrics" role="group" aria-label="Floc classifier headline accuracies">
                 <div class="result-metric">
                   <strong>88.5%</strong>
                   <span>XGBoost test accuracy</span>
@@ -4659,7 +5059,7 @@
               </div>
               <div class="temporal-protocol">
                 <h4>Causal window protocol</h4>
-                <div class="window-track" aria-label="Proposed causal evaluation with aggregation, response lag, target horizon, and purged folds">
+                <div class="window-track" role="group" aria-label="Proposed causal evaluation with aggregation, response lag, target horizon, and purged folds">
                   <span>frames</span><i>→</i><span>1-min robust summaries</span><i>→</i><span>x[t−W:t]</span><i>→</i><span class="lag">plant lag τ</span><i>→</i><span>y[t+τ:t+τ+H]</span>
                 </div>
                 <p>Estimate τ from HRT and training-only cross-correlation. Compare W = 2.5 h, 4 h, and 24 h as reference candidates; split by time/video/day and purge at least W+τ+H between folds.</p>
@@ -4676,7 +5076,76 @@
               </div>
               <p class="poster-footnote">Reference only: I used these findings but did not conduct the reported experiments. Correlation screening must be recomputed inside each training fold. TCN/Transformer and SHAP do not appear in the archived PoC.</p>
             </section>
+
+            <section class="poster-panel poster-summary-panel" role="group" aria-labelledby="floc-mobile-summary-title">
+              <p class="poster-label">Plant CV / evidence-led summary</p>
+              <h3 id="floc-mobile-summary-title">A binary floc cue, kept inspectable</h3>
+              <p class="poster-summary">A desktop PoC turns noisy underwater frames into a visible mask, inexpensive geometry features, and a binary cue. Its reported evaluation is not a deployment or temporal-generalization result.</p>
+              <div class="summary-facts" role="group" aria-label="Plant CV headline evidence">
+                <span><strong>88.5%</strong> reported XGBoost test accuracy</span>
+                <span><strong>2,270</strong> labeled images in the preserved account</span>
+              </div>
+              <button class="evidence-open" type="button" data-dialog-open="floc-evidence-dialog" aria-controls="floc-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
+            </section>
           </div>
+
+          <dialog class="evidence-dialog" id="floc-evidence-dialog" aria-labelledby="floc-evidence-dialog-title">
+            <div class="evidence-dialog__scroll">
+              <header class="evidence-dialog__head">
+                <div>
+                  <p class="evidence-dialog__label">Plant CV / evidence notes</p>
+                  <h2 id="floc-evidence-dialog-title">From floc video to a binary operator cue</h2>
+                </div>
+                <form method="dialog">
+                  <button class="evidence-dialog__close" type="submit">Close</button>
+                </form>
+              </header>
+
+              <p class="evidence-dialog__intro">The preserved desktop proof of concept exposes a source frame, binary mask, thresholds, geometry features, and a binary cue: coagulation sufficient or add more coagulant. It does not establish a five-step dosing controller or field deployment.</p>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="floc-method-detail-title">
+                <h3 id="floc-method-detail-title">Implemented method</h3>
+                <div class="dialog-method-chain" role="group" aria-label="Implemented floc preprocessing and classification pipeline">
+                  <span>grayscale</span><i>→</i><span>median blur</span><i>→</i><span>adaptive threshold</span><i>→</i><span>open / close / erode</span><i>→</i><span>components</span><i>→</i><span>XGBoost</span>
+                </div>
+                <dl>
+                  <dt>Count</dt><dd>Population of valid connected components.</dd>
+                  <dt>Major-axis diameter</dt><dd>Elongated floc scale.</dd>
+                  <dt>Equivalent diameter</dt><dd>Area expressed as a circle.</dd>
+                  <dt>Circularity</dt><dd>Shape compactness, 4πA/P².</dd>
+                  <dt>Area fraction</dt><dd>Scene coverage by retained flocs.</dd>
+                </dl>
+                <p>The features cover population, scale, shape, and coverage with inexpensive geometry. The archived classifier is binary, not a five-step dosing controller.</p>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="floc-results-detail-title">
+                <h3 id="floc-results-detail-title">Reported evaluation</h3>
+                <table aria-label="Reported binary classifier metrics">
+                  <thead><tr><th>Classifier</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr></thead>
+                  <tbody>
+                    <tr><td>XGBoost</td><td>88.5%</td><td>87.3%</td><td>87.9%</td></tr>
+                    <tr><td>Threshold</td><td>67.4%</td><td>90.2%</td><td>77.2%</td></tr>
+                  </tbody>
+                </table>
+                <p class="evidence-dialog__boundary"><strong>Evidence boundary:</strong> image labels were replicated to individual flocs, then randomly split. Video/day/plant independence and a held-out future period were not tested; 89% is the rounded résumé value.</p>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="floc-extension-detail-title">
+                <h3 id="floc-extension-detail-title">Research extension — reference only</h3>
+                <p>Pearson screening is useful for the next study only when redundancy and dose relevance are both visible. The supplied reference reports morphology/dose associations, not a transferable dosing optimum or a result from this PoC.</p>
+                <table aria-label="Reference-only morphology and dose associations">
+                  <thead><tr><th>Reference association</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr><td>area / circumference</td><td>0.72</td></tr>
+                    <tr><td>area / circularity</td><td>0.70</td></tr>
+                    <tr><td>area / coagulant dose</td><td>0.61</td></tr>
+                    <tr><td>circularity / coagulant dose</td><td>0.60</td></tr>
+                  </tbody>
+                </table>
+                <p>For a temporal study, estimate the plant lag from HRT and training-only cross-correlation; compare 2.5 h, 4 h, and 24 h windows; split by time/video/day; and purge at least W+τ+H between folds.</p>
+              </section>
+            </div>
+          </dialog>
         </div>
       </section>
 
@@ -4684,7 +5153,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">04 / 09 — Climate analytics</p>
+              <p class="slide-kicker">06 / 09 — Climate analytics</p>
               <h2 class="slide-title" id="climate-data-title" tabindex="-1">Turning case studies into model-ready data</h2>
               <p class="slide-deckline">Data contracts connect published assumptions to optimization and country-level mitigation choices.</p>
             </div>
@@ -4701,7 +5170,8 @@
                 <span class="evidence-tag public">public context</span>
               </div>
               <h3>Global Mitigation Potential Atlas</h3>
-              <p>The Atlas is a decision-support platform for exploring country mitigation potential at different costs and how collaboration can unlock additional strategies.</p>
+              <p class="poster-summary">The Atlas explores country mitigation potential at different costs and how collaboration can unlock additional strategies. My work translated ASEAN case studies into a reusable, optimization-ready data contract.</p>
+              <button class="evidence-open" type="button" data-dialog-open="climate-evidence-dialog" aria-controls="climate-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
               <p>Its pilot methodology focuses on technical potential at cost levels, translating national systems into comparable, optimization-ready cases.</p>
               <div class="source-links climate-links">
                 <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">Open Atlas ↗</a>
@@ -4750,7 +5220,53 @@
               </div>
               <p class="poster-footnote">These are model outputs used to inspect scenario behavior, not observed forecasts. My contribution was data translation and workflow prototyping, not ownership of the Atlas or its full quantitative model.</p>
             </section>
+
+            <section class="poster-panel poster-summary-panel" role="group" aria-labelledby="climate-mobile-summary-title">
+              <p class="poster-label">Climate analytics / evidence-led summary</p>
+              <h3 id="climate-mobile-summary-title">Case studies made model-ready</h3>
+              <p class="poster-summary">I translated ASEAN case-study assumptions, equations, assets, constraints, trade links, units, and CO₂ budgets into a reusable JSON contract for the Atlas workflow. Scenario charts are modeled outputs, not observed forecasts.</p>
+              <div class="summary-facts" role="group" aria-label="Climate analytics evidence boundaries">
+                <span><strong>JSON</strong> schema-aware case translation</span>
+                <span><strong>Modeled</strong> scenario behavior, not a forecast</span>
+              </div>
+              <button class="evidence-open" type="button" data-dialog-open="climate-evidence-dialog" aria-controls="climate-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
+            </section>
           </div>
+
+          <dialog class="evidence-dialog" id="climate-evidence-dialog" aria-labelledby="climate-evidence-dialog-title">
+            <div class="evidence-dialog__scroll">
+              <header class="evidence-dialog__head">
+                <div>
+                  <p class="evidence-dialog__label">Climate analytics / evidence notes</p>
+                  <h2 id="climate-evidence-dialog-title">Turning case studies into model-ready data</h2>
+                </div>
+                <form method="dialog">
+                  <button class="evidence-dialog__close" type="submit">Close</button>
+                </form>
+              </header>
+
+              <p class="evidence-dialog__intro">The Global Mitigation Potential Atlas is a decision-support platform for comparing country mitigation potential at different costs and exploring how collaboration can unlock additional strategies. My documented role was data translation and workflow prototyping within a wider team effort.</p>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="climate-method-detail-title">
+                <h3 id="climate-method-detail-title">Method / data contract</h3>
+                <ul>
+                  <li>Mapped ASEAN case-study prose, equations, assets, constraints, trade links, units, and CO₂ budgets into consistent JSON.</li>
+                  <li>Built a schema-aware, LLM-assisted conversion workflow and inspected optimization output against prior OSeMOSYS/TIMES cases.</li>
+                  <li>Contributed to early MOYA Cascade concepts; the launched product and platform modeling were broader team efforts.</li>
+                </ul>
+                <div class="evidence-dialog__links">
+                  <a href="https://mitigationatlas.org/" target="_blank" rel="noopener noreferrer">Open the public Atlas ↗</a>
+                  <a href="https://mitigationatlas.org/methodology" target="_blank" rel="noopener noreferrer">Read the public methodology ↗</a>
+                </div>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="climate-scenarios-detail-title">
+                <h3 id="climate-scenarios-detail-title">Scenario comparison</h3>
+                <p>The preserved scenario artifacts compare Singapore and Indonesia modeled as self-sufficient systems with an idealized collaboration. They are used to inspect scenario behavior, not to make observed forecasts.</p>
+                <p class="evidence-dialog__boundary"><strong>Evidence boundary:</strong> my contribution was data translation and workflow prototyping, not ownership of the Atlas or its full quantitative model. “Pass@1 &gt;85%” lacks its dataset, rubric, sample count, and failures. Publication clearance remains required for project-only scenario crops.</p>
+              </section>
+            </div>
+          </dialog>
         </div>
       </section>
 
@@ -4758,7 +5274,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">05 / 09 — HIT capstone</p>
+              <p class="slide-kicker">03 / 09 — HIT capstone</p>
               <h2 class="slide-title" id="dqn-planner-title" tabindex="-1">Path planning with delayed observations</h2>
               <p class="slide-deckline">Discrete DQN actions, delayed state estimates, and repeated simulation comparisons.</p>
             </div>
@@ -4772,11 +5288,12 @@
             <section class="poster-panel dqn-context">
               <p class="poster-label">Problem / definition</p>
               <h3>Plan while the newest observation is already stale</h3>
-              <p>A dynamic simulator injects observation delay while the agent must still reach the goal and avoid moving obstacles.</p>
+              <p class="poster-summary">A dynamic simulator injects observation delay while the agent must still reach the goal and avoid moving obstacles. The preserved comparison is a simulation result, not real-robot evidence.</p>
+              <button class="evidence-open" type="button" data-dialog-open="dqn-evidence-dialog" aria-controls="dqn-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
               <div class="poster-divider"></div>
               <p class="poster-label">Method</p>
-              <div class="dqn-loop" aria-label="Discrete DQN control loop">
-                <span>delayed state s<t−d></span><i>→</i><span>main Q(s,a)</span><i>→</i><span>argmax action a</span><i>→</i><span>environment</span>
+              <div class="dqn-loop" role="group" aria-label="Discrete DQN control loop">
+                <span>delayed state s<sub>t−d</sub></span><i>→</i><span>main Q(s,a)</span><i>→</i><span>argmax action a</span><i>→</i><span>environment</span>
                 <b>replay memory → main network; periodic weights → target network</b>
               </div>
               <ul class="poster-list compact-list">
@@ -4805,16 +5322,16 @@
               <figcaption>Reward over episodes for the proposed method, ablated reward logic, and traditional DQN; the complete axes and legend are retained.</figcaption>
             </figure>
 
-            <section class="poster-panel dqn-results-poster" aria-labelledby="dqn-results-title">
+            <section class="poster-panel dqn-results-poster" role="group" aria-labelledby="dqn-results-title">
               <div class="poster-panel-head">
                 <p class="poster-label" id="dqn-results-title">Experiment / reported mean</p>
                 <span class="evidence-tag reported">15 repetitions</span>
               </div>
-                <div class="bar-comparison" aria-label="Reported success-rate comparison">
-                  <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill" style="--value:98.1%"></div></div><strong>98.1%</strong></div>
-                  <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill" style="--value:97.2%"></div></div><strong>97.2%</strong></div>
-                  <div class="bar-row"><span>Traditional DQN</span><div class="bar-track"><div class="bar-fill" style="--value:92.6%"></div></div><strong>92.6%</strong></div>
-                  <div class="bar-row"><span>Traditional Q-learning</span><div class="bar-track"><div class="bar-fill" style="--value:93.1%"></div></div><strong>93.1%</strong></div>
+                <div class="bar-comparison" role="group" aria-label="Reported success-rate comparison">
+                  <div class="bar-row"><span>Proposed</span><div class="bar-track"><div class="bar-fill bar-fill--proposed"></div></div><strong>98.1%</strong></div>
+                  <div class="bar-row"><span>Without reward logic</span><div class="bar-track"><div class="bar-fill bar-fill--without-reward"></div></div><strong>97.2%</strong></div>
+                  <div class="bar-row"><span>Traditional DQN</span><div class="bar-track"><div class="bar-fill bar-fill--dqn"></div></div><strong>92.6%</strong></div>
+                  <div class="bar-row"><span>Traditional Q-learning</span><div class="bar-track"><div class="bar-fill bar-fill--q-learning"></div></div><strong>93.1%</strong></div>
                 </div>
                 <table class="result-table" aria-label="Reported DQN capstone mean results">
                   <thead>
@@ -4828,13 +5345,67 @@
                   </tbody>
                 </table>
                 <p class="dqn-result-note">98.1% versus 92.6% is +5.5 percentage points (+5.9% relative). Values are transcribed from the capstone slide; raw logs are unavailable.</p>
-                <div class="dqn-takeaways" aria-label="Interpretation of the reported DQN comparison">
+                <div class="dqn-takeaways" role="group" aria-label="Interpretation of the reported DQN comparison">
                   <span><strong>+5.5 pp</strong> success versus traditional DQN</span>
                   <span><strong>−1.739</strong> mean path length versus traditional DQN</span>
                   <span><strong>−0.9 pp</strong> after ablating the proposed reward logic</span>
                 </div>
             </section>
+
+            <section class="poster-panel poster-summary-panel" role="group" aria-labelledby="dqn-mobile-summary-title">
+              <p class="poster-label">DQN capstone / evidence-led summary</p>
+              <h3 id="dqn-mobile-summary-title">Planning with delayed observations</h3>
+              <p class="poster-summary">A discrete-action DQN simulator compares delayed-observation planning with reward and baseline variants. The reported means come from 15 repetitions; the raw logs, seeds, simulator configuration, and real-robot evaluation are unavailable.</p>
+              <div class="summary-facts" role="group" aria-label="DQN reported headline evidence">
+                <span><strong>98.1%</strong> reported proposed-method success</span>
+                <span><strong>15</strong> reported repetitions</span>
+              </div>
+              <button class="evidence-open" type="button" data-dialog-open="dqn-evidence-dialog" aria-controls="dqn-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
+            </section>
           </div>
+
+          <dialog class="evidence-dialog" id="dqn-evidence-dialog" aria-labelledby="dqn-evidence-dialog-title">
+            <div class="evidence-dialog__scroll">
+              <header class="evidence-dialog__head">
+                <div>
+                  <p class="evidence-dialog__label">DQN capstone / evidence notes</p>
+                  <h2 id="dqn-evidence-dialog-title">Path planning with delayed observations</h2>
+                </div>
+                <form method="dialog">
+                  <button class="evidence-dialog__close" type="submit">Close</button>
+                </form>
+              </header>
+
+              <p class="evidence-dialog__intro">The capstone uses discrete DQN actions in a dynamic simulator with randomized observation delay. The reported comparison supports a simulation result only; it does not establish continuous control or real-robot performance.</p>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="dqn-method-detail-title">
+                <h3 id="dqn-method-detail-title">Documented method</h3>
+                <div class="dialog-method-chain" role="group" aria-label="Discrete DQN control loop">
+                  <span>delayed state s<sub>t−d</sub></span><i>→</i><span>main Q(s,a)</span><i>→</i><span>argmax action a</span><i>→</i><span>environment</span>
+                </div>
+                <ul>
+                  <li>Finite action candidates are confirmed by the preserved argmax decision rule.</li>
+                  <li>Replay memory, main/target networks, and randomized observation delay are documented.</li>
+                  <li>Reward terms cover progress, collision avoidance, and convergence.</li>
+                </ul>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="dqn-results-detail-title">
+                <h3 id="dqn-results-detail-title">Reported means — 15 repetitions</h3>
+                <table aria-label="Reported DQN capstone mean results">
+                  <thead><tr><th>Method</th><th>Success</th><th>Mean path length</th></tr></thead>
+                  <tbody>
+                    <tr><td>Proposed</td><td>98.1%</td><td>29.113</td></tr>
+                    <tr><td>Without reward logic</td><td>97.2%</td><td>29.474</td></tr>
+                    <tr><td>Traditional DQN</td><td>92.6%</td><td>30.852</td></tr>
+                    <tr><td>Traditional Q-learning</td><td>93.1%</td><td>32.224</td></tr>
+                  </tbody>
+                </table>
+                <p>98.1% versus 92.6% is +5.5 percentage points (+5.9% relative). Values are transcribed from the capstone slide.</p>
+                <p class="evidence-dialog__boundary"><strong>Evidence boundary:</strong> the exact action catalogue, raw logs, seeds, confidence intervals, simulator configuration, and real-robot evaluation are unavailable.</p>
+              </section>
+            </div>
+          </dialog>
         </div>
       </section>
 
@@ -4842,7 +5413,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">06 / 09 — HIT innovation project</p>
+              <p class="slide-kicker">07 / 09 — HIT innovation project</p>
               <h2 class="slide-title" id="video-ocr-title" tabindex="-1">Recognizing text across blurred frames</h2>
               <p class="slide-deckline">A quality-gated multi-frame path retains usable history, fuses evidence, and recognizes a sequence.</p>
             </div>
@@ -4856,7 +5427,8 @@
             <section class="poster-panel ocr-context">
               <p class="poster-label">Problem / contribution</p>
               <h3>Recover strokes that a single blurred frame cannot preserve</h3>
-              <p>The team system detected and matched text instances, retained the best adjacent observations, fused aligned features, and recognized the sequence.</p>
+              <p class="poster-summary">The team system detected and matched text instances, retained strong adjacent observations, fused aligned features, and recognized a sequence. The record supports recognizer/feature coupling, not the broader deblurring or deployment claims.</p>
+              <button class="evidence-open" type="button" data-dialog-open="ocr-evidence-dialog" aria-controls="ocr-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
               <p><strong>Documented role:</strong> Transformer-inspired recognition and coupling recognition features to the upstream restoration network.</p>
               <div class="poster-outcome">First prize at HIT; selected for national-level continuation.</div>
               <div class="case-note poster-review"><strong>Needs review:</strong> the report supports recognizer/feature coupling, not the broader résumé deblurring scope, Android deployment, or “+0.23% F1” wording.</div>
@@ -4867,7 +5439,7 @@
                 <p class="poster-label" id="ocr-path-title">Original quality-gated pipeline — redrawn</p>
                 <span class="evidence-tag implemented">team algorithm</span>
               </div>
-              <div class="ocr-original-flow" aria-label="Quality-gated multi-frame OCR algorithm">
+              <div class="ocr-original-flow" role="group" aria-label="Quality-gated multi-frame OCR algorithm">
                 <div class="flow-entry">
                   <span><strong>Incoming text crop</strong><small>tracked instance at frame t</small></span>
                   <i>→</i>
@@ -4913,12 +5485,12 @@
               </div>
             </section>
 
-            <section class="poster-panel ocr-results-poster" aria-labelledby="ocr-result-title">
+            <section class="poster-panel ocr-results-poster" role="group" aria-labelledby="ocr-result-title">
               <div class="poster-panel-head">
                 <p class="poster-label" id="ocr-result-title">Reported recognition accuracy</p>
                 <span class="evidence-tag reported">acceptance table</span>
               </div>
-              <div class="result-metrics poster-metrics" aria-label="Reported OCR benchmark results">
+              <div class="result-metrics poster-metrics" role="group" aria-label="Reported OCR benchmark results">
                 <div class="result-metric">
                   <strong>69.2%</strong>
                   <span>Chinese Benchmark</span>
@@ -4957,7 +5529,68 @@
               <p class="ocr-transcript">我是第三段文字呀呀呀</p>
               <figcaption id="ocr-examples-caption">Blurred inputs and restored outputs from the project-results slide; source images and an independent rerun were not supplied.</figcaption>
             </figure>
+
+            <section class="poster-panel poster-summary-panel" role="group" aria-labelledby="ocr-mobile-summary-title">
+              <p class="poster-label">Video OCR / evidence-led summary</p>
+              <h3 id="ocr-mobile-summary-title">Recognizing text across blurred frames</h3>
+              <p class="poster-summary">The team retained high-quality matched crops, fused the reference with four support crops, and recognized a text sequence. Reported benchmark values are preserved from an acceptance table; raw predictions and an independent rerun are not available.</p>
+              <div class="summary-facts" role="group" aria-label="Video OCR reported headline evidence">
+                <span><strong>69.2%</strong> Chinese Benchmark</span>
+                <span><strong>68.5%</strong> ICDAR 2019-LSVT</span>
+              </div>
+              <button class="evidence-open" type="button" data-dialog-open="ocr-evidence-dialog" aria-controls="ocr-evidence-dialog" aria-haspopup="dialog">Inspect method &amp; evidence</button>
+            </section>
           </div>
+
+          <dialog class="evidence-dialog" id="ocr-evidence-dialog" aria-labelledby="ocr-evidence-dialog-title">
+            <div class="evidence-dialog__scroll">
+              <header class="evidence-dialog__head">
+                <div>
+                  <p class="evidence-dialog__label">Video OCR / evidence notes</p>
+                  <h2 id="ocr-evidence-dialog-title">Recognizing text across blurred frames</h2>
+                </div>
+                <form method="dialog">
+                  <button class="evidence-dialog__close" type="submit">Close</button>
+                </form>
+              </header>
+
+              <p class="evidence-dialog__intro">The team system detected and matched text instances, retained strong adjacent observations, fused aligned features, and recognized a sequence. The documented role is Transformer-inspired recognition and coupling recognition features to the upstream restoration network.</p>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="ocr-method-detail-title">
+                <h3 id="ocr-method-detail-title">Original quality-gated pipeline</h3>
+                <ul>
+                  <li>A tracked crop at frame t is scored against matched history.</li>
+                  <li>A crop in the TOP5 quality memory becomes the new reference; four saved support crops are retained.</li>
+                  <li>The support crops and reference are fused before an SVTR-inspired recognizer with local/global mixing blocks and CTC prediction produces the text sequence.</li>
+                  <li>A weaker crop retains the prior output rather than rerunning the recognizer.</li>
+                </ul>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="ocr-experiment-detail-title">
+                <h3 id="ocr-experiment-detail-title">Experiment definition</h3>
+                <ul>
+                  <li>Because no public blurred-video corpus was available, blur kernels were applied to ground-truth still images to form consecutive degraded frames.</li>
+                  <li>Chinese Benchmark and ICDAR 2019-LSVT were used for the reported recognition comparison.</li>
+                </ul>
+                <div class="evidence-dialog__links">
+                  <a href="https://arxiv.org/abs/2201.12288" target="_blank" rel="noopener noreferrer">VRT context ↗</a>
+                  <a href="https://www.ijcai.org/proceedings/2022/124" target="_blank" rel="noopener noreferrer">SVTR context ↗</a>
+                </div>
+              </section>
+
+              <section class="evidence-dialog__section" role="group" aria-labelledby="ocr-results-detail-title">
+                <h3 id="ocr-results-detail-title">Reported recognition accuracy</h3>
+                <table aria-label="OCR comparison with SVTR-S">
+                  <thead><tr><th>Method</th><th>Chinese</th><th>LSVT</th></tr></thead>
+                  <tbody>
+                    <tr><td>Team method</td><td>69.2%</td><td>68.5%</td></tr>
+                    <tr><td>SVTR-S</td><td>69.0%</td><td>68.2%</td></tr>
+                  </tbody>
+                </table>
+                <p class="evidence-dialog__boundary"><strong>Evidence boundary:</strong> the table is preserved evidence. Exact sample counts, blur distribution, seeds, raw predictions, and an independent rerun were not supplied. The report supports recognizer/feature coupling, not the broader résumé deblurring scope, Android deployment, or “+0.23% F1” wording.</p>
+              </section>
+            </div>
+          </dialog>
         </div>
       </section>
 
@@ -4965,7 +5598,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">07 / 09 — Open work</p>
+              <p class="slide-kicker">08 / 09 — Open work</p>
               <h2 class="slide-title" id="public-code-title" tabindex="-1">Public code and model evaluation</h2>
               <p class="slide-deckline">Two merged vector-search changes, an agricultural KBQA assessment, and early prompt-engineering coursework.</p>
             </div>
@@ -5024,7 +5657,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">08 / 09 — Credentials</p>
+              <p class="slide-kicker">09 / 09 — Credentials</p>
               <h2 class="slide-title" id="credentials-title" tabindex="-1">ML, cloud, and data credentials</h2>
               <p class="slide-deckline">Seven professional certifications and two NVIDIA DLI course certificates visible in the supplied record.</p>
             </div>
@@ -5114,7 +5747,7 @@
         <div class="slide-frame">
           <header class="slide-header">
             <div>
-              <p class="slide-kicker">09 / 09 — Questions</p>
+              <p class="slide-kicker">04 / 09 — Questions</p>
               <h2 class="slide-title" id="direction-title" tabindex="-1">What is worth testing next?</h2>
               <p class="slide-deckline">Systems engineering now; robot learning next. Keep the questions close to physical evidence.</p>
             </div>
@@ -5147,8 +5780,8 @@
             </section>
 
             <div class="small-interests">
-              <p><strong>Decentralized multi-agent infrastructure:</strong> a practical touchpoint is the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a>.</p>
-              <p><strong>AI + formalized mathematics:</strong> still an early interest; current foundations are formal languages, context-free grammars, and propositional logic.</p>
+              <p><strong>Infrastructure for autonomous agents:</strong> I am exploring decentralized and Web3 approaches to agent identity, coordination, and E2EE messaging; the ANP handle <a href="https://zyx.awiki.ai/" target="_blank" rel="noopener noreferrer">zyx.awiki.ai</a> is a practical touchpoint.</p>
+              <p><strong>Other early research interests:</strong> AI for mathematics, biology (for example, proteins), and medicine (for example, radiomics). These are directions I am exploring, not completed projects.</p>
             </div>
           </div>
         </div>
@@ -5172,8 +5805,37 @@
 
   <script>
     (function () {
-      const slides = Array.from(document.querySelectorAll(".slide"));
+      const physicalSlides = Array.from(document.querySelectorAll(".slide"));
+      // Keep the document in chronological order for reading and printing, but
+      // let interactive navigation follow the research-first portfolio story.
+      const researchFirstSlideIds = [
+        "about",
+        "robot-loop",
+        "dqn-planner",
+        "direction",
+        "plant-cv",
+        "climate-data",
+        "video-ocr",
+        "public-code",
+        "credentials"
+      ];
+      const slidesById = new Map(physicalSlides.map(function (slide) {
+        return [slide.id, slide];
+      }));
+      const slides = researchFirstSlideIds
+        .map(function (slideId) { return slidesById.get(slideId); })
+        .filter(Boolean);
+      physicalSlides.forEach(function (slide) {
+        if (!slides.includes(slide)) {
+          slides.push(slide);
+        }
+      });
+      const logicalSlideNumbers = new Map(slides.map(function (slide, index) {
+        return [slide.id, index + 1];
+      }));
       const navButtons = Array.from(document.querySelectorAll("[data-slide]"));
+      const dialogs = Array.from(document.querySelectorAll("dialog"));
+      const dialogOpeners = new WeakMap();
       const previousButton = document.getElementById("previous-slide");
       const nextButton = document.getElementById("next-slide");
       const currentLabel = document.getElementById("current-slide");
@@ -5193,11 +5855,72 @@
 
       function indexFromHash() {
         const hash = window.location.hash.slice(1);
-        const index = slides.findIndex(function (slide) {
-          return slide.id === hash;
-        });
+        const index = indexForSlideId(hash);
         return index >= 0 ? index : 0;
       }
+
+      function indexForSlideId(slideId) {
+        return slides.findIndex(function (slide) {
+          return slide.id === slideId;
+        });
+      }
+
+      function dialogFromReference(reference) {
+        const dialogId = (reference || "").replace(/^#/, "");
+        const dialog = document.getElementById(dialogId);
+        return dialog && dialog.tagName === "DIALOG" ? dialog : null;
+      }
+
+      function closeDialogForNavigation(control) {
+        const dialog = control.closest("dialog");
+        if (dialog && dialog.open) {
+          dialog.dataset.restoreFocus = "false";
+          dialog.close();
+        }
+      }
+
+      dialogs.forEach(function (dialog) {
+        dialog.addEventListener("close", function () {
+          const opener = dialogOpeners.get(dialog);
+          const restoreFocus = dialog.dataset.restoreFocus !== "false";
+          delete dialog.dataset.restoreFocus;
+          dialogOpeners.delete(dialog);
+
+          if (restoreFocus && opener && document.contains(opener)) {
+            opener.focus({ preventScroll: true });
+          }
+
+          if (dialog.id === "case-menu") {
+            document.querySelectorAll('[data-dialog-open="case-menu"]').forEach(function (trigger) {
+              trigger.setAttribute("aria-expanded", "false");
+            });
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-dialog-open]").forEach(function (trigger) {
+        trigger.addEventListener("click", function () {
+          const dialog = dialogFromReference(trigger.dataset.dialogOpen);
+          if (!dialog || dialog.open) {
+            return;
+          }
+          dialogOpeners.set(dialog, trigger);
+          dialog.dataset.restoreFocus = "true";
+          if (trigger.hasAttribute("aria-expanded")) {
+            trigger.setAttribute("aria-expanded", "true");
+          }
+          dialog.showModal();
+        });
+      });
+
+      document.querySelectorAll("[data-dialog-close]").forEach(function (trigger) {
+        trigger.addEventListener("click", function () {
+          const dialog = dialogFromReference(trigger.dataset.dialogClose) || trigger.closest("dialog");
+          if (dialog && dialog.open) {
+            dialog.close();
+          }
+        });
+      });
 
       function isInteractiveTarget(target) {
         return target instanceof Element && Boolean(
@@ -5288,9 +6011,10 @@
       function goToSlide(index, options) {
         const config = Object.assign({ updateHash: true, focusHeading: false }, options);
         currentIndex = Math.max(0, Math.min(total - 1, index));
+        const activeSlide = slides[currentIndex];
 
-        slides.forEach(function (slide, slideIndex) {
-          const active = slideIndex === currentIndex;
+        slides.forEach(function (slide) {
+          const active = slide === activeSlide;
           slide.classList.toggle("is-active", active);
           slide.toggleAttribute("inert", !active);
           if (active) {
@@ -5300,8 +6024,8 @@
           }
         });
 
-        navButtons.forEach(function (button, buttonIndex) {
-          if (buttonIndex === currentIndex) {
+        navButtons.forEach(function (button) {
+          if (button.dataset.slide === activeSlide.id) {
             button.setAttribute("aria-current", "step");
           } else {
             button.removeAttribute("aria-current");
@@ -5311,20 +6035,21 @@
         previousButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex === total - 1;
 
-        const number = String(currentIndex + 1).padStart(2, "0");
-        const heading = slides[currentIndex].querySelector("h1, h2");
-        const headingText = heading ? heading.textContent.trim() : `Slide ${currentIndex + 1}`;
+        const logicalNumber = logicalSlideNumbers.get(activeSlide.id) || currentIndex + 1;
+        const number = String(logicalNumber).padStart(2, "0");
+        const heading = activeSlide.querySelector("h1, h2");
+        const headingText = heading ? heading.textContent.trim() : `Slide ${logicalNumber}`;
         currentLabel.textContent = number;
         mobileCurrentLabel.textContent = number;
-        announcement.textContent = `Slide ${currentIndex + 1} of ${total}: ${headingText}`;
+        announcement.textContent = `Slide ${logicalNumber} of ${total}: ${headingText}`;
 
         const activeVideo = document.getElementById("cabinet-video");
-        if (activeVideo && slides[currentIndex].id !== "robot-loop") {
+        if (activeVideo && activeSlide.id !== "robot-loop") {
           activeVideo.pause();
         }
 
         if (config.updateHash) {
-          history.replaceState(null, "", `#${slides[currentIndex].id}`);
+          history.replaceState(null, "", `#${activeSlide.id}`);
         }
 
         // Hash navigation can scroll the overflow-hidden deck toward an
@@ -5333,19 +6058,24 @@
         resetDeckOrigin();
         requestAnimationFrame(resetDeckOrigin);
 
-        fitSlide(slides[currentIndex]);
+        fitSlide(activeSlide);
 
         if (config.focusHeading && heading) {
           heading.focus({ preventScroll: true });
         }
       }
 
+      function goToSlideById(slideId, options) {
+        const targetIndex = indexForSlideId(slideId);
+        if (targetIndex >= 0) {
+          goToSlide(targetIndex, options);
+        }
+      }
+
       navButtons.forEach(function (button) {
         button.addEventListener("click", function () {
-          const targetIndex = slides.findIndex(function (slide) {
-            return slide.id === button.dataset.slide;
-          });
-          goToSlide(targetIndex, { focusHeading: true });
+          closeDialogForNavigation(button);
+          goToSlideById(button.dataset.slide, { focusHeading: true });
         });
       });
 
@@ -5358,6 +6088,10 @@
       });
 
       document.addEventListener("keydown", function (event) {
+        if (document.querySelector("dialog[open]")) {
+          return;
+        }
+
         if (isInteractiveTarget(event.target)) {
           return;
         }

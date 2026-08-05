@@ -17,32 +17,33 @@ derivatives under `assets/portfolio/` are public.
 
 ## Page structure
 
-1. **Profile** — robot-learning goal, motto, contact links, and a frameless
-   career/education/project/volunteering chronology. Each project has its own
-   dated row; the dates make the HIT and NUS-ISS overlap legible without a
-   separate explanatory panel.
+1. **Profile** — an understated statement that Yixin is actively seeking PhD
+   opportunities in robot learning, the evidence-led research trajectory,
+   contact details, and a frameless career/education/project/volunteering
+   chronology. Each project has its own dated row; the dates make the HIT and
+   NUS-ISS overlap legible without a separate explanatory panel.
 2. **Robot loop** — runtime and cabinet-operation scope beside three privacy-
    cropped video frames and a click-to-load hosted demo.
-3. **Plant CV** — an academic-poster layout separates the archived five-feature
+3. **DQN planner** — the complete simulator and learning-curve figures are shown
+   with `object-fit: contain`, beside the discrete-action method and a legible
+   bar/table interpretation of the reported 15-run comparison.
+4. **Questions** — robot-learning questions, complementary forward-looking
+   research interests, and early AI/formalized-mathematics foundations.
+5. **Plant CV** — an academic-poster layout separates the archived five-feature
    binary PoC, its GUI and reported metrics, and a reference-only research
    extension. The extension covers morphology-to-morphology redundancy,
    morphology-to-dose association, and a causal lag/window protocol.
-4. **Climate data** — the Global Mitigation Potential Atlas is introduced as
+6. **Climate data** — the Global Mitigation Potential Atlas is introduced as
    public platform context. Internship contribution, case-model/JSON artifacts,
    and complete modeled scenario outputs remain visually distinct.
-5. **DQN planner** — the complete simulator and learning-curve figures are shown
-   with `object-fit: contain`, beside the discrete-action method and a legible
-   bar/table interpretation of the reported 15-run comparison.
-6. **Video OCR** — the original TOP5/TOP4 quality gate, four support frames,
+7. **Video OCR** — the original TOP5/TOP4 quality gate, four support frames,
    reference frame, feature extraction, alignment/fusion, and SVTR-inspired
    recognition path are redrawn in the portfolio style. The poster also retains
    experiment definition, reported scores, and two perceivable text examples.
-7. **Public code** — public repositories and merged pull requests, plus a small
+8. **Public code** — public repositories and merged pull requests, plus a small
    ANP-handle note.
-8. **Credentials** — NVIDIA, Oracle, Microsoft, and AWS records grouped by
+9. **Credentials** — NVIDIA, Oracle, Microsoft, and AWS records grouped by
    provider.
-9. **Questions** — questions being pursued, enduring interests, decentralized
-   multi-agent infrastructure, and early AI/formalized-mathematics foundations.
 
 ## Evidence boundaries
 
