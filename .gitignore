@@ -1,3 +1,10 @@
 /raw/
 /tmp/
 .DS_Store
+
+# Local agent tooling and review archives do not belong in the public Pages repo.
+/.claude/
+/.codex/
+/.cursor/
+/.impeccable/critique/
+/.impeccable/live/
