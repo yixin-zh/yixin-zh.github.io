@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "[ ! -f \"/Users/yixin/.cursor/skills/impeccable/scripts/hook-before-edit.mjs\" ] || node \"/Users/yixin/.cursor/skills/impeccable/scripts/hook-before-edit.mjs\"",
+        "timeout": 5
+      }
+    ]
+  }
+}
