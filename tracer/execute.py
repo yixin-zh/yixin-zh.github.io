@@ -92,6 +92,7 @@ class Tracer:
         self.files: dict[str, str] = {}
         self.steps: list[Step] = []
         self.states: dict[FrameType, _FrameState] = {}
+        self.ignored: set[FrameType] = set()  # frames (and everything below) left untraced
         self.stack: list[_FrameState] = []
         self._line_cache: dict[str, list[str]] = {}
 
@@ -157,9 +158,15 @@ class Tracer:
             return None
 
         if event == "call":
-            parent = self.states.get(frame.f_back)
-            if parent is not None and parent.stepover:
-                return None  # @stepover: don't descend into this call
+            parent_frame = frame.f_back
+            parent = self.states.get(parent_frame)
+            skipped = (parent is not None and parent.stepover) or (
+                parent_frame is not None and parent_frame in self.ignored
+            )
+            if skipped:
+                # Neither this call nor anything it calls contributes steps.
+                self.ignored.add(frame)
+                return None
             relative = self.relativize(path)
             self.register_file(relative)
             state = _FrameState(frame, relative, frame.f_code.co_name)
