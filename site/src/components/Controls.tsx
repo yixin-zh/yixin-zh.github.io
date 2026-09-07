@@ -39,7 +39,7 @@ export function Controls({
   const progress = total > 1 ? (index / (total - 1)) * 100 : 100;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-ink-950/85 backdrop-blur-xl">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line/10 bg-surface/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-2.5">
         <button
           type="button"
@@ -71,13 +71,13 @@ export function Controls({
           value={index}
           onChange={(event) => onStep(Number(event.target.value))}
           aria-label="Step"
-          className="mx-2 h-1.5 min-w-[140px] flex-1 cursor-pointer appearance-none rounded-full bg-white/10 accent-brand-indigo"
+          className="mx-2 h-1.5 min-w-[140px] flex-1 cursor-pointer appearance-none rounded-full accent-accent"
           style={{
-            background: `linear-gradient(90deg, #6366F1 ${progress}%, rgba(255,255,255,0.10) ${progress}%)`,
+            background: `linear-gradient(90deg, rgb(var(--accent)) ${progress}%, rgb(var(--line) / 0.12) ${progress}%)`,
           }}
         />
 
-        <span className="whitespace-nowrap font-mono text-[11px] text-slate-400">
+        <span className="whitespace-nowrap font-mono text-[11px] text-fg-subtle">
           {index + 1} / {total}
         </span>
 

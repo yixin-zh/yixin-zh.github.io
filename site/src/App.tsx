@@ -27,6 +27,12 @@ export default function App() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [trace, setTrace] = useState<Trace | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [dark, setDark] = useState(() => window.localStorage.getItem("theme") === "dark");
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    window.localStorage.setItem("theme", dark ? "dark" : "light");
+  }, [dark]);
 
   useEffect(() => {
     let cancelled = false;
@@ -162,13 +168,15 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-ink-950 text-slate-200 transition-colors">
+    <div className="min-h-screen bg-surface text-fg transition-colors">
       <Nav
         site={manifest?.site ?? null}
         sections={manifest?.sections ?? []}
         current={sectionId}
+        dark={dark}
         onSelect={selectSection}
         onViewAll={() => update((next) => next.delete("step"))}
+        onToggleTheme={() => setDark((value) => !value)}
       />
 
       <main className="mx-auto max-w-6xl px-4 pb-28 pt-20">
@@ -183,7 +191,7 @@ export default function App() {
             <Footer site={manifest?.site ?? null} />
           </>
         ) : (
-          <div className="glass rounded-2xl border border-white/10 p-8 text-sm text-slate-300">
+          <div className="glass rounded-2xl border border-line/10 p-8 text-sm text-fg-muted">
             {error ?? "Loading trace…"}
           </div>
         )}

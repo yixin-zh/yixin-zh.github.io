@@ -17,7 +17,8 @@ site/dist/
 # Build output (produced by GitHub Actions; not committed)
 docs/
 
-# OS / editor
+# OS / editor / tooling
+.codebuddy/
 .DS_Store
 .idea/
 *.swp

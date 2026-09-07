@@ -86,10 +86,25 @@ anything); press play to walk it from the first line.
 3. The workflow in `.github/workflows/deploy.yml` runs the tracer tests,
    compiles the traces, builds the site and publishes `docs/`.
 
-The base path is the repository name (`/my-online-resume/`).  It is baked into
-the build via `BASE_PATH`; the workflow sets it from the repo name, so renaming
-the repository needs no code change — but when running `npm run build` by hand
-from a differently named checkout, pass `BASE_PATH=/<repo>/`.
+**Base path**: a user site (`<user>.github.io`) is served from `/`; a project
+site is served from `/<repo>/`.  The workflow derives `BASE_PATH` from the
+repository name automatically.  When building by hand for a project site, pass
+it explicitly:
+
+```bash
+BASE_PATH=/my-online-resume/ npm --prefix site run build
+```
+
+(The default is `/`, which is what this repository — `yixin-zh.github.io` —
+needs.)
+
+## Theming
+
+Light mode is the default; the toggle in the top-right switches to dark and the
+choice is remembered in `localStorage`.  Colours come from CSS variables in
+`site/src/index.css` (`:root` = light, `.dark` = dark) exposed to Tailwind as
+semantic tokens (`surface`, `surface-2`, `line`, `fg`, `fg-muted`, `fg-subtle`,
+`accent`, `accent-2`, `accent-3`) — use those instead of hard-coded greys.
 
 ## Tests
 

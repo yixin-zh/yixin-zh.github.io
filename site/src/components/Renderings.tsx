@@ -27,8 +27,8 @@ function PlotView({ spec }: { spec: Record<string, unknown> }) {
   }));
 
   return (
-    <div className="glass rounded-2xl border border-white/10 p-4">
-      {title ? <p className="mb-3 text-sm font-semibold text-slate-100">{title}</p> : null}
+    <div className="rounded-2xl border border-line/10 bg-surface-2 p-4">
+      {title ? <p className="mb-3 text-sm font-semibold text-fg">{title}</p> : null}
       <ResponsiveContainer width="100%" height={220}>
         <BarChart data={data} margin={{ top: 4, right: 8, bottom: 4, left: -18 }}>
           <defs>
@@ -37,23 +37,16 @@ function PlotView({ spec }: { spec: Record<string, unknown> }) {
               <stop offset="100%" stopColor="#22D3EE" />
             </linearGradient>
           </defs>
-          <XAxis
-            dataKey="name"
-            stroke="#94A3B8"
-            fontSize={11}
-            tickLine={false}
-            axisLine={false}
-            interval={0}
-          />
-          <YAxis stroke="#94A3B8" fontSize={11} tickLine={false} axisLine={false} width={44} />
+          <XAxis dataKey="name" fontSize={11} tickLine={false} axisLine={false} interval={0} />
+          <YAxis fontSize={11} tickLine={false} axisLine={false} width={44} />
           <Tooltip
-            cursor={{ fill: "rgba(99,102,241,0.08)" }}
+            cursor={{ fill: "rgb(var(--accent) / 0.08)" }}
             formatter={(value: number) => [`${value}${unit}`, ""]}
             contentStyle={{
-              background: "#111827",
-              border: "1px solid rgba(148,163,184,0.25)",
+              background: "rgb(var(--surface-2))",
+              border: "1px solid rgb(var(--line) / 0.15)",
               borderRadius: 12,
-              color: "#E5E7EB",
+              color: "rgb(var(--fg))",
               fontSize: 12,
             }}
           />
@@ -73,7 +66,7 @@ function LinkCard({ rendering }: { rendering: Rendering }) {
 
   if (!url && internal) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-line/10 bg-surface-2 px-3 py-1 text-xs font-medium text-fg-muted">
         {rendering.data as string}
       </span>
     );
@@ -84,13 +77,13 @@ function LinkCard({ rendering }: { rendering: Rendering }) {
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 transition hover:-translate-y-0.5 hover:border-brand-indigo/60 hover:bg-white/[0.07]"
+      className="group flex items-center justify-between gap-4 rounded-2xl border border-line/10 bg-surface-2 px-4 py-3 transition hover:-translate-y-0.5 hover:border-accent/60 hover:bg-surface-3"
     >
       <span className="min-w-0">
-        <span className="block truncate text-sm font-semibold text-slate-100">{title}</span>
-        {source ? <span className="block truncate text-xs text-slate-400">{source}</span> : null}
+        <span className="block truncate text-sm font-semibold text-fg">{title}</span>
+        {source ? <span className="block truncate text-xs text-fg-subtle">{source}</span> : null}
       </span>
-      <ArrowUpRight className="h-4 w-4 shrink-0 text-brand-cyan transition group-hover:translate-x-0.5" />
+      <ArrowUpRight className="h-4 w-4 shrink-0 text-accent-2 transition group-hover:translate-x-0.5" />
     </a>
   );
 }
@@ -106,7 +99,7 @@ function Media({ rendering }: { rendering: Rendering }) {
         controls
         preload="metadata"
         src={source}
-        className="w-full max-w-3xl rounded-2xl border border-white/10 shadow-lg shadow-black/40"
+        className="w-full max-w-3xl rounded-2xl border border-line/10 shadow-lg shadow-black/10"
       />
     );
   }
@@ -117,14 +110,14 @@ function Media({ rendering }: { rendering: Rendering }) {
       alt=""
       loading="lazy"
       style={width ? { width, maxWidth: "100%" } : undefined}
-      className="rounded-2xl border border-white/10 bg-ink-900 shadow-lg shadow-black/40 transition hover:shadow-brand-indigo/20"
+      className="rounded-2xl border border-line/10 bg-surface-2 shadow-lg shadow-black/10"
     />
   );
 }
 
 function Note({ rendering }: { rendering: Rendering }) {
   return (
-    <div className="flex items-start gap-2 rounded-xl border border-amber-300/25 bg-amber-300/10 px-3 py-2 text-xs text-amber-100">
+    <div className="flex items-start gap-2 rounded-xl border border-amber-500/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
       <StickyNote className="mt-0.5 h-3.5 w-3.5 shrink-0" />
       <span>{String(rendering.data ?? "")}</span>
     </div>

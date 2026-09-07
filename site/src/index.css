@@ -3,15 +3,59 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light theme (default) */
+  :root {
+    --surface: 248 250 252;
+    --surface-2: 255 255 255;
+    --surface-3: 241 245 249;
+    --line: 15 23 42;
+    --fg: 15 23 42;
+    --fg-muted: 71 85 105;
+    --fg-subtle: 148 163 184;
+    --accent: 79 70 229;
+    --accent-2: 2 132 199;
+    --accent-3: 124 58 237;
+    --glass: 255 255 255;
+    --glass-alpha: 0.72;
+    --glow-1: rgba(99, 102, 241, 0.1);
+    --glow-2: rgba(34, 211, 238, 0.1);
+    --code-keyword: 109 40 217;
+    --code-string: 4 120 87;
+    --code-number: 180 83 9;
+    --code-comment: 148 163 184;
+  }
+
+  /* Dark theme */
+  .dark {
+    --surface: 11 17 32;
+    --surface-2: 27 36 54;
+    --surface-3: 38 49 74;
+    --line: 226 232 240;
+    --fg: 229 231 235;
+    --fg-muted: 148 163 184;
+    --fg-subtle: 100 116 139;
+    --accent: 129 140 248;
+    --accent-2: 34 211 238;
+    --accent-3: 167 139 250;
+    --glass: 17 24 39;
+    --glass-alpha: 0.55;
+    --glow-1: rgba(99, 102, 241, 0.16);
+    --glow-2: rgba(34, 211, 238, 0.12);
+    --code-keyword: 167 139 250;
+    --code-string: 110 231 183;
+    --code-number: 252 211 77;
+    --code-comment: 100 116 139;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-ink-950 font-sans text-slate-200 antialiased;
+    @apply bg-surface font-sans text-fg antialiased;
     background-image:
-      radial-gradient(60rem 40rem at 15% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
-      radial-gradient(50rem 30rem at 95% 0%, rgba(34, 211, 238, 0.12), transparent 55%);
+      radial-gradient(60rem 40rem at 15% -10%, var(--glow-1), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 0%, var(--glow-2), transparent 55%);
     background-attachment: fixed;
   }
 
@@ -21,50 +65,60 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-white/10;
+    background: rgb(var(--line) / 0.18);
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-white/20;
+    background: rgb(var(--line) / 0.3);
   }
 }
 
 @layer components {
   .glass {
-    background: rgba(17, 24, 39, 0.55);
+    background: rgb(var(--glass) / var(--glass-alpha));
     backdrop-filter: blur(12px);
   }
 
   .control-button {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-line/10 bg-surface-2 p-2 text-fg-muted transition;
   }
 
   .control-button:hover {
-    @apply -translate-y-0.5 border-brand-indigo/50 text-white;
+    @apply -translate-y-0.5 border-accent/50 text-fg;
   }
 
   .control-button-primary {
-    @apply border-brand-indigo/40 bg-gradient-to-br from-brand-indigo/80 to-brand-cyan/70 text-white;
+    @apply border-accent/40 text-white;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--accent) / 0.9),
+      rgb(var(--accent-2) / 0.85)
+    );
   }
 
   .control-button-primary:hover {
-    @apply shadow-lg shadow-brand-indigo/30;
+    box-shadow: 0 10px 24px -8px rgb(var(--accent) / 0.55);
   }
 
   .markdown {
-    @apply text-[15px] leading-relaxed text-slate-200;
+    @apply text-[15px] leading-relaxed text-fg;
   }
 
   .markdown h1 {
-    @apply mt-2 bg-gradient-to-r from-white via-slate-100 to-brand-cyan bg-clip-text text-3xl font-bold text-transparent;
+    @apply mt-2 text-3xl font-bold;
+    background-image: linear-gradient(90deg, rgb(var(--fg)), rgb(var(--accent-2)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .markdown h2 {
-    @apply mt-6 text-xl font-semibold text-slate-100;
+    @apply mt-6 text-xl font-semibold text-fg;
   }
 
   .markdown h3 {
-    @apply mt-4 text-base font-semibold text-brand-cyan;
+    @apply mt-4 text-base font-semibold text-accent-2;
   }
 
   .markdown p {
@@ -72,50 +126,63 @@
   }
 
   .markdown ul {
-    @apply my-2 list-disc space-y-1 pl-5 marker:text-brand-indigo;
+    @apply my-2 list-disc space-y-1 pl-5 marker:text-accent;
   }
 
   .markdown ol {
-    @apply my-2 list-decimal space-y-1 pl-5 marker:text-brand-indigo;
+    @apply my-2 list-decimal space-y-1 pl-5 marker:text-accent;
   }
 
   .markdown a {
-    @apply cursor-pointer font-medium text-brand-cyan underline decoration-brand-cyan/40 underline-offset-2 transition hover:decoration-brand-cyan;
+    @apply cursor-pointer font-medium text-accent-2 underline decoration-accent-2/40 underline-offset-2 transition hover:decoration-accent-2;
   }
 
   .markdown strong {
-    @apply font-semibold text-white;
+    @apply font-semibold text-fg;
   }
 
   .markdown em {
-    @apply text-slate-300;
+    @apply text-fg-muted;
   }
 
   .markdown code {
-    @apply rounded bg-white/10 px-1.5 py-0.5 font-mono text-[13px] text-brand-violet;
+    @apply rounded px-1.5 py-0.5 font-mono text-[13px];
+    background: rgb(var(--line) / 0.08);
+    color: rgb(var(--accent-3));
   }
 
   .markdown blockquote {
-    @apply my-2 border-l-2 border-brand-indigo/60 pl-3 text-slate-400;
+    @apply my-2 border-l-2 pl-3 text-fg-muted;
+    border-color: rgb(var(--accent) / 0.6);
   }
 
   .markdown img {
     @apply rounded-xl;
   }
 
+  /* recharts draws with presentation attributes; CSS wins over those. */
+  .recharts-cartesian-axis-tick text {
+    fill: rgb(var(--fg-subtle));
+  }
+
+  .recharts-cartesian-axis-line,
+  .recharts-cartesian-axis-tick-line {
+    stroke: rgb(var(--line) / 0.2);
+  }
+
   .code-line .tok-keyword {
-    @apply text-brand-violet;
+    color: rgb(var(--code-keyword));
   }
 
   .code-line .tok-string {
-    @apply text-emerald-300;
+    color: rgb(var(--code-string));
   }
 
   .code-line .tok-number {
-    @apply text-amber-300;
+    color: rgb(var(--code-number));
   }
 
   .code-line .tok-comment {
-    @apply text-slate-500;
+    color: rgb(var(--code-comment));
   }
 }

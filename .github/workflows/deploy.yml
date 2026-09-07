@@ -38,12 +38,20 @@ jobs:
         run: npm ci
         working-directory: site
 
+      - name: Determine the site base path
+        run: |
+          REPO='${{ github.event.repository.name }}'
+          if [[ "$REPO" == *.github.io ]]; then
+            echo "BASE_PATH=/" >> "$GITHUB_ENV"
+          else
+            echo "BASE_PATH=/$REPO/" >> "$GITHUB_ENV"
+          fi
+
       - name: Build the site
         run: npm run build
         working-directory: site
         env:
-          # Pages serves the site at https://<user>.github.io/<repo>/ .
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: ${{ env.BASE_PATH }}
 
       - name: Disable Jekyll processing
         run: touch docs/.nojekyll

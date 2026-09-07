@@ -5,12 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: {
-          950: "#0B1120",
-          900: "#111827",
-          800: "#1B2436",
-          700: "#26314A",
-        },
+        // Semantic tokens.  Values live in index.css as CSS variables so the
+        // light (default) and dark themes swap without touching components.
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-2": "rgb(var(--surface-2) / <alpha-value>)",
+        "surface-3": "rgb(var(--surface-3) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        fg: "rgb(var(--fg) / <alpha-value>)",
+        "fg-muted": "rgb(var(--fg-muted) / <alpha-value>)",
+        "fg-subtle": "rgb(var(--fg-subtle) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        "accent-2": "rgb(var(--accent-2) / <alpha-value>)",
+        "accent-3": "rgb(var(--accent-3) / <alpha-value>)",
         brand: {
           indigo: "#6366F1",
           cyan: "#22D3EE",
@@ -22,9 +28,9 @@ export default {
         mono: ["JetBrains Mono", "SFMono-Regular", "Menlo", "monospace"],
       },
       keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(6px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+        fade: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         shimmer: {
           "0%": { backgroundPosition: "0% 50%" },
@@ -32,7 +38,7 @@ export default {
         },
       },
       animation: {
-        "fade-up": "fade-up 220ms ease-out both",
+        fade: "fade 160ms ease-out both",
         shimmer: "shimmer 6s linear infinite alternate",
       },
     },
