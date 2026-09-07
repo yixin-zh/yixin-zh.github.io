@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-slate-200 antialiased;
+    background-image:
+      radial-gradient(60rem 40rem at 15% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(50rem 30rem at 95% 0%, rgba(34, 211, 238, 0.12), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-white/10;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(17, 24, 39, 0.55);
+    backdrop-filter: blur(12px);
+  }
+
+  .control-button {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition;
+  }
+
+  .control-button:hover {
+    @apply -translate-y-0.5 border-brand-indigo/50 text-white;
+  }
+
+  .control-button-primary {
+    @apply border-brand-indigo/40 bg-gradient-to-br from-brand-indigo/80 to-brand-cyan/70 text-white;
+  }
+
+  .control-button-primary:hover {
+    @apply shadow-lg shadow-brand-indigo/30;
+  }
+
+  .markdown {
+    @apply text-[15px] leading-relaxed text-slate-200;
+  }
+
+  .markdown h1 {
+    @apply mt-2 bg-gradient-to-r from-white via-slate-100 to-brand-cyan bg-clip-text text-3xl font-bold text-transparent;
+  }
+
+  .markdown h2 {
+    @apply mt-6 text-xl font-semibold text-slate-100;
+  }
+
+  .markdown h3 {
+    @apply mt-4 text-base font-semibold text-brand-cyan;
+  }
+
+  .markdown p {
+    @apply my-1.5;
+  }
+
+  .markdown ul {
+    @apply my-2 list-disc space-y-1 pl-5 marker:text-brand-indigo;
+  }
+
+  .markdown ol {
+    @apply my-2 list-decimal space-y-1 pl-5 marker:text-brand-indigo;
+  }
+
+  .markdown a {
+    @apply cursor-pointer font-medium text-brand-cyan underline decoration-brand-cyan/40 underline-offset-2 transition hover:decoration-brand-cyan;
+  }
+
+  .markdown strong {
+    @apply font-semibold text-white;
+  }
+
+  .markdown em {
+    @apply text-slate-300;
+  }
+
+  .markdown code {
+    @apply rounded bg-white/10 px-1.5 py-0.5 font-mono text-[13px] text-brand-violet;
+  }
+
+  .markdown blockquote {
+    @apply my-2 border-l-2 border-brand-indigo/60 pl-3 text-slate-400;
+  }
+
+  .markdown img {
+    @apply rounded-xl;
+  }
+
+  .code-line .tok-keyword {
+    @apply text-brand-violet;
+  }
+
+  .code-line .tok-string {
+    @apply text-emerald-300;
+  }
+
+  .code-line .tok-number {
+    @apply text-amber-300;
+  }
+
+  .code-line .tok-comment {
+    @apply text-slate-500;
+  }
+}
