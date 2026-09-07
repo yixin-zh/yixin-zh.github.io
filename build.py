@@ -72,7 +72,9 @@ def build() -> list[dict]:
         count = len([p for p in target.rglob("*") if p.is_file()])
         print(f"  {folder:<14} {count:>4} files  -> {target.relative_to(ROOT)}")
 
-    # GitHub Pages ignores files starting with `_` unless Jekyll is disabled.
+    # GitHub Pages runs Jekyll by default, which skips files starting with `_`.
+    # The file lives in the payload so Vite copies it into the build output.
+    (PAYLOAD / ".nojekyll").touch()
     docs = ROOT / "docs"
     docs.mkdir(parents=True, exist_ok=True)
     (docs / ".nojekyll").touch()

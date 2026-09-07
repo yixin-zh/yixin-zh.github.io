@@ -2,10 +2,11 @@ import path from "node:path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// The site is served from https://<user>.github.io/my-online-resume/, so the
-// base path is fixed.  Keeping it identical in dev and prod means path bugs
-// show up locally instead of after a deploy.
-const BASE = "/my-online-resume/";
+// The site is served from https://<user>.github.io/<repo>/, so the base path is
+// the repository name.  Keeping it identical in dev and prod means path bugs
+// show up locally instead of after a deploy.  Override with BASE_PATH if the
+// repository is renamed (the deploy workflow sets it automatically).
+const BASE = process.env.BASE_PATH ?? "/my-online-resume/";
 
 export default defineConfig({
   base: BASE,
