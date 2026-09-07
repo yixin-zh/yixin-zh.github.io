@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated traces (rebuilt by build.py)
+var/
+
+# Third-party reference material (CS336 lectures, read-only schema sample)
+reference/
+
+# Frontend
+node_modules/
+site/dist/
+
+# Build output (produced by GitHub Actions; not committed)
+docs/
+
+# OS / editor
+.DS_Store
+.idea/
+*.swp

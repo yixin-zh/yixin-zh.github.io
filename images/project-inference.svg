@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Inference engine benchmark placeholder">
+  <defs>
+    <linearGradient id="bar1" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#22D3EE" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="24" fill="#0B1120" />
+  <text x="48" y="72" font-family="Noto Sans, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#F8FAFC">Serving throughput (tokens / second / GPU)</text>
+  <g font-family="Noto Sans, Helvetica, Arial, sans-serif" font-size="18" fill="#94A3B8">
+    <text x="48" y="420">baseline</text>
+    <text x="292" y="420">+ paged KV</text>
+    <text x="536" y="420">+ CUDA graphs</text>
+    <text x="780" y="420">+ speculative</text>
+  </g>
+  <g>
+    <rect x="48" y="300" width="180" height="100" rx="10" fill="url(#bar1)" />
+    <rect x="292" y="240" width="180" height="160" rx="10" fill="url(#bar1)" />
+    <rect x="536" y="164" width="180" height="236" rx="10" fill="url(#bar1)" />
+    <rect x="780" y="104" width="180" height="296" rx="10" fill="url(#bar1)" />
+  </g>
+  <g font-family="Noto Sans, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#E5E7EB">
+    <text x="138" y="286" text-anchor="middle">1.0x</text>
+    <text x="382" y="226" text-anchor="middle">1.8x</text>
+    <text x="626" y="150" text-anchor="middle">2.7x</text>
+    <text x="870" y="90" text-anchor="middle">3.9x</text>
+  </g>
+</svg>

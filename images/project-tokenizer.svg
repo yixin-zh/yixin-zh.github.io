@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-label="Tokenizer pipeline diagram placeholder">
+  <defs>
+    <linearGradient id="p1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#22D3EE" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="480" rx="24" fill="#0B1120" />
+  <text x="48" y="72" font-family="Noto Sans, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#F8FAFC">Byte-level BPE training pipeline</text>
+  <g font-family="Noto Sans, Helvetica, Arial, sans-serif" font-size="20" fill="#E5E7EB">
+    <rect x="48" y="140" width="196" height="96" rx="16" fill="#111827" stroke="#6366F1" stroke-width="2" />
+    <text x="146" y="192" text-anchor="middle">Raw corpus</text>
+    <text x="146" y="218" text-anchor="middle" font-size="16" fill="#94A3B8">2.4 TB CommonCrawl</text>
+    <rect x="304" y="140" width="196" height="96" rx="16" fill="#111827" stroke="#6366F1" stroke-width="2" />
+    <text x="402" y="192" text-anchor="middle">Pre-tokenize</text>
+    <text x="402" y="218" text-anchor="middle" font-size="16" fill="#94A3B8">GPT-4 regex split</text>
+    <rect x="560" y="140" width="196" height="96" rx="16" fill="#111827" stroke="#6366F1" stroke-width="2" />
+    <text x="658" y="192" text-anchor="middle">Merge loop</text>
+    <text x="658" y="218" text-anchor="middle" font-size="16" fill="#94A3B8">32k merges / 8 workers</text>
+    <rect x="304" y="296" width="452" height="112" rx="16" fill="#111827" stroke="#22D3EE" stroke-width="2" />
+    <text x="530" y="342" text-anchor="middle">Vocabulary + merge rules</text>
+    <text x="530" y="372" text-anchor="middle" font-size="16" fill="#94A3B8">compression ratio 4.31 bytes/token</text>
+  </g>
+  <path d="M244 188h56M500 188h56M756 188c40 0 40 62 0 62H530" fill="none" stroke="url(#p1)" stroke-width="3" />
+</svg>
