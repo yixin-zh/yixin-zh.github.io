@@ -1,223 +1,260 @@
-import { useCallback, useEffect, useState } from "react";
-import { Controls } from "./components/Controls";
-import { Footer } from "./components/Footer";
-import { Nav } from "./components/Nav";
-import { TraceViewer } from "./components/TraceViewer";
-import {
-  clampStep,
-  fetchManifest,
-  fetchTrace,
-  lastVisitIndex,
-  stepOverIndex,
-} from "./lib/trace";
-import { useUrlState } from "./lib/useUrlState";
-import type { LineItem, Manifest, Trace } from "./lib/types";
+import type { ReactNode } from "react";
 
-const DEFAULT_SECTION = "home";
-const ANIMATE_DELAY = 650;
+const sections = [
+  ["01", "Profile", "profile"],
+  ["02", "Current work", "current-work"],
+  ["03", "DQN planner", "dqn-planner"],
+  ["04", "Research questions", "research-questions"],
+  ["05", "Industrial CV", "industrial-cv"],
+  ["06", "Climate data", "climate-data"],
+  ["07", "Video OCR", "video-ocr"],
+  ["08", "Public work", "public-work"],
+  ["09", "Credentials", "credentials"],
+] as const;
+
+function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer">
+      {children} <span aria-hidden="true">↗</span>
+    </a>
+  );
+}
+
+function ResumeSection({
+  number,
+  label,
+  id,
+  children,
+}: {
+  number: string;
+  label: string;
+  id: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="resume-section" id={id} aria-labelledby={`${id}-heading`}>
+      <a className="line-number" href={`#${id}`} aria-label={`Section ${number}: ${label}`}>
+        {number}
+      </a>
+      <div className="section-content">
+        <p className="section-label">{number} / 09 — {label}</p>
+        {children}
+      </div>
+    </section>
+  );
+}
 
 export default function App() {
-  const { params, update } = useUrlState();
-
-  const sectionId = params.get("trace") ?? DEFAULT_SECTION;
-  const animate = params.get("animate") === "1";
-  const hideEnv = params.get("hideEnv") === "1";
-  const showNotes = params.get("showNotes") === "1";
-
-  const [manifest, setManifest] = useState<Manifest | null>(null);
-  const [trace, setTrace] = useState<Trace | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [dark, setDark] = useState(() => window.localStorage.getItem("theme") === "dark");
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    window.localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetchManifest()
-      .then((loaded) => {
-        if (!cancelled) setManifest(loaded);
-      })
-      .catch((cause) => {
-        console.error(cause);
-        if (!cancelled) setError("Could not load traces/index.json — run `python3 build.py` first.");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  useEffect(() => {
-    let cancelled = false;
-    setTrace(null);
-    setError(null);
-    fetchTrace(sectionId)
-      .then((loaded) => {
-        if (!cancelled) setTrace(loaded);
-      })
-      .catch((cause) => {
-        console.error(cause);
-        if (!cancelled) setError(`Could not load the "${sectionId}" trace. Run \`python3 build.py\`.`);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [sectionId]);
-
-  const total = trace?.steps.length ?? 0;
-  const requestedStep = Number.parseInt(params.get("step") ?? "", 10);
-  // With no explicit `?step=` the whole section is shown (the portfolio should be
-  // readable without pressing anything); press play to walk it from line one.
-  const stepIndex = clampStep(Number.isNaN(requestedStep) ? total - 1 : requestedStep, total);
-
-  const goto = useCallback(
-    (index: number) => {
-      update((next) => next.set("step", String(clampStep(index, total))));
-    },
-    [total, update],
-  );
-
-  const selectSection = useCallback(
-    (id: string) => {
-      update((next) => {
-        next.set("trace", id);
-        next.delete("step");
-        next.delete("animate");
-      });
-    },
-    [update],
-  );
-
-  const toggleFlag = useCallback(
-    (flag: string) => {
-      update((next) => {
-        if (next.get(flag) === "1") next.delete(flag);
-        else next.set(flag, "1");
-      });
-    },
-    [update],
-  );
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null;
-      if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
-      if (!trace) return;
-
-      switch (event.key) {
-        case "ArrowRight":
-        case "ArrowDown":
-          event.preventDefault();
-          goto(event.shiftKey ? stepOverIndex(trace, stepIndex, 1) : stepIndex + 1);
-          break;
-        case "ArrowLeft":
-        case "ArrowUp":
-          event.preventDefault();
-          goto(event.shiftKey ? stepOverIndex(trace, stepIndex, -1) : stepIndex - 1);
-          break;
-        case " ":
-          event.preventDefault();
-          toggleFlag("animate");
-          break;
-        case "e":
-          toggleFlag("hideEnv");
-          break;
-        case "n":
-          toggleFlag("showNotes");
-          break;
-        case "Home":
-          goto(0);
-          break;
-        case "End":
-          goto(total - 1);
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [goto, stepIndex, toggleFlag, total, trace]);
-
-  useEffect(() => {
-    if (!animate || !trace || total === 0) return;
-    if (stepIndex >= total - 1) {
-      update((next) => next.delete("animate"));
-      return;
-    }
-    const timer = window.setTimeout(() => goto(stepIndex + 1), ANIMATE_DELAY);
-    return () => window.clearTimeout(timer);
-  }, [animate, goto, stepIndex, total, trace, update]);
-
-  useEffect(() => {
-    const label = manifest?.sections.find((section) => section.id === sectionId)?.label;
-    document.title = manifest?.site.name
-      ? `${manifest.site.name}${label ? ` · ${label}` : ""}`
-      : "Online Portfolio";
-  }, [manifest, sectionId]);
-
-  const onSelectLine = useCallback(
-    (line: LineItem) => {
-      if (!trace) return;
-      goto(lastVisitIndex(trace, stepIndex, line));
-    },
-    [goto, stepIndex, trace],
-  );
-
   return (
-    <div className="min-h-screen bg-surface text-fg transition-colors">
-      <Nav
-        site={manifest?.site ?? null}
-        sections={manifest?.sections ?? []}
-        current={sectionId}
-        dark={dark}
-        onSelect={selectSection}
-        onViewAll={() => update((next) => next.delete("step"))}
-        onToggleTheme={() => setDark((value) => !value)}
-      />
+    <div className="site-shell">
+      <header className="top-bar">
+        <div className="top-bar-inner">
+          <a className="page-name" href="#profile">Yixin Zhang / resume</a>
+          <nav className="top-links" aria-label="Primary links">
+            <ExternalLink href="https://github.com/yixin-zh">GitHub</ExternalLink>
+            <ExternalLink href="https://yixin.blog/">Blog</ExternalLink>
+            <ExternalLink href="https://www.linkedin.com/in/yixin-zh">LinkedIn</ExternalLink>
+            <a href="mailto:hi.yixinz@gmail.com">Email</a>
+          </nav>
+        </div>
+      </header>
 
-      <main className="mx-auto max-w-6xl px-4 pb-28 pt-20">
-        {trace ? (
-          <>
-            <TraceViewer
-              trace={trace}
-              stepIndex={stepIndex}
-              showNotes={showNotes}
-              onSelectLine={onSelectLine}
-            />
-            <Footer site={manifest?.site ?? null} />
-          </>
-        ) : (
-          <div className="glass rounded-2xl border border-line/10 p-8 text-sm text-fg-muted">
-            {error ?? "Loading trace…"}
+      <main className="page">
+        <nav className="section-index" aria-label="Resume sections">
+          <p className="index-title">Sections</p>
+          <div className="index-links">
+            {sections.map(([number, label, id]) => (
+              <a key={id} href={`#${id}`}>
+                <span>{number}</span> {label}
+              </a>
+            ))}
           </div>
-        )}
-      </main>
+        </nav>
 
-      {trace ? (
-        <Controls
-          index={stepIndex}
-          total={total}
-          animate={animate}
-          hideEnv={hideEnv}
-          showNotes={showNotes}
-          onStep={goto}
-          onFirst={() => {
-            update((next) => {
-              next.set("step", "0");
-              next.set("animate", "1");
-            });
-          }}
-          onLast={() => update((next) => next.delete("step"))}
-          onStepOver={() => goto(stepOverIndex(trace, stepIndex, 1))}
-          onToggleAnimate={() => toggleFlag("animate")}
-          onToggleEnv={() => toggleFlag("hideEnv")}
-          onToggleNotes={() => toggleFlag("showNotes")}
-        />
-      ) : null}
+        <ResumeSection number="01" label="Profile" id="profile">
+          <h1 id="profile-heading">Yixin Zhang</h1>
+          <p className="lede">R&amp;D engineer building dependable sensing and control infrastructure.</p>
+          <p className="status-line">I am actively seeking PhD opportunities in robot learning.</p>
+
+          <p className="inline-links">
+            <a href="mailto:hi.yixinz@gmail.com">hi.yixinz@gmail.com</a>
+            <span>·</span>
+            <ExternalLink href="https://github.com/yixin-zh">GitHub</ExternalLink>
+            <span>·</span>
+            <ExternalLink href="https://www.linkedin.com/in/yixin-zh">LinkedIn</ExternalLink>
+            <span>·</span>
+            <ExternalLink href="https://yixin.blog/">evidence portfolio</ExternalLink>
+          </p>
+
+          <h3>Direction</h3>
+          <p>
+            Be challenged in robot learning—and shorten the loop from physical failure to a better policy.
+            I am most interested in work where deployment evidence, open evaluation, and research depth can
+            change each other rather than staying on separate tracks.
+          </p>
+
+          <h3>Experience &amp; education</h3>
+          <div className="timeline">
+            <div className="timeline-item">
+              <span className="timeline-date">Sep 2025—present</span>
+              <div><strong>R&amp;D Engineer — InsightOS</strong><br /><span className="muted">Robot media I/O, sensor synchronization, and cabinet-operation tooling.</span></div>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-date">Jul—Sep 2025</span>
+              <div><strong>Industrial Digitalization Engineer — Beijing Zhongke Shengtai</strong><br /><span className="muted">Industrial-wastewater vision PoCs and a floc-analysis handoff.</span></div>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-date">Sep 2024—Jan 2025</span>
+              <div><strong>Scientist Intern — SIMTech, A*STAR</strong><br /><span className="muted">ASEAN energy-system studies converted into model-ready data.</span></div>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-date">2023—2025</span>
+              <div><strong>NUS-ISS — Graduate Diploma in Systems Analysis</strong><br /><span className="muted">GPA 4.61 / 5.0.</span></div>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-date">2020—2024</span>
+              <div><strong>Harbin Institute of Technology — B.Eng., Intelligent Test &amp; Control Engineering</strong><br /><span className="muted">Electrical Engineering · 86.95 / 100 · People’s Scholarship ×5.</span></div>
+            </div>
+          </div>
+        </ResumeSection>
+
+        <ResumeSection number="02" label="Current work" id="current-work">
+          <h2 id="current-work-heading">Closing the cabinet-operation loop</h2>
+          <p className="lede-small">A reusable robot media runtime underneath perception, pose estimation, and contact.</p>
+          <p>
+            Cameras and depth sensors move across devices, while open-loop motion becomes brittle when target
+            and robot frames drift. My current work keeps the sensing path stable and exposes the same data to
+            perception and control components.
+          </p>
+          <ul>
+            <li>Media I/O daemon, memfd IPC, ROS2 bridge, C++ SDK, and <code>insightos://</code> routing.</li>
+            <li>Device discovery, topology-drift recovery, and cross-view time synchronization.</li>
+            <li>YOLO11 segmentation, RGB-D pose estimation, ROS TF transforms, and visual/tactile correction.</li>
+          </ul>
+          <p className="stack-line"><code>C++</code> <code>Linux</code> <code>ROS2</code> <code>DDS</code> <code>RGB-D</code> <code>shared memory</code> <code>REST/CLI</code></p>
+          <p><ExternalLink href="https://www.insightos.cn/">InsightOS</ExternalLink> · <ExternalLink href="https://yixin.blog/">full evidence and scope notes</ExternalLink></p>
+        </ResumeSection>
+
+        <ResumeSection number="03" label="DQN planner" id="dqn-planner">
+          <h2 id="dqn-planner-heading">Path planning with delayed observations</h2>
+          <p>
+            My HIT capstone used discrete DQN actions in a dynamic simulator with randomized observation delay,
+            replay memory, main/target networks, and reward terms for progress, collision avoidance, and convergence.
+          </p>
+          <pre className="plain-code">delayed state s[t-d] → Q(s,a) → argmax action → environment → replay memory</pre>
+          <table>
+            <thead><tr><th>Method</th><th>Reported success</th><th>Mean path length</th></tr></thead>
+            <tbody>
+              <tr><td>Proposed</td><td>98.1%</td><td>29.113</td></tr>
+              <tr><td>Traditional DQN</td><td>92.6%</td><td>30.852</td></tr>
+              <tr><td>Traditional Q-learning</td><td>93.1%</td><td>32.224</td></tr>
+            </tbody>
+          </table>
+          <p className="note">Reported means are from 15 repetitions in the preserved capstone material; raw logs, seeds, confidence intervals, and real-robot evaluation are not available.</p>
+        </ResumeSection>
+
+        <ResumeSection number="04" label="Research questions" id="research-questions">
+          <h2 id="research-questions-heading">What is worth testing next?</h2>
+          <p>Systems engineering now; robot learning next. I try to keep the questions close to physical evidence.</p>
+          <ol>
+            <li>How can a robot verify that a physical task is actually complete?</li>
+            <li>How should perception, calibration, and control error be represented and recovered?</li>
+            <li>Which moments—contact, failure, intervention—are worth retaining or sharing across robots?</li>
+            <li>Which assumptions in LLM-driven robotics can be formalized, checked, and falsified?</li>
+          </ol>
+          <p className="muted">Also following inference-time learning, world models, action-conditioned models, long-horizon memory, and knowledge workflows that surface conflicts rather than flattening them.</p>
+        </ResumeSection>
+
+        <ResumeSection number="05" label="Industrial CV" id="industrial-cv">
+          <h2 id="industrial-cv-heading">From floc video to a binary operator cue</h2>
+          <p>
+            For an industrial-wastewater PoC, I kept the source frame, binary mask, geometry features, and final
+            cue inspectable rather than hiding them behind a single prediction.
+          </p>
+          <pre className="plain-code">grayscale → median blur → adaptive threshold → morphology → components → XGBoost</pre>
+          <ul>
+            <li><strong>2,270</strong> labeled images in the preserved account.</li>
+            <li><strong>88.5%</strong> reported XGBoost test accuracy and <strong>87.9%</strong> weighted F1.</li>
+            <li>Features covered component count, scale, compactness, and area fraction.</li>
+          </ul>
+          <p className="note">The evaluation used image labels replicated to individual flocs and a random split; it does not establish video/day/plant independence or temporal deployment performance.</p>
+        </ResumeSection>
+
+        <ResumeSection number="06" label="Climate data" id="climate-data">
+          <h2 id="climate-data-heading">Turning case studies into model-ready data</h2>
+          <p>
+            At SIMTech, A*STAR, I translated ASEAN energy-system case studies into a consistent JSON contract for
+            optimization workflows: prose, equations, assets, constraints, trade links, units, and CO₂ budgets.
+          </p>
+          <ul>
+            <li>Built a schema-aware, LLM-assisted conversion workflow.</li>
+            <li>Inspected optimization output against prior OSeMOSYS/TIMES cases.</li>
+            <li>Contributed to early MOYA Cascade concepts within a broader team effort.</li>
+          </ul>
+          <p><ExternalLink href="https://mitigationatlas.org/">Global Mitigation Potential Atlas</ExternalLink></p>
+          <p className="note">The scenario charts are modeled outputs used to inspect behavior, not observed forecasts; my documented role was data translation and workflow prototyping rather than ownership of the full Atlas model.</p>
+        </ResumeSection>
+
+        <ResumeSection number="07" label="Video OCR" id="video-ocr">
+          <h2 id="video-ocr-heading">Recognizing text across blurred frames</h2>
+          <p>
+            In an HIT innovation project, the team retained high-quality matched crops, fused a reference with four
+            support crops, and passed the aligned evidence to an SVTR-inspired recognizer with CTC prediction.
+          </p>
+          <ul>
+            <li>Documented role: Transformer-inspired recognition and coupling recognition features to the upstream restoration network.</li>
+            <li>Reported recognition accuracy: <strong>69.2%</strong> on Chinese Benchmark and <strong>68.5%</strong> on ICDAR 2019-LSVT.</li>
+            <li>First prize at HIT; selected for national-level continuation.</li>
+          </ul>
+          <p className="note">The preserved record supports recognizer/feature coupling; it does not by itself support broader deployment claims.</p>
+        </ResumeSection>
+
+        <ResumeSection number="08" label="Public work" id="public-work">
+          <h2 id="public-work-heading">Public code and model evaluation</h2>
+          <div className="work-list">
+            <article>
+              <p className="meta-line">Feb 2026 · camel-ai/camel</p>
+              <h3>Qdrant query filters</h3>
+              <p>Added distance metrics and filtering, with tests and examples around the new query behavior.</p>
+              <ExternalLink href="https://github.com/camel-ai/camel/pull/3758">merged PR #3758</ExternalLink>
+            </article>
+            <article>
+              <p className="meta-line">Jan 2026 · labring/FastGPT</p>
+              <h3>OceanBase HNSW quantization</h3>
+              <p>Added SQ/BQ vector-index quantization levels and corresponding distance constraints.</p>
+              <ExternalLink href="https://github.com/labring/FastGPT/pull/6348">merged PR #6348</ExternalLink>
+            </article>
+            <article>
+              <p className="meta-line">2023 · model evaluation</p>
+              <h3>Agricultural KBQA assessment</h3>
+              <p>RAG knowledge base, closed/open questions, prompt injection, and jailbreak tests; the résumé record reports 100+ questions and 10+ attacks.</p>
+              <ExternalLink href="https://github.com/yixin-zh/SparkDesk-LLM-KBQA-Assessment">open report</ExternalLink>
+            </article>
+            <article>
+              <p className="meta-line">2023 · datawhalechina/llm-cookbook</p>
+              <h3>Prompt-engineering coursework</h3>
+              <p>Proofreading, terminology/API alignment, prompt reproduction, and chatbot experiments.</p>
+              <ExternalLink href="https://github.com/datawhalechina/llm-cookbook">open repository</ExternalLink>
+            </article>
+          </div>
+        </ResumeSection>
+
+        <ResumeSection number="09" label="Credentials" id="credentials">
+          <h2 id="credentials-heading">ML, cloud, and data credentials</h2>
+          <p>Seven professional certifications and two NVIDIA DLI course certificates are listed in the current portfolio record.</p>
+          <div className="credential-list">
+            <div><strong>NVIDIA</strong><span>Certified Professional: Gen AI LLMs · Disaster Risk Monitoring Using Satellite Imagery · Introduction to Transformer-Based NLP</span></div>
+            <div><strong>Oracle</strong><span>OCI 2025 DevOps Professional · Data Science Professional · Generative AI Professional</span></div>
+            <div><strong>Microsoft</strong><span>Azure Data Scientist Associate · Power BI Data Analyst Associate</span></div>
+            <div><strong>AWS</strong><span>Machine Learning Engineer — Associate</span></div>
+          </div>
+        </ResumeSection>
+
+        <footer className="footer">
+          <p>Plain text first. Built as a static GitHub Pages résumé.</p>
+          <p><a href="#profile">Back to top</a></p>
+        </footer>
+      </main>
     </div>
   );
 }

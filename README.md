@@ -1,120 +1,44 @@
-# my-online-resume
+# yixin-zh.github.io
 
-An online portfolio that is **executed, not written**: the pages are a recording
-of a Python script running line by line.  Content is authored in `sections/*.py`,
-compiled by the in-repo tracer into a trace JSON, and played back in the browser
-— the same interaction model as
-[Stanford CS336's executable lectures](https://cs336.stanford.edu/lectures/?trace=lecture_02).
+A deliberately plain online résumé inspired by the public SilverBullet documentation: centered mono-spaced content, a quiet grey top bar, blue links, restrained borders, and document-like sections.
 
-Live at `https://<your-user>.github.io/my-online-resume/`.
+The previous executable-trace presentation has been retired from the deployed site. The line-number motif remains, but each numbered line is now a normal static résumé section rather than a Python execution step.
 
+## Structure
+
+```text
+site/
+├── index.html
+├── src/
+│   ├── App.tsx       # résumé content and section order
+│   ├── index.css     # SilverBullet-inspired visual system
+│   └── main.tsx
+└── vite.config.ts
+
+.github/workflows/deploy.yml  # builds and publishes to GitHub Pages
 ```
-content.py ──► sections/*.py ──► tracer (stdlib) ──► var/traces/*.json ──┐
-images/, media/ ─────────────────────────────────────────────────────────┼─► docs/ ──► GitHub Pages
-site/ (Vite + React + Tailwind viewer) ──────────────────────────────────┘
-```
 
-## Quick start
+The older `tracer/`, `sections/`, `build.py`, and related files remain in the repository as historical scaffold material, but they are not used by the current deployment workflow.
+
+## Local preview
 
 ```bash
-python3 build.py          # compile the traces into var/
-scripts/dev.sh            # same, then start the dev server on :5173
+npm --prefix site ci
+npm --prefix site run dev
 ```
 
-Then open <http://localhost:5173/my-online-resume/>.
+Then open <http://localhost:5173/>.
 
-Production build (writes `docs/`):
+## Production build
 
 ```bash
-python3 build.py
 npm --prefix site run build
 ```
 
-## Making it yours
+Vite writes the result to `docs/`. GitHub Actions publishes that directory on every push to `main`.
 
-1. **Edit `content.py`** — name, title, links, education, jobs, projects,
-   publications, skills.  It is plain Python data and the only file most people
-   need to touch.
-2. **Drop media into `images/` and `media/`** and reference them from a section
-   script (`image("images/thing.png", width=760)`, `video("media/demo.mp4")`).
-   Missing files fail the build loudly instead of 404-ing on the site.
-3. **Adjust the narrative in `sections/`** if you want a different structure.
-   One module per section; add a module by appending to `SECTIONS` in
-   `build.py` (the navigation bar is generated from that list).
+## Editing the résumé
 
-## Authoring API
+Edit `site/src/App.tsx`. The section list at the top controls the numbered navigation, and each `ResumeSection` keeps the same line-number + one-section-per-line visual structure.
 
-```python
-from tracer import text, image, video, link, plot, note
-
-def main():
-    text("## Hello")                       # markdown (headings, lists, links, code)
-    image("images/avatar.svg", width=240)  # local file or URL
-    video("media/demo.mp4", width=720)     # local file or URL
-    link(title="GitHub", url="https://github.com/me")
-    plot({"title": "Citations", "unit": "", "items": [{"label": "2025", "value": 154}]})
-    note("only shown when notes are toggled with N")
-
-    years = 2026 - 2019                    # @inspect years   <- shown in the side panel
-    text("…")                              # @clear years     <- stop showing it
-    helper()                               # @stepover        <- don't trace into it
-    import os                              # @hide            <- hide this line
-```
-
-Directives are read from the trailing comment of the line being traced.
-
-## Keyboard
-
-| key | action |
-| --- | --- |
-| `→` / `↓` | next step |
-| `←` / `↑` | previous step |
-| `shift + →` | step over (skip deeper calls) |
-| `space` | play / pause |
-| `E` | toggle the variables panel |
-| `N` | toggle notes |
-| `Home` / `End` | first / last step |
-
-Every step is linkable: `?trace=projects&step=42`.  Without `?step=` the whole
-section is shown at once (so the portfolio is readable without pressing
-anything); press play to walk it from the first line.
-
-## Deploying
-
-1. Push to `main`.
-2. Repository **Settings → Pages → Source: GitHub Actions**.
-3. The workflow in `.github/workflows/deploy.yml` runs the tracer tests,
-   compiles the traces, builds the site and publishes `docs/`.
-
-**Base path**: a user site (`<user>.github.io`) is served from `/`; a project
-site is served from `/<repo>/`.  The workflow derives `BASE_PATH` from the
-repository name automatically.  When building by hand for a project site, pass
-it explicitly:
-
-```bash
-BASE_PATH=/my-online-resume/ npm --prefix site run build
-```
-
-(The default is `/`, which is what this repository — `yixin-zh.github.io` —
-needs.)
-
-## Theming
-
-Light mode is the default; the toggle in the top-right switches to dark and the
-choice is remembered in `localStorage`.  Colours come from CSS variables in
-`site/src/index.css` (`:root` = light, `.dark` = dark) exposed to Tailwind as
-semantic tokens (`surface`, `surface-2`, `line`, `fg`, `fg-muted`, `fg-subtle`,
-`accent`, `accent-2`, `accent-3`) — use those instead of hard-coded greys.
-
-## Tests
-
-```bash
-python3 -m unittest discover -s tests
-```
-
-`tests/test_tracer.py` checks the tracer's behaviour and compares the produced
-JSON against a real CS336 trace (`tests/fixtures/golden_cs336.json`, a trimmed
-copy of `reference/cs336/var/traces/lecture_02.json`) so the viewer contract
-stays compatible.
-
-`reference/` is read-only third-party material and is not committed.
+Edit `site/src/index.css` for typography and layout. The current palette follows SilverBullet's default light theme closely: white document background, `#eee` top bar, `#20252d` text, `#0330cb` links, subtle grey rules, and a mono-spaced editor-like type stack.

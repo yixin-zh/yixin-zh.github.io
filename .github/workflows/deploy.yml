@@ -20,19 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
-      - name: Test the tracer
-        run: python3 -m unittest discover -s tests
-
-      - name: Compile the traces
-        run: python3 build.py
 
       - name: Install frontend dependencies
         run: npm ci
@@ -47,7 +37,7 @@ jobs:
             echo "BASE_PATH=/$REPO/" >> "$GITHUB_ENV"
           fi
 
-      - name: Build the site
+      - name: Build the static resume
         run: npm run build
         working-directory: site
         env:
